@@ -1,0 +1,7 @@
+copyright 2015 Nicolas "Shangri-l" Chartoire
+
+The text content of the webpage is available under a Creative Commons by-sa 2.0 fr license ( http://creativecommons.org/license/by-sa/2.0/fr )
+
+The code is available as GNU GPL V3, see "gpl.txt"
+
+The SVG files are public domain
