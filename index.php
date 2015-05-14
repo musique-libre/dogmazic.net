@@ -6,6 +6,9 @@ else{
     $lang='fr';
 }
 
+$trans['ecouter']['fr']='Ecouter';
+$trans['ecouter']['en']='Listen';
+
 $trans['publier']['fr']='Publier votre musique';
 $trans['publier']['en']='Upload your music';
 
@@ -115,7 +118,8 @@ $trans['legal']['en']='Copyright 2004-2015 Musique Libre volunteer organisation.
           <ul class="nav navbar-nav">
             <li><a href="?lang=fr" class="icon-fr">Français</a></li>
             <li><a href="?lang=en" class="icon-en">English</a></li>
-            <li><a href="http://play.dogmazic.net/index.php#upload.php"><?php echo $trans['publier'][$lang]; ?></a></li>
+            <li><a href="http://play.dogmazic.net"><strong><?php echo $trans['ecouter'][$lang]; ?></strong></a></li>
+            <li><a href="http://play.dogmazic.net/upload.php"><?php echo $trans['publier'][$lang]; ?></a></li>
           </ul>
         </div>
       </div>
@@ -124,7 +128,7 @@ $trans['legal']['en']='Copyright 2004-2015 Musique Libre volunteer organisation.
     <div class="container container-full">
         <div class="row row-offcanvas row-offcanvas-right">
 
-            <div class="col-xs-5 col-sm-3 sidebar-offcanvas">
+            <div class="col-xs-12 col-sm-3 sidebar-offcanvas">
               <div class="col-sidebar col-sidebar1">
                 <h4><?php echo $trans['nouveaux_albums'][$lang];?></h4>
                 <div class="list-group">
@@ -174,10 +178,7 @@ if ($albums = file_get_contents('http://play.dogmazic.net/rss.php?type=latest_sh
               </div>
             </div>
 
-            <div class="col-xs-9 col-sm-6">
-                <p class="pull-right visible-xs">
-                  <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-                </p>
+            <div class="col-xs-12 col-sm-6">
                 <div class="jumbotron">
                     <h1>
                         <a href="http://play.dogmazic.net" alt="Dogmazic archive" >
@@ -206,7 +207,7 @@ if (file_exists('./news_'.$lang.'.php')) {
 }
 ?>
         
-                    <div class="col-xs-8 col-sm-6">
+                    <div class="col-xs-12 col-sm-6">
                         <h2><?php echo $trans['adherer_titre'][$lang];?></h2>
                         <p>
                             <a href="http://musique-libre.org" alt="Musique Libre !"><img src="musiquelibrelogo.png" class="img2"/></a>
@@ -215,7 +216,7 @@ if (file_exists('./news_'.$lang.'.php')) {
                             </div>
                         </p>
                     </div>
-                    <div class="col-xs-8 col-sm-6">
+                    <div class="col-xs-12 col-sm-6">
                         <h2><?php echo $trans['faire_un_don_titre'][$lang];?></h2>
                         <p>
                             <div>
@@ -265,7 +266,7 @@ if ($albums = file_get_contents($target)) {
                 </div>
             </div>
 
-            <div class="col-xs-5 col-sm-3 sidebar-offcanvas">
+            <div class="col-xs-12 col-sm-3 sidebar-offcanvas">
                 <div class="col-sidebar col-sidebar3">
                     <h4><?php echo $trans['nouveaux_articles'][$lang];?></h4>
                     <div class="list-group">
