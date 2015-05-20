@@ -353,14 +353,14 @@ if ($albums = file_get_contents('http://musique-libre.org/forum/categories/annon
       _paq.push(['trackPageView']);
       _paq.push(['enableLinkTracking']);
       (function() {
-        var u="//play.dogmazic.net/piwik/";
+        var u="//piwik.dogmazic.net/";
         _paq.push(['setTrackerUrl', u+'piwik.php']);
         _paq.push(['setSiteId', 1]);
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
       })();
     </script>
-    <noscript><p><img src="//play.dogmazic.net/piwik/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+    <noscript><p><img src="//piwik.dogmazic.net/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
     <!-- End Piwik Code -->
 
 </body>
