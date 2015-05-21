@@ -139,9 +139,65 @@ $trans['legal']['en']='Copyright 2004-2015 Musique Libre volunteer organisation.
                 <h4><?php echo $trans['nouveaux_albums'][$lang];?></h4>
                 <div class="list-group">
 <?php
+define('RSS_CACHE_TIME', 10); // cache flux rss en minutes
+define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss en minutes
+
+/*
+$name nom du cache
+$feed_url url du flux
+$duree_cache duree du cache en minute
+
+@return STRING avec le flux rss passé en paramètre
+
+Il tente de faire du cache du flux RSS passé en parametre.
+Le nom du cache est son point de repére, attention.
+La durée de cache est optionnel, et par default a 10 minutes
+
+Bug connu :
+Si le flux interrogé ne renvoie pas un XML valide, le fichier de cache n'est pas mis à jour, et ca tente
+de servir le fichier de cache actuel sans rien vérifié dessus.
+*/
+function get_rss_with_cache($name, $feed_url, $duree_cache=10) {
+  if (! is_dir(RSS_CACHE_DIR)) {
+    mkdir(RSS_CACHE_DIR, 0700, true);
+  }
+
+  $cache_time = 60*$duree_cache; // convertie la duree en seconde
+  $cache_file = RSS_CACHE_DIR.$name;
+  $timedif = @(time() - filemtime($cache_file));
+
+  // Si le fichiers est assez "jeune"
+  if (file_exists($cache_file) && $timedif < $cache_time) {
+    $string = file_get_contents($cache_file);
+
+  // Sinon, on récupére le fichier
+  } else {
+    // Timeout, okazou
+    $ctx = stream_context_create(array(
+      'http' => array(
+         'timeout' => 3
+         )
+      )
+    ); 
+    $string = file_get_contents("$feed_url",0,$ctx);
+
+    // On tente de parser le flux -> si on y arrive pas, on ne sauvegarde pas
+    $xml = @simplexml_load_string($string);
+    if ( $xml === FALSE ) {
+      // Et on tente de servir la version en cache...
+      $string = file_get_contents($cache_file);
+      return $string;
+    }
+    file_put_contents($cache_file,$string);
+  }
+
+  return $string;
+}
+
 //here we go, mister D-sky
 $dom = new DOMDocument();
-if ($albums = file_get_contents('http://play.dogmazic.net/rss.php?type=latest_album')) {
+#if ($albums = file_get_contents('http://play.dogmazic.net/rss.php?type=latest_album')) {
+if ($albums = get_rss_with_cache('play.dogmazic.net_latest_album','http://play.dogmazic.net/rss.php?type=latest_album')) {
     //echo htmlspecialchars($albums);
     $dom->loadXML($albums);
     $dom->preserveWhiteSpace=false;
@@ -164,7 +220,8 @@ if ($albums = file_get_contents('http://play.dogmazic.net/rss.php?type=latest_al
 <?php
 //here we go, mister D-sky
 $dom = new DOMDocument();
-if ($albums = file_get_contents('http://play.dogmazic.net/rss.php?type=latest_shout')){
+#if ($albums = file_get_contents('http://play.dogmazic.net/rss.php?type=latest_shout')){
+if ($albums = get_rss_with_cache('play.dogmazic.net_latest_shout','http://play.dogmazic.net/rss.php?type=latest_shout')){
     //echo htmlspecialchars($albums);
     $dom->loadXML($albums);
     $dom->preserveWhiteSpace=false;
@@ -247,7 +304,7 @@ if (file_exists('./news_'.$lang.'.php')) {
 $target = 'http://musique-libre.org/forum/discussions/feed.rss';
 //here we go, mister D-sky
 $dom = new DOMDocument();
-if ($albums = file_get_contents($target)) {
+if ($albums = get_rss_with_cache('musique-libre.org_feed',$target)) {
     //echo htmlspecialchars($albums);
     $dom->loadXML($albums);
     $dom->preserveWhiteSpace=false;
@@ -279,7 +336,8 @@ if ($albums = file_get_contents($target)) {
 <?php
 //here we go, mister D-sky
 $dom = new DOMDocument();
-if($albums = file_get_contents('http://musique-libre.org/?feed=rss2')){
+#if($albums = file_get_contents('http://musique-libre.org/?feed=rss2')){
+if($albums = get_rss_with_cache('musique-libre.org_feed_rss2','http://musique-libre.org/?feed=rss2')){
     //echo htmlspecialchars($albums);
     $dom->loadXML($albums);
     $dom->preserveWhiteSpace=false;
@@ -302,7 +360,8 @@ if($albums = file_get_contents('http://musique-libre.org/?feed=rss2')){
 <?php
 //here we go, mister D-sky
 $dom = new DOMDocument();
-if ($albums = file_get_contents('http://musique-libre.org/forum/categories/annonces-concerts-manifs-confs-du-libre/feed.rss')){
+#if ($albums = file_get_contents('http://musique-libre.org/forum/categories/annonces-concerts-manifs-confs-du-libre/feed.rss')){
+if ($albums = get_rss_with_cache('musique-libre.org_annonces_concerts_feed', 'http://musique-libre.org/forum/categories/annonces-concerts-manifs-confs-du-libre/feed.rss')){
     //echo htmlspecialchars($albums);
     $dom->loadXML($albums);
     $dom->preserveWhiteSpace=false;
