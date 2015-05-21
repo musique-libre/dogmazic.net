@@ -12,6 +12,11 @@ $trans['ecouter']['en']='Listen';
 $trans['publier']['fr']='Publier votre musique';
 $trans['publier']['en']='Upload your music';
 
+$trans['forum']['fr']='Forum';
+$trans['forum']['en']='Forum';
+
+
+
 
 $trans['intro_asso']['fr']='Depuis 2004 l\'association Musique Libre propose aux mélomanes et aux artistes son archive musicale comptant maintenant plus de 50 000 titres, dûs à des projets musicaux du monde entier, et tous placés sous licence libre ou ouverte. Financée exclusivement par les adhésions et les dons, Musique Libre est une association a but non lucratif.';
 $trans['intro_asso']['en']='Since 2004, the Musique Libre volunteer organisation provides to listeners and musicians its music archive with now more than 50 000 tracks, coming from the entire world, all of them available under various free or open licenses. Funded exclusively by donations and memberships, Musique Libre is a non-profit organisation.';
@@ -120,6 +125,7 @@ $trans['legal']['en']='Copyright 2004-2015 Musique Libre volunteer organisation.
             <li><a href="?lang=en" class="icon-en">English</a></li>
             <li><a href="http://play.dogmazic.net"><strong><?php echo $trans['ecouter'][$lang]; ?></strong></a></li>
             <li><a href="http://play.dogmazic.net/upload.php"><?php echo $trans['publier'][$lang]; ?></a></li>
+			<li><a href="http://musique-libre.org/forum"><?php echo $trans['forum'][$lang];?></a></li>
           </ul>
         </div>
       </div>
