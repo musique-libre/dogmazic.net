@@ -130,8 +130,14 @@ $trans['legal']['en']='Copyright 2004-2015 Musique Libre volunteer organisation.
         </div>
       </div>
     </nav>
+	<div class="container container-full">
+		    
+		
     
-    <div class="container container-full">
+    
+    
+    
+    
         <div class="row row-offcanvas row-offcanvas-right">
 
             <div class="col-xs-12 col-sm-3 sidebar-offcanvas">
@@ -269,7 +275,21 @@ if (file_exists('./news_'.$lang.'.php')) {
     echo '</div><hr/>';
 }
 ?>
-        
+<div style="margin-left:auto;margin-right:auto;">
+			<strong style="text-align:center;"><a title="Dogmazic Webradio" href="http://dmz.fm">DogmaRadio : </a></strong>
+			<span style="float:right;display:inline;">
+			<script type="text/javascript" src="https://hosted.muses.org/mrp.js"></script>
+			<script type="text/javascript">
+				MRP.insert({'url':'http://dmz.fm:8000/stream.ogg', 'codec':'ogg', 'volume':90, 'autoplay':false, 'buffering':5, 'title':'Dogmazic WebRadio', 'bgcolor':'#222', 'skin':'eastanbul', 'width':467, 'height':26});
+			</script>
+			</span>
+			<br/>
+			<span style=float:right;"><object style="display:inline;" data="http://dmz.fm:8000/nowplaying.xsl" type="text/html" width="467" height="25"></object>
+		</span>
+			
+			
+		</div>
+                    
                     <div class="col-xs-12 col-sm-6">
                         <h2><?php echo $trans['adherer_titre'][$lang];?></h2>
                         <p>
