@@ -48,16 +48,8 @@ $trans['legal']['en']='Copyright 2004-2015 Musique Libre volunteer organisation.
       </div>
     </nav>
 	<div class="container container-full">
-		    
-		
-    
-    
-    
-    
-    
+        <div class="col-xs-12 col-sm-3 sidebar-offcanvas"></div>
         <div class="row row-offcanvas row-offcanvas-right">
-
-
             <div class="col-xs-12 col-sm-6">
                 <div class="jumbotron">
 					<h1>
@@ -80,11 +72,11 @@ $trans['legal']['en']='Copyright 2004-2015 Musique Libre volunteer organisation.
                 </div>
             </div>
             
+            <hr/>
+            <footer>
+                <p><?php echo $trans['legal'][$lang];?></p>
+            </footer>
         </div>
-        <hr/>
-        <footer>
-            <p><?php echo $trans['legal'][$lang];?></p>
-        </footer>
     
     </div>
 
