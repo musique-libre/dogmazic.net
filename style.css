@@ -32,6 +32,12 @@ body {
 .col-sidebar3 {
     background-color: #101010;
 }
+.col-frontheader {
+	background-color: #232323;
+	border-radius: 5px;
+	padding:1%;
+	text-align:center;
+}
 .col-sidebar4 {
     background-color: #000000;
 }
