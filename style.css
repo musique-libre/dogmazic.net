@@ -53,6 +53,7 @@ a.list-group-item:hover {
 }
 a.list-group-item .unimportant {
     color: #555;
+    word-wrap: break-word;
 }
 a {
     color: #ff9d00;
