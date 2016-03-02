@@ -296,7 +296,7 @@ if (file_exists('./news_'.$lang.'.php')) {
 		<div style="margin-left:auto;margin-right:auto;">
 			<strong style="text-align:center;"><a title="Dogmazic Webradio" href="http://dmz.fm">DogmaRadio : </a></strong>
 			<span style="float:right;">
-			<script type="text/javascript" src="https://hosted.muses.org/mrp.js"></script>
+			<script type="text/javascript" src="js/mrp.js"></script>
 			<script type="text/javascript">
 				MRP.insert({'url':'http://dmz.fm:8000/stream.ogg', 'codec':'ogg', 'volume':90, 'autoplay':false, 'buffering':5, 'title':'Dogmazic WebRadio', 'bgcolor':'#222', 'skin':'eastanbul', 'width':467, 'height':26});
 			</script>
