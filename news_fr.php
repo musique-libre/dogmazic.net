@@ -1,1 +1,1 @@
-Dogmazic.net est de retour ! Après de longs efforts nous sommes heureux de vous présenter la nouvelle version de Dogmazic !  
+Juillet 2016 : Nouvelle assemblée générale et bilans des deux années écoulées

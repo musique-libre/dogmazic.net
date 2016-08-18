@@ -10,6 +10,10 @@ body {
 }
 .jumbotron {
     background-color: #000000;
+    margin-bottom:0%;
+    margin-top:0%;
+    padding-top:0%;
+    padding-bottom:0%;
 }
 .col-sidebar {
     width: 45%;
@@ -32,6 +36,12 @@ body {
 .col-sidebar3 {
     background-color: #101010;
 }
+.col-frontheader {
+	background-color: #232323;
+	border-radius: 5px;
+	padding:1%;
+	text-align:center;
+}
 .col-sidebar4 {
     background-color: #000000;
 }
@@ -47,6 +57,7 @@ a.list-group-item:hover {
 }
 a.list-group-item .unimportant {
     color: #555;
+    word-wrap: break-word;
 }
 a {
     color: #ff9d00;
