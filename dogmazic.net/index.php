@@ -71,7 +71,7 @@ if (isset($_GET['get'])&&$_GET['get']==='nowplaying'){
 			$title = $item->getElementsByTagName('title')->item(0)->nodeValue;
 			$description = $item->getElementsByTagName('description')->item(0)->nodeValue;
 			$link = $item->getElementsByTagName('link')->item(0)->nodeValue;
-			echo '<a style="padding:3px:border:solid 1px black;" target="new" href="' . $link . '" class="list-group-item">' . htmlspecialchars($description) . '</a></li>';
+			echo '<a style="border:solid 1px black;" target="new" href="' . $link . '" class="list-group-item">' . htmlspecialchars($description) . '</a></li>';
     	}
 	}
 	if (!$hasdisplayed){
@@ -266,26 +266,26 @@ h4{margin-bottom:0%;padding-bottom:0%;}
 <body>
 	<div class="container container-full">
 	<div>
-	<div class="col-sm-4">
+	<div class="col-md-2">
 	<h1 style="margin-top:0px;" >
     <a target="new" href="http://play.dogmazic.net" alt="Dogmazic archive" style="background-color:#C0C0C0;padding-top:4%;"  >
                             <!--<img src="dogmaziclogo.png" style="width:33%;" />--><img src="logotitre.png" alt="Dogmazic.net" style="width:100%;"/>
                         </a>
     </h1>
     </div>
-		<span style="display:inline;" class="col-sm-5"><h5 style="text-align:right;display:inline;"><?php echo $trans['chat_soustitre'][$lang];?><br/> 
+		<span style="display:inline;" class="col-ld-3 col-md-6"><h5 style="text-align:right;display:inline;"><?php echo $trans['chat_soustitre'][$lang];?><br/> 
           	<?php echo $trans['chat_header'][$lang];?></h5></span>
     
-        <div id="navbar" class="col-sm-2">
+        <div id="navbar" class="col-ld-2 col-md-4 col-sm-12">
 				<div class="row">
 				<ul class="nav navbar-nav" style="float:right;display:inline">
-			<li class="col-sm-7">	<a class="btn btn-large btn-default" href="#appsModal" style="" role="button" data-toggle="modal">
+			<li class="col-ld-6 col-md-12 col-sm-12">	<a class="btn btn-large btn-default" href="#appsModal" style="" role="button" data-toggle="modal">
 				<?php echo $trans['apps_mobiles'][$lang];?>
 			</a>
 			</li>
          
-			  <li class="col-sm-3"><a href="?lang=fr&<?php echo $url_embed;?>" class="icon-fr">Français</a></li>
-            <li class="col-sm-2"><a href="?lang=en&<?php echo $url_embed;?>" class="icon-en">English</a></li>
+			  <li class="col-md-3 col-sm-12 col-ld-2"><a href="?lang=fr&<?php echo $url_embed;?>" class="icon-fr">Français</a></li>
+            <li class="col-md-2 col-sm-12 col-ld-2"><a href="?lang=en&<?php echo $url_embed;?>" class="icon-en">English</a></li>
 				</div>
 			
           </ul>
@@ -295,9 +295,9 @@ h4{margin-bottom:0%;padding-bottom:0%;}
 	</div>
 	
 	<div class="row" style="margin-bottom:0px;margin-top:0px;">
-	<div class="col-sm-12">
+	<div class="col-md-12">
 	<div class="" >
-                <h4 class="col-sm-1"><a href="javascript:void(0);" onClick="toggle(document.getElementById('albs'));"><?php echo $trans['nouveaux_albums'][$lang];?></a></h4>
+                <h4 class="col-md-1 col-sm-2"><a href="javascript:void(0);" onClick="toggle(document.getElementById('albs'));"><?php echo $trans['nouveaux_albums'][$lang];?></a></h4>
                 <div class="" id="albs" style="display:block;">
 <?php
 
@@ -316,7 +316,7 @@ if ($albums = get_rss_with_cache('play.dogmazic.net_latest_album','http://play.d
         $image = $item->getElementsByTagName('image')->item(0)->nodeValue;
         $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
         $description = $item->getElementsByTagName('description')->item(0)->nodeValue;
-        echo '<a class="col-sm-1" target="new" style="font-size:78%;" href="' . $link . '" ';
+        echo '<a class="col-md-1 col-sm-2" target="new" style="font-size:78%;" href="' . $link . '" ';
         
         //if ($counter<=3){echo 'float:left;';}
         //else {echo 'float:none:clear:both;';$counter=1;}
@@ -350,7 +350,7 @@ if ($albums = get_rss_with_cache('play.dogmazic.net_latest_album','http://play.d
 	
 		<div class="row" style="margin-top:0px;">
 	
-	<div style="" class="col-sm-4">
+	<div style="" class="col-ld-4 col-md-4 col-sm-10">
 	<div style="margin-left:auto;margin-right:auto;" class="">
 	<strong><a title="Dogmazic Webradio" href="javascript:void(0);" onClick="toggle(document.getElementById('radio'), 'inline');" style="text-align:left;float:none;"><h4>DogmaRadio</h4></a></strong>
 	<br/>
@@ -411,7 +411,7 @@ if ($albums = get_rss_with_cache('musique-libre.org_feed',$target)) {
 		
 	
 	
-			<span style="" class="col-sm-4">
+			<span style="" class="col-md-4">
 
                 <h4><a style="" href="javascript:void(0);" onClick="toggle(document.getElementById('nowplaying'), 'inline');"><?php echo $trans['En écoute'][$lang];?></a></h4>
                 <span class="" id="nowplaying" style="">
@@ -536,7 +536,7 @@ if ($albums = get_rss_with_cache('play.dogmazic.net_latest_shout','http://play.d
 	</div>
 	</span>
 	
-	<div class="col-sm-4"> <?php if ($lang==='en'){ ?>
+	<div class="col-md-4 col-sm-3"> <?php if ($lang==='en'){ ?>
 					<div><h2><a href="javascript:void(0);" onClick="toggle(document.getElementById('how'), 'inline');">Libre Musique, how, why?</a></h2>
 					<span id="how" style="">
 					The Dogmazic.net musical archive provides more than 55000 music tracks, all of them downloadable freely "totally quietly and totally legally".<br/>The musicians who publish on Dogmazic.net all choosed to provide their musique under a <em>free or open license</em><br/>
