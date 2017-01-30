@@ -1,0 +1,11 @@
+copyright 2017 
+
+This index page includes some layout design from The Ampache Project copyright The Ampache Project Contributors, licensed under AGPL (see AGPL.txt)
+
+The following is copyright Dogmazic Volunteer team and Ampache Project, and agpl licensed:
+
+index.html
+Dogmazic - Accueil_fichiers/ <- the whole directory content
+
+The rest of the code, namely dogmazic.net/*, is copyright Dogmazic Volunteer team and licensed under GPL. See dogmazic.net/gpl.txt
+This diretctory also includes redist of external dependecies. See subdirectory for licensing informations. 
