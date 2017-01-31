@@ -5,6 +5,12 @@ if (isset($_GET['lang'])){
 else{
     $lang='fr';
 }
+$url_embed="";
+if (isset($_GET['embed'])){
+	$url_embed='embed=true';
+}
+
+
 
 $trans['chat_titre']['fr']='Discuter avec notre équipe';
 $trans['chat_titre']['en']='Chat with our team';
@@ -21,39 +27,39 @@ $trans['legal']['en']='Copyright 2004-2015 Musique Libre volunteer organisation.
 <head>
 <link rel='shortcut icon' href='http://play.dogmazic.net/favicon_dogmazic.ico' />
 <link href="../css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="../style.css" type="text/css" media="screen" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<?php 
+
+if (isset($_GET['embed'])===false){
+?>
+
+<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+<?php
+}  else {
+?>
+<link rel="stylesheet" href="style_embed.css" type="text/css" media="screen" />
+
+<?php
+}
+?><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dogmazic.net - Chat</title>
 	
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
-    <nav class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-            <a class="navbar-brand" href="../">Dogmazic.net <i><small>BETA</small></i></a>
-        </div>
+
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="?lang=fr" class="icon-fr">Français</a></li>
             <li><a href="?lang=en" class="icon-en">English</a></li>
           </ul>
         </div>
-      </div>
-    </nav>
 	<div class="container container-full">
         <div class="col-xs-12 col-sm-3 sidebar-offcanvas"></div>
         <div class="row row-offcanvas row-offcanvas-right">
-            <div class="col-xs-12 col-sm-6">
+            <div class="col-xs-12 col-sm-12">
                 <div class="jumbotron">
 					<h1>
-                        <a href="../" alt="Dogmazic" >
+                        <a href="../?<?php echo $url_embed;?>" alt="Dogmazic" >
                             <img src="../dogmaziclogo.png" class="img1" /><img src="../logotitre.png" alt="Dogmazic.net"/>
                         </a>
                     </h1>
