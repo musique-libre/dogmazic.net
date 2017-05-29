@@ -445,7 +445,7 @@ if ($albums = get_rss_with_cache('musique-libre.org_feed',$target)) {
 
 
 
-	<div id="concerts" style="border: solid 1px black;">
+	<div id="concerts" style="border: solid 1px black;display:none;">
 	<?php
 	//here we go, mister D-sky
 	$dom = new DOMDocument();
