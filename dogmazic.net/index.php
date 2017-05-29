@@ -445,7 +445,7 @@ if ($albums = get_rss_with_cache('musique-libre.org_feed',$target)) {
 
 
 
-	<div id="concerts" style="border: solid 1px black;">
+	<div id="concerts" style="border: solid 1px black;display:none;">
 	<?php
 	//here we go, mister D-sky
 	$dom = new DOMDocument();
@@ -558,7 +558,7 @@ if ($albums = get_rss_with_cache('play.dogmazic.net_latest_shout','http://play.d
 					<span id="how" style="display:inline;">
 					
 					L'archive musicale Dogmazic.net propose plus de 55 000 titres musicaux, tous téléchargeables gratuitement "en toute quiétude et en toute légalité".<br/>Les musiciens publiant sur Dogmazic ont tous choisi de placer leur musique sous <em>licence de libre diffusion.</em><br/>
-					Selon la licence choisie, de nombreux droits peuvent être accordés d'emblée aux auditeurs. <br/>La licence la plus permissive, la CC-BY, autorise tout type d'usage sous réserve que l'auteur et la licence soient mentionnés, y compris les usages commmerciaux sans contrepartie (ce qui peut être utile pour sonoriser une vidéo monétisée). <a href="javascript:void(0);" onClick="toggle(document.getElementById('suite'),'inline')"></a><span id="suite" style=""><br/>À l'autre extrémité du spectre, la plus restrictive des licences dites ouvertes, la CC-BY-NC-ND, n'autorise que la copie sans modification ou la diffusion <em>en dehors de tout cadre commercial</em>. <br/>
+					Selon la licence choisie, de nombreux droits peuvent être accordés d'emblée aux auditeurs. <br/>La licence la plus permissive, la CC-BY, autorise tout type d'usage sous réserve que l'auteur et la licence soient mentionnés, y compris les usages commerciaux sans contrepartie (ce qui peut être utile pour sonoriser une vidéo monétisée). <a href="javascript:void(0);" onClick="toggle(document.getElementById('suite'),'inline')"></a><span id="suite" style=""><br/>À l'autre extrémité du spectre, la plus restrictive des licences dites ouvertes, la CC-BY-NC-ND, n'autorise que la copie sans modification ou la diffusion <em>en dehors de tout cadre commercial</em>. <br/>
 					Certaines licences peuvent autoriser les remix, commercialement ou non. Certaines peuvent demander que le remix soit mis sous une licence libre également. Pour plus d'information sur les droits octroyés au public par les différentes licences de libre diffusion, vous pouvez vous reporter au <a href="http://musique-libre.org/doc/le-tableau-des-licences-libres-et-ouvertes-de-dogmazic/" target="new">tableau des licences</a> dans <a href="http://musique-libre.org/doc" target="new">notre documentation</a>. </span>
 					</span>
 					</div>
