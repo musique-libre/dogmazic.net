@@ -73,7 +73,7 @@ if (isset($_GET['embed'])===false){
                     </div>
 
                     <hr/>
-					<iframe src="https://kiwiirc.com/client/irc.kiwiirc.com/?nick=guest|?#dogmazic" style="border:0; width:100%; height:450px;"></iframe>       
+					<iframe src="https://kiwiirc.com/client/irc.kiwiirc.com/?nick=Dogmazien|?#dogmazic" style="border:0; width:100%; height:450px;"></iframe>       
                   </div>
                 </div>
             </div>
