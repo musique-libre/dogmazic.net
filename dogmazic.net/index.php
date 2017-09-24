@@ -51,6 +51,10 @@ function get_rss_with_cache($name, $feed_url, $duree_cache=10) {
     file_put_contents($cache_file,$string);
   }
 
+  if ($_SERVER["HTTP_X_FORWARDED_PROTO"] == "https") { // Fufroma
+    $string = str_replace('http://play.dogmazic.net/image.php', 'https://play.dogmazic.net/image.php', $string);
+  }
+
   return $string;
 }
 
@@ -59,7 +63,7 @@ if (isset($_GET['get'])&&$_GET['get']==='nowplaying'){
 	$hasdisplayed=false;
 	$dom = new DOMDocument();
 	#if ($albums = file_get_contents('http://play.dogmazic.net/rss.php?type=latest_shout')){
-	if ($albums = file_get_contents('http://play.dogmazic.net/rss.php')){
+	if ($albums = file_get_contents('//play.dogmazic.net/rss.php')){
 		//echo htmlspecialchars($albums);
 		$dom->loadXML($albums);
 		$dom->preserveWhiteSpace=false;
@@ -479,7 +483,7 @@ if ($albums = get_rss_with_cache('musique-libre.org_feed',$target)) {
 	<script>
 	var map = L.map('map').setView([25, 0], 1);
 
-		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+		L.tileLayer('//tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 		}).addTo(map);
 
