@@ -526,7 +526,7 @@ if ($albums = get_rss_with_cache('play.dogmazic.net_latest_shout','http://play.d
     $items = $dom->getElementsByTagName('item');
     //echo htmlspecialchars(var_dump($items));
     $i = 0;
-    while(($item = $items->item($i++))&&$i<=5) {
+    while(($item = $items->item($i++))&&$i<=10) {
         $image = $item->getElementsByTagName('image')->item(0)->nodeValue;
         $title = $item->getElementsByTagName('title')->item(0)->nodeValue;
         $description = $item->getElementsByTagName('description')->item(0)->nodeValue;
