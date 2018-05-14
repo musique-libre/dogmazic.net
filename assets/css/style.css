@@ -1,0 +1,124 @@
+/************ COMMON ************/
+
+body {
+    color:#C0C0C0;
+    background-color: #333333;
+    font-family: Helvetica,Arial,sans-serif;
+    background-image: linear-gradient(to right, black, #373737);
+}
+
+
+/************ BODY HEADER ************/
+
+body > header
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+body > header #logo_dogmazic
+{
+    width: 5vw;
+}
+body > header .espace
+{
+    flex: 1;
+}
+body > header *
+{
+    margin: 5px;
+}
+
+/************ MAIN HEADER ************/
+
+.container-full {
+    margin: 60px auto;
+    width: 100%;
+}
+.jumbotron {
+    background-color: #000000;
+    margin-bottom:0%;
+    margin-top:0%;
+    padding-top:0%;
+    padding-bottom:0%;
+}
+.col-sidebar {
+    width: 45%;
+    float: left;
+    margin-left: 1%;
+    margin-right: 1%;
+    background-color: #373737;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px;
+}
+.col-sidebar1 {
+    background-color: #373737;
+    text-align: center;
+}
+.col-sidebar2 {
+    background-color: #252525;
+}
+.col-sidebar3 {
+    background-color: #101010;
+}
+.col-frontheader {
+	background-color: #232323;
+	border-radius: 5px;
+	padding:1%;
+	text-align:center;
+}
+.col-sidebar4 {
+    background-color: #000000;
+}
+.list-group-item {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid #333;
+}
+a.list-group-item {
+    color: #ff9d00;
+}
+a.list-group-item:hover {
+    background-color: #333;
+}
+a.list-group-item .unimportant {
+    color: #555;
+    word-wrap: break-word;
+}
+a {
+    color: #ff9d00;
+    text-decoration:none;
+}
+hr {
+    color: #ff9d00;
+    text-decoration:none;
+    clear:both;
+}
+.img1 {
+    width: 12%;
+    margin-bottom: 1.7%;
+}
+.img2 {
+    float: right;
+    width: 25%;
+}
+.albumimg{
+    width: 60%;
+    text-align: center;
+}
+
+.icon-en:before {
+    content: url(en.svg);
+    padding-right: 5px;
+}
+
+.icon-fr:before {
+    content: url(fr.svg);
+    padding-right: 5px;
+}
+
+.modal-content {
+    background-color: #333;
+}
