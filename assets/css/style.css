@@ -13,6 +13,10 @@ body *
     box-sizing: border-box;
 }
 
+ul
+{
+    padding: 0;
+}
 
 /************ BODY HEADER ************/
 
@@ -54,6 +58,39 @@ main > header .flag
     width: 30px;
     height: 20px;
 }
+
+/************ ALBUMS ************/
+
+#albums
+{
+    padding: 10px;
+    /*width: 80%;*/
+}
+#albumList
+{
+    padding: 10px;
+    /*display: flex;*/
+}
+#albumList .album 
+{
+    display: inline-block;
+    vertical-align: top;
+    width: 10%;
+    margin-bottom: 10px;
+    text-align: center;
+}
+#albumList .albumimg
+{
+    width: 80%;
+
+}
+#albumList p
+{
+    font-size: 80%;
+    
+}
+
+/************  ************/
 
 .container-full {
     margin: 60px auto;
@@ -128,8 +165,8 @@ hr {
     width: 25%;
 }
 .albumimg{
-    width: 60%;
-    text-align: center;
+/*    width: 60%;
+    text-align: center;*/
 }
 
 .icon-en:before {

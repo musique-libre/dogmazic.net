@@ -51,9 +51,9 @@ function get_rss_with_cache($name, $feed_url, $duree_cache=10) {
     file_put_contents($cache_file,$string);
   }
 
-  if ($_SERVER["HTTP_X_FORWARDED_PROTO"] == "https") { // Fufroma
-    $string = str_replace('http://play.dogmazic.net/image.php', 'https://play.dogmazic.net/image.php', $string);
-  }
+  // if ($_SERVER["HTTP_X_FORWARDED_PROTO"] == "https") { // Fufroma
+  //   $string = str_replace('http://play.dogmazic.net/image.php', 'https://play.dogmazic.net/image.php', $string);
+  // }
 
   return $string;
 }
@@ -239,11 +239,9 @@ $trans['legal']['en']='Copyright 2004-2017 Musique Libre volunteer organisation.
        
     </header>
 	
-	<div class="row" style="margin-bottom:0px;margin-top:0px;">
-	<div class="col-md-12">
-	<div class="" >
-                <h4 class="col-md-1 col-sm-2"><a href="javascript:void(0);" onClick="toggle(document.getElementById('albs'));"><?php echo $trans['nouveaux_albums'][$lang];?></a></h4>
-                <div class="" id="albs" style="display:block;">
+	<section id="albums">	
+        <h3><?php echo $trans['nouveaux_albums'][$lang];?></h3>
+        <ul id="albumList">
 <?php
 
 //here we go, mister D-sky
@@ -261,30 +259,20 @@ if ($albums = get_rss_with_cache('play.dogmazic.net_latest_album','http://play.d
         $image = $item->getElementsByTagName('image')->item(0)->nodeValue;
         $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
         $description = $item->getElementsByTagName('description')->item(0)->nodeValue;
-        echo '<a class="col-md-1 col-sm-2" target="new" style="font-size:78%;" href="' . $link . '" ';
+        echo '<li class="album">';
+        echo '<a target="new" href="' . $link . '" ';
         
         //if ($counter<=3){echo 'float:left;';}
         //else {echo 'float:none:clear:both;';$counter=1;}
         
-        echo '"><img class="albumimg" style="width:100%;" src="' . $image . '"/><br/>' . htmlspecialchars(substr($description, 0,30)); 
+        echo '"><img class="albumimg" src="' . $image . '"/><br/><p>' . htmlspecialchars(substr($description, 0,30)); 
         if (substr($description, 0,30)!==$description){echo '...';}
-        echo '</a></li>';
+        echo '</p></a></li>';
     }
 }
 ?>
-                </div>
-
-
-	</div>
-
-
-
-
-	</div>
-	
-	</div>
-	
-	</div>
+        </ul>	
+	</section>
 	
 	
 		    
