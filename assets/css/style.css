@@ -5,6 +5,12 @@ body {
     background-color: #333333;
     font-family: Helvetica,Arial,sans-serif;
     background-image: linear-gradient(to right, black, #373737);
+    margin: 0;
+}
+
+body *
+{
+    box-sizing: border-box;
 }
 
 
@@ -16,6 +22,7 @@ body > header
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    padding: 5px;
 }
 body > header #logo_dogmazic
 {
@@ -31,6 +38,22 @@ body > header *
 }
 
 /************ MAIN HEADER ************/
+
+main > header
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(250,250,250,0.1);
+    padding: 0 10px;
+}
+
+main > header .flag
+{
+    width: 30px;
+    height: 20px;
+}
 
 .container-full {
     margin: 60px auto;

@@ -223,42 +223,21 @@ $trans['legal']['en']='Copyright 2004-2017 Musique Libre volunteer organisation.
 
 ?>
 
-<!-- <script>
-	function toggle(target, toggle='block'){
-		if (target.style.display=='none'){
-			target.style.display=toggle;
-		}
-		else {
-			target.style.display='none';
-		}
-	
-	}
-</script>
- -->
-
-	<!-- <header>
+	<header>
 	   
         <h1><a href="http://play.dogmazic.net" alt="Dogmazic archive">Dogmazic</a></h1>
         
         <p><?= $trans['chat_soustitre'][$lang];?><br/> 
       	<?= $trans['chat_header'][$lang];?>
-        </p>
-
-        <div id="navbar" class="col-ld-2 col-md-4 col-sm-12">
-			<div class="row">
-			    <ul class="nav navbar-nav" style="float:right;display:inline">
-                    <li class="col-ld-6 col-md-12 col-sm-12">
-                        <a class="btn btn-large btn-default" href="#appsModal" style="" role="button" data-toggle="modal">
-			<?php echo $trans['apps_mobiles'][$lang];?>
-                        </a>
-                    </li>
-                    <li class="col-md-3 col-sm-12 col-ld-2"><a href="?lang=fr&<?php echo $url_embed;?>" class="icon-fr">Français</a></li>
-                    <li class="col-md-2 col-sm-12 col-ld-2"><a href="?lang=en&<?php echo $url_embed;?>" class="icon-en">English</a></li>			
-                </ul>
-            </div>			
-       </div>
+        </p>       
+			
+        <a class="btn btn-large btn-default" href="#appsModal" style="" role="button" data-toggle="modal">
+		<?php echo $trans['apps_mobiles'][$lang];?>
+        </a>
+               
+        <a href="?lang=<?= $lang == 'fr' ? 'en' : 'fr' ?>"><img class="flag" src="assets/img/<?= $lang == 'fr' ? 'en' : 'fr' ?>.svg"></a>         		      
        
-    </header> -->
+    </header>
 	
 	<div class="row" style="margin-bottom:0px;margin-top:0px;">
 	<div class="col-md-12">
