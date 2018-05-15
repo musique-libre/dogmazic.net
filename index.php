@@ -20,7 +20,7 @@
                 <a href="//play.dogmazic.net/login.php">Se connecter</a>
             	/ <a href="//play.dogmazic.net/register.php">S'inscrire</a>
             </span>
-            <div class="espace"></div>
+            <div class="espace"></div> <!-- div vide pour la mise en page en flex -->
 	    	<form name="search" method="post" action="//play.dogmazic.net/search.php?type=song" enctype="multipart/form-data">
 		        <input name="rule_1_input" id="searchString" placeholder="Recherche..." class="ui-autocomplete-input" autocomplete="off" type="text">
 		        <input name="action" value="search" type="hidden">
