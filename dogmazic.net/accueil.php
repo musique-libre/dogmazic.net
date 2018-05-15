@@ -5,7 +5,7 @@ $lang = isset($_GET['lang']) ? $_GET['lang'] : 'fr';
 include('texte.php');
 ?>
 
-<!-- HEADER -->
+    <!-- HEADER -->
 
 	<header>
 
@@ -23,7 +23,7 @@ include('texte.php');
 
     </header>
 
-<!-- NOUVEAUX ALBUMS -->
+    <!-- NOUVEAUX ALBUMS -->
 
 	<section id="albums">	
         <h3><?php echo $trans['nouveaux_albums'][$lang];?></h3>
@@ -32,12 +32,36 @@ include('texte.php');
             albumList();
             ?>
         </ul>	
-	</section>
-	
-    <div class="row" style="margin-top:0px;">
-        <div style="" class="col-ld-4 col-md-4 col-sm-10">
+	</section>  
 
-            <!-- RADIO -->
+   <!-- COMMENTAIRES & FORUM -->
+
+    <aside id="commentsAndForum">
+
+        <!-- LAST COMMENTS -->
+        
+        <div id="comments">
+            <h4><?php echo $trans['nouveaux_commentaires'][$lang];?></h4>
+            <div>
+                <?php
+                lastComments();
+                ?>
+            </div>
+        </div>                              
+
+        <!-- FORUM -->
+
+        <div id="forum">
+            <h3><?php echo $trans['nouveaux_forum'][$lang];?></h3>
+            <span id="fofo" style="">
+                <?php
+                lastPost();
+                ?>				  
+            </span>
+        </div>
+    </aside>
+            
+        <!-- RADIO -->
 
             <!-- <div style="margin-left:auto;margin-right:auto;" class="">
                 <strong><a title="Dogmazic Webradio" href="javascript:void(0);" onClick="toggle(document.getElementById('radio'), 'inline');" style="text-align:left;float:none;"><h4>DogmaRadio</h4></a></strong>
@@ -47,39 +71,10 @@ include('texte.php');
                     <script type="text/javascript">
     MRP.insert({'url':'http://dmz.fm:8000/stream.ogg', 'codec':'ogg', 'volume':90, 'autoplay':false, 'buffering':5, 'title':'Dogmazic WebRadio', 'bgcolor':'#F0F0F0',  'skin':'eastanbul', 'width':467, 'height':26});
                     </script>
-    	
+        
                     <object style="display:inline;" style="margin-bottom:0px;padding-bottom:0px;" data="http://dmz.fm:8000/nowplaying.xsl" type="text/html" width="467" height="25"></object>
-                </span>	
-            </div> -->    
-            <div>
-                <div class="">
-
-                    <!-- PUBLIER VOTRE MUSIQUE -->
-
-                    <div  class="">
-                        <div style="border:solid 1px black;" class="">
-                        <strong><h4><a href="javascript:void(0);" onClick="toggle(document.getElementById('pub'), 'inline');"><?php echo $trans['publier'][$lang];?></a></h4></strong><br/>
-                        <span id="pub" style="display:inline;">
-                        <?php echo $trans['pub_content'][$lang];?>
-                        </span>
-                    </div>
-	
-                    <!-- FORUM -->
-
-                    <div style="border:solid 1px black;" >
-                        <h4>
-                            <a href="javascript:void(0);" onClick="toggle(document.getElementById('fofo'), 'inline');"><?php echo $trans['nouveaux_forum'][$lang];?></a>
-                        </h4>
-                        <span id="fofo" style="">
-                            <?php
-                            lastPost();
-                            ?>				  
-                        </span>
-                    </div>
-                </div>
-            </div>
-		</div>
-	</div>
+                </span> 
+            </div> -->  
 
     <!-- NOW PLAYING -->
 	
@@ -172,19 +167,16 @@ include('texte.php');
 	<span style="text-align:right;float:right;border: solid 1px black;"><a target="new" href="http://concerts.musique-libre.org"><?php //echo $trans['Annoncer un concert'][$lang];?></a></span>
 	</div> -->
 
-    <!-- LAST COMMENTS -->
-    
-    <div>
-        <div class="" style="">
-            <h4><a href="javascript:void(0);" onClick="toggle(document.getElementById('comms'));"><?php echo $trans['nouveaux_commentaires'][$lang];?></a></h4>
-            <div class="list-group" id="comms" style="display:block;">
-                <?php
-                lastComments();
-                ?>
-            </div>
-        </div>
-	</div>
-	
+	<!-- PUBLIER VOTRE MUSIQUE -->
+
+    <div  class="">
+        <div style="border:solid 1px black;" class="">
+        <strong><h4><a href="javascript:void(0);" onClick="toggle(document.getElementById('pub'), 'inline');"><?php echo $trans['publier'][$lang];?></a></h4></strong><br/>
+        <span id="pub" style="display:inline;">
+        <?php echo $trans['pub_content'][$lang];?>
+        </span>
+    </div>
+
 	<div class="col-md-4 col-sm-3"> <?php if ($lang==='en'){ ?>
 					<div><h2><a href="javascript:void(0);" onClick="toggle(document.getElementById('how'), 'inline');">Libre Musique, how, why?</a></h2>
 					<span id="how" style="">
@@ -383,7 +375,6 @@ function lastPost()
         //echo htmlspecialchars(var_dump($items));
         $i = 0;
         while (($item = $items->item($i++))&&$i<10) {
-            echo '<span style="border:solid black 1px;">';
             //$image=$item->getElementsByTagName('image')->item(0)->nodeValue;
             $title = $item->getElementsByTagName('title')->item(0)->nodeValue;
             $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
@@ -391,9 +382,8 @@ function lastPost()
             $pubdate = $item->getElementsByTagName('pubDate')->item(0)->nodeValue;
 
 
-            echo '<div><a target="new" href="' . $link . '">' . htmlspecialchars($title) . '</a></div>';
-            echo '<div> ' . htmlspecialchars($pubdate) . '</div><br/>';
-            echo '</span>';
+            echo '<p><a target="new" href="' . $link . '">' . htmlspecialchars($title) . '</a><br/>';
+            echo '<span class="pubDate">' . htmlspecialchars($pubdate) . '</span></p>';
         }
     }
 }
@@ -415,7 +405,8 @@ function lastComments()
             $title = $item->getElementsByTagName('title')->item(0)->nodeValue;
             $description = $item->getElementsByTagName('description')->item(0)->nodeValue;
             $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
-            echo '<a target="new" href="' . $link . '" class="list-group-item"><span class="unimportant">' . htmlspecialchars($description) . '</span><b style="text-align:right;"><br />' . str_replace('Shout by', '', htmlspecialchars($title)) . '</b></a>';
+            echo '<a target="new" href="' . $link . '"><p><span class="comment">' . htmlspecialchars($description) . '</span>
+            <br /><span class="commentAuthor">' . str_replace('Shout by', '', htmlspecialchars($title)) . '</span></p></a>';
         }
     }
 }

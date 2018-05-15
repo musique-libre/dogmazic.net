@@ -64,12 +64,12 @@ main > header .flag
 #albums
 {
     padding: 10px;
-    /*width: 80%;*/
 }
 #albumList
 {
     padding: 10px;
-    /*display: flex;*/
+    padding-bottom: 0;
+    margin: 0;
 }
 #albumList .album 
 {
@@ -90,7 +90,53 @@ main > header .flag
     
 }
 
-/************  ************/
+/************ COMMENTAIRES & FORUM ************/
+
+aside#commentsAndForum
+{
+    width: 30%;
+    padding: 0 10px;
+    float: left;
+}
+
+#comments, #forum
+{
+    border: 1px solid rgb(200,200,200);
+    border-radius: 5px;
+    background-color: rgba(250,250,250,0.1);
+}
+
+#comments p, #forum p
+{
+    padding: 10px;
+    margin: 0;
+}
+#comments h4, #forum h3
+{
+    padding: 0 10px;
+    text-align: center;
+}
+
+.comment
+{
+    color:#C0C0C0;
+}
+.commentAuthor, .pubDate
+{
+    font-size: 80%;
+}
+#comments a:nth-child(odd) p, #forum p:nth-child(odd)
+{
+    background-color: rgba(250,250,250,0.1);
+}
+#comments
+{
+    margin-bottom: 10px;
+}
+
+/************ FORUM ************/
+
+/************ ************/
 
 .container-full {
     margin: 60px auto;
@@ -163,10 +209,6 @@ hr {
 .img2 {
     float: right;
     width: 25%;
-}
-.albumimg{
-/*    width: 60%;
-    text-align: center;*/
 }
 
 .icon-en:before {
