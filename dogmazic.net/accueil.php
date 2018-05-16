@@ -15,9 +15,9 @@ include('texte.php');
       	<?= $trans['chat_header'][$lang];?>
         </p>       
 			
-        <a class="btn btn-large btn-default" href="#appsModal" style="" role="button" data-toggle="modal">
+        <div id="apps_mobiles">
 		<?php echo $trans['apps_mobiles'][$lang];?>
-        </a>
+        </div>
                
         <a href="?lang=<?= $lang == 'fr' ? 'en' : 'fr' ?>"><img class="flag" src="assets/img/<?= $lang == 'fr' ? 'en' : 'fr' ?>.svg"></a> 
 
@@ -213,24 +213,21 @@ include('texte.php');
 
     <!-- Modal HTML -->
 
-    <div id="appsModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title"><?php echo $trans['apps_mobiles'][$lang];?></h4>
-                </div>
-                <div class="modal-body">
-                    <p><?php echo $trans['apps_mobiles_texte'][$lang]; ?></p>
-                    <p class="text-warning"><small><?php echo $trans['apps_mobiles_texte_avert'][$lang]; ?></small></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
+    
+    <div id="apps_mobiles_popup">
+        <header>
+            <button>×</button>
+            <h4 class="modal-title"><?php echo $trans['apps_mobiles'][$lang];?></h4>
+        </header>
+        <article>
+            <p><?php echo $trans['apps_mobiles_texte'][$lang]; ?></p>
+            <p class="text-warning"><small><?php echo $trans['apps_mobiles_texte_avert'][$lang]; ?></small></p>
+        </article>
+        <footer>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </footer>
     </div>
-   </div>
+
 
 <?php
 
