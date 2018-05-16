@@ -47,8 +47,8 @@
           ?>
     	</main>
        
-        <footer id="footer" class="footer-wild">
+        <!-- <footer id="footer" class="footer-wild">
                 dogmazic.net | musique-libre.org | propulsed by ampache.org                
-        </footer>
+        </footer> -->
 </body>
 </html>

@@ -176,81 +176,40 @@ include('texte.php');
         </p>
     </article>
 
-	<div class="col-md-4 col-sm-3"> <?php if ($lang==='en'){ ?>
-					<div><h2><a href="javascript:void(0);" onClick="toggle(document.getElementById('how'), 'inline');">Libre Musique, how, why?</a></h2>
-					<span id="how" style="">
-					The Dogmazic.net musical archive provides more than 55000 music tracks, all of them downloadable freely "totally quietly and totally legally".<br/>The musicians who publish on Dogmazic.net all choosed to provide their musique under a <em>free or open license</em><br/>
-					According to the license chosen, many rights can be grandted as-is to listeners. <br/>The most permissive license, the CC-BY, allows any kind of use as long as the author and the license are indicated, including commerical uses without any counterpart (which can be useful for a monetized video soundtrack). <a href="javascript:void(0);" onClick="toggle(document.getElementById('suite'),'inline')"></a><span id="suite" style=""><br/>At the other side of the spectrum, the most restrictive open license, the CC-BY-NC-ND, allows only unmodified copy and broadcast <em>outside any kind of commercial use</em>. <br/>
-					Some of the open and free licenses can allow remixing, commercially or not. Some of them may demand that the remix is placed under a free license as well. For more information about the rights granted to the audience by free and open licenses, you can take a look at the <a href="http://musique-libre.org/doc/le-tableau-des-licences-libres-et-ouvertes-de-dogmazic/" target="new">licences table</a> in <a href="http://musique-libre.org/doc">our documentation</a>.         
-					</span>
-					</span>
-					<h2><a href="javascript:void(0);" onClick="toggle(document.getElementById('vol'), 'inline');">The volunteer organisation</a></h2>
-					<span id="vol" style="display:inline;">
-					Dogmazic.net exists since 2004 thank to the volunteer of the non-profit <strong>Musique Libre</strong> which acts as the site editors, whithout commercial aims. Dogmazic is funded only by donations made by musicians and listeners, and by membership fees of the Musique Libre's volunteers. Initially based in Bordeaux, Musique Libre is now located in Lyon. It also maintains <a href="http://musique-libre.org" target="new">a blog</a> providing informations and news about free cultures and commons. 
-					</span>
-					</div>
-		
-		
-		
-		
-					<?php } else { ?>
-					<div><h2><a href="javascript:void(0);" onClick="toggle(document.getElementById('how'), 'inline');">Musique Libre, pourquoi, comment ?</a></h2>
-					<span id="how" style="display:inline;">
-					
-					L'archive musicale Dogmazic.net propose plus de 55 000 titres musicaux, tous téléchargeables gratuitement "en toute quiétude et en toute légalité".<br/>Les musiciens publiant sur Dogmazic ont tous choisi de placer leur musique sous <em>licence de libre diffusion.</em><br/>
-					Selon la licence choisie, de nombreux droits peuvent être accordés d'emblée aux auditeurs. <br/>La licence la plus permissive, la CC-BY, autorise tout type d'usage sous réserve que l'auteur et la licence soient mentionnés, y compris les usages commerciaux sans contrepartie (ce qui peut être utile pour sonoriser une vidéo monétisée). <a href="javascript:void(0);" onClick="toggle(document.getElementById('suite'),'inline')"></a><span id="suite" style=""><br/>À l'autre extrémité du spectre, la plus restrictive des licences dites ouvertes, la CC-BY-NC-ND, n'autorise que la copie sans modification ou la diffusion <em>en dehors de tout cadre commercial</em>. <br/>
-					Certaines licences peuvent autoriser les remix, commercialement ou non. Certaines peuvent demander que le remix soit mis sous une licence libre également. Pour plus d'information sur les droits octroyés au public par les différentes licences de libre diffusion, vous pouvez vous reporter au <a href="http://musique-libre.org/doc/le-tableau-des-licences-libres-et-ouvertes-de-dogmazic/" target="new">tableau des licences</a> dans <a href="http://musique-libre.org/doc" target="new">notre documentation</a>. </span>
-					</span>
-					</div>
-					<h2><a href="javascript:void(0);" onClick="toggle(document.getElementById('vol'), 'inline');">L'association</a></h2>
-					<span id="vol" style="display:inline;">
-					Dogmazic.net existe depuis 2004 grâce aux bénévoles de l'association <strong>Musique Libre</strong> qui édite le site, sans but lucratif. Dogmazic est financé uniquement par les dons des musiciens et des auditeurs, et par les cotisations des adhérents à l'association Musique Libre. Initialement basée à Bordeaux, Musique Libre est maintenant localisée à Lyon. Elle maintient également <a target="new" href="http://musique-libre.org">un blog</a> d'informations et de nouvelles sur l'actualité des cultures libres et des partages. 
-					
-					<br/>
-					
-					<?php } ?>
-					<div class="">
-                        <h2><a href="javascript:void(0);" onClick="toggle(document.getElementById('adh'));"><?php echo $trans['adherer_titre'][$lang];?></a></h2>
-                        <div style="" id="adh">
-                            <a target="new" href="http://musique-libre.org"alt="Musique Libre !"><img  style="background-color:#C0C0C0;" src="musiquelibrelogo.png" class="img2"/></a>
-                            <div>
-                                    <?php echo $trans['adherer_texte'][$lang];?>
-                            </div>
-                        </div>
-                        <p>
-							<h2><a href="javascript:void(0);" onClick="toggle(document.getElementById('don'));"><?php echo $trans['faire_un_don_titre'][$lang];?></a></h2>
-                            <div style="" id="don">
-                                    <?php echo $trans['faire_un_don_texte'][$lang];?>
-                            </div>
-                        </p>
-                    </div>
-                    </span>
-                    <hr/>
-                    <div>
-	</div>
-	
-	</div>
-	</div>
-	
-    
-    
-    
-    
+    <!-- MUSIQUE LIBRE -->
 
-            <div class="">
-			   
+	<article id="musique_libre"> 
+		<h2><?= $trans['musique_libre_titre'][$lang] ?></h2>
+			<p>
+                <?= $trans['musique_libre_texte'][$lang] ?>   
+			</p>
+					
+		<h2><?= $trans['asso_titre'][$lang] ?></h2>
+			<p>
+				<?= $trans['asso_texte'][$lang] ?>	 
+			</p>
+					
+        <h2><?= $trans['adherer_titre'][$lang]?></h2>
+            <p>
+                <a target="new" href="http://musique-libre.org" alt="Musique Libre !"><img src="assets/img/musiquelibrelogo.png" id="logo_ml" /></a>
+                <div>
+                    <?php echo $trans['adherer_texte'][$lang];?>
+                </div>
+            </p>
+            <p>
+				<h2><?php echo $trans['faire_un_don_titre'][$lang];?></h2>
+                <div style="" id="don">
+                    <?php echo $trans['faire_un_don_texte'][$lang];?>
+                </div>
+            </p>
+    </article>
 
-                
-            </div>
-		</div>
-            
-        </div>
-        <hr/>
-        <footer>
-            <p><?php echo $trans['legal'][$lang];?></p>
-        </footer>
+      
+    <footer>
+        <p><?php echo $trans['legal'][$lang];?></p>
+    </footer>
     
-    </div>
+    
 
     <!-- Modal HTML -->
 
@@ -409,6 +368,7 @@ function lastComments()
         }
     }
 }
+
 //Ajax hook
 if (isset($_GET['get'])&&$_GET['get']==='nowplaying'){
     $hasdisplayed=false;
