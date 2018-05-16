@@ -8,7 +8,7 @@
 		<!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet"> -->
 	    <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="screen">
 	    <script src="assets/js/jquery.min.js"></script>
-    	<!-- <script src="assets/js/bootstrap.min.js"></script> -->
+    	<script src="assets/js/apps_mobiles_popup.js"></script>
 	</head>
 
     <body>       

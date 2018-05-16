@@ -209,10 +209,7 @@ include('texte.php');
         <p><?php echo $trans['legal'][$lang];?></p>
     </footer>
     
-    
-
-    <!-- Modal HTML -->
-
+    <!-- POPUP BOX -->
     
     <div id="apps_mobiles_popup">
         <header>
