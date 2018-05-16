@@ -36,7 +36,7 @@
                     <option value="label">Label</option>
                 </select>
 		        <input class="button" value="Rechercher" id="searchBtn" type="submit">
-		        <a href="//play.dogmazic.net/search.php?type=song" class="button" id="advSearchBtn">Recherche avancée</a>
+		        <a href="//play.dogmazic.net/search.php?type=song" id="advSearch">Recherche avancée</a>
 	    	</form>
 		</header>
 

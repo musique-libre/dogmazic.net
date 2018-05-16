@@ -169,13 +169,12 @@ include('texte.php');
 
 	<!-- PUBLIER VOTRE MUSIQUE -->
 
-    <div  class="">
-        <div style="border:solid 1px black;" class="">
-        <strong><h4><a href="javascript:void(0);" onClick="toggle(document.getElementById('pub'), 'inline');"><?php echo $trans['publier'][$lang];?></a></h4></strong><br/>
-        <span id="pub" style="display:inline;">
+    <article id="publier">
+        <h3><?php echo $trans['publier'][$lang];?></h3>
+        <p id="pub">
         <?php echo $trans['pub_content'][$lang];?>
-        </span>
-    </div>
+        </p>
+    </article>
 
 	<div class="col-md-4 col-sm-3"> <?php if ($lang==='en'){ ?>
 					<div><h2><a href="javascript:void(0);" onClick="toggle(document.getElementById('how'), 'inline');">Libre Musique, how, why?</a></h2>

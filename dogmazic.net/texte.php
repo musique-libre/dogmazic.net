@@ -8,8 +8,15 @@ $trans['publier']['en']='Publish your music';
 
 
 
-$trans['pub_content']['fr']='Pour publier votre musique sous licence libre sur Dogmazic.net, il vous suffit de <a target="new" href="http://play.dogmazic.net/register.php">vous créer un compte</a> et/ou de <a href="http://play.dogmazic.net/login.php" target="new">vous connecter</a> puis de cliquer sur l\'icone "Envoyer" dans la barre du menu. <hr><em>Note au possesseurs d\'adresses hotmail/Microsoft</em><br/>La politique d\'acceptation des mails de Microsoft fait actuellement que sur ces adresses, nos emails n\'arrivent jamais. Si vous aviez déjà un compte avec une telle adresse, merci de nous contacter sur <a href="./irc/">notre chat irc</a> pour récupérer l\'accès à votre compte. Vous pouvez également nous contacter si vous n\'avez pas d\'autre adresse qu\'une adresse Microsoft et que vous souhaitez vous créer un compte.';
-$trans['pub_content']['en']='To publish your music under a free licence on Dogmazic.net, you just need to <a target="new" href="http://play.dogmazic.net/register.php">create your account</a> and/or to <a href="http://play.dogmazic.net/login.php" target="new">login</a> then to click on the "Upload" icon in the menu bar. <hr><em>Note for hotmail/Microsoft address owners</em><br/>The politic for mail delivery of Microsoft causes currently our email to be never delivered. If you already had an account with such an address, you can contact us through our <a href="./irc/">irc chat</a> to recover your account access. You can as well contact us if you have no other address than a Microsoft one and wish to create an account.';
+$trans['pub_content']['fr']='Pour publier votre musique sous licence libre sur Dogmazic.net, il vous suffit de <a target="new" href="http://play.dogmazic.net/register.php">vous créer un compte</a> et/ou de <a href="http://play.dogmazic.net/login.php" target="new">vous connecter</a> puis de cliquer sur l\'icone "Envoyer" dans la barre du menu. <hr>
+	<span class="note">
+	<em>Note au possesseurs d\'adresses hotmail/Microsoft</em><br/>
+	La politique d\'acceptation des mails de Microsoft fait actuellement que sur ces adresses, nos emails n\'arrivent jamais. Si vous aviez déjà un compte avec une telle adresse, merci de nous contacter sur <a href="./irc/">notre chat irc</a> pour récupérer l\'accès à votre compte. Vous pouvez également nous contacter si vous n\'avez pas d\'autre adresse qu\'une adresse Microsoft et que vous souhaitez vous créer un compte.
+	</span>';
+$trans['pub_content']['en']='To publish your music under a free licence on Dogmazic.net, you just need to <a target="new" href="http://play.dogmazic.net/register.php">create your account</a> and/or to <a href="http://play.dogmazic.net/login.php" target="new">login</a> then to click on the "Upload" icon in the menu bar. <hr>
+	<span class="note">
+	<em>Note for hotmail/Microsoft address owners</em><br/>The politic for mail delivery of Microsoft causes currently our email to be never delivered. If you already had an account with such an address, you can contact us through our <a href="./irc/">irc chat</a> to recover your account access. You can as well contact us if you have no other address than a Microsoft one and wish to create an account.
+	</span>';
 
 $trans['ecouter']['fr']='Écouter';
 $trans['ecouter']['en']='Listen';

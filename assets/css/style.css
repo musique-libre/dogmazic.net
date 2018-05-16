@@ -18,6 +18,20 @@ ul
     padding: 0;
 }
 
+a 
+{
+    color: #ff9d00;
+    text-decoration:none;
+}
+
+hr 
+{
+    color: #ff9d00;
+    border: 0px;
+    /*border-top: 1px solid;*/
+    /*width: 50%;*/
+}
+
 /************ BODY HEADER ************/
 
 body > header
@@ -39,6 +53,10 @@ body > header .espace
 body > header *
 {
     margin: 5px;
+}
+#advSearch
+{
+    font-size: 90%;
 }
 
 /************ MAIN HEADER ************/
@@ -134,7 +152,32 @@ aside#commentsAndForum
     margin-bottom: 10px;
 }
 
-/************ FORUM ************/
+/************ PUBLIER ************/
+
+article#publier
+{
+    margin-left: 30%;
+    margin-right: 10px;
+    /*padding: 10px;*/
+    border: 1px solid #ff9d00;
+    text-align: justify;
+}
+article#publier p
+{
+    margin: 0;
+}
+article#publier h3, article#publier p
+{
+    padding: 0 10px;
+}
+article#publier .note
+{
+    font-size: 80%;
+    background-color: rgba(250,250,250,0.1);
+    display: block;
+    padding: 10px;
+    margin-top: 10px;
+}
 
 /************ ************/
 
@@ -193,15 +236,7 @@ a.list-group-item .unimportant {
     color: #555;
     word-wrap: break-word;
 }
-a {
-    color: #ff9d00;
-    text-decoration:none;
-}
-hr {
-    color: #ff9d00;
-    text-decoration:none;
-    clear:both;
-}
+
 .img1 {
     width: 12%;
     margin-bottom: 1.7%;
