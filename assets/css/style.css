@@ -1,5 +1,11 @@
 /************ COMMON ************/
 
+@font-face
+{
+    font-family: 'Magneto';
+    src:url('../font/MAGNETOB.TTF');
+}
+
 body {
     color:#C0C0C0;
     background-color: #333333;
@@ -29,6 +35,10 @@ hr
     color: #ff9d00;
     border: 0px;
     border-top: 1px solid;
+}
+h1
+{
+    font-family: Magneto;
 }
 h2
 {

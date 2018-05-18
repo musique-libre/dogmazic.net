@@ -285,6 +285,8 @@ function get_rss_with_cache($name, $feed_url, $duree_cache=10) {
   return $string;
 }
 
+/*** Affiche les 10 derniers albums ***/
+
 function albumList(){
     //here we go, mister D-sky
     $dom = new DOMDocument();
@@ -314,6 +316,8 @@ function albumList(){
     }
 }
 
+/*** Affiche les 10 derniers sujets du forum ***/
+
 function lastPost()
 {
     $target = 'http://musique-libre.org/forum/discussions/feed.rss';
@@ -339,6 +343,8 @@ function lastPost()
         }
     }
 }
+
+/*** Affiche les 10 derniers commentaires ***/
 
 function lastComments()
 {
