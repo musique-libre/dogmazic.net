@@ -9,6 +9,8 @@
 	    <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="screen">
 	    <script src="assets/js/jquery.min.js"></script>
     	<script src="assets/js/apps_mobiles_popup.js"></script>
+    	<script src="assets/js/showbox.js"></script>
+
 	</head>
 
     <body>       

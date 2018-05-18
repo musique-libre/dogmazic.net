@@ -41,8 +41,11 @@ include('texte.php');
         <!-- LAST COMMENTS -->
         
         <div id="comments">
-            <h4><?php echo $trans['nouveaux_commentaires'][$lang];?></h4>
-            <div>
+            <div class="box_title">
+                <h4><?php echo $trans['nouveaux_commentaires'][$lang];?></h4>
+                <span class="box_plus">+</span>
+            </div>
+            <div class="box_content" data_show="no">
                 <?php
                 lastComments();
                 ?>
@@ -52,12 +55,15 @@ include('texte.php');
         <!-- FORUM -->
 
         <div id="forum">
-            <h3><?php echo $trans['nouveaux_forum'][$lang];?></h3>
-            <span id="fofo" style="">
+            <div class="box_title">
+                <h4><?php echo $trans['nouveaux_forum'][$lang];?></h4>
+                <span class="box_plus">+</span>
+            </div>
+            <div class="box_content" data_show="no">
                 <?php
                 lastPost();
                 ?>				  
-            </span>
+            </div>
         </div>
     </aside>
             

@@ -155,9 +155,10 @@ aside#commentsAndForum
     padding: 10px;
     margin: 0;
 }
-#comments h4, #forum h3
+#comments h4, #forum h4
 {
-    padding: 0 10px;
+    padding: 20px 10px;
+    margin: 0;
     text-align: center;
 }
 
@@ -176,6 +177,25 @@ aside#commentsAndForum
 #comments
 {
     margin-bottom: 10px;
+}
+.box_title
+{
+    position: relative;
+    box-sizing: content-box;
+    cursor: pointer;
+}
+.box_plus
+{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 150%;
+}
+.box_content
+{
+    max-height: 0;
+    /*display: none;*/
+    overflow: hidden;
 }
 
 /************ PUBLIER ************/
