@@ -2,25 +2,21 @@ $(function(){
 	$('#commentsAndForum .box_title').click(function(){
 		var show = $(this).parent().children('.box_content').attr('data_show');
 		if(show == 'no'){
-			// $(this).parent().children('.box_content').slideDown();
 			$(this).parent().children('.box_content').attr('data_show','yes');
-			// rotate('direct',$(this).find('.box_plus'));
-			slide('down',$(this));
+			toggle('down',$(this));
 		}else{
-			// $(this).parent().children('.box_content').slideUp();
 			$(this).parent().children('.box_content').attr('data_show','no');
-			// rotate('indirect',$(this).find('.box_plus'));
-			slide('up',$(this));
+			toggle('up',$(this));
 		}
 	});
 });
 
-function slide(sens,element)
+function toggle(sens,element)
 	{
 		var step = 0;
 		var y = 0;
-		var I = setInterval(sl,10);		
-		function sl()
+		var I = setInterval(tog,10);		
+		function tog()
 		{
 			if(step>=135){
 				clearInterval(I);

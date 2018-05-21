@@ -9,17 +9,18 @@ include('texte.php');
 
 	<header>
 
-        <h1><a href="http://play.dogmazic.net" alt="Dogmazic archive">Dogmazic</a></h1>
+        <h1><a href="http://play.dogmazic.net" alt="Dogmazic archive" title="Accéder à l'archive">Dogmazic</a></h1>
         
         <p><?= $trans['chat_soustitre'][$lang];?><br/> 
       	<?= $trans['chat_header'][$lang];?>
         </p>       
 			
-        <div id="apps_mobiles">
-		<?php echo $trans['apps_mobiles'][$lang];?>
+        <div id="flagAndApps">
+            <a href="?lang=<?= $lang == 'fr' ? 'en' : 'fr' ?>"><img class="flag" src="assets/img/<?= $lang == 'fr' ? 'en' : 'fr' ?>.svg"></a>
+            <div id="apps_mobiles">
+    		<?php echo $trans['apps_mobiles'][$lang];?>
+            </div>
         </div>
-               
-        <a href="?lang=<?= $lang == 'fr' ? 'en' : 'fr' ?>"><img class="flag" src="assets/img/<?= $lang == 'fr' ? 'en' : 'fr' ?>.svg"></a> 
 
     </header>
 
@@ -406,10 +407,10 @@ if (isset($_GET['get'])&&$_GET['get']==='nowplaying'){
 
 
 //hugly emebed hack
-$url_embed="";
-if (isset($_GET['embed'])){
-    $url_embed='embed=true';
-}
+// $url_embed="";
+// if (isset($_GET['embed'])){
+//     $url_embed='embed=true';
+// }
 
 
 
