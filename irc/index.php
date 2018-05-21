@@ -27,23 +27,15 @@ $trans['legal']['en']='Copyright 2004-2015 Musique Libre volunteer organisation.
 <head>
 <link rel='shortcut icon' href='http://play.dogmazic.net/favicon_dogmazic.ico' />
 <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-<?php 
 
-if (isset($_GET['embed'])===false){
-?>
-
-<link rel="stylesheet" href="style_irc.css" type="text/css" media="screen" />
-<?php
-}  else {
-?>
-<link rel="stylesheet" href="style_embed.css" type="text/css" media="screen" />
-
-<?php
-}
-?><meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <link rel="stylesheet" href="../assets/css/style.css" type="text/css" media="screen" /> -->
+<!-- <link rel="stylesheet" href="../assets/css/style_irc.css" type="text/css" media="screen" /> -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dogmazic.net - Chat</title>
 	
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -85,29 +77,6 @@ if (isset($_GET['embed'])===false){
         </div>
     
     </div>
-
-    <!-- Modal HTML -->
-
-    <div id="appsModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title"><?php echo $trans['apps_mobiles'][$lang];?></h4>
-                </div>
-                <div class="modal-body">
-                    <p><?php echo $trans['apps_mobiles_texte'][$lang]; ?></p>
-                    <p class="text-warning"><small><?php echo $trans['apps_mobiles_texte_avert'][$lang]; ?></small></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
 
     <!-- Piwik -->
     <script type="text/javascript">
