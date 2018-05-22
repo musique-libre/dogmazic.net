@@ -40,6 +40,9 @@
 		        <input class="button" value="Rechercher" id="searchBtn" type="submit">
 		        <a href="//play.dogmazic.net/search.php?type=song" id="advSearch">Recherche avancée</a>
 	    	</form>
+	    	<a href="//play.dogmazic.net/search.php?type=song" id="loupe" title="Rechercher">
+	    		<img src="assets/img/loupe_blanche.png">
+	    	</a>
 		</header>
 
         <main>
