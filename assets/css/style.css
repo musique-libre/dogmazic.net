@@ -96,10 +96,6 @@ body > header > a:first-child
 
 main > header
 {
-    /*display: flex;*/
-    /*flex-direction: row;*/
-    /*align-items: center;*/
-    /*justify-content: space-between;*/
     background-color: rgba(250,250,250,0.1);
     padding: 0 10px 10px 10px;
     position: relative;
@@ -109,26 +105,39 @@ main > header h1
 {
     margin: 0;
 }
-main > header h1 a
+main > header #bouton_don
 {
-    /*color: rgb(250,250,250);*/
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
 }
 main > header #flagAndApps
+{
+    /*position: absolute;
+    top: 10px;
+    right: 10px;*/
+    /*transform: translateY(-50%);*/
+    /*text-align: right;*/
+}
+main > header .flag
 {
     position: absolute;
     top: 10px;
     right: 10px;
-    /*transform: translateY(-50%);*/
-    text-align: right;
-}
-main > header .flag
-{
     width: 30px;
     height: 20px;
     margin-bottom: 20px;
 }
-
 main > header #apps_mobiles
+{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+main > header #apps_mobiles, #bouton_don
 {
     border: 1px solid rgb(250,250,250);
     border-radius: 5px;
@@ -136,7 +145,7 @@ main > header #apps_mobiles
     cursor: pointer;
     color: rgb(250,250,250);
 }
-main > header #apps_mobiles:hover
+main > header #apps_mobiles:hover, #bouton_don:hover
 {
     background-color: rgba(250,250,250,0.1);
 }
@@ -365,6 +374,18 @@ main > footer
 
 /************ RESPONSIVE ************/
 
+@media(min-width: 1300px)
+{
+    main > header #bouton_don
+    {
+        left: 20px;
+    }
+    main > header #apps_mobiles
+    {
+        right: 20px;
+    }
+}
+
 @media (max-width: 900px)
 {
     body > header form
@@ -378,6 +399,13 @@ main > footer
     body > header #loupe img
     {
         width: 30px;
+    }
+    main > header p
+    {
+  /*      display: block;
+        width: 100%;
+        background-color: rgba(250,250,250,0.1);
+        margin: 0;*/
     }
     #albumList .album 
     {

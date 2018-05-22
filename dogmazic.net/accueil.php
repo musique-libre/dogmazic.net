@@ -8,6 +8,9 @@ include('texte.php');
     <!-- HEADER -->
 
 	<header>
+        <div id="bouton_don">
+            <?= $trans['faire_un_don_titre'][$lang] ?>
+        </div>
 
         <h1><a href="http://play.dogmazic.net" alt="Dogmazic archive" title="Accéder à l'archive">Dogmazic</a></h1>
         
@@ -15,11 +18,11 @@ include('texte.php');
       	<?= $trans['chat_header'][$lang];?>
         </p>       
 			
-        <div id="flagAndApps">
+        <!-- <div id="flagAndApps"> -->
             <a href="?lang=<?= $lang == 'fr' ? 'en' : 'fr' ?>"><img class="flag" src="assets/img/<?= $lang == 'fr' ? 'en' : 'fr' ?>.svg"></a>
             <div id="apps_mobiles">
     		<?php echo $trans['apps_mobiles'][$lang];?>
-            </div>
+            <!-- </div> -->
         </div>
 
     </header>
@@ -203,7 +206,7 @@ include('texte.php');
                     <?php echo $trans['adherer_texte'][$lang];?>
                 </div>
             </p>
-            <p>
+            <p id="don">
 				<h2><?php echo $trans['faire_un_don_titre'][$lang];?></h2>
                 <div style="" id="don">
                     <?php echo $trans['faire_un_don_texte'][$lang];?>

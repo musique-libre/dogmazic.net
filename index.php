@@ -11,6 +11,7 @@
     	<script src="assets/js/apps_mobiles_popup.js"></script>
     	<script src="assets/js/togglebox.js"></script>
     	<script src="assets/js/style.js"></script>
+    	<script src="assets/js/scrollbutton.js"></script>
 
 	</head>
 
