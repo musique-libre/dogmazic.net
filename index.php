@@ -10,6 +10,7 @@
 	    <script src="assets/js/jquery.min.js"></script>
     	<script src="assets/js/apps_mobiles_popup.js"></script>
     	<script src="assets/js/togglebox.js"></script>
+    	<script src="assets/js/style.js"></script>
 
 	</head>
 
