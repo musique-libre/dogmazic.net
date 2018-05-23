@@ -69,6 +69,20 @@ include('texte.php');
                 ?>				  
             </div>
         </div>
+
+        <!-- BLOG -->
+
+        <div id="blog">
+            <div class="box_title">
+                <h4><?php echo $trans['nouveaux_blog'][$lang];?></h4>
+                <span class="box_plus">+</span>
+            </div>
+            <div class="box_content" data_show="no">
+                <?php
+                lastBlogPosts();
+                ?>                
+            </div>
+        </div>
     </aside>
             
         <!-- RADIO -->
@@ -345,7 +359,7 @@ function lastPost()
             $title = $item->getElementsByTagName('title')->item(0)->nodeValue;
             $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
             //$creator=$item->getElementsByTagName('dc:creator')->item(0)->nodeValue;
-            $pubdate = $item->getElementsByTagName('pubDate')->item(0)->nodeValue;
+            $pubdate = substr($item->getElementsByTagName('pubDate')->item(0)->nodeValue, 5, -9);
 
 
             echo '<p><a target="new" href="' . $link . '">' . htmlspecialchars($title) . '</a><br/>';
@@ -375,6 +389,28 @@ function lastComments()
             $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
             echo '<a target="new" href="' . $link . '"><p><span class="comment">' . htmlspecialchars($description) . '</span>
             <br /><span class="commentAuthor">' . str_replace('Shout by', '', htmlspecialchars($title)) . '</span></p></a>';
+        }
+    }
+}
+
+/*** Affiche les 10 posts do blog ***/
+
+function lastBlogPosts()
+{
+    $dom = new DOMDocument();
+    if ($blogPosts = get_rss_with_cache('musique-libre.org_blog','http://musique-libre.org/feed/')){
+        //echo htmlspecialchars($albums);
+        $dom->loadXML($blogPosts);
+        $dom->preserveWhiteSpace=false;
+        $items = $dom->getElementsByTagName('item');
+        //echo htmlspecialchars(var_dump($items));
+        $i = 0;
+        while(($item = $items->item($i++))&&$i<=10) {
+            $title = $item->getElementsByTagName('title')->item(0)->nodeValue;
+            $pubDate = substr($item->getElementsByTagName('pubDate')->item(0)->nodeValue, 5, -9);
+            $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
+            echo '<p><a target="new" href="' . $link . '">' . htmlspecialchars($title) . '</a><br/>';
+            echo '<span class="pubDate">' . htmlspecialchars($pubDate) . '</span></p>';
         }
     }
 }

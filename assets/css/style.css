@@ -190,19 +190,19 @@ aside#commentsAndForum
     float: right;
 }
 
-#comments, #forum
+aside > *
 {
     border: 1px solid rgb(200,200,200);
     border-radius: 5px;
     background-color: rgba(250,250,250,0.1);
+    margin-bottom: 10px;
 }
-
-#comments p, #forum p
+aside > * p
 {
     padding: 10px;
     margin: 0;
 }
-#comments h4, #forum h4
+aside > * h4
 {
     padding: 20px 10px;
     margin: 0;
@@ -217,13 +217,13 @@ aside#commentsAndForum
 {
     font-size: 80%;
 }
-#comments a:nth-child(odd) p, #forum p:nth-child(odd)
+#comments a:nth-child(odd) p, #forum p:nth-child(odd), #blog p:nth-child(odd)
 {
     background-color: rgba(250,250,250,0.1);
 }
 #comments
 {
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
 }
 .box_title
 {
