@@ -1,8 +1,6 @@
 <?php
 define('RSS_CACHE_TIME', 10); // cache flux rss en minutes
 define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss en minutes
-$lang = isset($_GET['lang']) ? $_GET['lang'] : 'fr';
-include('texte.php');
 ?>
 
     <!-- HEADER -->

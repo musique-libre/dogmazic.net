@@ -1,12 +1,39 @@
 <?php
+$trans['accueil']['fr']="Accueil";
+$trans['accueil']['en']='Home';
 
-$trans['Annoncer un concert']['fr']="Annoncer un concert";
-$trans['Annoncer un concert']['en']='Announce a concert';
+$trans['Connexion']['fr']="Se connecter";
+$trans['Connexion']['en']='Log in';
+
+$trans['Inscription']['fr']="S'inscrire";
+$trans['Inscription']['en']='Sign up';
+
+$trans['Recherche']['fr']="Recherche...";
+$trans['Recherche']['en']='Search...';
+
+$trans['Anywhere']['fr']="N'importe où";
+$trans['Anywhere']['en']='Anywhere';
+
+$trans['Title']['fr']='Titre';
+$trans['Title']['en']='Title';
+
+$trans['Artist']['fr']='Artiste';
+$trans['Artist']['en']='Artist';
+
+$trans['Playlist']['fr']='Liste de lecture';
+$trans['Playlist']['en']='Playlist';
+
+$trans['Tag']['fr']='Genre';
+$trans['Tag']['en']='Tag';
+
+$trans['Rechercher']['fr']="Rechercher";
+$trans['Rechercher']['en']='Search';
+
+$trans['Recherche_avancee']['fr']="Recherche avancée";
+$trans['Recherche_avancee']['en']='Advanced Search';
 
 $trans['publier']['fr']='Publier votre musique';
-$trans['publier']['en']='Publish your music';
-
-
+$trans['publier']['en']='Upload your music';
 
 $trans['pub_content']['fr']='Pour publier votre musique sous licence libre sur Dogmazic.net, il vous suffit de <a target="new" href="http://play.dogmazic.net/register.php">vous créer un compte</a> et/ou de <a href="http://play.dogmazic.net/login.php" target="new">vous connecter</a> puis de cliquer sur l\'icone "Envoyer" dans la barre du menu. <hr>
 	<span class="note">
@@ -20,9 +47,6 @@ $trans['pub_content']['en']='To publish your music under a free licence on Dogma
 
 $trans['ecouter']['fr']='Écouter';
 $trans['ecouter']['en']='Listen';
-
-$trans['publier']['fr']='Publier votre musique';
-$trans['publier']['en']='Upload your music';
 
 $trans['gotaccount']['fr']='Je suis connecté, upload';
 $trans['gotaccount']['en']='I am loggued, upload';
@@ -140,6 +164,9 @@ $trans['chat_texte']['en']='Do you have an idea, or just some time to be around,
 
 $trans['annonces_concert']['fr']='Concerts &amp; évènements';
 $trans['annonces_concert']['en']='Concerts &amp; events';
+
+$trans['Annoncer un concert']['fr']="Annoncer un concert";
+$trans['Annoncer un concert']['en']='Announce a concert';
 
 $trans['nouveaux_articles']['fr']='Nouveaux articles';
 $trans['nouveaux_articles']['en']='New blog posts';
