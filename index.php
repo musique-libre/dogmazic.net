@@ -1,6 +1,7 @@
 <?php
 $lang = isset($_GET['lang']) ? $_GET['lang'] : 'fr';
-include('dogmazic.net/texte.php');
+include('ini.php');
+include(HOME_PATH . DS . 'texte.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,19 +10,19 @@ include('dogmazic.net/texte.php');
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" href="//play.dogmazic.net/favicon_dogmazic.ico">
-	    <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="screen">
-	    <script src="assets/js/jquery.min.js"></script>
-    	<script src="assets/js/apps_mobiles_popup.js"></script>
-    	<script src="assets/js/togglebox.js"></script>
-    	<script src="assets/js/style.js"></script>
-    	<script src="assets/js/scrollbutton.js"></script>
+	    <link rel="stylesheet" href="<?= CSS_PATH . DS . 'style.css'?>" type="text/css" media="screen">
+	    <script src="<?= JS_PATH . DS . 'jquery.min.js'?>"></script>
+    	<script src="<?= JS_PATH . DS . 'apps_mobiles_popup.js'?>"></script>
+    	<script src="<?= JS_PATH . DS . 'togglebox.js'?>"></script>
+    	<script src="<?= JS_PATH . DS . 'style.js'?>"></script>
+    	<script src="<?= JS_PATH . DS . 'scrollbutton.js'?>"></script>
 
 	</head>
 
     <body>       
     	<header>        	
 			<a href="//play.dogmazic.net/index.php">
-				<img src="Dogmazic%20-%20Accueil_fichiers/dogmazic.png" title="Dogmazic" alt="Dogmazic" id="logo_dogmazic">
+				<img src="<?= IMG_PATH . DS . 'dogmaziclogo.png'?>" title="Dogmazic" alt="Dogmazic" id="logo_dogmazic">
 			</a>
 			<span id="loginInfo">
                 <a href="//play.dogmazic.net/login.php"><?= $trans['Connexion'][$lang] ?></a>
@@ -46,14 +47,13 @@ include('dogmazic.net/texte.php');
 		        <a href="//play.dogmazic.net/search.php?type=song" id="advSearch"><?= $trans['Recherche_avancee'][$lang] ?></a>
 	    	</form>
 	    	<a href="//play.dogmazic.net/search.php?type=song" id="loupe" title="<?= $trans['Rechercher'][$lang] ?>">
-	    		<img src="assets/img/loupe_blanche.png">
+	    		<img src="<?= IMG_PATH . DS . 'loupe_blanche.png'?>">
 	    	</a>
 		</header>
 
         <main>
-          <!-- <object data="./dogmazic.net/?embed=true" type="text/html" style="width:100%;" height="1980" id="mainframe"></object> -->
           <?php
-          	include("./dogmazic.net/accueil.php"); 
+          	include(HOME_PATH . DS . 'accueil.php'); 
           ?>
     	</main>
        

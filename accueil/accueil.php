@@ -17,7 +17,7 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
         </p>       
 			
         <!-- <div id="flagAndApps"> -->
-            <a href="?lang=<?= $lang == 'fr' ? 'en' : 'fr' ?>"><img class="flag" src="assets/img/<?= $lang == 'fr' ? 'en' : 'fr' ?>.svg"></a>
+            <a href="?lang=<?= $lang == 'fr' ? 'en' : 'fr' ?>"><img class="flag" src="<?= IMG_PATH . DS . ($lang == 'fr' ? 'en' : 'fr') ?>.svg"></a>
             <div id="apps_mobiles">
     		<?php echo $trans['apps_mobiles'][$lang];?>
             <!-- </div> -->
@@ -77,7 +77,7 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 
         <div id="blog">
             <div class="box_title">
-                <h4><?php echo $trans['nouveaux_blog'][$lang];?></h4>
+                <h4><?php echo $trans['nouveaux_articles'][$lang];?></h4>
                 <span class="box_plus">+</span>
             </div>
             <div class="box_content" data_show="no">
@@ -218,7 +218,7 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 					
         <h2><?= $trans['adherer_titre'][$lang]?></h2>
             <p>
-                <a target="new" href="http://musique-libre.org" alt="Musique Libre !"><img src="assets/img/musiquelibrelogo.png" id="logo_ml" /></a>
+                <a target="new" href="http://musique-libre.org" alt="Musique Libre !"><img src="<?= IMG_PATH . DS . 'musiquelibrelogo.png'?>" id="logo_ml" /></a>
                 <div>
                     <?php echo $trans['adherer_texte'][$lang];?>
                 </div>
@@ -443,17 +443,6 @@ if (isset($_GET['get'])&&$_GET['get']==='nowplaying'){
     }
     exit();
 }
-
-
-
-
-
-//hugly emebed hack
-// $url_embed="";
-// if (isset($_GET['embed'])){
-//     $url_embed='embed=true';
-// }
-
 
 
 ?>
