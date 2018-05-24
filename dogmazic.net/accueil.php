@@ -24,6 +24,11 @@ include('texte.php');
     		<?php echo $trans['apps_mobiles'][$lang];?>
             <!-- </div> -->
         </div>
+<!--         <section id="header_bottom">
+            <p><?= $trans['chat_soustitre'][$lang];?><br/> 
+            <?= $trans['chat_header'][$lang];?>
+            </p> 
+        </section> -->
 
     </header>
 

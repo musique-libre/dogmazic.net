@@ -1,19 +1,9 @@
-*********** COMMON ************/
+/************ COMMON ************/
 
-/*@font-face
-{
-    font-family: 'Magneto';
-    src:url('../font/MAGNETOB.TTF');
-}*/
-/*@font-face
-{
-    font-family: 'idigital';
-    src:url('../font/Idigital-Medium.otf');
-}*/
 @font-face
 {
     font-family: 'Pacifico';
-    src:url('../font/Pacifico.ttf');
+    src:url('../font/Pacifico.ttf') format('truetype');
 }
 body {
     color:#C0C0C0;
@@ -47,10 +37,9 @@ hr
 }
 h1
 {
-    font-family: Pacifico;
+    font-family: 'Pacifico';
     font-weight: normal;
     font-size: 3em;
-    /*text-shadow: 0px 3px #ff9d00;*/
 }
 h2
 {
@@ -111,7 +100,14 @@ main > header #bouton_don
     top: 50%;
     left: 10px;
     transform: translateY(-50%);
+    /*max-width: 20vw;*/
 }
+main > header p
+{
+/*    display: block;
+    max-width: 40%;
+    margin: auto;
+*/}
 main > header #flagAndApps
 {
     /*position: absolute;
@@ -148,6 +144,10 @@ main > header #apps_mobiles, #bouton_don
 main > header #apps_mobiles:hover, #bouton_don:hover
 {
     background-color: rgba(250,250,250,0.1);
+}
+main > header #header_bottom
+{
+    display: none;
 }
 
 /************ ALBUMS ************/
@@ -385,7 +385,17 @@ main > footer
         right: 20px;
     }
 }
-
+@media (max-width: 1100px)
+{
+/*    main > header > p
+    {
+        display: none;
+    }
+    main > header #header_bottom
+    {
+        display: block;
+    }*/
+}
 @media (max-width: 900px)
 {
     body > header form
