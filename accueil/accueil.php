@@ -10,9 +10,7 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
             <?= $trans['faire_un_don_titre'][$lang] ?>
         </div>
 
-        <!-- <div > -->
         <img id="logo_don" src="<?= IMG_PATH . DS . 'don.png' ?>">
-        <!-- </div> -->
 
         <h1><a href="http://play.dogmazic.net" alt="Dogmazic archive" title="Accéder à l'archive">Dogmazic</a></h1>
         

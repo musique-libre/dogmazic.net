@@ -419,9 +419,9 @@ main > footer
         display: flex;
         justify-content: space-between;
     }
-    #comments, #forum
+    #comments, #forum, #blog
     {
-        width: 49%;
+        width: 32.5%;
         margin-bottom: 10px;
     }
     article#musique_libre, article#publier
@@ -439,6 +439,10 @@ main > footer
     {
         width: 25px;
         height: 15px;
+    }
+    #logo_ml
+    {
+        width: 150px;
     }
 }
 @media (max-width: 700px)
@@ -462,12 +466,28 @@ main > footer
     {
         right: 10vw;
     }
+    aside#commentsAndForum
+    {
+        width: 100%;
+        float: none;
+        display: block;
+    }
+    #comments, #forum, #blog
+    {
+        width: 100%;
+        max-width: 550px;
+        margin: 0 auto 10px auto;
+    }
 }
 @media (max-width: 450px)
 {
     main > header #logo_don
     {
         width: 30px;
+    }
+    #albumList .album 
+    {
+        width: 50%;
     }
 }
 @media (max-width: 400px)

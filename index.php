@@ -57,8 +57,5 @@ include(HOME_PATH . DS . 'texte.php');
           ?>
     	</main>
        
-        <!-- <footer id="footer" class="footer-wild">
-                dogmazic.net | musique-libre.org | propulsed by ampache.org                
-        </footer> -->
 </body>
 </html>
