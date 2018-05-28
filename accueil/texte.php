@@ -147,6 +147,9 @@ $trans['faire_un_don_texte']['en']='In September 2017 the <em><strong>Musique Li
 </span>
 ';
 
+$trans['chat_irc']['fr']='chat irc ';
+$trans['chat_irc']['en']='irc chat';
+
 $trans['chat_titre']['fr']='Participer : ';
 $trans['chat_titre']['en']='Get involved: ';
 

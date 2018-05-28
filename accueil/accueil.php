@@ -10,23 +10,22 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
             <?= $trans['faire_un_don_titre'][$lang] ?>
         </div>
 
+        <!-- <div > -->
+        <img id="logo_don" src="<?= IMG_PATH . DS . 'don.png' ?>">
+        <!-- </div> -->
+
         <h1><a href="http://play.dogmazic.net" alt="Dogmazic archive" title="Accéder à l'archive">Dogmazic</a></h1>
         
         <p><?= $trans['chat_soustitre'][$lang];?><br/> 
       	<?= $trans['chat_header'][$lang];?>
-        </p>       
+        </p>  
+        <a href="./irc"><nav id="bouton_irc"><?= $trans['chat_irc'][$lang];?></nav></a>     
 			
-        <!-- <div id="flagAndApps"> -->
-            <a href="?lang=<?= $lang == 'fr' ? 'en' : 'fr' ?>"><img class="flag" src="<?= IMG_PATH . DS . ($lang == 'fr' ? 'en' : 'fr') ?>.svg"></a>
-            <div id="apps_mobiles">
-    		<?php echo $trans['apps_mobiles'][$lang];?>
-            <!-- </div> -->
+        <a href="?lang=<?= $lang == 'fr' ? 'en' : 'fr' ?>"><img class="flag" src="<?= IMG_PATH . DS . ($lang == 'fr' ? 'en' : 'fr') ?>.svg"></a>
+        <div id="apps_mobiles">
+	   	<?php echo $trans['apps_mobiles'][$lang];?>
         </div>
-<!--         <section id="header_bottom">
-            <p><?= $trans['chat_soustitre'][$lang];?><br/> 
-            <?= $trans['chat_header'][$lang];?>
-            </p> 
-        </section> -->
+        <img id="logo_mobile" src="<?= IMG_PATH . DS . 'smartphone.png' ?>">
 
     </header>
 
