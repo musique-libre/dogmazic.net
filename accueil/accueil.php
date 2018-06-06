@@ -12,7 +12,7 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 
         <img id="logo_don" src="<?= IMG_PATH . DS . 'don.png' ?>">
 
-        <h1><a href="http://play.dogmazic.net" alt="Dogmazic archive" title="Accéder à l'archive">Dogmazic</a></h1>
+        <h1><a href="http://play.dogmazic.net" alt="Dogmazic archive" title="<?= $trans['acces_archive'][$lang] ?>">Dogmazic</a></h1>
         
         <p><?= $trans['chat_soustitre'][$lang];?><br/> 
       	<?= $trans['chat_header'][$lang];?>
@@ -41,6 +41,8 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
    <!-- COMMENTAIRES & FORUM -->
 
     <aside id="commentsAndForum">
+
+        <!-- MENU MUSIQUE -->
 
         <!-- LAST COMMENTS -->
         

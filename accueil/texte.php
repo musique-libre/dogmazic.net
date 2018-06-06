@@ -1,7 +1,10 @@
 <?php
+
+/** TITRE **/
 $trans['accueil']['fr']="Accueil";
 $trans['accueil']['en']='Home';
 
+/** 1er HEADER **/
 $trans['Connexion']['fr']="Se connecter";
 $trans['Connexion']['en']='Log in';
 
@@ -32,6 +35,27 @@ $trans['Rechercher']['en']='Search';
 $trans['Recherche_avancee']['fr']="Recherche avancée";
 $trans['Recherche_avancee']['en']='Advanced Search';
 
+/** 2nd HEADER **/
+$trans['acces_archive']['fr']='Accéder à l\'archive';
+$trans['acces_archive']['en']='Browse the archive';
+
+$trans['chat_irc']['fr']='chat irc ';
+$trans['chat_irc']['en']='irc chatroom';
+
+$trans['chat_soustitre']['fr']='Soyez présents sur notre <a title="Dogmazic chat" href="./irc/">chat IRC</a>, pour discuter et agir avec nous.';
+$trans['chat_soustitre']['en']='Be there on our <a title="Dogmazic chat" href="./irc/">IRC chatroom</a>, to discuss and act with us.';
+
+$trans['apps_mobiles']['fr']='Applis mobiles';
+$trans['apps_mobiles']['en']='Mobile apps';
+
+$trans['apps_mobiles_texte']['fr']='Le nouveau Dogmazic est compatible avec toutes les applications supportant les APIs standards de Subsonic ou Ampache (oui, oui, même celles sur votre smart TV). Recherchez simplement une application compatible Ampache ou Subsonic dans celles disponibles sur votre système, et entrez <strong>play.dogmazic.net</strong> comme adresse de serveur.';
+$trans['apps_mobiles_texte']['en']='The new Dogmazic is compatible with any application supporting the standard Ampache or Subsonic APIs (yes, even on your smart TV). Just search for a Subsonic or Ampache compatible application among the ones available for your device, and type in <strong>play.dogmazic.net</strong> as the server address.';
+
+$trans['apps_mobiles_texte_avert']['fr']='Notez que la plupart, sinon toutes les applications mobiles compatibles Ampache ou Subsonic, demandent que vous possédiez un compte sur notre serveur. Si vous n\'en avez pas déjà créé un, vous pouvez le faire <a target="new" href="http://play.dogmazic.net/register.php">ici</a>.';
+$trans['apps_mobiles_texte_avert']['en']='Please note that most, if not any, mobile application compatible with Ampache and Subsonic will require that you have an account on our server. If you have not already created one, you can do so <a target="new" href="http://play.dogmazic.net/register.php">here</a>.';
+
+/** PUBLIER **/
+
 $trans['publier']['fr']='Publier votre musique';
 $trans['publier']['en']='Upload your music';
 
@@ -45,43 +69,24 @@ $trans['pub_content']['en']='To publish your music under a free licence on Dogma
 	<em>Note for hotmail/Microsoft address owners</em><br/>The politic for mail delivery of Microsoft causes currently our email to be never delivered. If you already had an account with such an address, you can contact us through our <a href="./irc/">irc chat</a> to recover your account access. You can as well contact us if you have no other address than a Microsoft one and wish to create an account.
 	</span>';
 
-$trans['ecouter']['fr']='Écouter';
-$trans['ecouter']['en']='Listen';
+/** NOUVEAUTES ET MUSIQUE **/
 
-$trans['gotaccount']['fr']='Je suis connecté, upload';
-$trans['gotaccount']['en']='I am loggued, upload';
-
-$trans['forum']['fr']='Forum';
-$trans['forum']['en']='Forum';
-
-$trans['chat']['fr']='Chat';
-$trans['chat']['en']='Chat';
-
-$trans['En écoute']['fr']='En écoute';
-$trans['En écoute']['en']='Now playing';
-
-
-
-$trans['intro_asso']['fr']='Depuis 2004 l\'association Musique Libre propose aux mélomanes et aux artistes son archive musicale comptant maintenant plus de 50 000 titres, provenant de projets musicaux du monde entier, et tous placés sous licence libre ou ouverte. Financée exclusivement par les adhésions et les dons, Musique Libre est une association à but non lucratif.';
-$trans['intro_asso']['en']='Since 2004, the Musique Libre volunteer organisation provides to listeners and musicians its music archive with now more than 50 000 tracks, coming from the entire world, all of them available under various free or open licenses. Funded exclusively by donations and memberships, Musique Libre is a non-for-profit organisation.';
-
-$trans['acces_archive']['fr']='Accéder à l\'archive';
-$trans['acces_archive']['en']='Browse the archive';
-
-$trans['apps_mobiles']['fr']='Applis mobiles';
-$trans['apps_mobiles']['en']='Mobile apps';
-
-$trans['apps_mobiles_texte']['fr']='Le nouveau Dogmazic est compatible avec toutes les applications supportant les APIs standards de Subsonic ou Ampache (oui, oui, même celles sur votre smart TV). Recherchez simplement une application compatible Ampache ou Subsonic dans celles disponibles sur votre système, et entrez <strong>play.dogmazic.net</strong> comme adresse de serveur.';
-$trans['apps_mobiles_texte']['en']='The new Dogmazic is compatible with any application supporting the standard Ampache or Subsonic APIs (yes, even on your smart TV). Just search for a Subsonic or Ampache compatible application among the ones available for your device, and type in <strong>play.dogmazic.net</strong> as the server address.';
-
-$trans['apps_mobiles_texte_avert']['fr']='Notez que la plupart, sinon toutes les applications mobiles compatibles Ampache ou Subsonic, demandent que vous possédiez un compte sur notre serveur. Si vous n\'en avez pas déjà créé un, vous pouvez le faire <a target="new" href="http://play.dogmazic.net/register.php">ici</a>.';
-$trans['apps_mobiles_texte_avert']['en']='Please note that most, if not any, mobile application compatible with Ampache and Subsonic will require that you have an account on our server. If you have not already created one, you can do so <a target="new" href="http://play.dogmazic.net/register.php">here</a>.';
+$trans['Musique']['fr']='Musique';
+$trans['Musique']['en']='Music';
 
 $trans['nouveaux_albums']['fr']='Nouveaux albums';
 $trans['nouveaux_albums']['en']='Latest releases';
 
 $trans['nouveaux_commentaires']['fr']='Nouveaux commentaires';
 $trans['nouveaux_commentaires']['en']='Latest comments';
+
+$trans['nouveaux_articles']['fr']='Nouveaux articles';
+$trans['nouveaux_articles']['en']='Latest blog posts';
+
+$trans['nouveaux_forum']['fr']='Forum';
+$trans['nouveaux_forum']['en']='Forum';
+
+/** ARTICLE **/
 
 $trans['musique_libre_titre']['fr'] = 'Musique Libre, pourquoi, comment ?';
 $trans['musique_libre_titre']['en'] = 'Libre Musique, how, why ?';
@@ -147,19 +152,36 @@ $trans['faire_un_don_texte']['en']='In September 2017 the <em><strong>Musique Li
 </span>
 ';
 
-$trans['chat_irc']['fr']='chat irc ';
-$trans['chat_irc']['en']='irc chat';
+/** FOOTER **/
+$trans['legal']['fr']='Copyright 2004-2017 Association Musique Libre. Sauf autre mention (par exemple pour les morceaux de l\'archive musicale), ce site et son contenu sont disponibles sous licence <a target="new" href="https://creativecommons.org/licenses/by-sa/2.0/">Creative Commons BY-SA</a>. Numéro CNIL : 1208661';
+$trans['legal']['en']='Copyright 2004-2017 Musique Libre volunteer organisation. Unless otherwise mentioned (as an example, the tracks in the music archive), this site and its content are published under the terms of the <a target="new" href="https://creativecommons.org/licenses/by-sa/2.0/">Creative Commons BY-SA</a> license. CNIL number : 1208661';
+
+/** UNUSED **/
+
+$trans['ecouter']['fr']='Écouter';
+$trans['ecouter']['en']='Listen';
+
+$trans['gotaccount']['fr']='Je suis connecté, upload';
+$trans['gotaccount']['en']='I am loggued, upload';
+
+$trans['forum']['fr']='Forum';
+$trans['forum']['en']='Forum';
+
+$trans['chat']['fr']='Chat';
+$trans['chat']['en']='Chat';
+
+$trans['En écoute']['fr']='En écoute';
+$trans['En écoute']['en']='Now playing';
+
+
+$trans['intro_asso']['fr']='Depuis 2004 l\'association Musique Libre propose aux mélomanes et aux artistes son archive musicale comptant maintenant plus de 50 000 titres, provenant de projets musicaux du monde entier, et tous placés sous licence libre ou ouverte. Financée exclusivement par les adhésions et les dons, Musique Libre est une association à but non lucratif.';
+$trans['intro_asso']['en']='Since 2004, the Musique Libre volunteer organisation provides to listeners and musicians its music archive with now more than 50 000 tracks, coming from the entire world, all of them available under various free or open licenses. Funded exclusively by donations and memberships, Musique Libre is a non-for-profit organisation.';
 
 $trans['chat_titre']['fr']='Participer : ';
 $trans['chat_titre']['en']='Get involved: ';
 
 $trans['chat_header']['fr']='Vos retours, vos questions nous aident à construire le projet et sont précieux ! ';
 $trans['chat_header']['en']='Your feeback, your questions help us building the project and are precious! ';
-
-
-$trans['chat_soustitre']['fr']='Soyez présents sur notre <a title="Dogmazic chat" href="./irc/">chat IRC</a>, pour discuter et agir avec nous.';
-$trans['chat_soustitre']['en']='Be there on our <a title="Dogmazic chat" href="./irc/">IRC chatroom</a>, to discuss and act with us.';
-
 
 
 $trans['chat_texte']['fr']='Vous avez une idée, ou bien du temps pour être présent, discuter de l\'asso et faire circuler les infos ? Rejoignez nous sur notre <a href="./irc">chat IRC</a> (<em>#dogmazic</em> sur <em>Freenode</em>). <br/>';
@@ -171,14 +193,3 @@ $trans['annonces_concert']['en']='Concerts &amp; events';
 $trans['Annoncer un concert']['fr']="Annoncer un concert";
 $trans['Annoncer un concert']['en']='Announce a concert';
 
-$trans['nouveaux_articles']['fr']='Nouveaux articles';
-$trans['nouveaux_articles']['en']='New blog posts';
-
-$trans['nouveaux_forum']['fr']='Forum';
-$trans['nouveaux_forum']['en']='Forum';
-
-$trans['nouveaux_blog']['fr']='Blog';
-$trans['nouveaux_blog']['en']='Blog';
-
-$trans['legal']['fr']='Copyright 2004-2017 Association Musique Libre. Sauf autre mention (par exemple pour les morceaux de l\'archive musicale), ce site et son contenu sont disponibles sous licence <a target="new" href="https://creativecommons.org/licenses/by-sa/2.0/">Creative Commons BY-SA</a>. Numéro CNIL : 1208661';
-$trans['legal']['en']='Copyright 2004-2017 Musique Libre volunteer organisation. Unless otherwise mentioned (as an example, the tracks in the music archive), this site and its content are published under the terms of the <a target="new" href="https://creativecommons.org/licenses/by-sa/2.0/">Creative Commons BY-SA</a> license. CNIL number : 1208661';
