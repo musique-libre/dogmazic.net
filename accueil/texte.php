@@ -74,6 +74,18 @@ $trans['pub_content']['en']='To publish your music under a free licence on Dogma
 $trans['Musique']['fr']='Musique';
 $trans['Musique']['en']='Music';
 
+$trans['Tracks']['fr']='Pistes';
+$trans['Tracks']['en']='Tracks';
+
+$trans['Artists']['fr']='Artistes';
+$trans['Artists']['en']='Artists';
+
+$trans['Playlists']['fr']='Listes de lecture';
+$trans['Playlists']['en']='Playlists';
+
+$trans['Tags']['fr']='Genres';
+$trans['Tags']['en']='Tags';
+
 $trans['nouveaux_albums']['fr']='Nouveaux albums';
 $trans['nouveaux_albums']['en']='Latest releases';
 

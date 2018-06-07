@@ -3,7 +3,7 @@ $(function(){
 	* 	pour éviter le déroulement des 2 boîtes en cas d'alignement horizontal (responsive)
 	*/ 
 	var box_height = $('#commentsAndForum #forum').outerHeight();		
-	$('#commentsAndForum').children().css('max-height',box_height+'px');
+	$('#commentsAndForum').children(':not(#menuMusique)').css('max-height',box_height+'px');
 
 	$('#commentsAndForum .box_title').click(function(){
 		var show = $(this).parent().children('.box_content').attr('data_show');
