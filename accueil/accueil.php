@@ -27,6 +27,20 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 
     </header>
 
+    <!-- MENU MUSIQUE -->
+
+    <div id="menuMusique">
+        <h4><?= $trans['Musique'][$lang]?></h4>
+        <ul>
+            <a href="//play.dogmazic.net/browse.php?action=song" target="_blank"><li><?= $trans['Tracks'][$lang] ?></li></a>
+            <a href="//play.dogmazic.net/browse.php?action=album" target="_blank"><li><?= $trans['Albums'][$lang] ?></li></a>
+            <a href="//play.dogmazic.net/browse.php?action=artist" target="_blank"><li><?= $trans['Artists'][$lang] ?></li></a>
+            <a href="//play.dogmazic.net/browse.php?action=label" target="_blank"><li><?= $trans['Labels'][$lang] ?></li></a>
+            <a href="//play.dogmazic.net/browse.php?action=tag" target="_blank"><li><?= $trans['Tags'][$lang] ?></li></a>
+            <a href="//play.dogmazic.net/browse.php?action=playlist" target="_blank"><li><?= $trans['Playlists'][$lang]?></li></a>
+        </ul>
+    </div>
+
     <!-- NOUVEAUX ALBUMS -->
 
 	<section id="albums">	
@@ -41,20 +55,6 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
    <!-- COMMENTAIRES & FORUM -->
 
     <aside id="commentsAndForum">
-
-        <!-- MENU MUSIQUE -->
-
-        <div id="menuMusique">
-            <h4><?= $trans['Musique'][$lang]?></h4>
-            <ul>
-                <a href="//play.dogmazic.net/browse.php?action=song" target="_blank"><li><?= $trans['Tracks'][$lang] ?></li></a>
-                <a href="//play.dogmazic.net/browse.php?action=album" target="_blank"><li>Albums</li></a>
-                <a href="//play.dogmazic.net/browse.php?action=artist" target="_blank"><li><?= $trans['Artists'][$lang] ?></li></a>
-                <a href="//play.dogmazic.net/browse.php?action=label" target="_blank"><li>Labels</li></a>
-                <a href="//play.dogmazic.net/browse.php?action=tag" target="_blank"><li><?= $trans['Tags'][$lang] ?></li></a>
-                <a href="//play.dogmazic.net/browse.php?action=playlist" target="_blank"><li><?= $trans['Playlists'][$lang]?></li></a>
-            </ul>
-        </div>
 
         <!-- LAST COMMENTS -->
         
