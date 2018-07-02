@@ -49,8 +49,10 @@ h1 a
 }
 h1 a:hover
 {
-    color: #fb7700;
-    text-shadow: 0px 3px white;
+    /*color: #fb7700;*/
+    text-shadow: 0px 1px #fb7700;
+    position: relative;
+    top: 2px;
 }
 h2
 {
@@ -167,7 +169,8 @@ main > header #apps_mobiles:hover, #bouton_don:hover, #bouton_irc:hover
 {
     padding: 10px 10px;
     /*background-color: rgb(20,20,20);*/
-    background-color: rgb(251,119,0);
+    /*background-color: rgb(251,119,0);*/
+    background-color: #ff9d00;
     color: rgb(20,20,20);
     transition: 0.5s;
     margin: 0;
@@ -192,15 +195,16 @@ main > header #apps_mobiles:hover, #bouton_don:hover, #bouton_irc:hover
     /*color: #ff9d00; */
     color: black;
     /*background-color: rgb(10,10,10);*/
-    background-color: #ff9d00;
+    /*background-color: #ff9d00;*/
+    background-color: rgb(251,119,0);
 }
 #menuMusique li
 {
     margin: 5px auto;
     padding: 5px;
-    /*background-color:  rgba(250,250,250,0.1);*/
-    background-color: rgb(251,119,0);
-    color: rgb(20,20,20);
+    background-color:  rgba(250,250,250,0.1);
+    /*background-color: rgb(251,119,0);*/
+    /*color: rgb(20,20,20);*/
     /*text-indent: 10px;*/
     transition: 0.5s;
     width: 100%;
@@ -209,11 +213,11 @@ main > header #apps_mobiles:hover, #bouton_don:hover, #bouton_irc:hover
 {
     /*transform: translateX(20px);*/
     width: 80%;
-    border-radius: 10px;
-    color: black;
-    /*color: white;*/
-    /*background-color: rgb(10,10,10);*/
-    background-color: #ff9d00;
+    /*border-radius: 10px;*/
+    /*color: black;*/
+    color: white;
+    background-color: rgba(250,250,250,0.2);
+    /*background-color: #ff9d00;*/
 }
 
 

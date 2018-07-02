@@ -32,8 +32,6 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
     <div id="menuMusique">
         <h4><?= $trans['Musique'][$lang]?></h4>
         <ul>
-            <a href="//play.dogmazic.net/browse.php?action=song" target="_blank"><li><?= $trans['Tracks'][$lang] ?></li></a>
-            <a href="//play.dogmazic.net/browse.php?action=album" target="_blank"><li><?= $trans['Albums'][$lang] ?></li></a>
             <a href="//play.dogmazic.net/browse.php?action=artist" target="_blank"><li><?= $trans['Artists'][$lang] ?></li></a>
             <a href="//play.dogmazic.net/browse.php?action=label" target="_blank"><li><?= $trans['Labels'][$lang] ?></li></a>
             <a href="//play.dogmazic.net/browse.php?action=tag" target="_blank"><li><?= $trans['Tags'][$lang] ?></li></a>
