@@ -71,20 +71,26 @@ $trans['pub_content']['en']='To publish your music under a free licence on Dogma
 
 /** NOUVEAUTES ET MUSIQUE **/
 
-$trans['Musique']['fr']='Musique';
-$trans['Musique']['en']='Music';
+$trans['Musique']['fr']='Parcourir la musique';
+$trans['Musique']['en']='Browse music';
 
-$trans['Tracks']['fr']='Pistes';
-$trans['Tracks']['en']='Tracks';
+$trans['Tracks']['fr']='Par piste';
+$trans['Tracks']['en']='By track';
 
-$trans['Artists']['fr']='Artistes';
-$trans['Artists']['en']='Artists';
+$trans['Albums']['fr']='Par album';
+$trans['Albums']['en']='By album';
 
-$trans['Playlists']['fr']='Listes de lecture';
-$trans['Playlists']['en']='Playlists';
+$trans['Artists']['fr']='Par artiste';
+$trans['Artists']['en']='By artist';
 
-$trans['Tags']['fr']='Genres';
-$trans['Tags']['en']='Tags';
+$trans['Labels']['fr']='Par label';
+$trans['Labels']['en']='By label';
+
+$trans['Playlists']['fr']='Par liste de lecture';
+$trans['Playlists']['en']='By playlist';
+
+$trans['Tags']['fr']='Par genre';
+$trans['Tags']['en']='By tag';
 
 $trans['nouveaux_albums']['fr']='Nouveaux albums';
 $trans['nouveaux_albums']['en']='Latest releases';
