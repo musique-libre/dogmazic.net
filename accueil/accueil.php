@@ -346,7 +346,7 @@ function albumList(){
             //if ($counter<=3){echo 'float:left;';}
             //else {echo 'float:none:clear:both;';$counter=1;}
             
-            echo '"><img class="albumimg" src="' . $image . '" height="149px" width="149px" /><br/><p>' . htmlspecialchars(substr($description, 0,30));
+            echo '"><img class="albumimg" src="' . $image . '"/><br/><p>' . htmlspecialchars(substr($description, 0,30));
             if (substr($description, 0,30)!==$description){echo '...';}
             echo '</p></a></li>';
         }
