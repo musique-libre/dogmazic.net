@@ -29,6 +29,10 @@ a
     color: #ff9d00;
     text-decoration:none;
 }
+a:hover
+{
+	color: white;
+}
 
 hr 
 {
@@ -244,7 +248,14 @@ main > header #apps_mobiles:hover, #bouton_don:hover, #bouton_irc:hover
 #albumList .albumimg
 {
     width: 80%;
-
+}
+#albumList .album:hover .albumimg
+{
+	/*border: 1px solid #ff9d00;*/
+}
+#albumList .album:hover a
+{
+	color: white;
 }
 #albumList p
 {
@@ -265,7 +276,7 @@ aside > *
     border: 1px solid rgb(200,200,200);
     border-radius: 5px;
     background-color: rgba(250,250,250,0.1);
-    margin-bottom: 10px;
+    margin: 0 10% 10px;
 }
 aside > * p
 {
@@ -315,7 +326,8 @@ aside > * h4
 article#publier
 {
     margin-right: 30%;
-    margin-left: 10px;
+    /*margin-left: 10px;*/
+    margin-left: 10%;
     border: 1px solid #ff9d00;
     text-align: justify;
 }
@@ -345,7 +357,8 @@ article#publier hr
 article#musique_libre
 {
     margin-right: 30%;
-    margin-left: 10px;
+    /*margin-left: 10px;*/
+    margin-left: 10%;
     padding: 10px;
     text-align: justify;
 }
@@ -441,7 +454,7 @@ main > footer
 
 /************ RESPONSIVE ************/
 
-@media (max-width: 1100px)
+@media (max-width: 1200px)
 {
     main > header #bouton_don
     {
@@ -453,9 +466,9 @@ main > footer
         left: 8vw;
         width: 35px;
     }
-}
+/*}
 @media (max-width: 900px)
-{
+{*/
     body > header form
     {
         display: none;
@@ -498,7 +511,8 @@ main > footer
     #comments, #forum, #blog
     {
         width: 32.5%;
-        margin-bottom: 10px;
+        /*margin-bottom: 10px;*/
+        margin: 0 0 10px;
     }
     #menuMusique
     {
@@ -506,7 +520,8 @@ main > footer
     }
     article#musique_libre, article#publier
     {
-        margin-right: 10px;
+        /*margin-right: 10px;*/
+        margin: 0 10px;
     }
 }
 @media (max-width: 800px)
