@@ -16,6 +16,13 @@ $(function(){
 			toggle('up',$(this),box_height);
 		}
 	});
+
+	/** Déroulement initial des blocs indiqués **/
+	$('#commentsAndForum .box_content').each(function(){
+		if($(this).attr('data_show') == 'yes'){
+			toggle('down',$(this),box_height);
+		}
+	});
 });
 
 function toggle(sens,element,box_height){
@@ -34,11 +41,11 @@ function toggle(sens,element,box_height){
 			step+=5;
 			y = step*50/135;
 			if(sens == 'down'){
-				element.find('.box_plus').css('transform','rotate(-'+step+'deg)');
+				element.parent().find('.box_plus').css('transform','rotate(-'+step+'deg)');
 				element.parent().children('.box_content').css('max-height',y+'em');
 				element.parent().css('max-height','none');
 			}else{
-				element.find('.box_plus').css('transform','rotate(-'+(135-step)+'deg)');
+				element.parent().find('.box_plus').css('transform','rotate(-'+(135-step)+'deg)');
 				element.parent().children('.box_content').css('max-height',50-y+'em');
 			}
 			
