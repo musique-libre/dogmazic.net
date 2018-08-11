@@ -54,6 +54,34 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 
     <aside id="commentsAndForum">
 
+         <!-- BLOG -->
+
+        <div id="blog">
+            <div class="box_title">
+                <h4><?php echo $trans['nouveaux_articles'][$lang];?></h4>
+                <span class="box_plus">+</span>
+            </div>
+            <div class="box_content" data_show="yes">
+                <?php
+                lastBlogPosts();
+                ?>                
+            </div>
+        </div>
+
+        <!-- FORUM -->
+
+        <div id="forum">
+            <div class="box_title">
+                <h4><?php echo $trans['nouveaux_forum'][$lang];?></h4>
+                <span class="box_plus">+</span>
+            </div>
+            <div class="box_content" data_show="no">
+                <?php
+                lastPost();
+                ?>                
+            </div>
+        </div>
+
         <!-- LAST COMMENTS -->
         
         <div id="comments">
@@ -67,34 +95,6 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
                 ?>
             </div>
         </div>                              
-
-        <!-- FORUM -->
-
-        <div id="forum">
-            <div class="box_title">
-                <h4><?php echo $trans['nouveaux_forum'][$lang];?></h4>
-                <span class="box_plus">+</span>
-            </div>
-            <div class="box_content" data_show="no">
-                <?php
-                lastPost();
-                ?>				  
-            </div>
-        </div>
-
-        <!-- BLOG -->
-
-        <div id="blog">
-            <div class="box_title">
-                <h4><?php echo $trans['nouveaux_articles'][$lang];?></h4>
-                <span class="box_plus">+</span>
-            </div>
-            <div class="box_content" data_show="no">
-                <?php
-                lastBlogPosts();
-                ?>                
-            </div>
-        </div>
     </aside>
             
         <!-- RADIO -->
@@ -367,7 +367,7 @@ function lastPost()
         $items = $dom->getElementsByTagName('item');
         //echo htmlspecialchars(var_dump($items));
         $i = 0;
-        while (($item = $items->item($i++))&&$i<10) {
+        while (($item = $items->item($i++))&&$i<=5) {
             //$image=$item->getElementsByTagName('image')->item(0)->nodeValue;
             $title = $item->getElementsByTagName('title')->item(0)->nodeValue;
             $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
@@ -418,7 +418,7 @@ function lastBlogPosts()
         $items = $dom->getElementsByTagName('item');
         //echo htmlspecialchars(var_dump($items));
         $i = 0;
-        while(($item = $items->item($i++))&&$i<=10) {
+        while(($item = $items->item($i++))&&$i<=5) {
             $title = $item->getElementsByTagName('title')->item(0)->nodeValue;
             $pubDate = substr($item->getElementsByTagName('pubDate')->item(0)->nodeValue, 5, -9);
             $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
