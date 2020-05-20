@@ -357,7 +357,7 @@ function albumList(){
 
 function lastPost()
 {
-    $target = 'http://musique-libre.org/forum/discussions/feed.rss';
+    $target = 'http://forum.musique-libre.org/discussions/feed.rss';
     //here we go, mister D-sky
     $dom = new DOMDocument();
     if ($albums = get_rss_with_cache('musique-libre.org_feed',$target)) {
