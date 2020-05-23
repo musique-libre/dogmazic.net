@@ -227,7 +227,7 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 					
         <h2><?= $trans['adherer_titre'][$lang]?></h2>
             <p>
-                <a target="new" href="https://musique-libre.org" alt="Musique Libre !"><img src="<?= IMG_PATH . DS . 'musiquelibrelogo.png'?>" id="logo_ml" /></a>
+                <a target="new" href="http://musique-libre.org" alt="Musique Libre !"><img src="<?= IMG_PATH . DS . 'musiquelibrelogo.png'?>" id="logo_ml" /></a>
                 <div>
                     <?php echo $trans['adherer_texte'][$lang];?>
                 </div>
@@ -356,7 +356,7 @@ function albumList(){
 
 function lastPost()
 {
-    $target = 'https://forum.musique-libre.org/discussions/feed.rss';
+    $target = 'http://forum.musique-libre.org/discussions/feed.rss';
     //here we go, mister D-sky
     $dom = new DOMDocument();
     if ($albums = get_rss_with_cache('musique-libre.org_feed',$target)) {
@@ -409,7 +409,7 @@ function lastComments()
 function lastBlogPosts()
 {
     $dom = new DOMDocument();
-    if ($blogPosts = get_rss_with_cache('musique-libre.org_blog','https://musique-libre.org/feed/')){
+    if ($blogPosts = get_rss_with_cache('musique-libre.org_blog','http://musique-libre.org/feed/')){
         //echo htmlspecialchars($albums);
         $dom->loadXML($blogPosts);
         $dom->preserveWhiteSpace=false;
