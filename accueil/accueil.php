@@ -12,7 +12,7 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 
         <img id="logo_don" src="<?= IMG_PATH . DS . 'don.png' ?>">
 
-        <h1><a href="http://play.dogmazic.net" alt="Dogmazic archive" title="<?= $trans['acces_archive'][$lang] ?>">Dogmazic</a></h1>
+        <h1><a href="https://play.dogmazic.net" alt="Dogmazic archive" title="<?= $trans['acces_archive'][$lang] ?>">Dogmazic</a></h1>
         
         <p><?= $trans['chat_soustitre'][$lang];?><br/> 
       	<?= $trans['chat_header'][$lang];?>
@@ -227,7 +227,7 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 					
         <h2><?= $trans['adherer_titre'][$lang]?></h2>
             <p>
-                <a target="new" href="http://musique-libre.org" alt="Musique Libre !"><img src="<?= IMG_PATH . DS . 'musiquelibrelogo.png'?>" id="logo_ml" /></a>
+                <a target="new" href="https://musique-libre.org" alt="Musique Libre !"><img src="<?= IMG_PATH . DS . 'musiquelibrelogo.png'?>" id="logo_ml" /></a>
                 <div>
                     <?php echo $trans['adherer_texte'][$lang];?>
                 </div>
@@ -326,8 +326,7 @@ function get_rss_with_cache($name, $feed_url, $duree_cache=10) {
 function albumList(){
     //here we go, mister D-sky
     $dom = new DOMDocument();
-    #if ($albums = file_get_contents('http://play.dogmazic.net/rss.php?type=latest_album')) {
-    if ($albums = get_rss_with_cache('play.dogmazic.net_latest_album','http://play.dogmazic.net/rss.php?type=latest_album')) {
+    if ($albums = get_rss_with_cache('play.dogmazic.net_latest_album','https://play.dogmazic.net/rss.php?type=latest_album')) {
         //echo htmlspecialchars($albums);
         $dom->loadXML($albums);
         $dom->preserveWhiteSpace=false;
@@ -337,7 +336,7 @@ function albumList(){
         $counter=1;
         while(($item = $items->item($i++))&&$i<=11) {
             //$image = $item->getElementsByTagName('image')->item(0)->nodeValue;
-            $image = str_replace('http://', '//', $item->getElementsByTagName('image')->item(0)->nodeValue); // http and https available
+            $image = str_replace('https://', '//', $item->getElementsByTagName('image')->item(0)->nodeValue); // http and https available
             $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
             $description = $item->getElementsByTagName('description')->item(0)->nodeValue;
             echo '<li class="album">';
@@ -357,7 +356,7 @@ function albumList(){
 
 function lastPost()
 {
-    $target = 'http://forum.musique-libre.org/discussions/feed.rss';
+    $target = 'https://forum.musique-libre.org/discussions/feed.rss';
     //here we go, mister D-sky
     $dom = new DOMDocument();
     if ($albums = get_rss_with_cache('musique-libre.org_feed',$target)) {
@@ -387,8 +386,7 @@ function lastComments()
 {
     //here we go, mister D-sky
     $dom = new DOMDocument();
-    #if ($albums = file_get_contents('http://play.dogmazic.net/rss.php?type=latest_shout')){
-    if ($albums = get_rss_with_cache('play.dogmazic.net_latest_shout','http://play.dogmazic.net/rss.php?type=latest_shout')){
+    if ($albums = get_rss_with_cache('play.dogmazic.net_latest_shout','https://play.dogmazic.net/rss.php?type=latest_shout')){
         //echo htmlspecialchars($albums);
         $dom->loadXML($albums);
         $dom->preserveWhiteSpace=false;
@@ -411,7 +409,7 @@ function lastComments()
 function lastBlogPosts()
 {
     $dom = new DOMDocument();
-    if ($blogPosts = get_rss_with_cache('musique-libre.org_blog','http://musique-libre.org/feed/')){
+    if ($blogPosts = get_rss_with_cache('musique-libre.org_blog','https://musique-libre.org/feed/')){
         //echo htmlspecialchars($albums);
         $dom->loadXML($blogPosts);
         $dom->preserveWhiteSpace=false;
@@ -432,7 +430,6 @@ function lastBlogPosts()
 if (isset($_GET['get'])&&$_GET['get']==='nowplaying'){
     $hasdisplayed=false;
     $dom = new DOMDocument();
-    #if ($albums = file_get_contents('http://play.dogmazic.net/rss.php?type=latest_shout')){
     if ($albums = file_get_contents('//play.dogmazic.net/rss.php')){
         //echo htmlspecialchars($albums);
         $dom->loadXML($albums);
