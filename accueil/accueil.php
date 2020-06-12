@@ -95,22 +95,25 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
                 ?>
             </div>
         </div>                              
-    </aside>
             
         <!-- RADIO -->
 
-            <!-- <div style="margin-left:auto;margin-right:auto;" class="">
-                <strong><a title="Dogmazic Webradio" href="javascript:void(0);" onClick="toggle(document.getElementById('radio'), 'inline');" style="text-align:left;float:none;"><h4>DogmaRadio</h4></a></strong>
-                <br/>
-                <span style="float:left;border:solid 4px orange;border-radius:3px;margin-bottom:0px;padding-bottom:0px" id="radio">
-                    <script type="text/javascript" src="js/mrp.js"></script>
+             <div id="radio">
+				<div class="box_title">
+					<h4>DogmaRadio</h4>
+					<span class="box_plus">+</span>
+				</div>
+				<div class="box_content" data_show="yes">
+                    <script type="text/javascript" src="assets/js/mrp.js"></script>
                     <script type="text/javascript">
-    MRP.insert({'url':'http://dmz.fm:8000/stream.ogg', 'codec':'ogg', 'volume':90, 'autoplay':false, 'buffering':5, 'title':'Dogmazic WebRadio', 'bgcolor':'#F0F0F0',  'skin':'eastanbul', 'width':467, 'height':26});
+    MRP.insert({'url':'https://radio.dogmazic.net:8000/stream.ogg', 'codec':'ogg', 'volume':90, 'autoplay':false, 'buffering':5, 'title':'Dogmazic WebRadio', 'bgcolor':'#F0F0F0',  'skin':'eastanbul', 'width':467, 'height':26});
                     </script>
         
-                    <object style="display:inline;" style="margin-bottom:0px;padding-bottom:0px;" data="http://dmz.fm:8000/nowplaying.xsl" type="text/html" width="467" height="25"></object>
-                </span> 
-            </div> -->  
+                    <object style="display:inline;" style="margin-bottom:0px;padding-bottom:0px;" data="https://radio.dogmazic.net:8000/nowplaying.xsl" type="text/html" width="430" height="25"></object>
+                 
+				</div>
+			</div>  
+    </aside>
 
     <!-- NOW PLAYING -->
 	
