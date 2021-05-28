@@ -65,7 +65,7 @@ $trans['legal']['en']='Copyright 2004-2015 Musique Libre volunteer organisation.
                     </div>
 
                     <hr/>
-					<iframe src="https://kiwiirc.com/client/irc.kiwiirc.com/?nick=Dogmazien|?#dogmazic" style="border:0; width:100%; height:450px;"></iframe>       
+					<iframe src="https://kiwiirc.com/client/irc.libera.chat/?nick=Dogmazien|?#dogmazic" style="border:0; width:100%; height:450px;"></iframe>       
                   </div>
                 </div>
             </div>
