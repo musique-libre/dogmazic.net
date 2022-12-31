@@ -7,21 +7,21 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 
 	<header>
         <div id="bouton_don">
-            <?= $trans['faire_un_don_titre'][$lang] ?>
+            <?php trans('faire_un_don_titre'); ?>
         </div>
 
         <img id="logo_don" src="<?= IMG_PATH . DS . 'don.png' ?>">
 
-        <h1><a href="https://play.dogmazic.net" alt="Dogmazic archive" title="<?= $trans['acces_archive'][$lang] ?>">Dogmazic</a></h1>
+        <h1><a href="https://play.dogmazic.net" alt="Dogmazic archive" title="<?php trans('acces_archive'); ?>">Dogmazic</a></h1>
         
-        <p><?= $trans['chat_soustitre'][$lang];?><br/> 
-      	<?= $trans['chat_header'][$lang];?>
+        <p><?php trans('chat_soustitre');?><br/> 
+      	<?php trans('chat_header');?>
         </p>  
-        <a href="./irc"><nav id="bouton_irc"><?= $trans['chat_irc'][$lang];?></nav></a>     
+        <a href="./irc"><nav id="bouton_irc"><?php trans('chat_irc');?></nav></a>     
 			
         <a href="?lang=<?= $lang == 'fr' ? 'en' : 'fr' ?>"><img class="flag" src="<?= IMG_PATH . DS . ($lang == 'fr' ? 'en' : 'fr') ?>.svg"></a>
         <div id="apps_mobiles">
-	   	<?php echo $trans['apps_mobiles'][$lang];?>
+	   	<?php trans('apps_mobiles');?>
         </div>
         <img id="logo_mobile" src="<?= IMG_PATH . DS . 'smartphone.png' ?>">
 
@@ -30,19 +30,19 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
     <!-- MENU MUSIQUE -->
 
     <div id="menuMusique">
-        <h4><?= $trans['Musique'][$lang]?></h4>
+        <h4><?php trans('Musique');?></h4>
         <ul>
-            <a href="//play.dogmazic.net/browse.php?action=artist" target="_blank"><li><?= $trans['Artists'][$lang] ?></li></a>
-            <a href="//play.dogmazic.net/browse.php?action=label" target="_blank"><li><?= $trans['Labels'][$lang] ?></li></a>
-            <a href="//play.dogmazic.net/browse.php?action=tag" target="_blank"><li><?= $trans['Tags'][$lang] ?></li></a>
-            <a href="//play.dogmazic.net/browse.php?action=playlist" target="_blank"><li><?= $trans['Playlists'][$lang]?></li></a>
+            <a href="//play.dogmazic.net/browse.php?action=artist" target="_blank"><li><?php trans('Artists'); ?></li></a>
+            <a href="//play.dogmazic.net/browse.php?action=label" target="_blank"><li><?php trans('Labels'); ?></li></a>
+            <a href="//play.dogmazic.net/browse.php?action=tag" target="_blank"><li><?php trans('Tags'); ?></li></a>
+            <a href="//play.dogmazic.net/browse.php?action=playlist" target="_blank"><li><?php trans('Playlists');?></li></a>
         </ul>
     </div>
 
     <!-- NOUVEAUX ALBUMS -->
 
 	<section id="albums">	
-        <h3><?php echo $trans['nouveaux_albums'][$lang];?></h3>
+        <h3><?php trans('nouveaux_albums');?></h3>
         <ul id="albumList">
             <?php
             albumList();
@@ -58,7 +58,7 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 
         <div id="blog">
             <div class="box_title">
-                <h4><?php echo $trans['nouveaux_articles'][$lang];?></h4>
+                <h4><?php trans('nouveaux_articles');?></h4>
                 <span class="box_plus">+</span>
             </div>
             <div class="box_content" data_show="yes">
@@ -72,7 +72,7 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 
         <div id="forum">
             <div class="box_title">
-                <h4><?php echo $trans['nouveaux_forum'][$lang];?></h4>
+                <h4><?php trans('nouveaux_forum');?></h4>
                 <span class="box_plus">+</span>
             </div>
             <div class="box_content" data_show="no">
@@ -86,7 +86,7 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
         
         <div id="comments">
             <div class="box_title">
-                <h4><?php echo $trans['nouveaux_commentaires'][$lang];?></h4>
+                <h4><?php trans('nouveaux_commentaires');?></h4>
                 <span class="box_plus">+</span>
             </div>
             <div class="box_content" data_show="no">
@@ -96,7 +96,8 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
             </div>
         </div>                              
             
-        <!-- RADIO -->
+<?php /*
+        <!-- RADIO -- >
 
              <div id="radio">
 				<div class="box_title">
@@ -113,13 +114,15 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
                  
 				</div>
 			</div>  
+*/
+?>
     </aside>
 
     <!-- NOW PLAYING -->
 	
     <!-- <span style="" class="col-md-4">
 
-        <h4><a style="" href="javascript:void(0);" onClick="toggle(document.getElementById('nowplaying'), 'inline');"><?php echo $trans['En écoute'][$lang];?></a></h4>
+        <h4><a style="" href="javascript:void(0);" onClick="toggle(document.getElementById('nowplaying'), 'inline');"><?php trans('En écoute');?></a></h4>
         <span class="" id="nowplaying" style=""></span>
 		<script>
 			function nowplay() {
@@ -203,49 +206,49 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
     // }
 	?>
 	</script>
-	<span style="text-align:right;float:right;border: solid 1px black;"><a target="new" href="http://concerts.musique-libre.org"><?php //echo $trans['Annoncer un concert'][$lang];?></a></span>
+	<span style="text-align:right;float:right;border: solid 1px black;"><a target="new" href="http://concerts.musique-libre.org"><?php //echo $trans['Annoncer un concert');?></a></span>
 	</div> -->
 
 	<!-- PUBLIER VOTRE MUSIQUE -->
 
     <article id="publier">
-        <h3><?php echo $trans['publier'][$lang];?></h3>
+        <h3><?php trans('publier');?></h3>
         <p id="pub">
-        <?php echo $trans['pub_content'][$lang];?>
+        <?php trans('pub_content');?>
         </p>
     </article>
 
     <!-- MUSIQUE LIBRE -->
 
 	<article id="musique_libre"> 
-		<h2><?= $trans['musique_libre_titre'][$lang] ?></h2>
+		<h2><?php trans('musique_libre_titre'); ?></h2>
 			<p>
-                <?= $trans['musique_libre_texte'][$lang] ?>   
+                <?php trans('musique_libre_texte'); ?>   
 			</p>
 					
-		<h2><?= $trans['asso_titre'][$lang] ?></h2>
+		<h2><?php trans('asso_titre'); ?></h2>
 			<p>
-				<?= $trans['asso_texte'][$lang] ?>	 
+				<?php trans('asso_texte'); ?>	 
 			</p>
 					
-        <h2><?= $trans['adherer_titre'][$lang]?></h2>
+        <h2><?php trans('adherer_titre');?></h2>
             <p>
                 <a target="new" href="http://musique-libre.org" alt="Musique Libre !"><img src="<?= IMG_PATH . DS . 'musiquelibrelogo.png'?>" id="logo_ml" /></a>
                 <div>
-                    <?php echo $trans['adherer_texte'][$lang];?>
+                    <?php trans('adherer_texte');?>
                 </div>
             </p>
             <p id="don">
-				<h2><?php echo $trans['faire_un_don_titre'][$lang];?></h2>
+				<h2><?php trans('faire_un_don_titre');?></h2>
                 <div style="" id="don">
-                    <?php echo $trans['faire_un_don_texte'][$lang];?>
+                    <?php trans('faire_un_don_texte');?>
                 </div>
             </p>
     </article>
 
       
     <footer>
-        <p><?php echo $trans['legal'][$lang];?></p>
+        <p><?php trans('legal');?></p>
     </footer>
     
     <!-- POPUP BOX -->
@@ -253,11 +256,11 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
     <div id="apps_mobiles_popup">
         <header>
             <button>×</button>
-            <h4 class="modal-title"><?php echo $trans['apps_mobiles'][$lang];?></h4>
+            <h4 class="modal-title"><?php echo trans('apps_mobiles');?></h4>
         </header>
         <article>
-            <p><?php echo $trans['apps_mobiles_texte'][$lang]; ?></p>
-            <p class="text-warning"><small><?php echo $trans['apps_mobiles_texte_avert'][$lang]; ?></small></p>
+            <p><?php trans('apps_mobiles_texte'); ?></p>
+            <p class="text-warning"><small><?php trans('apps_mobiles_texte_avert'); ?></small></p>
         </article>
         <footer>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
