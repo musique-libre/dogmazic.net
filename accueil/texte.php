@@ -62,11 +62,11 @@ $trans['publier']['en']='Upload your music';
 $trans['pub_content']['fr']='Pour publier votre musique sous licence libre sur Dogmazic.net, il vous suffit de <a target="new" href="http://play.dogmazic.net/register.php">vous créer un compte</a> et/ou de <a href="http://play.dogmazic.net/login.php" target="new">vous connecter</a> puis de cliquer sur l\'icone "Envoyer" dans la barre du menu. <hr>
 	<span class="note">
 	<em>Note au possesseurs d\'adresses hotmail/Microsoft</em><br/>
-	La politique d\'acceptation des mails de Microsoft fait actuellement que sur ces adresses, nos emails n\'arrivent jamais. Si vous aviez déjà un compte avec une telle adresse, merci de nous contacter sur <a href="./irc/">notre chat irc</a> pour récupérer l\'accès à votre compte. Vous pouvez également nous contacter si vous n\'avez pas d\'autre adresse qu\'une adresse Microsoft et que vous souhaitez vous créer un compte.
+	La politique d\'acceptation des mails de Microsoft fait actuellement que sur ces adresses, nos emails peuvent arriver dans votre dossier "indésirables". Merci de vérifier ce dossier si vous attendez le mail de confirmation de création, ou le mail de récupération, de compte. 
 	</span>';
 $trans['pub_content']['en']='To publish your music under a free licence on Dogmazic.net, you just need to <a target="new" href="http://play.dogmazic.net/register.php">create your account</a> and/or to <a href="http://play.dogmazic.net/login.php" target="new">login</a> then to click on the "Upload" icon in the menu bar. <hr>
 	<span class="note">
-	<em>Note for hotmail/Microsoft address owners</em><br/>The politic for mail delivery of Microsoft causes currently our email to be never delivered. If you already had an account with such an address, you can contact us through our <a href="./irc/">irc chat</a> to recover your account access. You can as well contact us if you have no other address than a Microsoft one and wish to create an account.
+	<em>Note for hotmail/Microsoft address owners</em><br/>The politic for mail delivery of Microsoft causes currently our email are sometimes delivered in the SPAM folder. Please check this folder if you are waiting for the validation, or account recovery, email.
 	</span>';
 
 /** NOUVEAUTES ET MUSIQUE **/
@@ -109,7 +109,7 @@ $trans['nouveaux_forum']['en']='Forum';
 $trans['musique_libre_titre']['fr'] = 'Musique Libre, pourquoi, comment ?';
 $trans['musique_libre_titre']['en'] = 'Libre Musique, how, why ?';
 
-$trans['musique_libre_texte']['fr'] = 'L\'archive musicale Dogmazic.net propose plus de 55 000 titres musicaux, tous téléchargeables gratuitement "en toute quiétude et en toute légalité".<br/>Les musiciens publiant sur Dogmazic ont tous choisi de placer leur musique sous <em>licence de libre diffusion.</em><br/>
+$trans['musique_libre_texte']['fr'] = 'L\'archive musicale Dogmazic.net propose plus de 55 000 titres musicaux, tous téléchargeables gratuitement "en toute quiétude et en toute légalité".<br/>Les musiciens publiant sur Dogmazic ont tous choisi de placer leur musique sous licence <em>libre</em> ou <em>ouverte</eme>.</em><br/>
 	Selon la licence choisie, de nombreux droits peuvent être accordés d\'emblée aux auditeurs. <br/>
 	La licence la plus permissive, la CC-BY, autorise tout type d\'usage sous réserve que l\'auteur et la licence soient mentionnés, y compris les usages commerciaux sans contrepartie (ce qui peut être utile pour sonoriser une vidéo monétisée). <span id="suite" style=""><br/>
 	À l\'autre extrémité du spectre, la plus restrictive des licences dites ouvertes, la CC-BY-NC-ND, n\'autorise que la copie sans modification ou la diffusion <em>en dehors de tout cadre commercial</em>. <br/>
@@ -133,7 +133,7 @@ $trans['adherer_texte']['en']='The more people there will be in the volunteer or
 $trans['faire_un_don_titre']['fr']='Dogmazic a besoin de vous !';
 $trans['faire_un_don_titre']['en']='Dogmazic needs you!';
 
-$trans['faire_un_don_texte']['fr']='En juillet 2020 l\'association <em><strong>Musique Libre</strong></em> a tenu son assemblée générale. <a href="http://musique-libre.org/blog/2020/08/11/rapport-de-lassemblee-generale-de-lassociation-musique-libre-du-16-juillet-2020/">Lire le compte-rendu de l\'AG</a><br/>Nous avons plus que jamais besoin de votre soutien pour assurer la pérénité du projet porté par Dogmazic / Musique Libre, notamment pour assurer les capacités du site à répondre à la demande, des mélomanes comme des musiciens.<br/>Pour les résidents fiscaux en France : Musique Libre étant reconnue association d\'intérêt général, vos dons sont déductibles de vos impôts à hauteur de 66% (donner 20 euros vous coûte 6,80 euros). Vous recevrez un reçu fiscal courant avril de l\'année suivant celle de votre don.
+$trans['faire_un_don_texte']['fr']='En décembre 2022 l\'association <em><strong>Musique Libre</strong></em> a tenu son assemblée générale. <a href="https://musique-libre.org/blog/2022/12/22/compte-rendu-de-lag-de-musique-libre/">Lire le compte-rendu de l\'AG</a><br/>Nous avons plus que jamais besoin de votre soutien pour assurer la pérénité du projet porté par Dogmazic / Musique Libre, notamment pour assurer les capacités du site à répondre à la demande, des mélomanes comme des musiciens.<br/>Pour les résidents fiscaux en France : Musique Libre étant reconnue association d\'intérêt général, vos dons sont déductibles de vos impôts à hauteur de 66% (donner 20 euros vous coûte 6,80 euros). Vous recevrez un reçu fiscal courant avril de l\'année suivant celle de votre don.
 	<span id="liens_dons">
     <h4>Faire un don via Paypal</h4><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 <input type="hidden" name="cmd" value="_s-xclick">
@@ -151,7 +151,7 @@ $trans['faire_un_don_texte']['fr']='En juillet 2020 l\'association <em><strong>M
 <p>Contactez nous pour obtenir un IBAN/RIB pour faire un virement bancaire</p> 
 </span>
 ';
-$trans['faire_un_don_texte']['en']='In July 2020 the <em><strong>Musique Libre</strong></em> volunteer organisation had its general meeting. <a href="http://musique-libre.org/blog/2020/08/11/rapport-de-lassemblee-generale-de-lassociation-musique-libre-du-16-juillet-2020/">Read the report of the general meeting (in French)</a><br/>We are still deeply in need of your support to ensure that the Dogmazic / Musique Libre project will be kept alive. Including for allowing our servers to handle the ever-growing use of the website, by music lovers as well as by musicians.<br>For France tax residents, Musique Libre being recognized as a public interest organisation, your donations can be substracted from your income tax at a 66% rate (a 20 euros donation will cost you 6.80 euros). You will receive a receipt during April of the year following the one you donated.
+$trans['faire_un_don_texte']['en']='In December 2022 the <em><strong>Musique Libre</strong></em> volunteer organisation had its general meeting. <a href="https://musique-libre.org/blog/2022/12/22/compte-rendu-de-lag-de-musique-libre/">Read the report of the general meeting (in French)</a><br/>We are still deeply in need of your support to ensure that the Dogmazic / Musique Libre project will be kept alive. Including for allowing our servers to handle the ever-growing use of the website, by music lovers as well as by musicians.<br>For France tax residents, Musique Libre being recognized as a public interest organisation, your donations can be substracted from your income tax at a 66% rate (a 20 euros donation will cost you 6.80 euros). You will receive a receipt during April of the year following the one you donated.
 	<span id="liens_dons">
     <h4>Donate with Paypal</h4><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 <input type="hidden" name="cmd" value="_s-xclick">
