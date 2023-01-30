@@ -12,11 +12,11 @@ if (isset($_GET['embed'])){
 $trans['chat_titre']['fr']='Discuter avec notre équipe';
 $trans['chat_titre']['en']='Chat with our team';
 
-$trans['chat_texte']['fr']='Vos retours, vos questions nous aident à construire le projet et sont précieux ! Soyez présents sur IRC qui est notre principal outil pour prendre nos décisions et coordonner nos actions. <br/> Vous avez une idée, une question, ou bien juste du temps pour être présent, discuter de l\'asso et faire circuler les infos ? Rejoignez nous sur le chat IRC (<em>#dogmazic</em> sur <em>irc.libera.chat</em>). Si vous n\'obtenez pas de réponse tout de suite, c\'est juste que personne n\'est devant son écran, gardez le chat ouvert et montrez-vous patient.<br/> Pour chatter avec nous, entrez votre pseudonyme ci-dessous : <br/>';
-$trans['chat_texte']['en']='Your feeback, your question are helping us building the project and are precious! Be there on IRC which is our main tool for action and decision taking. <br/> Do you have an idea, a question, or just time to be around, discuss about the non-for-profit association and flow the information around? Join us on the chatroom (<em>#dogmazic</em> on <em>irc.libera.chat</em>). If you do not get a reply immediately, this just means that nobody is in front of the computer, keep the chatroom open and please, be patient.<br/> To chat with us, enter a nickname below: <br/> ';
+$trans['chat_texte']['fr']='Vos retours, vos questions nous aident à construire le projet et sont précieux ! Soyez présents sur IRC qui est notre principal outil pour prendre nos décisions et coordonner nos actions. <br/> Vous avez une idée, une question, ou bien juste du temps pour être présent, discuter de l\'asso et faire circuler les infos ? Rejoignez nous sur le chat IRC (<em>#dogmazic</em> sur <em>irc.libera.chat</em>). Si vous n\'obtenez pas de réponse tout de suite, c\'est juste que personne n\'est devant son écran, gardez le chat ouvert et montrez-vous patient.<br/> Pour chatter avec nous<ul><li>Connectez-vous au "Webchat" sur <a href="https://libera.chat">Libera.chat</a> (le gros bouton en haut à droite), entrez #dogmazic comme salon, choisissez un pseudo et vous êtes à bord.</li></ul><br/>';
+$trans['chat_texte']['en']='Your feeback, your question are helping us building the project and are precious! Be there on IRC which is our main tool for action and decision taking. <br/> Do you have an idea, a question, or just time to be around, discuss about the non-for-profit association and flow the information around? Join us on the chatroom (<em>#dogmazic</em> on <em>irc.libera.chat</em>). If you do not get a reply immediately, this just means that nobody is in front of the computer, keep the chatroom open and please, be patient.<br/> To chat with us<ul><li>Connect to Webchat on <a href="https://libera.chat">Libera.chat</a> (the big button upper-right), enter #dogmazic as chatroom, choose a nickname and you are onboard.</li></ul>: <br/> ';
 
-$trans['legal']['fr']='Copyright 2004-2015 Association Musique Libre. Sauf autre mention (par exemple pour les morceaux de l\'archive musicale), ce site et son contenu sont disponibles sous licence <a target="new" href="https://creativecommons.org/licenses/by-sa/2.0/">Creative Commons BY-SA</a>. Numéro CNIL : 1208661';
-$trans['legal']['en']='Copyright 2004-2015 Musique Libre volunteer organisation. Unless otherwise mentioned (as an example, the tracks in the music archive), this site and its content are published under the terms of the <a target="new" href="https://creativecommons.org/licenses/by-sa/2.0/">Creative Commons BY-SA</a> license. CNIL number : 1208661';
+$trans['legal']['fr']='Copyright 2004-2023 Association Musique Libre. Sauf autre mention (par exemple pour les morceaux de l\'archive musicale), ce site et son contenu sont disponibles sous licence <a target="new" href="https://creativecommons.org/licenses/by-sa/2.0/">Creative Commons BY-SA</a>. Numéro CNIL : 1208661';
+$trans['legal']['en']='Copyright 2004-2023 Musique Libre volunteer organisation. Unless otherwise mentioned (as an example, the tracks in the music archive), this site and its content are published under the terms of the <a target="new" href="https://creativecommons.org/licenses/by-sa/2.0/">Creative Commons BY-SA</a> license. CNIL number : 1208661';
 
 ?>
 <!DOCTYPE html>
@@ -62,7 +62,7 @@ $trans['legal']['en']='Copyright 2004-2015 Musique Libre volunteer organisation.
                     </div>
 
                     <hr/>
-					<iframe src="https://kiwiirc.com/client/irc.libera.chat:+6697/?nick=dogmazien|?&theme=cli#dogmazic" style="border:0; width:100%; height:540px;"></iframe>       
+					<!--<iframe src="https://kiwiirc.com/client/irc.libera.chat:+6697/?nick=dogmazien|?&theme=cli#dogmazic" style="border:0; width:100%; height:540px;"></iframe> -->      
                   </div>
                 </div>
             </div>
