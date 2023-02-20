@@ -17,8 +17,8 @@ include('ini.php');
 
 	</head>
 
-    <body>       
-    	<header>        	
+    <body>
+    	<header>
 			<a href="//play.dogmazic.net/index.php">
 				<img src="<?= IMG_PATH . DS . 'dogmaziclogo.png'?>" title="Dogmazic" alt="Dogmazic" id="logo_dogmazic">
 			</a>
@@ -51,9 +51,8 @@ include('ini.php');
 
         <main>
           <?php
-          	include(HOME_PATH . DS . 'accueil.php'); 
+          	include(HOME_PATH . DS . 'accueil.php');
           ?>
     	</main>
-       
 </body>
 </html>

@@ -6,26 +6,32 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
     <!-- HEADER -->
 
 	<header>
+    <h1><a href="https://play.dogmazic.net" alt="Dogmazic archive" title="<?php trans('acces_archive'); ?>">Dogmazic</a></h1>
+    <a href="?lang=<?= $lang == 'fr' ? 'en' : 'fr' ?>"><img class="flag" src="<?= IMG_PATH . DS . ($lang == 'fr' ? 'en' : 'fr') ?>.svg"></a>
+    <div class="container_header">
+      <div class="content_don">
         <div id="bouton_don">
-            <?php trans('faire_un_don_titre'); ?>
+          <?php trans('faire_un_don_titre'); ?>
         </div>
 
         <img id="logo_don" src="<?= IMG_PATH . DS . 'don.png' ?>">
+      </div>
+      <div class="content_socials">
+        <p><?php trans('chat_soustitre');?><br/>
+          <?php trans('chat_header');?>
+        </p>
+        <a class="social_links" href="./irc"><nav class="social_buttons" id="bouton_irc"><?php trans('chat_irc');?></nav></a>
+        <a class="social_links" href="https://twitter.com/dogmazic"><nav class="social_buttons" id="bouton_twitter">Twitter</nav></a>
+        <a class="social_links" href="https://framapiaf.org/@dogmazic"><nav class="social_buttons" id="bouton_mastodon">Mastodon</nav></a>
+      </div>
+      <div id="apps_mobiles">
+        <?php trans('apps_mobiles');?>
+      </div>
+      <img id="logo_mobile" src="<?= IMG_PATH . DS . 'smartphone.png' ?>">
 
-        <h1><a href="https://play.dogmazic.net" alt="Dogmazic archive" title="<?php trans('acces_archive'); ?>">Dogmazic</a></h1>
-        
-        <p><?php trans('chat_soustitre');?><br/> 
-      	<?php trans('chat_header');?>
-        </p>  
-        <a href="./irc"><nav id="bouton_irc"><?php trans('chat_irc');?></nav></a>     
-			
-        <a href="?lang=<?= $lang == 'fr' ? 'en' : 'fr' ?>"><img class="flag" src="<?= IMG_PATH . DS . ($lang == 'fr' ? 'en' : 'fr') ?>.svg"></a>
-        <div id="apps_mobiles">
-	   	<?php trans('apps_mobiles');?>
-        </div>
-        <img id="logo_mobile" src="<?= IMG_PATH . DS . 'smartphone.png' ?>">
+    </div>
 
-    </header>
+  </header>
 
     <!-- MENU MUSIQUE -->
 
@@ -41,14 +47,14 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 
     <!-- NOUVEAUX ALBUMS -->
 
-	<section id="albums">	
+	<section id="albums">
         <h3><?php trans('nouveaux_albums');?></h3>
         <ul id="albumList">
             <?php
             albumList();
             ?>
-        </ul>	
-	</section>  
+        </ul>
+	</section>
 
    <!-- COMMENTAIRES & FORUM -->
 
@@ -64,7 +70,7 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
             <div class="box_content" data_show="yes">
                 <?php
                 lastBlogPosts();
-                ?>                
+                ?>
             </div>
         </div>
 
@@ -78,12 +84,12 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
             <div class="box_content" data_show="no">
                 <?php
                 lastPost();
-                ?>                
+                ?>
             </div>
         </div>
 
         <!-- LAST COMMENTS -->
-        
+
         <div id="comments">
             <div class="box_title">
                 <h4><?php trans('nouveaux_commentaires');?></h4>
@@ -94,8 +100,8 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
                 lastComments();
                 ?>
             </div>
-        </div>                              
-            
+        </div>
+
 <?php /*
         <!-- RADIO -- >
 
@@ -109,17 +115,17 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
                     <script type="text/javascript">
     MRP.insert({'url':'https://radio.dogmazic.net:8000/stream.ogg', 'codec':'ogg', 'volume':90, 'autoplay':false, 'buffering':5, 'title':'Dogmazic WebRadio', 'bgcolor':'#F0F0F0',  'skin':'eastanbul', 'width':467, 'height':26});
                     </script>
-        
+
                     <object style="display:inline;" style="margin-bottom:0px;padding-bottom:0px;" data="https://radio.dogmazic.net:8000/nowplaying.xsl" type="text/html" width="430" height="25"></object>
-                 
+
 				</div>
-			</div>  
+			</div>
 */
 ?>
     </aside>
 
     <!-- NOW PLAYING -->
-	
+
     <!-- <span style="" class="col-md-4">
 
         <h4><a style="" href="javascript:void(0);" onClick="toggle(document.getElementById('nowplaying'), 'inline');"><?php trans('En écoute');?></a></h4>
@@ -127,7 +133,7 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 		<script>
 			function nowplay() {
 					//ajax processing url ./?get=nowplaying
-            
+
 					var xhttp = new XMLHttpRequest();
 					  xhttp.onreadystatechange = function() {
 						if (this.readyState == 4 && this.status == 200) {
@@ -136,11 +142,11 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 					  };
 					  xhttp.open('GET', './?get=nowplaying', true);
 					  xhttp.send();
-            
-            }	
-				
-			nowplay();	
-			window.setInterval( nowplay, 35000);			
+
+            }
+
+			nowplay();
+			window.setInterval( nowplay, 35000);
 		</script>
     </span> -->
 
@@ -164,15 +170,15 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 	// }
 	// if (!$run){
 	// 	$concertcount=0;
-		
-		
+
+
 	// }
 	// else {
 	// 	$concertcount=count($items);
 	// }
-	?>	
-		
-		
+	?>
+
+
 	<strong><a href="javascript:void(0);" onClick="toggle(document.getElementById('conc'), 'inline');">Concerts:</a></strong> (<?php //echo htmlspecialchars($concertcount);?>)<br/>
 	<!-- leaflet map stuff --><!--
 	<span id="conc" style="display:inline;">
@@ -184,7 +190,7 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 			attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 		}).addTo(map);
 
-	
+
 	<?php
 	// $i = 0;
     // while(($item = $items->item($i++))&&$run) {
@@ -192,14 +198,14 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
         // $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
         // $lat = $item->getElementsByTagName('icbm:latitude')->item(0)->nodeValue;
         // $lon = $item->getElementsByTagName('icbm:longitude')->item(0)->nodeValue;
-        
+
         ?>
-        
+
         L.marker([<?php //echo floatval($lat); ?>, <?php //echo floatval($lon); ?>]).addTo(map)
     .bindPopup('<a target="new" href="<?php //echo $link;?>"><?php //echo str_replace ("'", "\\'", htmlspecialchars($title));?></a>')
     .openPopup();
 
-        
+
         <?php
 
 
@@ -220,17 +226,17 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 
     <!-- MUSIQUE LIBRE -->
 
-	<article id="musique_libre"> 
+	<article id="musique_libre">
 		<h2><?php trans('musique_libre_titre'); ?></h2>
 			<p>
-                <?php trans('musique_libre_texte'); ?>   
+                <?php trans('musique_libre_texte'); ?>
 			</p>
-					
+
 		<h2><?php trans('asso_titre'); ?></h2>
 			<p>
-				<?php trans('asso_texte'); ?>	 
+				<?php trans('asso_texte'); ?>
 			</p>
-					
+
         <h2><?php trans('adherer_titre');?></h2>
             <p>
                 <a target="new" href="http://musique-libre.org" alt="Musique Libre !"><img src="<?= IMG_PATH . DS . 'musiquelibrelogo.png'?>" id="logo_ml" /></a>
@@ -246,13 +252,13 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
             </p>
     </article>
 
-      
+
     <footer>
         <p><?php trans('legal');?></p>
     </footer>
-    
+
     <!-- POPUP BOX -->
-    
+
     <div id="apps_mobiles_popup">
         <header>
             <button>×</button>
@@ -307,7 +313,7 @@ function get_rss_with_cache($name, $feed_url, $duree_cache=10) {
          'timeout' => 3
          )
       )
-    ); 
+    );
     $string = file_get_contents("$feed_url",0,$ctx);
 
     // On tente de parser le flux -> si on y arrive pas, on ne sauvegarde pas
@@ -347,10 +353,10 @@ function albumList(){
             $description = $item->getElementsByTagName('description')->item(0)->nodeValue;
             echo '<li class="album">';
             echo '<a target="new" href="' . $link . '" ';
-            
+
             //if ($counter<=3){echo 'float:left;';}
             //else {echo 'float:none:clear:both;';$counter=1;}
-            
+
             echo '"><img class="albumimg" src="' . $image . '"/><br/><p>' . htmlspecialchars(substr($description, 0,30));
             if (substr($description, 0,30)!==$description){echo '...';}
             echo '</p></a></li>';
