@@ -22,11 +22,13 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 
         <?php include_once 'socials.php'; ?>
         <!-- socials' loop -->
-        <?php foreach ($socials as $social): ?>
-          <a class="social_links" href="<?= $social['url']; ?>" target="_blank">
-            <nav class="social_buttons" id="bouton_<?= strtolower($social['name']['fr']); ?>"><?= $social['name'][$lang]; ?></nav>
-          </a>
-        <?php endforeach; ?>
+        <div class="container">
+          <?php foreach ($socials as $social): ?>
+            <a class="social_links" href="<?= $social['url']; ?>" target="_blank">
+              <nav class="social_buttons" id="bouton_<?= strtolower($social['name']['fr']); ?>"><?= $social['name'][$lang]; ?></nav>
+            </a>
+            <?php endforeach; ?>
+        </div>
       </div>
       <div id="apps_mobiles">
         <?php trans('apps_mobiles');?>

@@ -8,6 +8,7 @@
 
 html{
   scroll-behavior: smooth;
+  transition: all 0.5s ease;
 }
 
 body {
@@ -139,13 +140,23 @@ main > header .container_header{
   padding: 1rem;
 }
 
+main > header .container_header .content_socials .container{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: center;
+  flex-shrink: 3;
+  flex-wrap: wrap;
+
+}
+
 main > header .container_header .content_socials .social_links .social_buttons{
   border: 1px solid rgb(250,250,250);
   border-radius: 5px;
-  padding: 10px 15px;
+  padding: .5rem .7rem;
   cursor: pointer;
   color: rgb(250,250,250);
-  display: block;
+  display: grid;
 }
 
 main > header #logo_don, main > header #logo_mobile
@@ -581,7 +592,7 @@ main > footer
     main > header .social_buttons
     {
         display: block;
-        margin: 15px auto;
+        margin: .3rem;
         padding: 5px 10px;
         width: 100px;
     }
@@ -640,7 +651,15 @@ main > footer
 }
 
 @media (min-width: 700px){
+  main > header .container_header .content_socials {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem 0 1rem;
+    max-width: 80%;
+  }
   .content_socials .social_links {
-    display: none;
+    /* display: none;
+    display: flex;
+    flex-direction: row; */
   }
 }
