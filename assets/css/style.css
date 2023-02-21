@@ -5,6 +5,12 @@
     font-family: 'Pacifico';
     src:url('../font/Pacifico.ttf') format('truetype');
 }
+
+html{
+  scroll-behavior: smooth;
+  transition: all 0.5s ease;
+}
+
 body {
     color:#C0C0C0;
     background-color: #333333;
@@ -24,7 +30,7 @@ ul
     list-style: none;
 }
 
-a 
+a
 {
     color: #ff9d00;
     text-decoration:none;
@@ -34,7 +40,7 @@ a:hover
 	color: white;
 }
 
-hr 
+hr
 {
     color: #ff9d00;
     border: 0px;
@@ -102,30 +108,18 @@ body > header > a:first-child
 
 main > header
 {
-    background-color: rgba(250,250,250,0.1);
-    padding: 0 10px 10px 10px;
-    position: relative;
-    text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(250,250,250,0.1);
+  text-align: center;
 }
+
 main > header h1
 {
     margin: 0;
-}
-main > header #bouton_irc
-{
-    display: none;
-}
-main > header #bouton_don, #logo_don
-{
-    position: absolute;
-    top: 50%;
-    left: 2vw;
-    transform: translateY(-50%);
-}
-main > header #logo_don, main > header #logo_mobile
-{
-    display: none;
-    cursor: pointer;
 }
 
 main > header .flag
@@ -137,12 +131,38 @@ main > header .flag
     height: 20px;
     margin-bottom: 20px;
 }
-main > header #apps_mobiles, #logo_mobile
+main > header .container_header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+}
+
+main > header .container_header .content_socials .container{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: center;
+  flex-shrink: 3;
+  flex-wrap: wrap;
+
+}
+
+main > header .container_header .content_socials .social_links .social_buttons{
+  border: 1px solid rgb(250,250,250);
+  border-radius: 5px;
+  padding: .5rem .7rem;
+  cursor: pointer;
+  color: rgb(250,250,250);
+  display: grid;
+}
+
+main > header #logo_don, main > header #logo_mobile
 {
-    position: absolute;
-    top: 50%;
-    right: 2vw;
-    transform: translateY(-50%);
+    display: none;
+    cursor: pointer;
 }
 
 main > header #apps_mobiles, #bouton_don, #bouton_irc
@@ -157,6 +177,29 @@ main > header #apps_mobiles:hover, #bouton_don:hover, #bouton_irc:hover
 {
     background-color: rgba(250,250,250,0.1);
 }
+/* main > header
+{
+    background-color: rgba(250,250,250,0.1);
+    padding: 0 10px 10px 10px;
+    position: relative;
+    text-align: center;
+}
+main > header #bouton_don, #logo_don
+{
+    position: absolute;
+    top: 50%;
+    left: 2vw;
+    transform: translateY(-50%);
+}
+
+main > header #apps_mobiles, #logo_mobile
+{
+    position: absolute;
+    top: 50%;
+    right: 2vw;
+    transform: translateY(-50%);
+}
+
 
 /*********** MENU MUSIQUE *********/
 
@@ -237,7 +280,7 @@ main > header #apps_mobiles:hover, #bouton_don:hover, #bouton_irc:hover
     padding-bottom: 0;
     margin: 0;
 }
-#albumList .album 
+#albumList .album
 {
     display: inline-block;
     vertical-align: top;
@@ -259,7 +302,7 @@ main > header #apps_mobiles:hover, #bouton_don:hover, #bouton_irc:hover
 }
 #albumList p
 {
-    font-size: 80%;  
+    font-size: 80%;
 }
 
 /************ COMMENTAIRES & FORUM ************/
@@ -496,7 +539,7 @@ main > footer
         right: 5vw;
         width: 30px;
     }
-    #albumList .album 
+    #albumList .album
     {
         width: 20%;
     }
@@ -546,10 +589,10 @@ main > footer
     {
         display: none;
     }
-    main > header #bouton_irc
+    main > header .social_buttons
     {
         display: block;
-        margin: 15px auto;
+        margin: .3rem;
         padding: 5px 10px;
         width: 100px;
     }
@@ -580,7 +623,7 @@ main > footer
     {
         width: 30px;
     }
-    #albumList .album 
+    #albumList .album
     {
         width: 50%;
     }
@@ -605,4 +648,18 @@ main > footer
     {
         width: 40px;
     }
+}
+
+@media (min-width: 700px){
+  main > header .container_header .content_socials {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem 0 1rem;
+    max-width: 80%;
+  }
+  .content_socials .social_links {
+    /* display: none;
+    display: flex;
+    flex-direction: row; */
+  }
 }
