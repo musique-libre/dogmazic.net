@@ -14,7 +14,6 @@ include('ini.php');
     	<script src="<?= JS_PATH . DS . 'togglebox.js'?>"></script>
     	<script src="<?= JS_PATH . DS . 'style.js'?>"></script>
     	<script src="<?= JS_PATH . DS . 'scrollbutton.js'?>"></script>
-
 	</head>
 
     <body>

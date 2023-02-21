@@ -2,7 +2,6 @@
 define('RSS_CACHE_TIME', 10); // cache flux rss en minutes
 define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss en minutes
 ?>
-
     <!-- HEADER -->
 
 	<header>
@@ -17,12 +16,16 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
         <img id="logo_don" src="<?= IMG_PATH . DS . 'don.png' ?>">
       </div>
       <div class="content_socials">
-        <p><?php trans('chat_soustitre');?><br/>
-          <?php trans('chat_header');?>
-        </p>
-        <a class="social_links" href="./irc"><nav class="social_buttons" id="bouton_irc"><?php trans('chat_irc');?></nav></a>
-        <a class="social_links" href="https://twitter.com/dogmazic"><nav class="social_buttons" id="bouton_twitter">Twitter</nav></a>
-        <a class="social_links" href="https://framapiaf.org/@dogmazic"><nav class="social_buttons" id="bouton_mastodon">Mastodon</nav></a>
+        <p><?php trans('text_header');?></p>
+        <p><?php trans('chat_soustitre');?></p>
+
+        <?php include_once 'socials.php'; ?>
+        <!-- socials' loop -->
+        <?php foreach ($socials as $social): ?>
+          <a class="social_links" href="<?= $social['url']; ?>" target="_blank">
+            <nav class="social_buttons" id="bouton_<?= strtolower($social['name']['fr']); ?>"><?= $social['name'][$lang]; ?></nav>
+          </a>
+        <?php endforeach; ?>
       </div>
       <div id="apps_mobiles">
         <?php trans('apps_mobiles');?>
