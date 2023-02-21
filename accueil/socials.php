@@ -24,8 +24,8 @@
     ],
     'blog' => [
       'name' => [
-        'fr' => 'Blog',
-        'en' => 'Blog',
+        'fr' => 'Contact',
+        'en' => 'Contact',
       ],
       'url' => 'https://musique-libre.org/contact/',
     ],
