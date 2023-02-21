@@ -5,6 +5,11 @@
     font-family: 'Pacifico';
     src:url('../font/Pacifico.ttf') format('truetype');
 }
+
+html{
+  scroll-behavior: smooth;
+}
+
 body {
     color:#C0C0C0;
     background-color: #333333;
