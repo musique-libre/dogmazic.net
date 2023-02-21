@@ -66,8 +66,7 @@ $trans['apps_mobiles_texte'] = [
 $trans['apps_mobiles_texte_avert']=[
   'fr'=>'Notez que la plupart, sinon toutes les applications mobiles compatibles Ampache ou Subsonic, demandent que vous possédiez un compte sur notre serveur. Si vous n\'en avez pas déjà créé un, vous pouvez le faire <a target="new" href="http://play.dogmazic.net/register.php">ici</a>.',
   'en'=>'Please note that most, if not any, mobile application compatible with Ampache and Subsonic will require that you have an account on our server. If you have not already created one, you can do so <a target="new" href="http://play.dogmazic.net/register.php">here</a>.',
-]
-
+  ];
 /** PUBLIER **/
 
 $trans['publier']['fr']='Publier votre musique';

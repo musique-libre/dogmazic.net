@@ -8,12 +8,13 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
     <h1><a href="https://play.dogmazic.net" alt="Dogmazic archive" title="<?php trans('acces_archive'); ?>">Dogmazic</a></h1>
     <a href="?lang=<?= $lang == 'fr' ? 'en' : 'fr' ?>"><img class="flag" src="<?= IMG_PATH . DS . ($lang == 'fr' ? 'en' : 'fr') ?>.svg"></a>
     <div class="container_header">
-      <div class="content_don">
-        <div id="bouton_don">
-          <?php trans('faire_un_don_titre'); ?>
-        </div>
-
-        <img id="logo_don" src="<?= IMG_PATH . DS . 'don.png' ?>">
+      <div class="content_don" href="#don">
+        <a href="#don">
+          <div id="bouton_don" href="#don">
+            <?php trans('faire_un_don_titre'); ?>
+          </div>
+          <img id="logo_don" href="#don" src="<?= IMG_PATH . DS . 'don.png' ?>">
+        </a>
       </div>
       <div class="content_socials">
         <p><?php trans('text_header');?></p>
@@ -249,7 +250,7 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
             </p>
             <p id="don">
 				<h2><?php trans('faire_un_don_titre');?></h2>
-                <div style="" id="don">
+                <div id="don">
                     <?php trans('faire_un_don_texte');?>
                 </div>
             </p>
