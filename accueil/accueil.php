@@ -108,8 +108,7 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
             </div>
         </div>
 
-<?php /*
-        <!-- RADIO -- >
+        <!-- RADIO -->
 
              <div id="radio">
 				<div class="box_title">
@@ -119,15 +118,13 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 				<div class="box_content" data_show="yes">
                     <script type="text/javascript" src="assets/js/mrp.js"></script>
                     <script type="text/javascript">
-    MRP.insert({'url':'https://radio.dogmazic.net:8000/stream.ogg', 'codec':'ogg', 'volume':90, 'autoplay':false, 'buffering':5, 'title':'Dogmazic WebRadio', 'bgcolor':'#F0F0F0',  'skin':'eastanbul', 'width':467, 'height':26});
+    MRP.insert({'url':'https://radio.dogmazic.net:8001/stream.mp3', 'codec':'mp3', 'volume':90, 'autoplay':false, 'buffering':5, 'title':'Dogmazic WebRadio', 'bgcolor':'#F0F0F0',  'skin':'eastanbul', 'width':467, 'height':26});
                     </script>
 
-                    <object style="display:inline;" style="margin-bottom:0px;padding-bottom:0px;" data="https://radio.dogmazic.net:8000/nowplaying.xsl" type="text/html" width="430" height="25"></object>
+                    <object style="display:inline;" style="margin-bottom:0px;padding-bottom:0px;" data="https://radio.dogmazic.net:8001/nowplaying.xsl" type="text/html" width="430" height="25"></object>
 
 				</div>
 			</div>
-*/
-?>
     </aside>
 
     <!-- NOW PLAYING -->
