@@ -116,17 +116,128 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 					<span class="box_plus">+</span>
 				</div>
 				<div class="box_content" data_show="yes">
-                    <script type="text/javascript" src="assets/js/mrp.js"></script>
-                    <script type="text/javascript">
-    MRP.insert({'url':'https://radio.dogmazic.net:8001/stream.mp3', 'codec':'mp3', 'volume':90, 'autoplay':false, 'buffering':5, 'title':'Dogmazic WebRadio', 'bgcolor':'#F0F0F0',  'skin':'eastanbul', 'width':467, 'height':26});
-                    </script>
+					  <audio controls id="dogplayer" onpause="refreshInfos()" onplay="refreshInfos()" >
+						<source src="<?php echo $flux; ?>" type="audio/mpeg">
+						<p>
+						  Look like your browser can't handle HTML5, here the <a href="<?php echo $flux; ?>">direct link</a>.
+						</p>
+					  </audio>
 
-                    <object style="display:inline;" style="margin-bottom:0px;padding-bottom:0px;" data="https://radio.dogmazic.net:8001/nowplaying.xsl" type="text/html" width="430" height="25"></object>
+					  <br>
+					  <br>
 
+					  <div id="display_infos">
+						<span id="metainfos">
+						  <a href='#' title='Show this artist on Dogmazic' id="link_artist" target=_blank ></a> -
+						  <a href='#' title='Show this song on Dogmazic' id="link_song" target=_blank ></a>
+						</span>
+
+						<br>
+						<br>
+
+						<a href="#" target=_blank id="link_album">
+						  <img src='/blank_album_art.png' alt="Album Art" title="Show this album on Dogmazic" id="albumart" width="125" height="125" style="width:60%; max-width: 125px; height: auto;">
+						  <br>
+						  <span id="album_title"></span>
+						</a>
+					  </div>
+
+					  <img src='/pause.png' alt="Pause" title="Paused" id="pauseimg" width="125" height="125" onclick="playRadio()" style="width:60%; max-width: 125px; height: auto;">
+
+					</div>
+
+					<br/>
+
+					<script>
+
+					function playRadio() {
+					  document.getElementById('dogplayer').play();
+					}
+
+					// Need this as a global var for refreshInfos()
+					var current_song_id = null;
+
+					function refreshInfos() {
+					  // No refresh if the page isn't visible
+					  if (document.hidden) {
+						return;
+					  }
+
+					  // No refresh if the player is paused
+					  if ( document.getElementById('dogplayer').paused ) {
+						$("#display_infos").hide();
+						$("#pauseimg").show();
+						return;
+					  }
+
+					  // Ok, get the refresh infos
+					  $.getJSON("/metadata.php?wanted=json", function( obj ) {
+
+						// If we already set this song infos, quit
+						if ( current_song_id == obj['title_id'] ) {
+						  return;
+						}
+						current_song_id = obj['title_id'];
+
+						// Set all the informations
+						$("#album_title").html( obj['album']);
+						$("#albumart").attr('src', obj['label_img'] );
+						$("#link_album").attr('href', obj['album_url'] );
+						$("#link_artist").attr('href', obj['artist_url']);
+						$("#link_artist").html(obj['artist']);
+						$("#link_song").attr('href', obj['song_url']);
+						$("#link_song").html(obj['title']);
+
+						// And display them
+						$("#pauseimg").hide();
+						$("#display_infos").show();
+
+						navigator.mediaSession.metadata = new MediaMetadata({
+						  title: obj['title'],
+						  artist: obj['artist'],
+						  artwork: [{
+							  src: obj['label_img'],
+							  sizes: "96x96",
+							  type: "image/png"
+							},
+							{
+							  // Not the right size, but 256x256 is necessary for
+							  // Android device to display the artwork
+							  src: obj['label_img'],
+							  sizes: "256x256",
+							  type: "image/png"
+							}
+						  ],
+						  album: obj['album'],
+						}); // navigator.mediaSession.metadata
+
+					  }); // getJSON
+					}
+
+
+					// ---- REFRESH INFOS, when?
+					// at page load...
+					refreshInfos();
+
+					// refresh every X milliseconds
+					setInterval(function(){
+					  refreshInfos()
+					}, 5000); // 5 seconds
+
+					// and when we display the page (ex: switching tabs)
+					document.addEventListener("visibilitychange", () => {
+					  if (document.visibilityState === "visible") {
+						refreshInfos();
+					  }
+					});
+
+					// ---- END REFRESH INFOS
+
+					</script>
 				</div>
 			</div>
     </aside>
-
+	<!-- END of the RADIO block -->
     <!-- NOW PLAYING -->
 
     <!-- <span style="" class="col-md-4">
