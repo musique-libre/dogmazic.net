@@ -64,8 +64,8 @@ $trans['apps_mobiles_texte'] = [
 ];
 
 $trans['apps_mobiles_texte_avert']=[
-  'fr'=>'Notez que la plupart, sinon toutes les applications mobiles compatibles Ampache ou Subsonic, demandent que vous possédiez un compte sur notre serveur. Si vous n\'en avez pas déjà créé un, vous pouvez le faire <a target="new" href="http://play.dogmazic.net/register.php">ici</a>.',
-  'en'=>'Please note that most, if not any, mobile application compatible with Ampache and Subsonic will require that you have an account on our server. If you have not already created one, you can do so <a target="new" href="http://play.dogmazic.net/register.php">here</a>.',
+  'fr'=>'Notez que les applications mobiles compatibles Ampache ou Subsonic ne demandent pas forcément de compte chez nous pour commerncer à écouter Dogmazic ! Par exemple Power Ampache 2 dans sa version gratuite disponible sur le Play Store intègre Dogmazic par défaut. Elle est aussi sur F-Droid.',
+  'en'=>'Please note all mobile application compatible with Ampache and Subsonic will not mandatory require that you have an account on our server to start to listen to Dogmazic. As an example Power Ampache 2 in its free version available on the Play Store interract as is with Dogmazic. Also it is on F-Droid.',
   ];
 /** PUBLIER **/
 
@@ -146,7 +146,7 @@ $trans['adherer_texte']['en']='The more people there will be in the volunteer or
 $trans['faire_un_don_titre']['fr']='Dogmazic a besoin de vous !';
 $trans['faire_un_don_titre']['en']='Dogmazic needs you!';
 
-$trans['faire_un_don_texte']['fr']='En décembre 2022 l\'association <em><strong>Musique Libre</strong></em> a tenu son assemblée générale. <a href="https://musique-libre.org/blog/2022/12/22/compte-rendu-de-lag-de-musique-libre/">Lire le compte-rendu de l\'AG</a><br/>Nous avons plus que jamais besoin de votre soutien pour assurer la pérénité du projet porté par Dogmazic / Musique Libre, notamment pour assurer les capacités du site à répondre à la demande, des mélomanes comme des musiciens.<br/>Pour les résidents fiscaux en France : Musique Libre étant reconnue association d\'intérêt général, vos dons sont déductibles de vos impôts à hauteur de 66% (donner 20 euros vous coûte 6,80 euros). Vous recevrez un reçu fiscal courant avril de l\'année suivant celle de votre don.
+$trans['faire_un_don_texte']['fr']='Au printemps 2024 l\'association <em><strong>Musique Libre</strong></em> a tenu son assemblée générale. <a href="https://musique-libre.org/blog/2024/09/13/compte-rendu-de-lag-de-musique-libre/">Lire le compte-rendu de l\'AG</a><br/>Nous avons plus que jamais besoin de votre soutien pour assurer la pérénité du projet porté par Dogmazic / Musique Libre, notamment pour assurer les capacités du site à répondre à la demande, des mélomanes comme des musiciens.<br/>Pour les résidents fiscaux en France : Musique Libre étant reconnue association d\'intérêt général, vos dons sont déductibles de vos impôts à hauteur de 66% (donner 20 euros vous coûte 6,80 euros). Vous recevrez un reçu fiscal courant avril de l\'année suivant celle de votre don.
 	<span id="liens_dons">
     <h4>Faire un don via Paypal</h4><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 <input type="hidden" name="cmd" value="_s-xclick">
@@ -164,7 +164,7 @@ $trans['faire_un_don_texte']['fr']='En décembre 2022 l\'association <em><strong
 <p>Contactez nous pour obtenir un IBAN/RIB pour faire un virement bancaire</p>
 </span>
 ';
-$trans['faire_un_don_texte']['en']='In December 2022 the <em><strong>Musique Libre</strong></em> volunteer organisation had its general meeting. <a href="https://musique-libre.org/blog/2022/12/22/compte-rendu-de-lag-de-musique-libre/">Read the report of the general meeting (in French)</a><br/>We are still deeply in need of your support to ensure that the Dogmazic / Musique Libre project will be kept alive. Including for allowing our servers to handle the ever-growing use of the website, by music lovers as well as by musicians.<br>For France tax residents, Musique Libre being recognized as a public interest organisation, your donations can be substracted from your income tax at a 66% rate (a 20 euros donation will cost you 6.80 euros). You will receive a receipt during April of the year following the one you donated.
+$trans['faire_un_don_texte']['en']='During Spring 2024 the <em><strong>Musique Libre</strong></em> volunteer organisation had its general meeting. <a href="https://musique-libre.org/blog/2024/09/13/compte-rendu-de-lag-de-musique-libre/">Read the report of the general meeting (in French)</a><br/>We are still deeply in need of your support to ensure that the Dogmazic / Musique Libre project will be kept alive. Including for allowing our servers to handle the ever-growing use of the website, by music lovers as well as by musicians.<br>For France tax residents, Musique Libre being recognized as a public interest organisation, your donations can be substracted from your income tax at a 66% rate (a 20 euros donation will cost you 6.80 euros). You will receive a receipt during April of the year following the one you donated.
 	<span id="liens_dons">
     <h4>Donate with Paypal</h4><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 <input type="hidden" name="cmd" value="_s-xclick">
