@@ -171,7 +171,7 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 					  }
 
 					  // Ok, get the refresh infos
-					  $.getJSON("/metadata.php?wanted=json", function( obj ) {
+					  $.getJSON("https://radio.dogmazic.net/metadata.php?wanted=json", function( obj ) {
 
 						// If we already set this song infos, quit
 						if ( current_song_id == obj['title_id'] ) {
