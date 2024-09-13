@@ -413,7 +413,7 @@ function lastComments()
             $title = $item->getElementsByTagName('title')->item(0)->nodeValue;
             $description = $item->getElementsByTagName('description')->item(0)->nodeValue;
             $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
-            echo '<a target="new" href="' . $link . '"><p><span class="comment">' . htmlspecialchars($description) . '</span>
+            echo '<a target="new" href="' . $link . '"><p><span class="comment">' . htmlspecialchars(html_entity_decode($description)) . '</span>
             <br /><span class="commentAuthor">' . str_replace('Shout by', '', htmlspecialchars($title)) . '</span></p></a>';
         }
     }
