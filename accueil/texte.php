@@ -64,8 +64,8 @@ $trans['apps_mobiles_texte'] = [
 ];
 
 $trans['apps_mobiles_texte_avert']=[
-  'fr'=>'Notez que la plupart, sinon toutes les applications mobiles compatibles Ampache ou Subsonic, demandent que vous possédiez un compte sur notre serveur. Si vous n\'en avez pas déjà créé un, vous pouvez le faire <a target="new" href="http://play.dogmazic.net/register.php">ici</a>.',
-  'en'=>'Please note that most, if not any, mobile application compatible with Ampache and Subsonic will require that you have an account on our server. If you have not already created one, you can do so <a target="new" href="http://play.dogmazic.net/register.php">here</a>.',
+  'fr'=>'Notez que les applications mobiles compatibles Ampache ou Subsonic ne demandent pas forcément de compte chez nous pour commerncer à écouter Dogmazic ! Par exemple Power Ampache 2 dans sa version gratuite disponible sur le Play Store intègre Dogmazic par défaut. Elle est aussi sur F-Droid.',
+  'en'=>'Please note all mobile application compatible with Ampache and Subsonic will not mandatory require that you have an account on our server to start to listen to Dogmazic. As an example Power Ampache 2 in its free version available on the Play Store interract as is with Dogmazic. Also it is on F-Droid.',
   ];
 /** PUBLIER **/
 
