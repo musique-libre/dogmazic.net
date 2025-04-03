@@ -461,8 +461,13 @@ function albumList(){
         $i = 0;
         $counter=1;
         while(($item = $items->item($i++))&&$i<=11) {
-            //$image = $item->getElementsByTagName('image')->item(0)->nodeValue;
-            $image = str_replace('https://', '//', $item->getElementsByTagName('image')->item(0)->nodeValue); // http and https available
+
+            // Ampache < 7.4.0, rss got an <image> tag
+            //$image = str_replace('https://', '//', $item->getElementsByTagName('image')->item(0)->nodeValue); // http and https available
+            // Ampache >= 7.4.0, no more <image> tag
+            $album_id = str_replace('album-', '', $item->getElementsByTagName('guid')->item(0)->nodeValue);
+            $image = "//play.dogmazic.net/image.php?object_id=".$album_id."&object_type=album&thumb=2";
+
             $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
             $description = $item->getElementsByTagName('description')->item(0)->nodeValue;
             echo '<li class="album">';
