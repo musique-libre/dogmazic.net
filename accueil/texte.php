@@ -149,7 +149,7 @@ $trans['faire_un_don_titre']['en']='Dogmazic needs you!';
 $trans['faire_un_don_texte']['fr']='Au printemps 2024 l\'association <em><strong>Musique Libre</strong></em> a tenu son assemblée générale. <a href="https://musique-libre.org/blog/2024/09/13/compte-rendu-de-lag-de-musique-libre/">Lire le compte-rendu de l\'AG</a><br/>Nous avons plus que jamais besoin de votre soutien pour assurer la pérénité du projet porté par Dogmazic / Musique Libre, notamment pour assurer les capacités du site à répondre à la demande, des mélomanes comme des musiciens.<br/>Pour les résidents fiscaux en France : Musique Libre étant reconnue association d\'intérêt général, vos dons sont déductibles de vos impôts à hauteur de 66% (donner 20 euros vous coûte 6,80 euros). Vous recevrez un reçu fiscal courant avril de l\'année suivant celle de votre don.
 	<span id="liens_dons">
     <h4>Faire un don via Liberapay</h4>
-    	<a href="https://liberapay.com/MusiqueLibre/donate?currency=EUR&amount=12&period=monthly"><img src="https://liberapay.com/assets/liberapay/icon-v2_black-on-yellow.svg" name="HTTP://LIBERAPAY.COM/" width="104" height="35" border="0"></a>
+    	<a href="https://liberapay.com/MusiqueLibre/donate?currency=EUR&amount=1&period=monthly"><img alt="Faire un don via LiberaPay" src="https://liberapay.com/assets/liberapay/icon-v2_black-on-yellow.svg" name="HTTP://LIBERAPAY.COM/" width="104" height="35" border="0"></a>
     <h4>Faire un don via Paypal</h4><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="TGZABWN33JJ5C">
