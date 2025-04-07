@@ -305,6 +305,46 @@ main > header #apps_mobiles, #logo_mobile
     font-size: 80%;
 }
 
+/************* RÉCEMMENT JOUÉ *************/
+
+#recentlyPlayed
+{
+    padding: 10px;
+}
+#recentlyPlayedList
+{
+    padding: 10px;
+    padding-bottom: 0;
+    margin: 0;
+}
+#recentlyPlayedList .album
+{
+    display: inline-block;
+    vertical-align: top;
+    width: 10%;
+    margin-bottom: 10px;
+    text-align: center;
+}
+#recentlyPlayedList .albumimg
+{
+    width: 80%;
+}
+#recentlyPlayedList .album:hover .albumimg
+{
+	/*border: 1px solid #ff9d00;*/
+}
+#recentlyPlayedList .album:hover a
+{
+	color: white;
+}
+#recentlyPlayedList p
+{
+    font-size: 80%;
+}
+
+
+
+
 /************ COMMENTAIRES & FORUM ************/
 
 aside#commentsAndForum
@@ -543,6 +583,10 @@ main > footer
     {
         width: 20%;
     }
+    #recentlyPlayedList .album
+    {
+        width: 20%;
+    }
     aside#commentsAndForum
     {
         width: 100%;
@@ -624,6 +668,10 @@ main > footer
         width: 30px;
     }
     #albumList .album
+    {
+        width: 50%;
+    }
+    #recentlyPlayedList .album
     {
         width: 50%;
     }
