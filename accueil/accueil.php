@@ -39,17 +39,7 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 
   </header>
 
-    <!-- MENU MUSIQUE -->
 
-    <div id="menuMusique">
-        <h4><?php trans('Musique');?></h4>
-        <ul>
-            <a href="//play.dogmazic.net/browse.php?action=artist" target="_blank"><li><?php trans('Artists'); ?></li></a>
-            <a href="//play.dogmazic.net/browse.php?action=label" target="_blank"><li><?php trans('Labels'); ?></li></a>
-            <a href="//play.dogmazic.net/browse.php?action=tag" target="_blank"><li><?php trans('Tags'); ?></li></a>
-            <a href="//play.dogmazic.net/browse.php?action=playlist" target="_blank"><li><?php trans('Playlists');?></li></a>
-        </ul>
-    </div>
 
     <!-- NOUVEAUX ALBUMS -->
 
@@ -61,6 +51,18 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
             ?>
         </ul>
 	</section>
+
+    <!-- RÉCEMMENT JOUÉ-->
+
+	<section id="recentlyPlayed">
+        <h3><?php trans('récemment_joué');?></h3>
+        <ul id="recentlyPlayedList">
+            <?php
+            recentlyPlayedList();
+            ?>
+        </ul>
+	</section>
+
 
    <!-- COMMENTAIRES & FORUM -->
 
@@ -366,6 +368,17 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
             </p>
     </article>
 
+    <!-- MENU MUSIQUE -->
+
+    <div id="menuMusique">
+        <h4><?php trans('Musique');?></h4>
+        <ul>
+            <a href="//play.dogmazic.net/browse.php?action=artist" target="_blank"><li><?php trans('Artists'); ?></li></a>
+            <a href="//play.dogmazic.net/browse.php?action=label" target="_blank"><li><?php trans('Labels'); ?></li></a>
+            <a href="//play.dogmazic.net/browse.php?action=tag" target="_blank"><li><?php trans('Tags'); ?></li></a>
+            <a href="//play.dogmazic.net/browse.php?action=playlist" target="_blank"><li><?php trans('Playlists');?></li></a>
+        </ul>
+    </div>
 
     <footer>
         <p><?php trans('legal');?></p>
@@ -447,7 +460,7 @@ function get_rss_with_cache($name, $feed_url, $duree_cache=10) {
   return $string;
 }
 
-/*** Affiche les 10 derniers albums ***/
+/*** Affiche les 10 derniers albums publiés***/
 
 function albumList(){
     //here we go, mister D-sky
@@ -476,12 +489,71 @@ function albumList(){
             //if ($counter<=3){echo 'float:left;';}
             //else {echo 'float:none:clear:both;';$counter=1;}
 
-            echo '"><img class="albumimg" src="' . $image . '"/><br/><p>' . htmlspecialchars(substr($description, 0,30));
+            echo '><img class="albumimg" src="' . $image . '"/><br/><p>' . htmlspecialchars(substr($description, 0,30));
             if (substr($description, 0,30)!==$description){echo '...';}
             echo '</p></a></li>';
         }
     }
 }
+
+/*** Affiche les 10 derniers albums joués ***/
+
+function recentlyPlayedList(){
+    //here we go, mister D-sky
+    $dom = new DOMDocument();
+    if ($albums = get_rss_with_cache('play.dogmazic.net_recently_played','https://play.dogmazic.net/rss.php?type=recently_played')) {
+        //echo htmlspecialchars($albums);
+        $dom->loadXML($albums);
+        $dom->preserveWhiteSpace=false;
+        $items = $dom->getElementsByTagName('item');
+        //echo htmlspecialchars(var_dump($items));
+        $i = 0;
+        $counter=1;
+        while(($item = $items->item($i++))&&$i<=11) {
+
+
+            $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
+            $description = $item->getElementsByTagName('title')->item(0)->nodeValue;
+            
+            $target_songID=-1;
+            
+            //we now parse the link provided by the RSS feed
+            //If the link can't be parsed, the song id will
+            //default to -1
+            
+            if (($parsed_url=parse_url($link))!==false){
+				$parsed_url_pairs=explode("&", $parsed_url['query']);
+				foreach ($parsed_url_pairs as $pair){
+					$splited_pair=explode("=", $pair);
+					if ($splited_pair[0]='song_id'&&is_numeric($splited_pair[1])){
+							$target_songID=$splited_pair[1];
+						}
+					}
+				}
+			$image = file_get_contents('https://radio.dogmazic.net/metadata_of_song.php?song_id='.$target_songID.'&wanted=img');
+            if ($image===false){
+				//we use a placeholder image
+				$image = "./assets/img/dogmaziclogo.png";
+			}
+            
+            
+            
+            echo '<li class="album">';
+            echo '<a target="new" href="' . $link . '" ';
+
+            //if ($counter<=3){echo 'float:left;';}
+            //else {echo 'float:none:clear:both;';$counter=1;}
+
+            echo '><img id="recentlyPlayedImg-'.($i-1).'" class="albumimg" src="' . $image . '"/><br/><p>' . htmlspecialchars(substr($description, 0,30));
+            if (substr($description, 0,30)!==$description){echo '...';}
+            echo '</p></a>';
+            echo '</li>';
+        }
+    }
+}
+
+
+
 
 /*** Affiche les 10 derniers sujets du forum ***/
 
