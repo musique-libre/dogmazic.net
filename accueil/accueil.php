@@ -4,7 +4,7 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 ?>
     <!-- HEADER -->
 
-	<header>
+    <header>
     <h1><a href="https://play.dogmazic.net" alt="Dogmazic archive" title="<?php trans('acces_archive'); ?>">Dogmazic</a></h1>
     <a href="?lang=<?= $lang == 'fr' ? 'en' : 'fr' ?>"><img class="flag" src="<?= IMG_PATH . DS . ($lang == 'fr' ? 'en' : 'fr') ?>.svg"></a>
     <div class="container_header">
@@ -43,25 +43,25 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 
     <!-- NOUVEAUX ALBUMS -->
 
-	<section id="albums">
+    <section id="albums">
         <h3><?php trans('nouveaux_albums');?></h3>
         <ul id="albumList">
             <?php
             albumList();
             ?>
         </ul>
-	</section>
+    </section>
 
     <!-- RÉCEMMENT JOUÉ-->
 
-	<section id="recentlyPlayed">
+    <section id="recentlyPlayed">
         <h3><?php trans('récemment_joué');?></h3>
         <ul id="recentlyPlayedList">
             <?php
             recentlyPlayedList();
             ?>
         </ul>
-	</section>
+    </section>
 
 
    <!-- COMMENTAIRES & FORUM -->
@@ -113,167 +113,167 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
         <!-- RADIO -->
 
              <div id="radio">
-				<div class="box_title">
-					<h4>DogmaRadio</h4>
-					<span class="box_plus">+</span>
-				</div>
-				<div class="box_content" data_show="yes">
-					  <audio controls id="dogplayer" onpause="refreshInfos()" onplay="refreshInfos()" >
-						<source src="<?php echo $flux; ?>" type="audio/mpeg">
-						<p>
-						  Look like your browser can't handle HTML5, here the <a href="<?php echo $flux; ?>">direct link</a>.
-						</p>
-					  </audio>
+                <div class="box_title">
+                    <h4>DogmaRadio</h4>
+                    <span class="box_plus">+</span>
+                </div>
+                <div class="box_content" data_show="yes">
+                      <audio controls id="dogplayer" onpause="refreshInfos()" onplay="refreshInfos()" >
+                        <source src="<?php echo $flux; ?>" type="audio/mpeg">
+                        <p>
+                          Look like your browser can't handle HTML5, here the <a href="<?php echo $flux; ?>">direct link</a>.
+                        </p>
+                      </audio>
 
-					  <br>
-					  <br>
+                      <br>
+                      <br>
 
-					  <div id="display_infos">
-						<span id="metainfos">
-						  <a href='#' title='Show this artist on Dogmazic' id="link_artist" target=_blank ></a> -
-						  <a href='#' title='Show this song on Dogmazic' id="link_song" target=_blank ></a>
-						</span>
+                      <div id="display_infos">
+                        <span id="metainfos">
+                          <a href='#' title='Show this artist on Dogmazic' id="link_artist" target=_blank ></a> -
+                          <a href='#' title='Show this song on Dogmazic' id="link_song" target=_blank ></a>
+                        </span>
 
-						<br>
-						<br>
+                        <br>
+                        <br>
 
-						<a href="#" target=_blank id="link_album">
-						  <img src='/blank_album_art.png' alt="Album Art" title="Show this album on Dogmazic" id="albumart" width="125" height="125" style="width:60%; max-width: 125px; height: auto;">
-						  <br>
-						  <span id="album_title"></span>
-						</a>
-					  </div>
+                        <a href="#" target=_blank id="link_album">
+                          <img src='/blank_album_art.png' alt="Album Art" title="Show this album on Dogmazic" id="albumart" width="125" height="125" style="width:60%; max-width: 125px; height: auto;">
+                          <br>
+                          <span id="album_title"></span>
+                        </a>
+                      </div>
 
-					  <img src='/pause.png' alt="Pause" title="Paused" id="pauseimg" width="125" height="125" onclick="playRadio()" style="width:60%; max-width: 125px; height: auto;">
+                      <img src='/pause.png' alt="Pause" title="Paused" id="pauseimg" width="125" height="125" onclick="playRadio()" style="width:60%; max-width: 125px; height: auto;">
 
-					</div>
+                    </div>
 
-					<br/>
+                    <br/>
 
-					<script>
+                    <script>
 
-					function playRadio() {
-					  document.getElementById('dogplayer').play();
-					}
+                    function playRadio() {
+                      document.getElementById('dogplayer').play();
+                    }
 
-					// Need this as a global var for refreshInfos()
-					var current_song_id = null;
+                    // Need this as a global var for refreshInfos()
+                    var current_song_id = null;
 
-					function refreshInfos() {
-					  // No refresh if the page isn't visible
-					  if (document.hidden) {
-						return;
-					  }
+                    function refreshInfos() {
+                      // No refresh if the page isn't visible
+                      if (document.hidden) {
+                        return;
+                      }
 
-					  // No refresh if the player is paused
-					  if ( document.getElementById('dogplayer').paused ) {
-						$("#display_infos").hide();
-						$("#pauseimg").show();
-						return;
-					  }
+                      // No refresh if the player is paused
+                      if ( document.getElementById('dogplayer').paused ) {
+                        $("#display_infos").hide();
+                        $("#pauseimg").show();
+                        return;
+                      }
 
-					  // Ok, get the refresh infos
-					  $.getJSON("https://radio.dogmazic.net/metadata.php?wanted=json", function( obj ) {
+                      // Ok, get the refresh infos
+                      $.getJSON("https://radio.dogmazic.net/metadata.php?wanted=json", function( obj ) {
 
-						// If we already set this song infos, quit
-						if ( current_song_id == obj['title_id'] ) {
-						  return;
-						}
-						current_song_id = obj['title_id'];
+                        // If we already set this song infos, quit
+                        if ( current_song_id == obj['title_id'] ) {
+                          return;
+                        }
+                        current_song_id = obj['title_id'];
 
-						// Set all the informations
-						$("#album_title").html( obj['album']);
-						$("#albumart").attr('src', obj['label_img'] );
-						$("#link_album").attr('href', obj['album_url'] );
-						$("#link_artist").attr('href', obj['artist_url']);
-						$("#link_artist").html(obj['artist']);
-						$("#link_song").attr('href', obj['song_url']);
-						$("#link_song").html(obj['title']);
+                        // Set all the informations
+                        $("#album_title").html( obj['album']);
+                        $("#albumart").attr('src', obj['label_img'] );
+                        $("#link_album").attr('href', obj['album_url'] );
+                        $("#link_artist").attr('href', obj['artist_url']);
+                        $("#link_artist").html(obj['artist']);
+                        $("#link_song").attr('href', obj['song_url']);
+                        $("#link_song").html(obj['title']);
 
-						// And display them
-						$("#pauseimg").hide();
-						$("#display_infos").show();
+                        // And display them
+                        $("#pauseimg").hide();
+                        $("#display_infos").show();
 
-						navigator.mediaSession.metadata = new MediaMetadata({
-						  title: obj['title'],
-						  artist: obj['artist'],
-						  artwork: [{
-							  src: obj['label_img'],
-							  sizes: "96x96",
-							  type: "image/png"
-							},
-							{
-							  // Not the right size, but 256x256 is necessary for
-							  // Android device to display the artwork
-							  src: obj['label_img'],
-							  sizes: "256x256",
-							  type: "image/png"
-							}
-						  ],
-						  album: obj['album'],
-						}); // navigator.mediaSession.metadata
+                        navigator.mediaSession.metadata = new MediaMetadata({
+                          title: obj['title'],
+                          artist: obj['artist'],
+                          artwork: [{
+                              src: obj['label_img'],
+                              sizes: "96x96",
+                              type: "image/png"
+                            },
+                            {
+                              // Not the right size, but 256x256 is necessary for
+                              // Android device to display the artwork
+                              src: obj['label_img'],
+                              sizes: "256x256",
+                              type: "image/png"
+                            }
+                          ],
+                          album: obj['album'],
+                        }); // navigator.mediaSession.metadata
 
-					  }); // getJSON
-					}
+                      }); // getJSON
+                    }
 
 
-					// ---- REFRESH INFOS, when?
-					// at page load...
-					refreshInfos();
+                    // ---- REFRESH INFOS, when?
+                    // at page load...
+                    refreshInfos();
 
-					// refresh every X milliseconds
-					setInterval(function(){
-					  refreshInfos()
-					}, 5000); // 5 seconds
+                    // refresh every X milliseconds
+                    setInterval(function(){
+                      refreshInfos()
+                    }, 5000); // 5 seconds
 
-					// and when we display the page (ex: switching tabs)
-					document.addEventListener("visibilitychange", () => {
-					  if (document.visibilityState === "visible") {
-						refreshInfos();
-					  }
-					});
+                    // and when we display the page (ex: switching tabs)
+                    document.addEventListener("visibilitychange", () => {
+                      if (document.visibilityState === "visible") {
+                        refreshInfos();
+                      }
+                    });
 
-					// ---- END REFRESH INFOS
+                    // ---- END REFRESH INFOS
 
-					</script>
-				</div>
-			</div>
+                    </script>
+                </div>
+            </div>
     </aside>
-	<!-- END of the RADIO block -->
+    <!-- END of the RADIO block -->
     <!-- NOW PLAYING -->
 
     <!-- <span style="" class="col-md-4">
 
         <h4><a style="" href="javascript:void(0);" onClick="toggle(document.getElementById('nowplaying'), 'inline');"><?php trans('En écoute');?></a></h4>
         <span class="" id="nowplaying" style=""></span>
-		<script>
-			function nowplay() {
-					//ajax processing url ./?get=nowplaying
+        <script>
+            function nowplay() {
+                    //ajax processing url ./?get=nowplaying
 
-					var xhttp = new XMLHttpRequest();
-					  xhttp.onreadystatechange = function() {
-						if (this.readyState == 4 && this.status == 200) {
-						 	document.getElementById('nowplaying').innerHTML= this.responseText;
-						}
-					  };
-					  xhttp.open('GET', './?get=nowplaying', true);
-					  xhttp.send();
+                    var xhttp = new XMLHttpRequest();
+                      xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                             document.getElementById('nowplaying').innerHTML= this.responseText;
+                        }
+                      };
+                      xhttp.open('GET', './?get=nowplaying', true);
+                      xhttp.send();
 
             }
 
-			nowplay();
-			window.setInterval( nowplay, 35000);
-		</script>
+            nowplay();
+            window.setInterval( nowplay, 35000);
+        </script>
     </span> -->
 
     <!-- CONCERTS -->
 
-	<!-- <div id="concerts" style="border: solid 1px black;display:none;">
-	<?php
-	//here we go, mister D-sky
-	// $dom = new DOMDocument();
-	// $run=false;
-	// if ($albums = get_rss_with_cache('concerts.musique-libre.org','http://concerts.musique-libre.org/rss')) {
+    <!-- <div id="concerts" style="border: solid 1px black;display:none;">
+    <?php
+    //here we go, mister D-sky
+    // $dom = new DOMDocument();
+    // $run=false;
+    // if ($albums = get_rss_with_cache('concerts.musique-libre.org','http://concerts.musique-libre.org/rss')) {
  //    //echo htmlspecialchars($albums);
  //    $dom->loadXML($albums);
  //    $dom->preserveWhiteSpace=false;
@@ -281,34 +281,34 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
  //    $items = $dom->getElementsByTagName('item');
     //echo htmlspecialchars(var_dump($items));
  //    if ($channeltitle==='Concerts Musique Libre'){
-	// 	$run=true;
-	// 	}
-	// }
-	// if (!$run){
-	// 	$concertcount=0;
+    //     $run=true;
+    //     }
+    // }
+    // if (!$run){
+    //     $concertcount=0;
 
 
-	// }
-	// else {
-	// 	$concertcount=count($items);
-	// }
-	?>
+    // }
+    // else {
+    //     $concertcount=count($items);
+    // }
+    ?>
 
 
-	<strong><a href="javascript:void(0);" onClick="toggle(document.getElementById('conc'), 'inline');">Concerts:</a></strong> (<?php //echo htmlspecialchars($concertcount);?>)<br/>
-	<!-- leaflet map stuff --><!--
-	<span id="conc" style="display:inline;">
-	<div id="map" style="height:160px;"></div>
-	<script>
-	var map = L.map('map').setView([25, 0], 1);
+    <strong><a href="javascript:void(0);" onClick="toggle(document.getElementById('conc'), 'inline');">Concerts:</a></strong> (<?php //echo htmlspecialchars($concertcount);?>)<br/>
+    <!-- leaflet map stuff --><!--
+    <span id="conc" style="display:inline;">
+    <div id="map" style="height:160px;"></div>
+    <script>
+    var map = L.map('map').setView([25, 0], 1);
 
-		L.tileLayer('//tile.openstreetmap.org/{z}/{x}/{y}.png', {
-			attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-		}).addTo(map);
+        L.tileLayer('//tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
 
 
-	<?php
-	// $i = 0;
+    <?php
+    // $i = 0;
     // while(($item = $items->item($i++))&&$run) {
         // $title = $item->getElementsByTagName('title')->item(0)->nodeValue;
         // $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
@@ -326,12 +326,12 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 
 
     // }
-	?>
-	</script>
-	<span style="text-align:right;float:right;border: solid 1px black;"><a target="new" href="http://concerts.musique-libre.org"><?php //echo $trans['Annoncer un concert');?></a></span>
-	</div> -->
+    ?>
+    </script>
+    <span style="text-align:right;float:right;border: solid 1px black;"><a target="new" href="http://concerts.musique-libre.org"><?php //echo $trans['Annoncer un concert');?></a></span>
+    </div> -->
 
-	<!-- PUBLIER VOTRE MUSIQUE -->
+    <!-- PUBLIER VOTRE MUSIQUE -->
 
     <article id="publier">
         <h3><?php trans('publier');?></h3>
@@ -342,16 +342,16 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 
     <!-- MUSIQUE LIBRE -->
 
-	<article id="musique_libre">
-		<h2><?php trans('musique_libre_titre'); ?></h2>
-			<p>
+    <article id="musique_libre">
+        <h2><?php trans('musique_libre_titre'); ?></h2>
+            <p>
                 <?php trans('musique_libre_texte'); ?>
-			</p>
+            </p>
 
-		<h2><?php trans('asso_titre'); ?></h2>
-			<p>
-				<?php trans('asso_texte'); ?>
-			</p>
+        <h2><?php trans('asso_titre'); ?></h2>
+            <p>
+                <?php trans('asso_texte'); ?>
+            </p>
 
         <h2><?php trans('adherer_titre');?></h2>
             <p>
@@ -361,7 +361,7 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
                 </div>
             </p>
             <p id="don">
-				<h2><?php trans('faire_un_don_titre');?></h2>
+                <h2><?php trans('faire_un_don_titre');?></h2>
                 <div id="don">
                     <?php trans('faire_un_don_texte');?>
                 </div>
@@ -510,8 +510,6 @@ function recentlyPlayedList(){
         $i = 0;
         $counter=1;
         while(($item = $items->item($i++))&&$i<=11) {
-
-
             $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
             $description = $item->getElementsByTagName('title')->item(0)->nodeValue;
             
@@ -522,21 +520,15 @@ function recentlyPlayedList(){
             //default to -1
             
             if (($parsed_url=parse_url($link))!==false){
-				$parsed_url_pairs=explode("&", $parsed_url['query']);
-				foreach ($parsed_url_pairs as $pair){
-					$splited_pair=explode("=", $pair);
-					if ($splited_pair[0]='song_id'&&is_numeric($splited_pair[1])){
-							$target_songID=$splited_pair[1];
-						}
-					}
-				}
-			$image = file_get_contents('https://radio.dogmazic.net/metadata_of_song.php?song_id='.$target_songID.'&wanted=img');
-            if ($image===false){
-				//we use a placeholder image
-				$image = "./assets/img/dogmaziclogo.png";
-			}
-            
-            
+                $parsed_url_pairs=explode("&", $parsed_url['query']);
+                foreach ($parsed_url_pairs as $pair){
+                    $splited_pair=explode("=", $pair);
+                    if ($splited_pair[0]='song_id'&&is_numeric($splited_pair[1])){
+                            $target_songID=$splited_pair[1];
+                        }
+                    }
+                }
+            $imagelink = 'https://radio.dogmazic.net/metadata_of_song.php?song_id='.$target_songID.'&wanted=img_go';
             
             echo '<li class="album">';
             echo '<a target="new" href="' . $link . '" ';
@@ -544,7 +536,7 @@ function recentlyPlayedList(){
             //if ($counter<=3){echo 'float:left;';}
             //else {echo 'float:none:clear:both;';$counter=1;}
 
-            echo '><img id="recentlyPlayedImg-'.($i-1).'" class="albumimg" src="' . $image . '"/><br/><p>' . htmlspecialchars(substr($description, 0,30));
+            echo '><img id="recentlyPlayedImg-'.($i-1).'" class="albumimg" src="' . $imagelink . '"/><br/><p>' . htmlspecialchars(substr($description, 0,30));
             if (substr($description, 0,30)!==$description){echo '...';}
             echo '</p></a>';
             echo '</li>';
