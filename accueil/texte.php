@@ -59,13 +59,13 @@ $trans['apps_mobiles'] = [
 ];
 
 $trans['apps_mobiles_texte'] = [
-  'fr' => 'Le nouveau Dogmazic est compatible avec toutes les applications supportant les APIs standards de Subsonic ou Ampache (oui, oui, même celles sur votre smart TV). Recherchez simplement une application compatible Ampache ou Subsonic dans celles disponibles sur votre système, et entrez <strong>play.dogmazic.net</strong> comme adresse de serveur.',
-  'en' => 'The new Dogmazic is compatible with any application supporting the standard Ampache or Subsonic APIs (yes, even on your smart TV). Just search for a Subsonic or Ampache compatible application among the ones available for your device, and type in <strong>play.dogmazic.net</strong> as the server address.',
+  'fr' => 'Dogmazic est compatible avec toutes les applications supportant les APIs standards de Subsonic ou Ampache (oui, oui, même celles sur votre smart TV). Recherchez simplement une application compatible Ampache ou Subsonic dans celles disponibles sur votre système, et entrez <strong>play.dogmazic.net</strong> comme adresse de serveur.',
+  'en' => 'Dogmazic is compatible with any application supporting the standard Ampache or Subsonic APIs (yes, even on your smart TV). Just search for a Subsonic or Ampache compatible application among the ones available for your device, and type in <strong>play.dogmazic.net</strong> as the server address.',
 ];
 
 $trans['apps_mobiles_texte_avert']=[
   'fr'=>'Notez que les applications mobiles compatibles Ampache ou Subsonic ne demandent pas forcément de compte chez nous pour commerncer à écouter Dogmazic ! Par exemple Power Ampache 2 dans sa version gratuite disponible sur le Play Store intègre Dogmazic par défaut. Elle est aussi sur F-Droid.',
-  'en'=>'Please note all mobile application compatible with Ampache and Subsonic will not mandatory require that you have an account on our server to start to listen to Dogmazic. As an example Power Ampache 2 in its free version available on the Play Store interract as is with Dogmazic. Also it is on F-Droid.',
+  'en'=>'Please note all mobile application compatible with Ampache and Subsonic will not mandatory require that you have an account on our server to start to listen to Dogmazic. As an example Power Ampache 2 in its free version available on the Play Store interracts as is with Dogmazic. Also it is on F-Droid.',
   ];
 /** PUBLIER **/
 
@@ -107,6 +107,12 @@ $trans['Tags']['en']='By tag';
 
 $trans['nouveaux_albums']['fr']='Nouveaux albums';
 $trans['nouveaux_albums']['en']='Latest releases';
+
+$trans['récemment_joué'] = [
+  'fr' => 'Récemment joué',
+  'en' => 'Recently played',
+];
+
 
 $trans['nouveaux_commentaires']['fr']='Nouveaux commentaires';
 $trans['nouveaux_commentaires']['en']='Latest comments';
