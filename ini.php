@@ -8,7 +8,7 @@ ini_set('display_startup_errors', 0);
 
 //necessary header for cross origin client JS to access radio metadata PHP backend on play.dogmazic.net ; 
 
-header("Access-Control-Allow-Origin: https://play.dogmazic.net/");
+#header("Access-Control-Allow-Origin: https://play.dogmazic.net/");
 $flux = 'https://radio.dogmazic.net:8001/stream.mp3';//and while we're let's set up this
 
 
