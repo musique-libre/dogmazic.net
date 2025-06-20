@@ -1,8 +1,7 @@
 <?php
-if (isset($_GET['lang'])){
+if (isset($_GET['lang'])) {
     $lang=$_GET['lang'];
-}
-else{
+} else {
     $lang='fr';
 }
 

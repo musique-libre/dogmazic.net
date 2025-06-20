@@ -1,10 +1,10 @@
 <?php
 
-/** TITRE **/
+/** TITRE */
 $trans['accueil']['fr']="Accueil";
 $trans['accueil']['en']='Home';
 
-/** 1er HEADER **/
+/** 1er HEADER */
 $trans['Connexion']['fr']="Se connecter";
 $trans['Connexion']['en']='Log in';
 
@@ -35,7 +35,7 @@ $trans['Rechercher']['en']='Search';
 $trans['Recherche_avancee']['fr']="Recherche avancée";
 $trans['Recherche_avancee']['en']='Advanced Search';
 
-/** 2nd HEADER **/
+/** 2nd HEADER */
 $trans['acces_archive_texte'] = [
   'fr' => 'Accéder à l\'archive de Dogmazic',
   'en' => 'Browse the Dogmazic archive',
@@ -64,10 +64,10 @@ $trans['apps_mobiles_texte'] = [
 ];
 
 $trans['apps_mobiles_texte_avert']=[
-  'fr'=>'Notez que les applications mobiles compatibles Ampache ou Subsonic ne demandent pas forcément de compte chez nous pour commerncer à écouter Dogmazic ! Par exemple Power Ampache 2 dans sa version gratuite disponible sur le Play Store intègre Dogmazic par défaut. Elle est aussi sur F-Droid.',
-  'en'=>'Please note all mobile application compatible with Ampache and Subsonic will not mandatory require that you have an account on our server to start to listen to Dogmazic. As an example Power Ampache 2 in its free version available on the Play Store interracts as is with Dogmazic. Also it is on F-Droid.',
+  'fr' => 'Notez que les applications mobiles compatibles Ampache ou Subsonic ne demandent pas forcément de compte chez nous pour commerncer à écouter Dogmazic ! Par exemple Power Ampache 2 dans sa version gratuite disponible sur le Play Store intègre Dogmazic par défaut. Elle est aussi sur F-Droid.',
+  'en' => 'Please note all mobile application compatible with Ampache and Subsonic will not mandatory require that you have an account on our server to start to listen to Dogmazic. As an example Power Ampache 2 in its free version available on the Play Store interracts as is with Dogmazic. Also it is on F-Droid.',
   ];
-/** PUBLIER **/
+/** PUBLIER */
 
 $trans['publier']['fr']='Publier votre musique';
 $trans['publier']['en']='Upload your music';
@@ -82,7 +82,7 @@ $trans['pub_content']['en']='To publish your music under a free licence on Dogma
 	<em>Note for hotmail/Microsoft address owners</em><br/>The politic for mail delivery of Microsoft causes currently our email are sometimes delivered in the SPAM folder. Please check this folder if you are waiting for the validation, or account recovery, email.
 	</span>';
 
-/** NOUVEAUTES ET MUSIQUE **/
+/** NOUVEAUTES ET MUSIQUE */
 
 $trans['Musique']['fr']='Parcourir la musique';
 $trans['Musique']['en']='Browse music';
@@ -123,7 +123,7 @@ $trans['nouveaux_articles']['en']='Latest blog posts';
 $trans['nouveaux_forum']['fr']='Forum';
 $trans['nouveaux_forum']['en']='Forum';
 
-/** ARTICLE **/
+/** ARTICLE */
 
 $trans['musique_libre_titre']['fr'] = 'Musique Libre, pourquoi, comment ?';
 $trans['musique_libre_titre']['en'] = 'Libre Musique, how, why ?';
@@ -187,11 +187,11 @@ $trans['faire_un_don_texte']['en']='During Spring 2024 the <em><strong>Musique L
 </span>
 ';
 
-/** FOOTER **/
+/** FOOTER */
 $trans['legal']['fr']='Copyright 2004-2023 Association Musique Libre. Sauf autre mention (par exemple pour les morceaux de l\'archive musicale), ce site et son contenu sont disponibles sous licence <a target="new" href="https://creativecommons.org/licenses/by-sa/2.0/">Creative Commons BY-SA</a>. Numéro CNIL : 1208661';
 $trans['legal']['en']='Copyright 2004-2023 Musique Libre volunteer organisation. Unless otherwise mentioned (as an example, the tracks in the music archive), this site and its content are published under the terms of the <a target="new" href="https://creativecommons.org/licenses/by-sa/2.0/">Creative Commons BY-SA</a> license. CNIL number : 1208661';
 
-/** UNUSED **/
+/** UNUSED */
 
 $trans['ecouter']['fr']='Écouter';
 $trans['ecouter']['en']='Listen';

@@ -1,9 +1,11 @@
 <?php
 $lang = isset($_GET['lang']) ? strtolower($_GET['lang']) : 'fr';
-if ( !in_array( $lang, array('fr', 'en') ) ) $lang='fr';
+if (!in_array($lang, ['fr', 'en'])) {
+    $lang='fr';
+}
 
 $url_embed="";
-if (isset($_GET['embed'])){
+if (isset($_GET['embed'])) {
     $url_embed='embed=true';
 }
 

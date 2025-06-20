@@ -50,8 +50,8 @@ include('ini.php');
 
         <main>
           <?php
-          	include(HOME_PATH . DS . 'accueil.php');
-          ?>
+              include(HOME_PATH . DS . 'accueil.php');
+?>
     	</main>
 </body>
 </html>

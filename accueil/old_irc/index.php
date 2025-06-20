@@ -1,13 +1,12 @@
 <?php
-if (isset($_GET['lang'])){
+if (isset($_GET['lang'])) {
     $lang=$_GET['lang'];
-}
-else{
+} else {
     $lang='fr';
 }
 $url_embed="";
-if (isset($_GET['embed'])){
-	$url_embed='embed=true';
+if (isset($_GET['embed'])) {
+    $url_embed='embed=true';
 }
 
 
@@ -27,15 +26,15 @@ $trans['legal']['en']='Copyright 2004-2015 Musique Libre volunteer organisation.
 <head>
 <link rel='shortcut icon' href='http://play.dogmazic.net/favicon_dogmazic.ico' />
 <link href="../css/bootstrap.min.css" rel="stylesheet">
-<?php 
+<?php
 
-if (isset($_GET['embed'])===false){
-?>
+if (isset($_GET['embed']) === false) {
+    ?>
 
 <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
 <?php
-}  else {
-?>
+} else {
+    ?>
 <link rel="stylesheet" href="style_embed.css" type="text/css" media="screen" />
 
 <?php

@@ -17,86 +17,88 @@ Bug connu :
 Si le flux interrogé ne renvoie pas un XML valide, le fichier de cache n'est pas mis à jour, et ca tente
 de servir le fichier de cache actuel sans rien vérifié dessus.
 */
-function get_rss_with_cache($name, $feed_url, $duree_cache=10) {
-  if (! is_dir(RSS_CACHE_DIR)) {
-    mkdir(RSS_CACHE_DIR, 0700, true);
-  }
-
-  $cache_time = 60*$duree_cache; // convertie la duree en seconde
-  $cache_file = RSS_CACHE_DIR.$name;
-  $timedif = @(time() - filemtime($cache_file));
-
-  // Si le fichiers est assez "jeune"
-  if (file_exists($cache_file) && $timedif < $cache_time) {
-    $string = file_get_contents($cache_file);
-
-  // Sinon, on récupére le fichier
-  } else {
-    // Timeout, okazou
-    $ctx = stream_context_create(array(
-      'http' => array(
-         'timeout' => 3
-         )
-      )
-    ); 
-    $string = file_get_contents("$feed_url",0,$ctx);
-
-    // On tente de parser le flux -> si on y arrive pas, on ne sauvegarde pas
-    $xml = @simplexml_load_string($string);
-    if ( $xml === FALSE ) {
-      // Et on tente de servir la version en cache...
-      $string = file_get_contents($cache_file);
-      return $string;
+function get_rss_with_cache($name, $feed_url, $duree_cache=10)
+{
+    if (! is_dir(RSS_CACHE_DIR)) {
+        mkdir(RSS_CACHE_DIR, 0700, true);
     }
-    file_put_contents($cache_file,$string);
-  }
 
-  if ($_SERVER["HTTP_X_FORWARDED_PROTO"] == "https") { // Fufroma
-    $string = str_replace('http://play.dogmazic.net/image.php', 'https://play.dogmazic.net/image.php', $string);
-  }
+    $cache_time = 60 * $duree_cache; // convertie la duree en seconde
+    $cache_file = RSS_CACHE_DIR . $name;
+    $timedif    = @(time() - filemtime($cache_file));
 
-  return $string;
+    // Si le fichiers est assez "jeune"
+    if (file_exists($cache_file) && $timedif < $cache_time) {
+        $string = file_get_contents($cache_file);
+
+        // Sinon, on récupére le fichier
+    } else {
+        // Timeout, okazou
+        $ctx = stream_context_create(
+            [
+      'http' => [
+             'timeout' => 3
+             ]
+      ]
+        );
+        $string = file_get_contents("$feed_url", 0, $ctx);
+
+        // On tente de parser le flux -> si on y arrive pas, on ne sauvegarde pas
+        $xml = @simplexml_load_string($string);
+        if ($xml === false) {
+            // Et on tente de servir la version en cache...
+            $string = file_get_contents($cache_file);
+
+            return $string;
+        }
+        file_put_contents($cache_file, $string);
+    }
+
+    if ($_SERVER["HTTP_X_FORWARDED_PROTO"] == "https") { // Fufroma
+        $string = str_replace('http://play.dogmazic.net/image.php', 'https://play.dogmazic.net/image.php', $string);
+    }
+
+    return $string;
 }
 
 //Ajax hook
-if (isset($_GET['get'])&&$_GET['get']==='nowplaying'){
-	$hasdisplayed=false;
-	$dom = new DOMDocument();
-	#if ($albums = file_get_contents('http://play.dogmazic.net/rss.php?type=latest_shout')){
-	if ($albums = file_get_contents('//play.dogmazic.net/rss.php')){
-		//echo htmlspecialchars($albums);
-		$dom->loadXML($albums);
-		$dom->preserveWhiteSpace=false;
-		$items = $dom->getElementsByTagName('item');
-		//echo htmlspecialchars(var_dump($items));
-		$i = 0;
-		while(($item = $items->item($i++))&&$i<=10) {
-			$hasdisplayed=true;
-			$title = $item->getElementsByTagName('title')->item(0)->nodeValue;
-			$description = $item->getElementsByTagName('description')->item(0)->nodeValue;
-			$link = $item->getElementsByTagName('link')->item(0)->nodeValue;
-			echo '<a style="border:solid 1px black;" target="new" href="' . $link . '" class="list-group-item">' . htmlspecialchars($description) . '</a></li>';
-    	}
-	}
-	if (!$hasdisplayed){
-		echo '...';
-	}
-	exit();
+if (isset($_GET['get']) && $_GET['get'] === 'nowplaying') {
+    $hasdisplayed=false;
+    $dom         = new DOMDocument();
+    #if ($albums = file_get_contents('http://play.dogmazic.net/rss.php?type=latest_shout')){
+    if ($albums = file_get_contents('//play.dogmazic.net/rss.php')) {
+        //echo htmlspecialchars($albums);
+        $dom->loadXML($albums);
+        $dom->preserveWhiteSpace=false;
+        $items                  = $dom->getElementsByTagName('item');
+        //echo htmlspecialchars(var_dump($items));
+        $i = 0;
+        while (($item = $items->item($i++)) && $i <= 10) {
+            $hasdisplayed=true;
+            $title       = $item->getElementsByTagName('title')->item(0)->nodeValue;
+            $description = $item->getElementsByTagName('description')->item(0)->nodeValue;
+            $link        = $item->getElementsByTagName('link')->item(0)->nodeValue;
+            echo '<a style="border:solid 1px black;" target="new" href="' . $link . '" class="list-group-item">' . htmlspecialchars($description) . '</a></li>';
+        }
+    }
+    if (!$hasdisplayed) {
+        echo '...';
+    }
+    exit();
 }
 
 
-if (isset($_GET['lang'])){
+if (isset($_GET['lang'])) {
     $lang=$_GET['lang'];
-}
-else{
+} else {
     $lang='fr';
 }
 
 
 //hugly emebed hack
 $url_embed="";
-if (isset($_GET['embed'])){
-	$url_embed='embed=true';
+if (isset($_GET['embed'])) {
+    $url_embed='embed=true';
 }
 
 
@@ -108,8 +110,8 @@ $trans['publier']['en']='Publish your music';
 
 
 
-$trans['pub_content']['fr']='Pour publier votre musique sous licence libre sur Dogmazic.net, il vous suffit de <a target="new" href="http://play.dogmazic.net/register.php">vous créer un compte</a> et/ou de <a href="http://play.dogmazic.net/login.php" target="new">vous connecter</a> puis de cliquer sur l\'icone "Envoyer" dans la barre du menu. <hr><em>Note au possesseurs d\'adresses hotmail/Microsoft</em><br/>La politique d\'acceptation des mails de Microsoft fait actuellement que sur ces adresses, nos emails n\'arrivent jamais. Si vous aviez déjà un compte avec une telle adresse, merci de nous contacter sur <a href="./irc/?'.$url_embed.'">notre chat irc</a> pour récupérer l\'accès à votre compte. Vous pouvez également nous contacter si vous n\'avez pas d\'autre adresse qu\'une adresse Microsoft et que vous souhaitez vous créer un compte.';
-$trans['pub_content']['en']='To publish your music under a free licence on Dogmazic.net, you just need to <a target="new" href="http://play.dogmazic.net/register.php">create your account</a> and/or to <a href="http://play.dogmazic.net/login.php" target="new">login</a> then to click on the "Upload" icon in the menu bar. <hr><em>Note for hotmail/Microsoft address owners</em><br/>The politic for mail delivery of Microsoft causes currently our email to be never delivered. If you already had an account with such an address, you can contact us through our <a href="./irc/?'.$url_embed.'">irc chat</a> to recover your account access. You can as well contact us if you have no other address than a Microsoft one and wish to create an account.';
+$trans['pub_content']['fr']='Pour publier votre musique sous licence libre sur Dogmazic.net, il vous suffit de <a target="new" href="http://play.dogmazic.net/register.php">vous créer un compte</a> et/ou de <a href="http://play.dogmazic.net/login.php" target="new">vous connecter</a> puis de cliquer sur l\'icone "Envoyer" dans la barre du menu. <hr><em>Note au possesseurs d\'adresses hotmail/Microsoft</em><br/>La politique d\'acceptation des mails de Microsoft fait actuellement que sur ces adresses, nos emails n\'arrivent jamais. Si vous aviez déjà un compte avec une telle adresse, merci de nous contacter sur <a href="./irc/?' . $url_embed . '">notre chat irc</a> pour récupérer l\'accès à votre compte. Vous pouvez également nous contacter si vous n\'avez pas d\'autre adresse qu\'une adresse Microsoft et que vous souhaitez vous créer un compte.';
+$trans['pub_content']['en']='To publish your music under a free licence on Dogmazic.net, you just need to <a target="new" href="http://play.dogmazic.net/register.php">create your account</a> and/or to <a href="http://play.dogmazic.net/login.php" target="new">login</a> then to click on the "Upload" icon in the menu bar. <hr><em>Note for hotmail/Microsoft address owners</em><br/>The politic for mail delivery of Microsoft causes currently our email to be never delivered. If you already had an account with such an address, you can contact us through our <a href="./irc/?' . $url_embed . '">irc chat</a> to recover your account access. You can as well contact us if you have no other address than a Microsoft one and wish to create an account.';
 
 $trans['ecouter']['fr']='Écouter';
 $trans['ecouter']['en']='Listen';
@@ -201,8 +203,8 @@ $trans['chat_header']['fr']='Vos retours, vos questions nous aident à construir
 $trans['chat_header']['en']='Your feeback, your questions help us building the project and are precious! ';
 
 
-$trans['chat_soustitre']['fr']='Soyez présents sur notre <a title="Dogmazic chat" href="./irc/?'.$url_embed.'">chat IRC</a>, pour discuter et agir avec nous.';
-$trans['chat_soustitre']['en']='Be there on our <a title="Dogmazic chat" href="./irc/?'.$url_embed.'">IRC chatroom</a>, to discuss and act with us.';
+$trans['chat_soustitre']['fr']='Soyez présents sur notre <a title="Dogmazic chat" href="./irc/?' . $url_embed . '">chat IRC</a>, pour discuter et agir avec nous.';
+$trans['chat_soustitre']['en']='Be there on our <a title="Dogmazic chat" href="./irc/?' . $url_embed . '">IRC chatroom</a>, to discuss and act with us.';
 
 
 
@@ -227,18 +229,18 @@ $trans['legal']['en']='Copyright 2004-2017 Musique Libre volunteer organisation.
 <head>
 <link rel='shortcut icon' href='http://play.dogmazic.net/favicon_dogmazic.ico' />
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<?php 
+<?php
 
-if (isset($_GET['embed'])===false){
-?>
+if (isset($_GET['embed']) === false) {
+    ?>
 <style>
 h4{margin-bottom:0%;padding-bottom:0%;}
 
 </style>
 <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
 <?php
-}  else {
-?>
+} else {
+    ?>
 <link rel="stylesheet" href="style_embed.css" type="text/css" media="screen" />
 
 <?php
@@ -308,25 +310,27 @@ h4{margin-bottom:0%;padding-bottom:0%;}
 //here we go, mister D-sky
 $dom = new DOMDocument();
 #if ($albums = file_get_contents('http://play.dogmazic.net/rss.php?type=latest_album')) {
-if ($albums = get_rss_with_cache('play.dogmazic.net_latest_album','http://play.dogmazic.net/rss.php?type=latest_album')) {
+if ($albums = get_rss_with_cache('play.dogmazic.net_latest_album', 'http://play.dogmazic.net/rss.php?type=latest_album')) {
     //echo htmlspecialchars($albums);
     $dom->loadXML($albums);
     $dom->preserveWhiteSpace=false;
-    $items = $dom->getElementsByTagName('item');
+    $items                  = $dom->getElementsByTagName('item');
     //echo htmlspecialchars(var_dump($items));
-    $i = 0;
+    $i      = 0;
     $counter=1;
-    while(($item = $items->item($i++))&&$i<=11) {
-        $image = $item->getElementsByTagName('image')->item(0)->nodeValue;
-        $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
+    while (($item = $items->item($i++)) && $i <= 11) {
+        $image       = $item->getElementsByTagName('image')->item(0)->nodeValue;
+        $link        = $item->getElementsByTagName('link')->item(0)->nodeValue;
         $description = $item->getElementsByTagName('description')->item(0)->nodeValue;
         echo '<a class="col-md-1 col-sm-2" target="new" style="font-size:78%;" href="' . $link . '" ';
-        
+
         //if ($counter<=3){echo 'float:left;';}
         //else {echo 'float:none:clear:both;';$counter=1;}
-        
-        echo '"><img class="albumimg" style="width:100%;" src="' . $image . '"/><br/>' . htmlspecialchars(substr($description, 0,30)); 
-        if (substr($description, 0,30)!==$description){echo '...';}
+
+        echo '"><img class="albumimg" style="width:100%;" src="' . $image . '"/><br/>' . htmlspecialchars(substr($description, 0, 30));
+        if (substr($description, 0, 30) !== $description) {
+            echo '...';
+        }
         echo '</a></li>';
     }
 }
@@ -384,18 +388,18 @@ if ($albums = get_rss_with_cache('play.dogmazic.net_latest_album','http://play.d
 $target = 'http://musique-libre.org/forum/discussions/feed.rss';
 //here we go, mister D-sky
 $dom = new DOMDocument();
-if ($albums = get_rss_with_cache('musique-libre.org_feed',$target)) {
+if ($albums = get_rss_with_cache('musique-libre.org_feed', $target)) {
     //echo htmlspecialchars($albums);
     $dom->loadXML($albums);
     $dom->preserveWhiteSpace=false;
-    $items = $dom->getElementsByTagName('item');
+    $items                  = $dom->getElementsByTagName('item');
     //echo htmlspecialchars(var_dump($items));
     $i = 0;
-    while (($item = $items->item($i++))&&$i<10) {
+    while (($item = $items->item($i++)) && $i < 10) {
         echo '<span style="border:solid black 1px;">';
         //$image=$item->getElementsByTagName('image')->item(0)->nodeValue;
         $title = $item->getElementsByTagName('title')->item(0)->nodeValue;
-        $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
+        $link  = $item->getElementsByTagName('link')->item(0)->nodeValue;
         //$creator=$item->getElementsByTagName('dc:creator')->item(0)->nodeValue;
         $pubdate = $item->getElementsByTagName('pubDate')->item(0)->nodeValue;
 
@@ -451,29 +455,28 @@ if ($albums = get_rss_with_cache('musique-libre.org_feed',$target)) {
 
 	<div id="concerts" style="border: solid 1px black;display:none;">
 	<?php
-	//here we go, mister D-sky
-	$dom = new DOMDocument();
-	$run=false;
-	if ($albums = get_rss_with_cache('concerts.musique-libre.org','http://concerts.musique-libre.org/rss')) {
+    //here we go, mister D-sky
+    $dom = new DOMDocument();
+$run     =false;
+if ($albums = get_rss_with_cache('concerts.musique-libre.org', 'http://concerts.musique-libre.org/rss')) {
     //echo htmlspecialchars($albums);
     $dom->loadXML($albums);
     $dom->preserveWhiteSpace=false;
-    $channeltitle=$dom->getElementsByTagName('title')->item(0);
-    $items = $dom->getElementsByTagName('item');
+    $channeltitle           =$dom->getElementsByTagName('title')->item(0);
+    $items                  = $dom->getElementsByTagName('item');
     //echo htmlspecialchars(var_dump($items));
-    if ($channeltitle==='Concerts Musique Libre'){
-		$run=true;
-		}
-	}
-	if (!$run){
-		$concertcount=0;
-		
-		
-	}
-	else {
-		$concertcount=count($items);
-	}
-	?>	
+    if ($channeltitle === 'Concerts Musique Libre') {
+        $run=true;
+    }
+}
+if (!$run) {
+    $concertcount=0;
+
+
+} else {
+    $concertcount=count($items);
+}
+?>	
 		
 		
 	<strong><a href="javascript:void(0);" onClick="toggle(document.getElementById('conc'), 'inline');">Concerts:</a></strong> (<?php echo htmlspecialchars($concertcount);?>)<br/>
@@ -489,25 +492,25 @@ if ($albums = get_rss_with_cache('musique-libre.org_feed',$target)) {
 
 	
 	<?php
-	$i = 0;
-    while(($item = $items->item($i++))&&$run) {
-        $title = $item->getElementsByTagName('title')->item(0)->nodeValue;
-        $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
-        $lat = $item->getElementsByTagName('icbm:latitude')->item(0)->nodeValue;
-        $lon = $item->getElementsByTagName('icbm:longitude')->item(0)->nodeValue;
-        
-        ?>
+$i = 0;
+while (($item = $items->item($i++)) && $run) {
+    $title = $item->getElementsByTagName('title')->item(0)->nodeValue;
+    $link  = $item->getElementsByTagName('link')->item(0)->nodeValue;
+    $lat   = $item->getElementsByTagName('icbm:latitude')->item(0)->nodeValue;
+    $lon   = $item->getElementsByTagName('icbm:longitude')->item(0)->nodeValue;
+
+    ?>
         
         L.marker([<?php echo floatval($lat); ?>, <?php echo floatval($lon); ?>]).addTo(map)
-    .bindPopup('<a target="new" href="<?php echo $link;?>"><?php echo str_replace ("'", "\\'", htmlspecialchars($title));?></a>')
+    .bindPopup('<a target="new" href="<?php echo $link;?>"><?php echo str_replace("'", "\\'", htmlspecialchars($title));?></a>')
     .openPopup();
 
         
         <?php
 
 
-    }
-	?>
+}
+?>
 	</script>
 	<span style="text-align:right;float:right;border: solid 1px black;"><a target="new" href="http://concerts.musique-libre.org"><?php echo $trans['Annoncer un concert'][$lang];?></a></span>
 	</div><div>
@@ -519,18 +522,18 @@ if ($albums = get_rss_with_cache('musique-libre.org_feed',$target)) {
 //here we go, mister D-sky
 $dom = new DOMDocument();
 #if ($albums = file_get_contents('http://play.dogmazic.net/rss.php?type=latest_shout')){
-if ($albums = get_rss_with_cache('play.dogmazic.net_latest_shout','http://play.dogmazic.net/rss.php?type=latest_shout')){
+if ($albums = get_rss_with_cache('play.dogmazic.net_latest_shout', 'http://play.dogmazic.net/rss.php?type=latest_shout')) {
     //echo htmlspecialchars($albums);
     $dom->loadXML($albums);
     $dom->preserveWhiteSpace=false;
-    $items = $dom->getElementsByTagName('item');
+    $items                  = $dom->getElementsByTagName('item');
     //echo htmlspecialchars(var_dump($items));
     $i = 0;
-    while(($item = $items->item($i++))&&$i<=10) {
-        $image = $item->getElementsByTagName('image')->item(0)->nodeValue;
-        $title = $item->getElementsByTagName('title')->item(0)->nodeValue;
+    while (($item = $items->item($i++)) && $i <= 10) {
+        $image       = $item->getElementsByTagName('image')->item(0)->nodeValue;
+        $title       = $item->getElementsByTagName('title')->item(0)->nodeValue;
         $description = $item->getElementsByTagName('description')->item(0)->nodeValue;
-        $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
+        $link        = $item->getElementsByTagName('link')->item(0)->nodeValue;
         echo '<a target="new" href="' . $link . '" class="list-group-item"><span class="unimportant">' . htmlspecialchars($description) . '</span><b style="text-align:right;"><br />' . str_replace('Shout by', '', htmlspecialchars($title)) . '</b></a>';
     }
 }
@@ -540,7 +543,7 @@ if ($albums = get_rss_with_cache('play.dogmazic.net_latest_shout','http://play.d
 	</div>
 	</span>
 	
-	<div class="col-md-4 col-sm-3"> <?php if ($lang==='en'){ ?>
+	<div class="col-md-4 col-sm-3"> <?php if ($lang === 'en') { ?>
 					<div><h2><a href="javascript:void(0);" onClick="toggle(document.getElementById('how'), 'inline');">Libre Musique, how, why?</a></h2>
 					<span id="how" style="">
 					The Dogmazic.net musical archive provides more than 55000 music tracks, all of them downloadable freely "totally quietly and totally legally".<br/>The musicians who publish on Dogmazic.net all choosed to provide their musique under a <em>free or open license</em><br/>

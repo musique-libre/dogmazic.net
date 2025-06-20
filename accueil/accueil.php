@@ -48,7 +48,7 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
         <ul id="albumList">
             <?php
             albumList();
-            ?>
+?>
         </ul>
     </section>
 
@@ -58,8 +58,8 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
         <h3><?php trans('récemment_joué');?></h3>
         <ul id="recentlyPlayedList">
             <?php
-            recentlyPlayedList();
-            ?>
+recentlyPlayedList();
+?>
         </ul>
     </section>
 
@@ -77,8 +77,8 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
             </div>
             <div class="box_content" data_show="yes">
                 <?php
-                lastBlogPosts();
-                ?>
+    lastBlogPosts();
+?>
             </div>
         </div>
 
@@ -91,8 +91,8 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
             </div>
             <div class="box_content" data_show="no">
                 <?php
-                lastPost();
-                ?>
+lastPost();
+?>
             </div>
         </div>
 
@@ -105,8 +105,8 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
             </div>
             <div class="box_content" data_show="no">
                 <?php
-                lastComments();
-                ?>
+lastComments();
+?>
             </div>
         </div>
 
@@ -292,7 +292,7 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
     // else {
     //     $concertcount=count($items);
     // }
-    ?>
+?>
 
 
     <strong><a href="javascript:void(0);" onClick="toggle(document.getElementById('conc'), 'inline');">Concerts:</a></strong> (<?php //echo htmlspecialchars($concertcount);?>)<br/>
@@ -308,16 +308,16 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 
 
     <?php
-    // $i = 0;
-    // while(($item = $items->item($i++))&&$run) {
-        // $title = $item->getElementsByTagName('title')->item(0)->nodeValue;
-        // $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
-        // $lat = $item->getElementsByTagName('icbm:latitude')->item(0)->nodeValue;
-        // $lon = $item->getElementsByTagName('icbm:longitude')->item(0)->nodeValue;
+// $i = 0;
+// while(($item = $items->item($i++))&&$run) {
+    // $title = $item->getElementsByTagName('title')->item(0)->nodeValue;
+    // $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
+    // $lat = $item->getElementsByTagName('icbm:latitude')->item(0)->nodeValue;
+    // $lon = $item->getElementsByTagName('icbm:longitude')->item(0)->nodeValue;
 
-        ?>
+?>
 
-        L.marker([<?php //echo floatval($lat); ?>, <?php //echo floatval($lon); ?>]).addTo(map)
+        L.marker([<?php //echo floatval($lat);?>, <?php //echo floatval($lon);?>]).addTo(map)
     .bindPopup('<a target="new" href="<?php //echo $link;?>"><?php //echo str_replace ("'", "\\'", htmlspecialchars($title));?></a>')
     .openPopup();
 
@@ -326,7 +326,7 @@ define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss e
 
 
     // }
-    ?>
+?>
     </script>
     <span style="text-align:right;float:right;border: solid 1px black;"><a target="new" href="http://concerts.musique-libre.org"><?php //echo $trans['Annoncer un concert');?></a></span>
     </div> -->
@@ -419,69 +419,73 @@ Bug connu :
 Si le flux interrogé ne renvoie pas un XML valide, le fichier de cache n'est pas mis à jour, et ca tente
 de servir le fichier de cache actuel sans rien vérifié dessus.
 */
-function get_rss_with_cache($name, $feed_url, $duree_cache=10) {
-  if (! is_dir(RSS_CACHE_DIR)) {
-    mkdir(RSS_CACHE_DIR, 0700, true);
-  }
-
-  $cache_time = 60*$duree_cache; // convertie la duree en seconde
-  $cache_file = RSS_CACHE_DIR.$name;
-  $timedif = @(time() - filemtime($cache_file));
-
-  // Si le fichiers est assez "jeune"
-  if (file_exists($cache_file) && $timedif < $cache_time) {
-    $string = file_get_contents($cache_file);
-
-  // Sinon, on récupére le fichier
-  } else {
-    // Timeout, okazou
-    $ctx = stream_context_create(array(
-      'http' => array(
-         'timeout' => 3
-         )
-      )
-    );
-    $string = file_get_contents("$feed_url",0,$ctx);
-
-    // On tente de parser le flux -> si on y arrive pas, on ne sauvegarde pas
-    $xml = @simplexml_load_string($string);
-    if ( $xml === FALSE ) {
-      // Et on tente de servir la version en cache...
-      $string = file_get_contents($cache_file);
-      return $string;
+function get_rss_with_cache($name, $feed_url, $duree_cache=10)
+{
+    if (! is_dir(RSS_CACHE_DIR)) {
+        mkdir(RSS_CACHE_DIR, 0700, true);
     }
-    file_put_contents($cache_file,$string);
-  }
 
-  // if ($_SERVER["HTTP_X_FORWARDED_PROTO"] == "https") { // Fufroma
-  //   $string = str_replace('http://play.dogmazic.net/image.php', 'https://play.dogmazic.net/image.php', $string);
-  // }
+    $cache_time = 60 * $duree_cache; // convertie la duree en seconde
+    $cache_file = RSS_CACHE_DIR . $name;
+    $timedif    = @(time() - filemtime($cache_file));
 
-  return $string;
+    // Si le fichiers est assez "jeune"
+    if (file_exists($cache_file) && $timedif < $cache_time) {
+        $string = file_get_contents($cache_file);
+
+        // Sinon, on récupére le fichier
+    } else {
+        // Timeout, okazou
+        $ctx = stream_context_create(
+            [
+      'http' => [
+             'timeout' => 3
+             ]
+      ]
+        );
+        $string = file_get_contents("$feed_url", 0, $ctx);
+
+        // On tente de parser le flux -> si on y arrive pas, on ne sauvegarde pas
+        $xml = @simplexml_load_string($string);
+        if ($xml === false) {
+            // Et on tente de servir la version en cache...
+            $string = file_get_contents($cache_file);
+
+            return $string;
+        }
+        file_put_contents($cache_file, $string);
+    }
+
+    // if ($_SERVER["HTTP_X_FORWARDED_PROTO"] == "https") { // Fufroma
+    //   $string = str_replace('http://play.dogmazic.net/image.php', 'https://play.dogmazic.net/image.php', $string);
+    // }
+
+    return $string;
 }
 
-/*** Affiche les 10 derniers albums publiés***/
+/* Affiche les 10 derniers albums publiés*/
 
-function albumList(){
+function albumList()
+{
     //here we go, mister D-sky
     $dom = new DOMDocument();
-    if ($albums = get_rss_with_cache('play.dogmazic.net_latest_album','https://play.dogmazic.net/rss.php?type=latest_album')) {
+    if ($albums = get_rss_with_cache('play.dogmazic.net_latest_album', 'https://play.dogmazic.net/rss.php?type=latest_album')) {
         //echo htmlspecialchars($albums);
         $dom->loadXML($albums);
         $dom->preserveWhiteSpace=false;
-        $items = $dom->getElementsByTagName('item');
+        $items                  = $dom->getElementsByTagName('item');
         //echo htmlspecialchars(var_dump($items));
-        $i = 0;
+        $i      = 0;
         $counter=1;
-        while(($item = $items->item($i++))&&$i<=11) {
+        while (($item = $items->item($i++)) && $i <= 11) {
 
             // Ampache < 7.4.0, rss got an <image> tag
             //$image = str_replace('https://', '//', $item->getElementsByTagName('image')->item(0)->nodeValue); // http and https available
             // Ampache >= 7.4.0, no more <image> tag
             $album_id = str_replace('album-', '', $item->getElementsByTagName('guid')->item(0)->nodeValue);
-            $image = "//play.dogmazic.net/image.php?object_id=" . $album_id . "&object_type=album&size=200x200";
+            $image    = "//play.dogmazic.net/image.php?object_id=" . $album_id . "&object_type=album&size=200x200";
 
-            $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
+            $link        = $item->getElementsByTagName('link')->item(0)->nodeValue;
             $description = $item->getElementsByTagName('description')->item(0)->nodeValue;
             echo '<li class="album">';
             echo '<a target="new" href="' . $link . '" ';
@@ -489,55 +493,60 @@ function albumList(){
             //if ($counter<=3){echo 'float:left;';}
             //else {echo 'float:none:clear:both;';$counter=1;}
 
-            echo '><img class="albumimg" src="' . $image . '"/><br/><p>' . htmlspecialchars(substr($description, 0,30));
-            if (substr($description, 0,30)!==$description){echo '...';}
+            echo '><img class="albumimg" src="' . $image . '"/><br/><p>' . htmlspecialchars(substr($description, 0, 30));
+            if (substr($description, 0, 30) !== $description) {
+                echo '...';
+            }
             echo '</p></a></li>';
         }
     }
 }
 
-/*** Affiche les 10 derniers albums joués ***/
+/* Affiche les 10 derniers albums joués */
 
-function recentlyPlayedList(){
+function recentlyPlayedList()
+{
     //here we go, mister D-sky
     $dom = new DOMDocument();
-    if ($albums = get_rss_with_cache('play.dogmazic.net_recently_played','https://play.dogmazic.net/rss.php?type=recently_played')) {
+    if ($albums = get_rss_with_cache('play.dogmazic.net_recently_played', 'https://play.dogmazic.net/rss.php?type=recently_played')) {
         //echo htmlspecialchars($albums);
         $dom->loadXML($albums);
         $dom->preserveWhiteSpace=false;
-        $items = $dom->getElementsByTagName('item');
+        $items                  = $dom->getElementsByTagName('item');
         //echo htmlspecialchars(var_dump($items));
-        $i = 0;
+        $i      = 0;
         $counter=1;
-        while(($item = $items->item($i++))&&$i<=11) {
-            $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
+        while (($item = $items->item($i++)) && $i <= 11) {
+            $link        = $item->getElementsByTagName('link')->item(0)->nodeValue;
             $description = $item->getElementsByTagName('title')->item(0)->nodeValue;
-            
+
             $target_songID=-1;
-            
+
             //we now parse the link provided by the RSS feed
             //If the link can't be parsed, the song id will
             //default to -1
-            
-            if (($parsed_url=parse_url($link))!==false){
+
+            if (($parsed_url=parse_url($link)) !== false) {
                 $parsed_url_pairs=explode("&", $parsed_url['query']);
-                foreach ($parsed_url_pairs as $pair){
+                foreach ($parsed_url_pairs as $pair) {
                     $splited_pair=explode("=", $pair);
-                    if ($splited_pair[0]='song_id'&&is_numeric($splited_pair[1])){
-                            $target_songID=$splited_pair[1];
-                        }
+                    if ($splited_pair[0]='song_id' && is_numeric($splited_pair[1])) {
+                        $target_songID=$splited_pair[1];
                     }
                 }
-            $imagelink = 'https://radio.dogmazic.net/metadata_of_song.php?song_id='.$target_songID.'&wanted=img_go';
-            
+            }
+            $imagelink = 'https://radio.dogmazic.net/metadata_of_song.php?song_id=' . $target_songID . '&wanted=img_go';
+
             echo '<li class="album">';
             echo '<a target="new" href="' . $link . '" ';
 
             //if ($counter<=3){echo 'float:left;';}
             //else {echo 'float:none:clear:both;';$counter=1;}
 
-            echo '><img id="recentlyPlayedImg-'.($i-1).'" class="albumimg" src="' . $imagelink . '"/><br/><p>' . htmlspecialchars(substr($description, 0,30));
-            if (substr($description, 0,30)!==$description){echo '...';}
+            echo '><img id="recentlyPlayedImg-' . ($i - 1) . '" class="albumimg" src="' . $imagelink . '"/><br/><p>' . htmlspecialchars(substr($description, 0, 30));
+            if (substr($description, 0, 30) !== $description) {
+                echo '...';
+            }
             echo '</p></a>';
             echo '</li>';
         }
@@ -547,24 +556,24 @@ function recentlyPlayedList(){
 
 
 
-/*** Affiche les 10 derniers sujets du forum ***/
+/* Affiche les 10 derniers sujets du forum */
 
 function lastPost()
 {
     $target = 'http://forum.musique-libre.org/discussions/feed.rss';
     //here we go, mister D-sky
     $dom = new DOMDocument();
-    if ($albums = get_rss_with_cache('musique-libre.org_feed',$target)) {
+    if ($albums = get_rss_with_cache('musique-libre.org_feed', $target)) {
         //echo htmlspecialchars($albums);
         $dom->loadXML($albums);
         $dom->preserveWhiteSpace=false;
-        $items = $dom->getElementsByTagName('item');
+        $items                  = $dom->getElementsByTagName('item');
         //echo htmlspecialchars(var_dump($items));
         $i = 0;
-        while (($item = $items->item($i++))&&$i<=5) {
+        while (($item = $items->item($i++)) && $i <= 5) {
             //$image=$item->getElementsByTagName('image')->item(0)->nodeValue;
             $title = $item->getElementsByTagName('title')->item(0)->nodeValue;
-            $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
+            $link  = $item->getElementsByTagName('link')->item(0)->nodeValue;
             //$creator=$item->getElementsByTagName('dc:creator')->item(0)->nodeValue;
             $pubdate = substr($item->getElementsByTagName('pubDate')->item(0)->nodeValue, 5, -9);
 
@@ -575,46 +584,46 @@ function lastPost()
     }
 }
 
-/*** Affiche les 10 derniers commentaires ***/
+/* Affiche les 10 derniers commentaires */
 
 function lastComments()
 {
     //here we go, mister D-sky
     $dom = new DOMDocument();
-    if ($albums = get_rss_with_cache('play.dogmazic.net_latest_shout','https://play.dogmazic.net/rss.php?type=latest_shout')){
+    if ($albums = get_rss_with_cache('play.dogmazic.net_latest_shout', 'https://play.dogmazic.net/rss.php?type=latest_shout')) {
         //echo htmlspecialchars($albums);
         $dom->loadXML($albums);
         $dom->preserveWhiteSpace=false;
-        $items = $dom->getElementsByTagName('item');
+        $items                  = $dom->getElementsByTagName('item');
         //echo htmlspecialchars(var_dump($items));
         $i = 0;
-        while(($item = $items->item($i++))&&$i<=10) {
-            $image = $item->getElementsByTagName('image')->item(0)->nodeValue;
-            $title = $item->getElementsByTagName('title')->item(0)->nodeValue;
+        while (($item = $items->item($i++)) && $i <= 10) {
+            $image       = $item->getElementsByTagName('image')->item(0)->nodeValue;
+            $title       = $item->getElementsByTagName('title')->item(0)->nodeValue;
             $description = $item->getElementsByTagName('description')->item(0)->nodeValue;
-            $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
+            $link        = $item->getElementsByTagName('link')->item(0)->nodeValue;
             echo '<a target="new" href="' . $link . '"><p><span class="comment">' . htmlspecialchars(html_entity_decode($description)) . '</span>
             <br /><span class="commentAuthor">' . str_replace('Shout by', '', htmlspecialchars($title)) . '</span></p></a>';
         }
     }
 }
 
-/*** Affiche les 10 posts do blog ***/
+/* Affiche les 10 posts do blog */
 
 function lastBlogPosts()
 {
     $dom = new DOMDocument();
-    if ($blogPosts = get_rss_with_cache('musique-libre.org_blog','http://musique-libre.org/feed/')){
+    if ($blogPosts = get_rss_with_cache('musique-libre.org_blog', 'http://musique-libre.org/feed/')) {
         //echo htmlspecialchars($albums);
         $dom->loadXML($blogPosts);
         $dom->preserveWhiteSpace=false;
-        $items = $dom->getElementsByTagName('item');
+        $items                  = $dom->getElementsByTagName('item');
         //echo htmlspecialchars(var_dump($items));
         $i = 0;
-        while(($item = $items->item($i++))&&$i<=5) {
-            $title = $item->getElementsByTagName('title')->item(0)->nodeValue;
+        while (($item = $items->item($i++)) && $i <= 5) {
+            $title   = $item->getElementsByTagName('title')->item(0)->nodeValue;
             $pubDate = substr($item->getElementsByTagName('pubDate')->item(0)->nodeValue, 5, -9);
-            $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
+            $link    = $item->getElementsByTagName('link')->item(0)->nodeValue;
             echo '<p><a target="new" href="' . $link . '">' . htmlspecialchars($title) . '</a><br/>';
             echo '<span class="pubDate">' . htmlspecialchars($pubDate) . '</span></p>';
         }
@@ -622,25 +631,25 @@ function lastBlogPosts()
 }
 
 //Ajax hook
-if (isset($_GET['get'])&&$_GET['get']==='nowplaying'){
+if (isset($_GET['get']) && $_GET['get'] === 'nowplaying') {
     $hasdisplayed=false;
-    $dom = new DOMDocument();
-    if ($albums = file_get_contents('//play.dogmazic.net/rss.php')){
+    $dom         = new DOMDocument();
+    if ($albums = file_get_contents('//play.dogmazic.net/rss.php')) {
         //echo htmlspecialchars($albums);
         $dom->loadXML($albums);
         $dom->preserveWhiteSpace=false;
-        $items = $dom->getElementsByTagName('item');
+        $items                  = $dom->getElementsByTagName('item');
         //echo htmlspecialchars(var_dump($items));
         $i = 0;
-        while(($item = $items->item($i++))&&$i<=10) {
+        while (($item = $items->item($i++)) && $i <= 10) {
             $hasdisplayed=true;
-            $title = $item->getElementsByTagName('title')->item(0)->nodeValue;
+            $title       = $item->getElementsByTagName('title')->item(0)->nodeValue;
             $description = $item->getElementsByTagName('description')->item(0)->nodeValue;
-            $link = $item->getElementsByTagName('link')->item(0)->nodeValue;
+            $link        = $item->getElementsByTagName('link')->item(0)->nodeValue;
             echo '<a style="border:solid 1px black;" target="new" href="' . $link . '" class="list-group-item">' . htmlspecialchars($description) . '</a></li>';
         }
     }
-    if (!$hasdisplayed){
+    if (!$hasdisplayed) {
         echo '...';
     }
     exit();
