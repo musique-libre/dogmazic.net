@@ -479,14 +479,17 @@ function albumList()
         $counter=1;
         while (($item = $items->item($i++)) && $i <= 11) {
 
+            $link        = $item->getElementsByTagName('link')->item(0)->nodeValue;
+            $description = $item->getElementsByTagName('description')->item(0)->nodeValue;
+
             // Ampache < 7.4.0, rss got an <image> tag
             //$image = str_replace('https://', '//', $item->getElementsByTagName('image')->item(0)->nodeValue); // http and https available
             // Ampache >= 7.4.0, no more <image> tag
-            $album_id = str_replace('album-', '', $item->getElementsByTagName('guid')->item(0)->nodeValue);
+            parse_str(parse_url($link)['query'], $parsed);
+            $album_id = $parsed['album'];
+
             $image    = "//play.dogmazic.net/image.php?object_id=" . $album_id . "&object_type=album&size=200x200";
 
-            $link        = $item->getElementsByTagName('link')->item(0)->nodeValue;
-            $description = $item->getElementsByTagName('description')->item(0)->nodeValue;
             echo '<li class="album">';
             echo '<a target="new" href="' . $link . '" ';
 
@@ -598,7 +601,7 @@ function lastComments()
         //echo htmlspecialchars(var_dump($items));
         $i = 0;
         while (($item = $items->item($i++)) && $i <= 10) {
-            $image       = $item->getElementsByTagName('image')->item(0)->nodeValue;
+            #$image       = $item->getElementsByTagName('image')->item(0)->nodeValue;
             $title       = $item->getElementsByTagName('title')->item(0)->nodeValue;
             $description = $item->getElementsByTagName('description')->item(0)->nodeValue;
             $link        = $item->getElementsByTagName('link')->item(0)->nodeValue;
