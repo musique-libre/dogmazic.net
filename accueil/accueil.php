@@ -563,25 +563,51 @@ function recentlyPlayedList()
 
 function lastPost()
 {
-    $target = 'http://forum.musique-libre.org/discussions/feed.rss';
-    //here we go, mister D-sky
+    // phpBB sert un flux Atom sur /feed (et NON /feed.php ni l'ancien /discussions/feed.rss)
+    $target = 'https://forum.musique-libre.org/feed';
+
     $dom = new DOMDocument();
-    if ($albums = get_rss_with_cache('musique-libre.org_feed', $target)) {
-        //echo htmlspecialchars($albums);
-        $dom->loadXML($albums);
-        $dom->preserveWhiteSpace=false;
-        $items                  = $dom->getElementsByTagName('item');
-        //echo htmlspecialchars(var_dump($items));
-        $i = 0;
-        while (($item = $items->item($i++)) && $i <= 5) {
-            //$image=$item->getElementsByTagName('image')->item(0)->nodeValue;
-            $title = $item->getElementsByTagName('title')->item(0)->nodeValue;
-            $link  = $item->getElementsByTagName('link')->item(0)->nodeValue;
-            //$creator=$item->getElementsByTagName('dc:creator')->item(0)->nodeValue;
-            $pubdate = substr($item->getElementsByTagName('pubDate')->item(0)->nodeValue, 5, -9);
+    if ($feed = get_rss_with_cache('musique-libre.org_feed', $target)) {
 
+        $prev = libxml_use_internal_errors(true);
+        $ok   = $dom->loadXML($feed);
+        libxml_use_internal_errors($prev);
+        if (!$ok) {
+            return; // XML invalide : on n'affiche rien plutot que planter
+        }
+        $dom->preserveWhiteSpace = false;
 
-            echo '<p><a target="new" href="' . $link . '">' . htmlspecialchars($title) . '</a><br/>';
+        // Atom : <entry><title><link href="..."/><published>
+        $entries = $dom->getElementsByTagName('entry');
+        $i       = 0;
+        while (($entry = $entries->item($i++)) && $i <= 5) {
+
+            $titleNode = $entry->getElementsByTagName('title')->item(0);
+            $title     = $titleNode ? $titleNode->nodeValue : '';
+
+            // Le lien Atom est dans l'attribut href (on privilegie rel="alternate" ou sans rel)
+            $link = '';
+            foreach ($entry->getElementsByTagName('link') as $l) {
+                $rel = $l->getAttribute('rel');
+                if ($rel === '' || $rel === 'alternate') {
+                    $link = $l->getAttribute('href');
+                    break;
+                }
+                if ($link === '') {
+                    $link = $l->getAttribute('href');
+                }
+            }
+
+            // Date : <published> (fallback <updated>), format ISO 2026-07-14T14:56:28+02:00
+            $dateNode = $entry->getElementsByTagName('published')->item(0);
+            if (!$dateNode) {
+                $dateNode = $entry->getElementsByTagName('updated')->item(0);
+            }
+            // On garde AAAA-MM-JJ ; adaptez le format si vous voulez l'heure
+            $pubdate = $dateNode ? substr($dateNode->nodeValue, 0, 10) : '';
+
+            echo '<p><a target="new" href="' . htmlspecialchars($link) . '">'
+               . htmlspecialchars($title) . '</a><br/>';
             echo '<span class="pubDate">' . htmlspecialchars($pubdate) . '</span></p>';
         }
     }
