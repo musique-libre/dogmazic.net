@@ -1,29 +1,33 @@
 <?php
 
-// Turn off all error reporting
-/* * /
-error_reporting(0);
-ini_set('display_errors', 0);
-ini_set('display_startup_errors', 0);
-/* */
+// Flux radio écouté par le lecteur (voir accueil.php)
+$flux = 'https://radio.dogmazic.net:8001/stream.mp3';
 
-//necessary header for cross origin client JS to access radio metadata PHP backend on play.dogmazic.net ;
+// En-tête CORS, utile si un JS tiers (play.dogmazic.net) doit lire les
+// métadonnées radio. À décommenter au besoin :
+// header('Access-Control-Allow-Origin: https://play.dogmazic.net/');
 
-#header("Access-Control-Allow-Origin: https://play.dogmazic.net/");
-$flux = 'https://radio.dogmazic.net:8001/stream.mp3';//and while we're let's set up this
+// Pour couper l'affichage des erreurs en production, décommenter :
+// error_reporting(0);
+// ini_set('display_errors', 0);
 
-
-
+// Séparateur pour les chemins du système de fichiers (include()).
+// Les URL, elles, utilisent toujours '/' (voir plus bas).
 define('DS', DIRECTORY_SEPARATOR);
+
+// Chemins web des assets (URL : toujours '/')
 define('ASSETS_PATH', 'assets');
-define('IMG_PATH', ASSETS_PATH . DS . 'img');
-define('CSS_PATH', ASSETS_PATH . DS . 'css');
-define('JS_PATH', ASSETS_PATH . DS . 'js');
+define('IMG_PATH', ASSETS_PATH . '/img');
+define('CSS_PATH', ASSETS_PATH . '/css');
+define('JS_PATH', ASSETS_PATH . '/js');
+
+// Dossier des includes de la page d'accueil
 define('HOME_PATH', 'accueil');
 
+// Langue : fr par défaut, en si demandé
 $lang = isset($_GET['lang']) ? strtolower($_GET['lang']) : 'fr';
 if (!in_array($lang, ['fr', 'en'])) {
-    $lang='fr';
+    $lang = 'fr';
 }
 define('LANG', $lang);
 

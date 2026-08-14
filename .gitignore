@@ -1,1 +1,18 @@
-/nbproject/private/
+# Projet
+/nbproject/
+
+# IDE / éditeurs
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*~
+*.swp
+*.bak
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Cache local des flux RSS (voir accueil.php)
+/tmp/www-dogmazic-net-cache-rss/
