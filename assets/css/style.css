@@ -817,6 +817,15 @@ body > header .espace
     color: #C0C0C0;
     text-decoration: none;
 }
+/* Le header applique 'margin: 5px' a tous ses descendants non-<a>.
+   Sans ce reset, chaque <b> et chaque <span> du bandeau se retrouve
+   entoure de 5px : trous entre les chiffres et les mots, et espace
+   parasite avant la virgule qui ouvre un <span class="long">. */
+body > header #stats_bandeau,
+body > header #stats_bandeau *
+{
+    margin: 0;
+}
 #stats_bandeau:hover
 {
     color: white;
