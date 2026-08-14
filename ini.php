@@ -34,7 +34,7 @@ define('LANG', $lang);
 // Lien vers le compte-rendu de la derniere assemblee generale.
 // A mettre a jour apres chaque AG : c'est le seul endroit a modifier,
 // le lien est utilise dans les textes FR et EN (voir accueil/texte.php).
-define('URL_AG', 'https://musique-libre.org/blog/2024/09/13/compte-rendu-de-lag-de-musique-libre/');
+define('URL_AG', 'https://musique-libre.org/blog/2026/07/29/compte-rendu-de-lassemblee-generale-de-musique-libre-2026/');
 
 // Configuration locale (identifiants MySQL pour les stats).
 // Fichier hors depot, voir config.php.dist. Absent = pas de stats affichees.
