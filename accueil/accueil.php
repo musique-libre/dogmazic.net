@@ -258,6 +258,13 @@ lastComments();
                 <?php trans('musique_libre_texte'); ?>
             </p>
 
+        <!-- STATS -->
+
+        <?php
+        include_once(HOME_PATH . DS . 'stats.php');
+statsBlock();
+?>
+
         <h2><?php trans('asso_titre'); ?></h2>
             <p>
                 <?php trans('asso_texte'); ?>

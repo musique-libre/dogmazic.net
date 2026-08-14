@@ -1,0 +1,22 @@
+<?php
+
+/*
+ * Copier ce fichier en config.php et y mettre les vrais identifiants.
+ * config.php est ignore par git (voir .gitignore) : il ne doit JAMAIS
+ * etre commite.
+ *
+ * Utiliser un compte MySQL dedie en LECTURE SEULE, par exemple :
+ *
+ *   CREATE USER 'dogmazic_stats'@'localhost' IDENTIFIED BY '...';
+ *   GRANT SELECT ON ampache.song         TO 'dogmazic_stats'@'localhost';
+ *   GRANT SELECT ON ampache.license      TO 'dogmazic_stats'@'localhost';
+ *   GRANT SELECT ON ampache.label        TO 'dogmazic_stats'@'localhost';
+ *   GRANT SELECT ON ampache.object_count TO 'dogmazic_stats'@'localhost';
+ *
+ * Si ce fichier est absent, le bloc de stats ne s'affiche simplement pas.
+ */
+
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'ampache');
+define('DB_USER', 'dogmazic_stats');
+define('DB_PASS', 'a_remplacer');

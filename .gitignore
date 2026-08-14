@@ -16,3 +16,6 @@ Thumbs.db
 
 # Cache local des flux RSS (voir accueil.php)
 /tmp/www-dogmazic-net-cache-rss/
+
+# Identifiants base de données (voir config.php.dist)
+/config.php

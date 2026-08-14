@@ -152,7 +152,7 @@ $trans['adherer_texte']['en']='The more people there will be in the volunteer or
 $trans['faire_un_don_titre']['fr']='Dogmazic a besoin de vous !';
 $trans['faire_un_don_titre']['en']='Dogmazic needs you!';
 
-$trans['faire_un_don_texte']['fr']='Au printemps 2024 l\'association <em><strong>Musique Libre</strong></em> a tenu son assemblée générale. <a href="https://musique-libre.org/blog/2024/09/13/compte-rendu-de-lag-de-musique-libre/">Lire le compte-rendu de l\'AG</a><br/>Nous avons plus que jamais besoin de votre soutien pour assurer la pérénité du projet porté par Dogmazic / Musique Libre, notamment pour assurer les capacités du site à répondre à la demande, des mélomanes comme des musiciens.<br/>Pour les résidents fiscaux en France : Musique Libre étant reconnue association d\'intérêt général, vos dons sont déductibles de vos impôts à hauteur de 66% (donner 20 euros vous coûte 6,80 euros). Vous recevrez un reçu fiscal courant avril de l\'année suivant celle de votre don.
+$trans['faire_un_don_texte']['fr']='Au printemps 2024 l\'association <em><strong>Musique Libre</strong></em> a tenu son assemblée générale. <a href="' . URL_AG . '">Lire le compte-rendu de l\'AG</a><br/>Nous avons plus que jamais besoin de votre soutien pour assurer la pérénité du projet porté par Dogmazic / Musique Libre, notamment pour assurer les capacités du site à répondre à la demande, des mélomanes comme des musiciens.<br/>Pour les résidents fiscaux en France : Musique Libre étant reconnue association d\'intérêt général, vos dons sont déductibles de vos impôts à hauteur de 66% (donner 20 euros vous coûte 6,80 euros). Vous recevrez un reçu fiscal courant avril de l\'année suivant celle de votre don.
 	<span id="liens_dons">
     <h4>Faire un don via Liberapay</h4>
     	<a href="https://liberapay.com/MusiqueLibre/donate?currency=EUR&amount=1&period=monthly"><img alt="Faire un don via LiberaPay" src="https://liberapay.com/assets/liberapay/icon-v2_black-on-yellow.svg" name="HTTP://LIBERAPAY.COM/" width="104" height="35" border="0"></a>
@@ -170,7 +170,7 @@ $trans['faire_un_don_texte']['fr']='Au printemps 2024 l\'association <em><strong
 <p>Contactez nous pour obtenir un IBAN/RIB pour faire un virement bancaire</p>
 </span>
 ';
-$trans['faire_un_don_texte']['en']='During Spring 2024 the <em><strong>Musique Libre</strong></em> volunteer organisation had its general meeting. <a href="https://musique-libre.org/blog/2024/09/13/compte-rendu-de-lag-de-musique-libre/">Read the report of the general meeting (in French)</a><br/>We are still deeply in need of your support to ensure that the Dogmazic / Musique Libre project will be kept alive. Including for allowing our servers to handle the ever-growing use of the website, by music lovers as well as by musicians.<br>For France tax residents, Musique Libre being recognized as a public interest organisation, your donations can be substracted from your income tax at a 66% rate (a 20 euros donation will cost you 6.80 euros). You will receive a receipt during April of the year following the one you donated.
+$trans['faire_un_don_texte']['en']='During Spring 2024 the <em><strong>Musique Libre</strong></em> volunteer organisation had its general meeting. <a href="' . URL_AG . '">Read the report of the general meeting (in French)</a><br/>We are still deeply in need of your support to ensure that the Dogmazic / Musique Libre project will be kept alive. Including for allowing our servers to handle the ever-growing use of the website, by music lovers as well as by musicians.<br>For France tax residents, Musique Libre being recognized as a public interest organisation, your donations can be substracted from your income tax at a 66% rate (a 20 euros donation will cost you 6.80 euros). You will receive a receipt during April of the year following the one you donated.
 	<span id="liens_dons">
     <h4>Donate with Paypal</h4><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 <input type="hidden" name="cmd" value="_s-xclick">
@@ -227,3 +227,45 @@ $trans['annonces_concert']['en']='Concerts &amp; events';
 
 $trans['Annoncer un concert']['fr']="Annoncer un concert";
 $trans['Annoncer un concert']['en']='Announce a concert';
+
+/** STATS (voir accueil/stats.php) */
+$trans['stats_titre']['fr']='Dogmazic en chiffres';
+$trans['stats_titre']['en']='Dogmazic in numbers';
+
+/* Les {accolades} sont remplacees par les chiffres, ne pas les traduire. */
+$trans['stats_phrase']['fr']='{heures} heures de musique disponibles, soit {morceaux} morceaux par {artistes} artistes et {labels} labels sous {licences} licences, écoutés ou téléchargés {ecoutes} fois en {jours} jours, en toute quiétude et en toute légalité.';
+$trans['stats_phrase']['en']='{heures} hours of music available, that is {morceaux} tracks by {artistes} artists and {labels} labels under {licences} licenses, played or downloaded {ecoutes} times over {jours} days, totally quietly and totally legally.';
+
+$trans['stats_licences_titre']['fr']='Répartition par licence';
+$trans['stats_licences_titre']['en']='Breakdown by license';
+
+$trans['stats_licences_note']['fr']='Cliquez sur une licence pour écouter les morceaux concernés dans l\'archive.';
+$trans['stats_licences_note']['en']='Click a license to browse the matching tracks in the archive.';
+
+$trans['stats_autres']['fr']='Autres licences libres';
+$trans['stats_autres']['en']='Other free licenses';
+
+/** BANDEAU DE STATS (haut de page, une variante au hasard a chaque chargement) */
+/* Pour ajouter une variante : une cle ici + son nom dans stats_bandeau_variantes().
+   Ce qui est dans <span class="long"> disparait sur les petits ecrans. */
+
+$trans['stats_bandeau_chiffres']['fr']='{morceaux} morceaux<span class="long"><span class="sep">·</span>{artistes} artistes<span class="sep">·</span>{heures} heures</span><span class="sep">·</span>{licences} licences libres';
+$trans['stats_bandeau_chiffres']['en']='{morceaux} tracks<span class="long"><span class="sep">·</span>{artistes} artists<span class="sep">·</span>{heures} hours</span><span class="sep">·</span>{licences} free licenses';
+
+$trans['stats_bandeau_icones']['fr']='🎵 {morceaux}<span class="long"><span class="sep">·</span>🎤 {artistes}<span class="sep">·</span>⏱ {heures} h</span><span class="sep">·</span>⚖ {licences} licences';
+$trans['stats_bandeau_icones']['en']='🎵 {morceaux}<span class="long"><span class="sep">·</span>🎤 {artistes}<span class="sep">·</span>⏱ {heures} h</span><span class="sep">·</span>⚖ {licences} licenses';
+
+$trans['stats_bandeau_phrase']['fr']='{heures} heures de musique libre<span class="long">, en toute quiétude et en toute légalité</span>.';
+$trans['stats_bandeau_phrase']['en']='{heures} hours of free music<span class="long">, totally quietly and totally legally</span>.';
+
+$trans['stats_bandeau_depuis']['fr']='Depuis {annee} : {morceaux} morceaux<span class="long"> déposés par {artistes} artistes</span>';
+$trans['stats_bandeau_depuis']['en']='Since {annee}: {morceaux} tracks<span class="long"> uploaded by {artistes} artists</span>';
+
+$trans['stats_bandeau_nonstop']['fr']='{jours_nonstop} jours de musique non-stop<span class="long">, sans jamais repasser un morceau</span>';
+$trans['stats_bandeau_nonstop']['en']='{jours_nonstop} days of non-stop music<span class="long">, never playing the same track twice</span>';
+
+$trans['stats_bandeau_licence']['fr']='{licence_nb} morceaux en {licence_nom}<span class="long">, et {licences} licences libres en tout</span>';
+$trans['stats_bandeau_licence']['en']='{licence_nb} tracks under {licence_nom}<span class="long">, out of {licences} free licenses in total</span>';
+
+$trans['stats_bandeau_ecoutes']['fr']='{ecoutes} écoutes et téléchargements<span class="long">, en toute légalité</span>';
+$trans['stats_bandeau_ecoutes']['en']='{ecoutes} plays and downloads<span class="long">, totally legally</span>';

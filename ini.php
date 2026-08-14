@@ -31,18 +31,33 @@ if (!in_array($lang, ['fr', 'en'])) {
 }
 define('LANG', $lang);
 
-function trans($txt)
+// Lien vers le compte-rendu de la derniere assemblee generale.
+// A mettre a jour apres chaque AG : c'est le seul endroit a modifier,
+// le lien est utilise dans les textes FR et EN (voir accueil/texte.php).
+define('URL_AG', 'https://musique-libre.org/blog/2024/09/13/compte-rendu-de-lag-de-musique-libre/');
+
+// Configuration locale (identifiants MySQL pour les stats).
+// Fichier hors depot, voir config.php.dist. Absent = pas de stats affichees.
+if (file_exists(__DIR__ . DS . 'config.php')) {
+    include_once(__DIR__ . DS . 'config.php');
+}
+
+// Retourne la traduction (utile quand on doit la manipuler avant affichage,
+// par exemple pour y injecter des chiffres : voir accueil/stats.php).
+function trans_r($txt)
 {
     include(HOME_PATH . DS . 'texte.php');
     if (!isset($trans[$txt])) {
-        echo "<i>Missing text</i>";
-
-        return;
+        return "<i>Missing text</i>";
     }
     if (!isset($trans[$txt][LANG])) {
-        echo "<i>Missing translation " . LANG . " for <b>$txt</b></i>";
-
-        return;
+        return "<i>Missing translation " . LANG . " for <b>$txt</b></i>";
     }
-    echo $trans[$txt][LANG];
+
+    return $trans[$txt][LANG];
+}
+
+function trans($txt)
+{
+    echo trans_r($txt);
 }

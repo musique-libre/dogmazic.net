@@ -25,7 +25,12 @@ include('ini.php');
                 <a href="//play.dogmazic.net/login.php"><?php trans('Connexion'); ?></a>
                 / <a href="//play.dogmazic.net/register.php"><?php trans('Inscription'); ?></a>
             </span>
-            <div class="espace"></div> <!-- div vide pour la mise en page en flex -->
+            <div class="espace"> <!-- espace flexible, accueille le bandeau de stats -->
+                <?php
+                include_once(HOME_PATH . DS . 'stats.php');
+statsBandeau();
+?>
+            </div>
             <form name="search" method="post" action="//play.dogmazic.net/search.php?type=song" enctype="multipart/form-data">
                 <input name="rule_1_input" id="searchString" placeholder="<?php trans('Recherche'); ?>" class="ui-autocomplete-input" autocomplete="off" type="text">
                 <input name="action" value="search" type="hidden">
