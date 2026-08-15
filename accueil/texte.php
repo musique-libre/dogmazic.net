@@ -580,7 +580,7 @@ $trans['bonus_invite']['en']='Click to watch it again';
 
 $trans['bonus_phrases']['fr']='Dogmazic reviendra.
     | Merci d\'être resté jusqu\'à la fin du générique.
-    | Aucun major n\'a été blessé pendant la fabrication de ce site.
+    | Aucune major n\'a été blessé pendant la fabrication de ce site.
     | Ce disque tourne encore.
     | 100 % libre, 0 % publicité, 0 % actionnaire.
     | Vous pouvez partager cette page. Vraiment. C\'est écrit dans la licence.';
