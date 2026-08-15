@@ -205,6 +205,10 @@ h2{font-size:clamp(28px,4vw,44px)}
   border:1px solid var(--sillon);color:var(--craie-basse);white-space:nowrap;
 }
 .chip.libre{border-color:rgba(255,157,0,.4);color:var(--orange)}
+/* La puce porte une infobulle (la licence exacte du morceau en cours) :
+   le pointeur « help » et le souligne pointille le signalent. */
+a.chip.libre{cursor:help;text-decoration:underline dotted rgba(255,157,0,.5);text-underline-offset:3px}
+a.chip.libre:hover{background:rgba(255,157,0,.12);color:var(--orange)}
 
 /* =============================== SECTIONS =============================== */
 main > section{padding:66px 0;border-top:1px solid var(--sillon)}

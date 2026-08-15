@@ -550,3 +550,8 @@ $trans['licences_note_obsoletes']['en']='Licences marked “obsolete” were upd
 
 $trans['licences_note_source']['fr']='Ce tableau reprend celui publié par l\'association. Une erreur, une licence manquante ? <a href="https://forum.musique-libre.org">Signalez-la sur le forum</a>, il sera corrigé.';
 $trans['licences_note_source']['en']='This table is based on the one published by the nonprofit. Spotted a mistake or a missing licence? <a href="https://forum.musique-libre.org">Tell us on the forum</a> and it will be fixed.';
+
+/* Puce de licence du lecteur radio : au repos elle renvoie au tableau des
+   licences, en lecture l'infobulle donne la licence exacte du morceau. */
+$trans['radio_licence_repos']['fr']='Chaque morceau a sa propre licence — voir le tableau des licences';
+$trans['radio_licence_repos']['en']='Every track has its own licence — see the licence table';

@@ -78,7 +78,10 @@ include_once 'socials.php';
                 <div class="meta" id="metaPiste"><?php trans('radio_invite'); ?></div>
             </div>
 
-            <span class="chip libre" style="margin-left:auto"><?php trans('radio_chip_licence'); ?></span>
+            <a class="chip libre" id="chipLicence" style="margin-left:auto"
+               href="licences.php" title="<?php trans('radio_licence_repos'); ?>">
+                <span id="chipLicenceTexte"><?php trans('radio_chip_licence'); ?></span>
+            </a>
             <a class="chip" href="<?php echo $flux; ?>"><?php trans('radio_chip_flux'); ?></a>
 
         </div>
@@ -345,6 +348,20 @@ include_once 'socials.php';
         rafraichitInfos();
     }
 
+    var LICENCE_REPOS = <?= json_encode(trans_r('radio_licence_repos')) ?>;
+
+    /* Renseigne la puce de licence. Sans licence connue, on revient au
+       libelle generique qui pointe vers le tableau des licences. */
+    function majLicence(nom, url)
+    {
+        var puce = $('#chipLicence');
+        if (nom) {
+            puce.attr('title', nom).attr('href', url || 'licences.php');
+        } else {
+            puce.attr('title', LICENCE_REPOS).attr('href', 'licences.php');
+        }
+    }
+
     // Metadonnees du morceau en cours (endpoint de radio.dogmazic.net)
     var current_song_id = null;
 
@@ -357,6 +374,7 @@ include_once 'socials.php';
             $('#metainfos').hide();
             $('#titre_repos').show();
             $('#albumart').attr('src', '/blank_album_art.png');
+            majLicence('', '');
             return;
         }
         $.getJSON('https://radio.dogmazic.net/metadata.php?wanted=json', function (obj) {
@@ -373,6 +391,11 @@ include_once 'socials.php';
 
             $('#titre_repos').hide();
             $('#metainfos').show();
+
+            // Licence exacte du morceau en cours : le libelle de la puce ne
+            // bouge pas (il tiendrait mal la place), c'est l'infobulle qui
+            // donne le nom, et le lien mene au texte de la licence.
+            majLicence(obj['license'], obj['license_url']);
 
             if ('mediaSession' in navigator) {
                 navigator.mediaSession.metadata = new MediaMetadata({
