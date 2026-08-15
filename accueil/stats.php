@@ -21,6 +21,21 @@ define('STATS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-stats/');
 // Date d'ouverture de l'archive, sert a calculer "depuis X jours".
 define('STATS_START_DATE', '2004-06-10');
 
+/*
+ * Ecoutes et telechargements accumules AVANT la remise a zero de la base.
+ *
+ * Un crash a efface les compteurs. Ce total est celui qu'affichait le bandeau
+ * du site en 2012 (« ... ecoutes ou telecharges 224 618 410 fois depuis
+ * 2005 »), seule trace qui nous en reste. On le rajoute au compteur courant
+ * pour que le chiffre affiche reste celui de l'histoire du site.
+ *
+ * Ne concerne QUE les ecoutes et les telechargements : le nombre de morceaux,
+ * d'artistes, de labels et le total d'heures sont lus en base et sont justes.
+ *
+ * Mettre a 0 pour n'afficher que les ecoutes posterieures au crash.
+ */
+define('STATS_ECOUTES_AVANT_CRASH', 224618410);
+
 // Le comptage des telechargements fait un COUNT() sur object_count, qui est
 // une grosse table. C'est mis en cache 1h, mais si ca pese trop sur le serveur
 // tu peux passer ca a false : seules les ecoutes seront comptees.
@@ -264,6 +279,16 @@ function stats_get()
     return $data;
 }
 
+/*
+ * Total des ecoutes et telechargements : ce que dit la base, plus l'heritage
+ * d'avant le crash. Calcule a l'affichage et non dans la requete, pour que
+ * les caches deja ecrits restent valables.
+ */
+function stats_ecoutes(array $s)
+{
+    return $s['ecoutes'] + $s['telechargements'] + STATS_ECOUTES_AVANT_CRASH;
+}
+
 /* Formatage des nombres selon la langue (12 345 en fr, 12,345 en en). */
 function stats_nombre($n)
 {
@@ -355,7 +380,7 @@ function statsBandeau()
         '{artistes}' => '<b>' . stats_nombre($s['artistes']) . '</b>',
         '{labels}' => '<b>' . stats_nombre($s['labels']) . '</b>',
         '{licences}' => '<b>' . stats_nombre($s['licences_nb']) . '</b>',
-        '{ecoutes}' => '<b>' . stats_nombre($s['ecoutes'] + $s['telechargements']) . '</b>',
+        '{ecoutes}' => '<b>' . stats_nombre(stats_ecoutes($s)) . '</b>',
         '{jours_nonstop}' => '<b>' . stats_nombre((int) round($s['heures'] / 24)) . '</b>',
         '{annee}' => '<b>' . date('Y', strtotime(STATS_START_DATE)) . '</b>',
         '{licence_nom}' => '<b>' . htmlspecialchars($licence_nom) . '</b>',
@@ -381,7 +406,7 @@ function statsBlock()
         '{artistes}' => '<strong>' . stats_nombre($s['artistes']) . '</strong>',
         '{labels}' => '<strong>' . stats_nombre($s['labels']) . '</strong>',
         '{licences}' => '<strong>' . stats_nombre($s['licences_nb']) . '</strong>',
-        '{ecoutes}' => '<strong>' . stats_nombre($s['ecoutes'] + $s['telechargements']) . '</strong>',
+        '{ecoutes}' => '<strong>' . stats_nombre(stats_ecoutes($s)) . '</strong>',
         '{jours}' => '<strong>' . stats_nombre($jours) . '</strong>',
     ]);
 
@@ -407,6 +432,9 @@ function statsBlock()
                 <div>
                     <span class="eyebrow"><?php trans('stats_titre'); ?></span>
                     <p id="stats_phrase"><?= $phrase ?></p>
+                    <?php if (STATS_ECOUTES_AVANT_CRASH > 0): ?>
+                        <p class="stats_note"><?php trans('stats_note_historique'); ?></p>
+                    <?php endif; ?>
                     <div class="spectre"><?php trans('licences_spectre'); ?></div>
                 </div>
 

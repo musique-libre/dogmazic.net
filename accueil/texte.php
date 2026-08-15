@@ -590,3 +590,12 @@ $trans['bonus_phrases']['en']='Dogmazic will return.
     | This record is still spinning.
     | 100% free, 0% ads, 0% shareholders.
     | You may share this page. Really. It says so in the licence.';
+
+/* Texte alternatif de l'image de partage (og:image). */
+$trans['og_image_alt']['fr']='Un disque vinyle frappé de la mascotte Dogmazic, à côté du slogan « La musique qu\'on a le droit de partager ».';
+$trans['og_image_alt']['en']='A vinyl record stamped with the Dogmazic mascot, next to the tagline “The music you\'re allowed to share”.';
+
+/* Precision sur le compteur d'ecoutes : il inclut l'historique d'avant la
+   remise a zero de la base (voir STATS_ECOUTES_AVANT_CRASH dans stats.php). */
+$trans['stats_note_historique']['fr']='Le compteur d\'écoutes inclut l\'historique du site : les compteurs de la base ont été remis à zéro lors d\'un incident, le total antérieur est repris tel qu\'il était relevé à l\'époque.';
+$trans['stats_note_historique']['en']='The play counter includes the site\'s history: the database counters were reset during an incident, so the earlier total is carried over as it was recorded back then.';

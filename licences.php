@@ -2,6 +2,11 @@
 include('ini.php');
 include(HOME_PATH . DS . 'licences-data.php');
 
+$page_url        = '/licences.php';
+$canonique       = LANG === 'en' ? '/licences.php?lang=en' : '/licences.php';
+$titre_page      = 'Dogmazic — ' . strip_tags(trans_r('licences_page_titre'));
+$cle_description = 'licences_page_desc';
+
 /* mbstring n'est pas garanti sur tous les hebergements (cf. accueil.php). */
 function minuscules($t)
 {
@@ -34,6 +39,23 @@ function droit_libelle($code)
         <link rel="shortcut icon" href="//play.dogmazic.net/favicon_dogmazic.ico">
         <link rel="stylesheet" href="<?= CSS_PATH . '/dogmazic.css' ?>" type="text/css">
         <link rel="stylesheet" href="<?= CSS_PATH . '/licences.css' ?>" type="text/css">
+        <link rel="canonical" href="<?= SITE_URL . $canonique ?>">
+        <link rel="alternate" hreflang="fr" href="<?= SITE_URL . $page_url ?>">
+        <link rel="alternate" hreflang="en" href="<?= SITE_URL . $page_url ?>?lang=en">
+        <link rel="alternate" hreflang="x-default" href="<?= SITE_URL . $page_url ?>">
+
+        <!-- Partage sur Bluesky, Mastodon, Signal, Discord... -->
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Dogmazic">
+        <meta property="og:locale" content="<?= LANG === 'fr' ? 'fr_FR' : 'en_GB' ?>">
+        <meta property="og:url" content="<?= SITE_URL . $canonique ?>">
+        <meta property="og:title" content="<?= htmlspecialchars($titre_page) ?>">
+        <meta property="og:description" content="<?php trans($cle_description); ?>">
+        <meta property="og:image" content="<?= SITE_URL ?>/<?= IMG_PATH ?>/og-dogmazic.png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="<?php trans('og_image_alt'); ?>">
+        <meta name="twitter:card" content="summary_large_image">
     </head>
 
     <body>

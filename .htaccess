@@ -1,0 +1,37 @@
+# Dogmazic.net — configuration Apache
+
+# --- Fichiers a ne pas servir -------------------------------------------
+# config.php.dist etait accessible en clair : il ne contient que des valeurs
+# d'exemple, mais il decrit la configuration de la base. Autant le taire.
+<FilesMatch "\.(dist|md|sql|log|bak|swp|inc)$">
+    Require all denied
+</FilesMatch>
+
+# Fichiers caches (.git, .env, .htaccess lui-meme...)
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+RedirectMatch 404 /\.git
+
+# --- En-tetes de securite -----------------------------------------------
+<IfModule mod_headers.c>
+    # Empeche le navigateur de "deviner" un type MIME different de celui
+    # annonce : c'est ce qui transforme un fichier anodin en script.
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Ces trois-la sont deja envoyes par la configuration actuelle du serveur.
+    # On les repete ici pour que la configuration voyage avec le depot.
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), camera=(), microphone=(), interest-cohort=()"
+</IfModule>
+
+# --- Cache des assets ----------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css               "access plus 7 days"
+    ExpiresByType application/javascript "access plus 7 days"
+    ExpiresByType image/png              "access plus 30 days"
+    ExpiresByType image/svg+xml          "access plus 30 days"
+    ExpiresByType font/woff2             "access plus 1 year"
+</IfModule>

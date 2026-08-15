@@ -1,0 +1,16 @@
+# https://dogmazic.net/robots.txt
+
+User-agent: *
+
+# Parametres de debug et d'affichage : ils renvoient la meme page et
+# creeraient autant de doublons dans l'index.
+Disallow: /*?bandeau=
+Disallow: /*?get=
+
+# Note : ?lang=en n'est PAS bloque. C'est une vraie version alternative,
+# declaree par les balises hreflang et listee dans le sitemap : l'empecher
+# d'etre exploree reviendrait a annoncer une page qu'on interdit de lire.
+
+Allow: /
+
+Sitemap: https://dogmazic.net/sitemap.xml

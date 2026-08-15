@@ -875,28 +875,10 @@ function lastBlogPosts()
     }
 }
 
-//Ajax hook
-if (isset($_GET['get']) && $_GET['get'] === 'nowplaying') {
-    $hasdisplayed=false;
-    $dom         = new DOMDocument();
-    if ($albums = file_get_contents('//play.dogmazic.net/rss.php')) {
-        $dom->loadXML($albums);
-        $dom->preserveWhiteSpace=false;
-        $items                  = $dom->getElementsByTagName('item');
-        $i                      = 0;
-        while (($item = $items->item($i++)) && $i <= 10) {
-            $hasdisplayed=true;
-            $title       = $item->getElementsByTagName('title')->item(0)->nodeValue;
-            $description = $item->getElementsByTagName('description')->item(0)->nodeValue;
-            $link        = $item->getElementsByTagName('link')->item(0)->nodeValue;
-            echo '<a style="border:solid 1px black;" target="new" href="' . $link . '" class="list-group-item">' . htmlspecialchars($description) . '</a></li>';
-        }
-    }
-    if (!$hasdisplayed) {
-        echo '...';
-    }
-    exit();
-}
+// NB : un ancien hook « ?get=nowplaying » vivait ici. Il n'etait appele par
+// aucun script, et son file_get_contents('//play.dogmazic.net/rss.php') ne
+// pouvait pas fonctionner : sans schema, PHP cherchait un fichier local.
+// Supprime : il ajoutait une sortie parasite a la page d'accueil.
 
 
 ?>
