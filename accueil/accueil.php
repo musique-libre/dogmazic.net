@@ -262,6 +262,7 @@ include_once 'socials.php';
                         <li><a href="//play.dogmazic.net/register.php" target="_blank"><?php trans('creer_compte'); ?></a></li>
                         <li><a href="//play.dogmazic.net/login.php" target="_blank"><?php trans('Connexion'); ?></a></li>
                         <li><a href="#publier"><?php trans('publier'); ?></a></li>
+                        <li><a href="licences.php"><?php trans('licences_page_titre'); ?></a></li>
                     </ul>
                 </div>
 

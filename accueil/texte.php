@@ -459,8 +459,94 @@ $trans['mention_cookie']['en']='This site sets a single cookie, storing your lan
    et debarrassee d'une balise </eme> mal fermee. */
 $trans['licences_spectre']['fr'] = '<p>Tous les morceaux sont sous licence <em>libre</em> ou <em>ouverte</em>, choisie par l\'artiste. Selon laquelle, de nombreux droits vous sont accordés d\'emblée.</p>
 <p>La plus permissive, la <strong>CC BY</strong>, autorise tout usage à condition de citer l\'auteur et la licence — y compris commercial et sans contrepartie, ce qui est bien pratique pour sonoriser une vidéo monétisée. À l\'autre bout du spectre, la <strong>CC BY-NC-ND</strong> n\'autorise que la copie à l\'identique, en dehors de tout cadre commercial.</p>
-<p>Entre les deux, certaines licences autorisent le remix, commercialement ou non, parfois à condition que le remix soit lui-même placé sous licence libre. Le détail est dans le <a href="https://musique-libre.org/doc/le-tableau-des-licences-libres-et-ouvertes-de-dogmazic/" target="_blank">tableau des licences</a> de <a href="https://musique-libre.org/doc" target="_blank">notre documentation</a>.</p>';
+<p>Entre les deux, certaines licences autorisent le remix, commercialement ou non, parfois à condition que le remix soit lui-même placé sous licence libre. Le détail est dans le <a href="licences.php">tableau des licences</a> de <a href="https://musique-libre.org/doc" target="_blank">notre documentation</a>.</p>';
 
 $trans['licences_spectre']['en'] = '<p>Every track is under a <em>free</em> or <em>open</em> licence, chosen by the artist. Depending on which one, a lot of rights are granted to you upfront.</p>
 <p>The most permissive, <strong>CC BY</strong>, allows any use as long as you credit the author and the licence — including commercial use, with nothing owed in return, which comes in handy for the soundtrack of a monetised video. At the other end of the spectrum, <strong>CC BY-NC-ND</strong> only allows unmodified copies, outside any commercial context.</p>
-<p>In between, some licences allow remixing, commercially or not, sometimes on condition that the remix is itself released under a free licence. The details are in the <a href="https://musique-libre.org/doc/le-tableau-des-licences-libres-et-ouvertes-de-dogmazic/" target="_blank">licence table</a> in <a href="https://musique-libre.org/doc" target="_blank">our documentation</a>.</p>';
+<p>In between, some licences allow remixing, commercially or not, sometimes on condition that the remix is itself released under a free licence. The details are in the <a href="licences.php">licence table</a> in <a href="https://musique-libre.org/doc" target="_blank">our documentation</a>.</p>';
+
+/** ===================================================================
+ *  PAGE « TABLEAU DES LICENCES » (licences.php)
+ *  =================================================================== */
+
+$trans['licences_surtitre']['fr']='Documentation';
+$trans['licences_surtitre']['en']='Documentation';
+
+$trans['licences_page_titre']['fr']='Tableau des licences libres et ouvertes';
+$trans['licences_page_titre']['en']='Table of free and open licences';
+
+$trans['licences_page_desc']['fr']='Ce que chaque licence de Dogmazic vous autorise à faire : écouter, copier, remixer, diffuser, y compris commercialement.';
+$trans['licences_page_desc']['en']='What each licence used on Dogmazic allows you to do: listen, copy, remix, broadcast, including commercially.';
+
+$trans['licences_page_intro']['fr']='Chaque musicien qui dépose sur Dogmazic choisit sa licence. Ce tableau récapitule les droits que chacune vous accorde d\'emblée, sans avoir à demander quoi que ce soit. Filtrez par ce que vous voulez faire du morceau.';
+$trans['licences_page_intro']['en']='Every musician who uploads to Dogmazic picks a licence. This table sums up the rights each one grants you upfront, with nothing to ask for. Filter by what you want to do with the track.';
+
+$trans['licences_chercher']['fr']='Chercher une licence…';
+$trans['licences_chercher']['en']='Search for a licence…';
+
+$trans['licences_question']['fr']='Je cherche une licence qui me permet de :';
+$trans['licences_question']['en']='I need a licence that lets me:';
+
+$trans['besoin_commercial']['fr']='en faire un usage commercial';
+$trans['besoin_commercial']['en']='use it commercially';
+$trans['besoin_remix']['fr']='remixer et vendre le résultat';
+$trans['besoin_remix']['en']='remix and sell the result';
+$trans['besoin_partage']['fr']='partager le fichier';
+$trans['besoin_partage']['en']='share the file';
+$trans['besoin_libre']['fr']='rester dans le logiciel libre';
+$trans['besoin_libre']['en']='stay strictly free/libre';
+$trans['besoin_obsoletes']['fr']='voir les licences obsolètes';
+$trans['besoin_obsoletes']['en']='show obsolete licences';
+
+$trans['licences_compte']['fr']='{n} licences sur {total} affichées';
+$trans['licences_compte']['en']='{n} of {total} licences shown';
+
+$trans['licences_aucune']['fr']='Aucune licence ne réunit toutes ces conditions. Essayez d\'en retirer une.';
+$trans['licences_aucune']['en']='No licence meets all these conditions. Try removing one.';
+
+$trans['licences_colonne_nom']['fr']='Licence';
+$trans['licences_colonne_nom']['en']='Licence';
+$trans['licences_colonne_texte']['fr']='Texte original';
+$trans['licences_colonne_texte']['en']='Original text';
+$trans['licences_lire']['fr']='Lire';
+$trans['licences_lire']['en']='Read';
+
+$trans['licences_obsolete']['fr']='obsolète';
+$trans['licences_obsolete']['en']='obsolete';
+$trans['licences_obsolete_info']['fr']='Licence mise à jour par son auteur, remplacée par un équivalent, ou dont le texte n\'est plus en ligne.';
+$trans['licences_obsolete_info']['en']='Licence updated by its author, replaced by an equivalent, or whose text is no longer online.';
+
+/* Valeurs des cellules */
+$trans['droit_oui']['fr']='oui';
+$trans['droit_oui']['en']='yes';
+$trans['droit_non']['fr']='non';
+$trans['droit_non']['en']='no';
+$trans['droit_accord']['fr']='accord de l\'auteur';
+$trans['droit_accord']['en']='author\'s permission';
+$trans['droit_conditions']['fr']='sous conditions';
+$trans['droit_conditions']['en']='under conditions';
+$trans['droit_copyleft']['fr']='oui (copyleft)';
+$trans['droit_copyleft']['en']='yes (copyleft)';
+$trans['droit_copyfarleft']['fr']='oui (copyfarleft)';
+$trans['droit_copyfarleft']['en']='yes (copyfarleft)';
+$trans['droit_inconnu']['fr']='non renseigné';
+$trans['droit_inconnu']['en']='not specified';
+
+/* Legende et notes */
+$trans['licences_legende']['fr']='Comment lire ce tableau';
+$trans['licences_legende']['en']='How to read this table';
+$trans['legende_oui']['fr']='Autorisé d\'emblée, sans rien demander.';
+$trans['legende_oui']['en']='Allowed upfront, nothing to ask.';
+$trans['legende_accord']['fr']='Possible, mais il faut l\'accord de l\'auteur.';
+$trans['legende_accord']['en']='Possible, but the author\'s permission is required.';
+$trans['legende_non']['fr']='Non autorisé par cette licence.';
+$trans['legende_non']['en']='Not allowed by this licence.';
+
+$trans['licences_note_versions']['fr']='Les licences sont présentées dans leur version d\'origine. Certaines disposent de traductions qui tiennent compte des différences de législation sur le droit d\'auteur : prenez toujours la version de votre langue ou de votre pays si elle existe.';
+$trans['licences_note_versions']['en']='Licences are listed in their original version. Some have translations accounting for differences in copyright law: always use the version for your language or country when one exists.';
+
+$trans['licences_note_obsoletes']['fr']='Les licences marquées « obsolète » ont été mises à jour par leur créateur, remplacées par un équivalent, ou leur texte n\'est plus disponible en ligne. Elles restent listées car des morceaux de l\'archive les utilisent encore.';
+$trans['licences_note_obsoletes']['en']='Licences marked “obsolete” were updated by their creator, replaced by an equivalent, or their text is no longer available online. They stay listed because tracks in the archive still use them.';
+
+$trans['licences_note_source']['fr']='Ce tableau reprend celui publié par l\'association. Une erreur, une licence manquante ? <a href="https://forum.musique-libre.org">Signalez-la sur le forum</a>, il sera corrigé.';
+$trans['licences_note_source']['en']='This table is based on the one published by the nonprofit. Spotted a mistake or a missing licence? <a href="https://forum.musique-libre.org">Tell us on the forum</a> and it will be fixed.';

@@ -1,0 +1,131 @@
+/* =========================================================================
+   Tableau des licences — styles specifiques.
+   Se charge APRES dogmazic.css, dont il reprend toutes les variables.
+   ========================================================================= */
+
+#lic-tete{padding:52px 0 26px}
+#lic-tete h1{font-family:var(--display);font-size:clamp(30px,4.4vw,48px);font-weight:800;
+  letter-spacing:-.02em;line-height:1.05;margin:0}
+#lic-tete .chapeau{max-width:64ch;margin-top:18px}
+
+/* ------------------------------- FILTRES ------------------------------- */
+#lic-filtres{padding:0 0 26px}
+.lic-recherche input{
+  width:100%;max-width:420px;padding:11px 15px;border-radius:10px;
+  border:1px solid var(--sillon);background:var(--panneau);color:var(--craie);
+  font:inherit;font-size:15px;
+}
+.lic-recherche input:focus{outline:2px solid var(--orange);outline-offset:2px}
+.lic-recherche input::placeholder{color:var(--craie-basse)}
+
+.lic-question{margin:22px 0 10px;font-size:15px;color:var(--craie-basse)}
+.lic-besoins{display:flex;flex-wrap:wrap;gap:8px}
+.lic-besoins button{
+  font:inherit;font-size:14px;padding:8px 15px;border-radius:999px;cursor:pointer;
+  border:1px solid var(--sillon);background:var(--panneau);color:var(--craie-basse);
+  transition:.15s;
+}
+.lic-besoins button:hover{border-color:var(--orange);color:var(--craie)}
+.lic-besoins button.actif{
+  background:linear-gradient(100deg,var(--orange),var(--braise));
+  border-color:transparent;color:#231000;font-weight:600;
+}
+.lic-compte{margin:16px 0 0;font-family:var(--data);font-size:12px;color:var(--craie-basse)}
+
+/* ------------------------------- TABLEAU ------------------------------- */
+#lic-tableau{padding:0 0 48px;border:none}
+.lic-defile{
+  overflow:auto;border:1px solid var(--sillon);border-radius:14px;background:var(--panneau);
+  /* le tableau est large : on le fait defiler lui-meme plutot que la page */
+  max-height:78vh;
+}
+#lic-tableau table{border-collapse:separate;border-spacing:0;width:100%;font-size:13.5px}
+
+#lic-tableau thead th{
+  position:sticky;top:0;z-index:3;background:var(--panneau-clair);
+  font-family:var(--data);font-size:11px;font-weight:400;line-height:1.3;
+  letter-spacing:.04em;color:var(--craie-basse);text-align:center;
+  padding:12px 10px;border-bottom:1px solid var(--sillon);vertical-align:bottom;
+  min-width:88px;
+}
+#lic-tableau thead th.col-nom{text-align:left;min-width:220px;left:0;z-index:4}
+
+/* Colonne des noms figee a gauche pendant le defilement horizontal */
+#lic-tableau tbody th.col-nom{
+  position:sticky;left:0;z-index:2;background:var(--panneau);
+  text-align:left;font-weight:600;color:var(--craie);padding:10px 14px;
+  border-right:1px solid var(--sillon);border-bottom:1px solid var(--sillon);
+  font-size:13.5px;
+}
+#lic-tableau tbody tr:hover th.col-nom,
+#lic-tableau tbody tr:hover td{background:var(--panneau-clair)}
+
+#lic-tableau td{
+  padding:9px 10px;text-align:center;border-bottom:1px solid var(--sillon);
+  color:var(--craie-basse);
+}
+#lic-tableau td span{font-size:12px}
+
+/* Etats. Le fond porte l'information, mais le texte la porte aussi : on ne
+   depend jamais de la seule couleur (daltonisme, impression noir et blanc). */
+.d-oui{background:rgba(255,157,0,.10);color:var(--craie)}
+.d-oui span{color:var(--orange);font-weight:600}
+.d-accord{background:rgba(255,255,255,.03)}
+.d-non{background:rgba(0,0,0,.28)}
+.d-non span{opacity:.55}
+.d-inconnu span{opacity:.35}
+
+.obsolete{
+  display:inline-block;margin-left:8px;font-family:var(--data);font-size:9px;
+  letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:99px;
+  border:1px solid var(--sillon);color:var(--craie-basse);cursor:help;
+}
+.col-texte{white-space:nowrap}
+.col-texte a{font-size:12.5px}
+.col-texte .trad{
+  margin-left:6px;font-family:var(--data);font-size:10px;padding:2px 5px;
+  border:1px solid var(--sillon);border-radius:4px;color:var(--craie-basse);
+}
+.col-texte .trad:hover{border-color:var(--orange);color:var(--orange)}
+.lic-vide{text-align:center;padding:40px 0;color:var(--craie-basse)}
+
+/* ------------------------------- LEGENDE ------------------------------- */
+#lic-notes{padding:0 0 70px;border-top:none}
+.lic-legende{background:var(--panneau);border:1px solid var(--sillon);border-radius:14px;padding:26px}
+.lic-legende h2{font-size:19px;margin-bottom:14px}
+.lic-legende ul{list-style:none;padding:0;margin:0 0 20px;display:flex;flex-wrap:wrap;gap:22px}
+.lic-legende li{display:flex;align-items:center;gap:9px;font-size:14px;color:var(--craie-basse)}
+.pastille{width:16px;height:16px;border-radius:4px;border:1px solid var(--sillon);flex:none}
+.lic-legende .note{font-size:13.5px;color:var(--craie-basse);margin:0 0 10px;max-width:80ch}
+.lic-legende .note:last-child{margin-bottom:0}
+
+/* ------------------------------ RESPONSIVE ------------------------------
+   Sous 780px un tableau de 13 colonnes est illisible, meme en defilant.
+   On le retourne en fiches : une carte par licence, chaque cellule reprend
+   son intitule de colonne via l'attribut data-col. */
+@media (max-width:780px){
+  .lic-defile{overflow:visible;max-height:none;border:none;background:none;border-radius:0}
+  #lic-tableau table,#lic-tableau tbody,#lic-tableau tr,#lic-tableau td{display:block;width:auto}
+  #lic-tableau thead{display:none}
+
+  #lic-tableau tbody tr{
+    background:var(--panneau);border:1px solid var(--sillon);border-radius:14px;
+    margin-bottom:14px;overflow:hidden;
+  }
+  #lic-tableau tbody th.col-nom{
+    display:block;position:static;border-right:none;padding:14px 16px;
+    background:var(--panneau-clair);font-size:15px;
+  }
+  #lic-tableau td{
+    display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+    text-align:right;padding:9px 16px;background:none !important;
+  }
+  #lic-tableau td::before{
+    content:attr(data-col);font-family:var(--data);font-size:11px;
+    color:var(--craie-basse);text-align:left;flex:1 1 auto;
+  }
+  #lic-tableau td span{flex:none}
+  .d-oui span{color:var(--orange)}
+  .col-texte{justify-content:flex-start;padding-top:12px;padding-bottom:14px}
+  .lic-besoins button{font-size:13px;padding:7px 13px}
+}
