@@ -482,11 +482,27 @@ function albumList()
 
             $image    = "//play.dogmazic.net/image.php?object_id=" . $album_id . "&object_type=album&size=200x200";
 
-            $titre = htmlspecialchars($description);
+            // <title> = le nom de l'album seul ; <description> = « Artiste - Album ».
+            // On retire le suffixe pour isoler l'artiste, plutot que de couper
+            // sur le premier tiret (un nom d'artiste peut en contenir un).
+            $titreNode = $item->getElementsByTagName('title')->item(0);
+            $album     = $titreNode ? trim($titreNode->nodeValue) : $description;
 
-            echo '<li class="album"><a target="_blank" href="' . htmlspecialchars($link) . '" title="' . $titre . '">'
+            $artiste = trim(preg_replace(
+                '~\s*-\s*' . preg_quote($album, '~') . '\s*$~u',
+                '',
+                $description
+            ));
+            if ($artiste === $description) {
+                $artiste = ''; // suffixe absent : on n'invente rien
+            }
+
+            echo '<li class="album"><a target="_blank" href="' . htmlspecialchars($link) . '"'
+               . ' title="' . htmlspecialchars($description) . '">'
                . '<span class="pochette"><img src="' . $image . '" alt="" loading="lazy"></span>'
-               . '<p>' . $titre . '</p></a></li>';
+               . '<p>' . htmlspecialchars($album) . '</p>'
+               . ($artiste !== '' ? '<span class="par">' . htmlspecialchars($artiste) . '</span>' : '')
+               . '</a></li>';
         }
     }
 }
@@ -523,15 +539,22 @@ function recentlyPlayedList()
             }
             $imagelink = 'https://radio.dogmazic.net/metadata_of_song.php?song_id=' . $target_songID . '&wanted=img_go';
 
-            // Le flux donne « Titre - Artiste » : on coupe pour hierarchiser l'affichage.
-            $titre   = $description;
-            $artiste = '';
-            if (strpos($description, ' - ') !== false) {
-                list($titre, $artiste) = array_pad(explode(' - ', $description, 2), 2, '');
+            // Metadonnees structurees si Ampache les fournit, sinon repli sur le
+            // decoupage du titre « Titre - Artiste - Album ».
+            $desc_node = $item->getElementsByTagName('description')->item(0);
+            $desc      = $desc_node ? $desc_node->nodeValue : '';
+
+            $titre   = champ_rss($desc, ['Titre', 'Title']);
+            $artiste = champ_rss($desc, ['Artiste', 'Artist']);
+
+            if ($titre === '') {
+                $morceaux = explode(' - ', $description, 3);
+                $titre    = $morceaux[0];
+                $artiste  = isset($morceaux[1]) ? $morceaux[1] : '';
             }
 
             echo '<li><a target="_blank" href="' . htmlspecialchars($link) . '">'
-               . '<span class="rang">' . ($i - 1) . '</span>'
+               . '<span class="rang">' . $i . '</span>'
                . '<span class="vignette"><img id="recentlyPlayedImg-' . ($i - 1) . '" src="' . $imagelink . '" alt="" loading="lazy"></span>'
                . '<span class="quoi"><b>' . htmlspecialchars($titre) . '</b>'
                . '<span>' . htmlspecialchars($artiste) . '</span></span>'
@@ -544,6 +567,25 @@ function recentlyPlayedList()
 
 
 
+
+/*
+ * Ampache range les metadonnees dans la description, en clair :
+ *   <p>Titre: ...</p><p>Artiste: ...</p><p>Album: ...</p>
+ * C'est bien plus fiable que de decouper le <title> sur les tirets, car un
+ * titre de morceau ou un nom d'album peut lui-meme contenir « - ».
+ * On accepte les libelles FR et EN, la langue depend du serveur Ampache.
+ */
+function champ_rss($description, array $libelles)
+{
+    foreach ($libelles as $libelle) {
+        $motif = '~<p>\s*' . preg_quote($libelle, '~') . '\s*:\s*(.*?)</p>~is';
+        if (preg_match($motif, $description, $m)) {
+            return trim(html_entity_decode(strip_tags($m[1]), ENT_QUOTES, 'UTF-8'));
+        }
+    }
+
+    return '';
+}
 
 /*
  * Date courte et lisible : « 6 août », « 6 Aug ».
@@ -626,9 +668,12 @@ function lastPost()
 
         // Atom : <entry><title><link href="..."/><published>
         $entries = $dom->getElementsByTagName('entry');
-        $i       = 0;
-        $vus     = []; // discussions deja affichees
-        while (($entry = $entries->item($i++)) && $i <= 5) {
+        $i       = 0;   // index de parcours du flux
+        $montres = 0;   // sujets reellement affiches
+        $vus     = [];  // sujets deja affiches (dedoublonnage)
+        // On parcourt jusqu'a 40 messages pour en sortir 5 sujets distincts :
+        // un fil actif peut occuper plusieurs entrees d'affilee.
+        while (($entry = $entries->item($i++)) && $montres < 5 && $i <= 40) {
 
             $titleNode = $entry->getElementsByTagName('title')->item(0);
             $title     = $titleNode ? $titleNode->nodeValue : '';
@@ -661,19 +706,43 @@ function lastPost()
                 $auteur   = $nameNode ? $nameNode->nodeValue : '';
             }
 
-            // phpBB publie un <entry> PAR MESSAGE : deux reponses dans la meme
-            // discussion feraient double emploi. On ne garde que la premiere.
-            $discussion = preg_replace('~#.*$~', '', $link);
-            if (isset($vus[$discussion])) {
-                $i--; // cette entree ne compte pas dans les 5 affichees
-                continue;
+            // phpBB titre ses entrees « Nom du forum • Re: Titre du sujet ».
+            // Le nom du forum est aussi dans <category term="...">, on l'enleve
+            // du titre pour l'afficher a part, et on retire le « Re: ».
+            $forum   = '';
+            $catNode = $entry->getElementsByTagName('category')->item(0);
+            if ($catNode) {
+                $forum = trim($catNode->getAttribute('term'));
             }
-            $vus[$discussion] = true;
+
+            $sujet = $title;
+            if ($forum !== '' && strpos($sujet, $forum) === 0) {
+                $sujet = ltrim(substr($sujet, strlen($forum)), " \t\xe2\x80\xa2•");
+            }
+            $sujet = preg_replace('~^\s*Re\s*:\s*~i', '', trim($sujet));
+
+            // Le lien pointe sur le MESSAGE (viewtopic.php?p=NNN), jamais sur le
+            // sujet : impossible de dedoublonner sur l'URL. On se rabat sur le
+            // titre du sujet, une fois le « Re: » retire.
+            $cle = function_exists('mb_strtolower') ? mb_strtolower($sujet, 'UTF-8') : strtolower($sujet);
+            if ($cle === '' || isset($vus[$cle])) {
+                continue; // deja affiche : on passe a l'entree suivante
+            }
+            $vus[$cle] = true;
+            $montres++;
+
+            $contexte = [];
+            if ($forum !== '') {
+                $contexte[] = $forum;
+            }
+            if ($auteur !== '') {
+                $contexte[] = strtr(trans_r('dernier_message_de'), ['{qui}' => $auteur]);
+            }
 
             echo '<a class="sujet" target="_blank" href="' . htmlspecialchars($link) . '">'
-               . '<span class="titre">' . htmlspecialchars($title) . '</span>'
+               . '<span class="titre">' . htmlspecialchars($sujet) . '</span>'
                . '<span class="quand">' . htmlspecialchars(depuis($pubdate)) . '</span>'
-               . ($auteur ? '<span class="qui">' . htmlspecialchars(strtr(trans_r('dernier_message_de'), ['{qui}' => $auteur])) . '</span>' : '')
+               . ($contexte ? '<span class="qui">' . htmlspecialchars(implode(' · ', $contexte)) . '</span>' : '')
                . '</a>';
         }
     }

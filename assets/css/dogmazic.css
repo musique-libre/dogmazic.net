@@ -225,8 +225,11 @@ main > section:first-of-type{border-top:none}
 .grille-albums img{width:100%;height:100%;object-fit:cover;display:block}
 .grille-albums .album a:hover .pochette{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.5)}
 .grille-albums p{
-  font-size:14.5px;margin:10px 0 0;font-weight:600;color:var(--craie);
-  overflow:hidden;text-overflow:ellipsis;
+  font-size:14.5px;margin:10px 0 0;font-weight:600;color:var(--craie);line-height:1.3;
+}
+.grille-albums .par{
+  display:block;font-size:13px;color:var(--craie-basse);margin-top:2px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
 }
 .grille-albums .album a:hover p{color:var(--orange)}
 

@@ -264,8 +264,8 @@ $trans['stats_bandeau_depuis']['en']='Since {annee}: {morceaux} tracks<span clas
 $trans['stats_bandeau_nonstop']['fr']='{jours_nonstop} jours de musique non-stop<span class="long">, sans jamais repasser un morceau</span>';
 $trans['stats_bandeau_nonstop']['en']='{jours_nonstop} days of non-stop music<span class="long">, never playing the same track twice</span>';
 
-$trans['stats_bandeau_licence']['fr']='{licence_nb} morceaux en {licence_nom}<span class="long">, et {licences} licences libres en tout</span>';
-$trans['stats_bandeau_licence']['en']='{licence_nb} tracks under {licence_nom}<span class="long">, out of {licences} free licenses in total</span>';
+$trans['stats_bandeau_licence']['fr']='{licence_nb} morceaux en {licence_nom}<span class="long">, parmi {licences} licences</span>';
+$trans['stats_bandeau_licence']['en']='{licence_nb} tracks under {licence_nom}<span class="long">, among {licences} licenses</span>';
 
 $trans['stats_bandeau_ecoutes']['fr']='{ecoutes} écoutes et téléchargements<span class="long">, en toute légalité</span>';
 $trans['stats_bandeau_ecoutes']['en']='{ecoutes} plays and downloads<span class="long">, totally legally</span>';
