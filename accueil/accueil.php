@@ -1,322 +1,400 @@
 <?php
 define('RSS_CACHE_TIME', 10); // cache flux rss en minutes
-define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/'); // cache flux rss en minutes
+define('RSS_CACHE_DIR', '/tmp/www-dogmazic-net-cache-rss/');
+include_once 'socials.php';
 ?>
-    <!-- HEADER -->
 
-    <header>
-    <h1><a href="https://play.dogmazic.net" alt="Dogmazic archive" title="<?php trans('acces_archive_texte'); ?>">Dogmazic</a></h1>
-    <a href="?lang=<?= $lang == 'fr' ? 'en' : 'fr' ?>"><img class="flag" src="<?= IMG_PATH . '/' . ($lang == 'fr' ? 'en' : 'fr') ?>.svg"></a>
-    <div class="container_header">
-      <div class="content_don" href="#don">
-        <a href="#don">
-          <div id="bouton_don" href="#don">
-            <?php trans('faire_un_don_titre'); ?>
-          </div>
-          <img id="logo_don" href="#don" src="<?= IMG_PATH . '/' . 'don.png' ?>">
-        </a>
-      </div>
-      <div class="content_socials">
-        <p><?php trans('text_header');?></p>
-        <p><?php trans('chat_soustitre');?></p>
+    <!-- ===================== HERO : LA GALAXIE ===================== -->
 
-        <?php include_once 'socials.php'; ?>
-        <!-- socials' loop -->
-        <div class="container">
-          <?php foreach ($socials as $social): ?>
-            <a class="social_links" href="<?= $social['url']; ?>" target="_blank">
-              <nav class="social_buttons" id="bouton_<?= strtolower($social['name']['fr']); ?>"><?= $social['name'][$lang]; ?></nav>
-            </a>
-            <?php endforeach; ?>
+    <div class="hero">
+        <div class="wrap">
+
+            <div class="orbite">
+                <div class="anneau a1"></div>
+                <div class="anneau a2"></div>
+
+                <a class="astre orb-archive" href="https://play.dogmazic.net">
+                    <span><b><?php trans('nav_archive'); ?></b><span class="sous"><?php trans('orbite_archive_sous'); ?></span></span>
+                </a>
+                <a class="astre orb-radio" href="https://radio.dogmazic.net">
+                    <span><b><?php trans('nav_radio'); ?></b><span class="sous"><?php trans('orbite_radio_sous'); ?></span></span>
+                </a>
+                <a class="astre orb-asso" href="https://www.musique-libre.org">
+                    <span><b><?php trans('nav_asso'); ?></b><span class="sous"><?php trans('orbite_asso_sous'); ?></span></span>
+                </a>
+
+                <button type="button" class="platine" onclick="basculeRadio()"
+                        aria-label="<?php trans('lancer_radio'); ?>">
+                    <img src="<?= IMG_PATH . '/disque-vinyle.svg' ?>" alt="" width="420" height="420">
+                    <span class="badge" id="badgePlay" aria-hidden="true">&#9654;</span>
+                </button>
+
+                <span class="legende"><?php trans('ecouter_en_direct'); ?></span>
+            </div>
+
+            <div>
+                <span class="eyebrow"><?php trans('hero_surtitre'); ?></span>
+                <h1><?php trans('hero_titre'); ?></h1>
+                <p class="chapeau"><?php trans('hero_chapeau'); ?></p>
+                <div class="actions">
+                    <button type="button" class="btn plein" onclick="basculeRadio()">
+                        &#9654; <?php trans('lancer_radio'); ?>
+                    </button>
+                    <a class="btn" href="https://play.dogmazic.net"><?php trans('fouiller_archive'); ?></a>
+                    <a class="btn" href="//play.dogmazic.net/register.php"><?php trans('publier_ma_musique'); ?></a>
+                </div>
+            </div>
+
         </div>
-      </div>
-      <div id="apps_mobiles">
-        <?php trans('apps_mobiles');?>
-      </div>
-      <img id="logo_mobile" src="<?= IMG_PATH . '/' . 'smartphone.png' ?>">
-
     </div>
 
-  </header>
+    <!-- ===================== LECTEUR RADIO ===================== -->
 
+    <div class="radio-bar">
+        <div class="wrap">
 
+            <audio id="dogplayer" onpause="etatRadio()" onplay="etatRadio()" preload="none">
+                <source src="<?php echo $flux; ?>" type="audio/mpeg">
+            </audio>
 
-    <!-- NOUVEAUX ALBUMS -->
+            <button type="button" class="play" id="btnPlay" onclick="basculeRadio()"
+                    aria-label="<?php trans('lancer_radio'); ?>">&#9654;</button>
+
+            <span class="onde" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+
+            <a href="#" target="_blank" id="link_album" title="<?php trans('voir_album'); ?>">
+                <img src="/blank_album_art.png" alt="" id="albumart" class="pochette-radio">
+            </a>
+
+            <div class="piste">
+                <div class="titre" id="titrePiste">
+                    <span id="metainfos">
+                        <a href="#" id="link_artist" target="_blank"></a>
+                        <span id="sep_meta"></span>
+                        <a href="#" id="link_song" target="_blank"></a>
+                    </span>
+                    <span id="titre_repos"><?php trans('radio_titre_repos'); ?></span>
+                </div>
+                <div class="meta" id="metaPiste"><?php trans('radio_invite'); ?></div>
+            </div>
+
+            <span class="chip libre" style="margin-left:auto"><?php trans('radio_chip_licence'); ?></span>
+            <a class="chip" href="<?php echo $flux; ?>"><?php trans('radio_chip_flux'); ?></a>
+
+        </div>
+    </div>
+
+    <!-- ===================== NOUVEAUX ALBUMS ===================== -->
 
     <section id="albums">
-        <h3><?php trans('nouveaux_albums');?></h3>
-        <ul id="albumList">
-            <?php
-            albumList();
-?>
-        </ul>
-    </section>
-
-    <!-- RÉCEMMENT JOUÉ-->
-
-    <section id="recentlyPlayed">
-        <h3><?php trans('récemment_joué');?></h3>
-        <ul id="recentlyPlayedList">
-            <?php
-recentlyPlayedList();
-?>
-        </ul>
-    </section>
-
-
-   <!-- COMMENTAIRES & FORUM -->
-
-    <aside id="commentsAndForum">
-
-         <!-- BLOG -->
-
-        <div id="blog">
-            <div class="box_title">
-                <h4><?php trans('nouveaux_articles');?></h4>
-                <span class="box_plus">+</span>
-            </div>
-            <div class="box_content" data_show="yes">
-                <?php
-    lastBlogPosts();
-?>
-            </div>
-        </div>
-
-        <!-- FORUM -->
-
-        <div id="forum">
-            <div class="box_title">
-                <h4><?php trans('nouveaux_forum');?></h4>
-                <span class="box_plus">+</span>
-            </div>
-            <div class="box_content" data_show="no">
-                <?php
-lastPost();
-?>
-            </div>
-        </div>
-
-        <!-- LAST COMMENTS -->
-
-        <div id="comments">
-            <div class="box_title">
-                <h4><?php trans('nouveaux_commentaires');?></h4>
-                <span class="box_plus">+</span>
-            </div>
-            <div class="box_content" data_show="no">
-                <?php
-lastComments();
-?>
-            </div>
-        </div>
-
-        <!-- RADIO -->
-
-             <div id="radio">
-                <div class="box_title">
-                    <h4>DogmaRadio</h4>
-                    <span class="box_plus">+</span>
-                </div>
-                <div class="box_content" data_show="yes">
-                      <audio controls id="dogplayer" onpause="refreshInfos()" onplay="refreshInfos()" >
-                        <source src="<?php echo $flux; ?>" type="audio/mpeg">
-                        <p>
-                          Look like your browser can't handle HTML5, here the <a href="<?php echo $flux; ?>">direct link</a>.
-                        </p>
-                      </audio>
-
-                      <br>
-                      <br>
-
-                      <div id="display_infos">
-                        <span id="metainfos">
-                          <a href='#' title='Show this artist on Dogmazic' id="link_artist" target=_blank ></a> -
-                          <a href='#' title='Show this song on Dogmazic' id="link_song" target=_blank ></a>
-                        </span>
-
-                        <br>
-                        <br>
-
-                        <a href="#" target=_blank id="link_album">
-                          <img src='/blank_album_art.png' alt="Album Art" title="Show this album on Dogmazic" id="albumart" width="125" height="125" style="width:60%; max-width: 125px; height: auto;">
-                          <br>
-                          <span id="album_title"></span>
-                        </a>
-                      </div>
-
-                      <img src='/pause.png' alt="Pause" title="Paused" id="pauseimg" width="125" height="125" onclick="playRadio()" style="width:60%; max-width: 125px; height: auto;">
-
-                    </div>
-
-                    <br/>
-
-                    <script>
-
-                    function playRadio() {
-                      document.getElementById('dogplayer').play();
-                    }
-
-                    // Need this as a global var for refreshInfos()
-                    var current_song_id = null;
-
-                    function refreshInfos() {
-                      // No refresh if the page isn't visible
-                      if (document.hidden) {
-                        return;
-                      }
-
-                      // No refresh if the player is paused
-                      if ( document.getElementById('dogplayer').paused ) {
-                        $("#display_infos").hide();
-                        $("#pauseimg").show();
-                        return;
-                      }
-
-                      // Ok, get the refresh infos
-                      $.getJSON("https://radio.dogmazic.net/metadata.php?wanted=json", function( obj ) {
-
-                        // If we already set this song infos, quit
-                        if ( current_song_id == obj['title_id'] ) {
-                          return;
-                        }
-                        current_song_id = obj['title_id'];
-
-                        // Set all the informations
-                        $("#album_title").html( obj['album']);
-                        $("#albumart").attr('src', obj['label_img'] );
-                        $("#link_album").attr('href', obj['album_url'] );
-                        $("#link_artist").attr('href', obj['artist_url']);
-                        $("#link_artist").html(obj['artist']);
-                        $("#link_song").attr('href', obj['song_url']);
-                        $("#link_song").html(obj['title']);
-
-                        // And display them
-                        $("#pauseimg").hide();
-                        $("#display_infos").show();
-
-                        navigator.mediaSession.metadata = new MediaMetadata({
-                          title: obj['title'],
-                          artist: obj['artist'],
-                          artwork: [{
-                              src: obj['label_img'],
-                              sizes: "96x96",
-                              type: "image/png"
-                            },
-                            {
-                              // Not the right size, but 256x256 is necessary for
-                              // Android device to display the artwork
-                              src: obj['label_img'],
-                              sizes: "256x256",
-                              type: "image/png"
-                            }
-                          ],
-                          album: obj['album'],
-                        }); // navigator.mediaSession.metadata
-
-                      }); // getJSON
-                    }
-
-
-                    // ---- REFRESH INFOS, when?
-                    // at page load...
-                    refreshInfos();
-
-                    // refresh every X milliseconds
-                    setInterval(function(){
-                      refreshInfos()
-                    }, 5000); // 5 seconds
-
-                    // and when we display the page (ex: switching tabs)
-                    document.addEventListener("visibilitychange", () => {
-                      if (document.visibilityState === "visible") {
-                        refreshInfos();
-                      }
-                    });
-
-                    // ---- END REFRESH INFOS
-
-                    </script>
-                </div>
-            </div>
-    </aside>
-    <!-- END of the RADIO block -->
-
-    <!-- PUBLIER VOTRE MUSIQUE -->
-
-    <article id="publier">
-        <h3><?php trans('publier');?></h3>
-        <p id="pub">
-        <?php trans('pub_content');?>
-        </p>
-    </article>
-
-    <!-- MUSIQUE LIBRE -->
-
-    <article id="musique_libre">
-        <h2><?php trans('musique_libre_titre'); ?></h2>
-            <p>
-                <?php trans('musique_libre_texte'); ?>
-            </p>
-
-        <!-- STATS -->
-
-        <?php
-        include_once(HOME_PATH . DS . 'stats.php');
-statsBlock();
-?>
-
-        <h2><?php trans('asso_titre'); ?></h2>
-            <p>
-                <?php trans('asso_texte'); ?>
-            </p>
-
-        <h2><?php trans('adherer_titre');?></h2>
-            <p>
-                <a target="new" href="http://musique-libre.org" alt="Musique Libre !"><img src="<?= IMG_PATH . '/' . 'musiquelibrelogo.png'?>" id="logo_ml" /></a>
+        <div class="wrap">
+            <div class="titre-rang">
                 <div>
-                    <?php trans('adherer_texte');?>
+                    <span class="eyebrow"><?php trans('albums_surtitre'); ?></span>
+                    <h2><?php trans('nouveaux_albums'); ?></h2>
                 </div>
-            </p>
-            <p id="don">
-                <h2><?php trans('faire_un_don_titre');?></h2>
-                <div id="don">
-                    <?php trans('faire_un_don_texte');?>
+                <a href="//play.dogmazic.net/browse.php?action=album" target="_blank"><?php trans('tout_parcourir'); ?></a>
+            </div>
+            <ul class="grille-albums">
+                <?php albumList(); ?>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ===================== DERNIERS MORCEAUX ===================== -->
+
+    <section id="morceaux">
+        <div class="wrap">
+            <div class="titre-rang">
+                <div>
+                    <span class="eyebrow"><?php trans('morceaux_surtitre'); ?></span>
+                    <h2><?php trans('récemment_joué'); ?></h2>
                 </div>
-            </p>
-    </article>
+                <a href="//play.dogmazic.net/browse.php?action=song" target="_blank"><?php trans('tout_parcourir'); ?></a>
+            </div>
+            <ul class="pistes">
+                <?php recentlyPlayedList(); ?>
+            </ul>
+        </div>
+    </section>
 
-    <!-- MENU MUSIQUE -->
+    <!-- ===================== TROIS FAÇONS D'ÉCOUTER ===================== -->
 
-    <div id="menuMusique">
-        <h4><?php trans('Musique');?></h4>
-        <ul>
-            <a href="//play.dogmazic.net/browse.php?action=artist" target="_blank"><li><?php trans('Artists'); ?></li></a>
-            <a href="//play.dogmazic.net/browse.php?action=label" target="_blank"><li><?php trans('Labels'); ?></li></a>
-            <a href="//play.dogmazic.net/browse.php?action=tag" target="_blank"><li><?php trans('Tags'); ?></li></a>
-            <a href="//play.dogmazic.net/browse.php?action=playlist" target="_blank"><li><?php trans('Playlists');?></li></a>
-        </ul>
-    </div>
+    <section id="ecouter">
+        <div class="wrap">
+            <span class="eyebrow"><?php trans('trois_surtitre'); ?></span>
+            <h2 style="margin-bottom:26px"><?php trans('trois_titre'); ?></h2>
+            <div class="trois">
+
+                <div class="carte">
+                    <span class="num"><?php trans('trois_1_num'); ?></span>
+                    <h3><?php trans('trois_1_titre'); ?></h3>
+                    <p><?php trans('trois_1_texte'); ?></p>
+                    <a href="https://play.dogmazic.net">play.dogmazic.net &rarr;</a>
+                </div>
+
+                <div class="carte">
+                    <span class="num"><?php trans('trois_2_num'); ?></span>
+                    <h3><?php trans('trois_2_titre'); ?></h3>
+                    <p><?php trans('trois_2_texte'); ?></p>
+                    <button type="button" id="apps_mobiles"><?php trans('trois_2_lien'); ?> &rarr;</button>
+                </div>
+
+                <div class="carte">
+                    <span class="num"><?php trans('trois_3_num'); ?></span>
+                    <h3><?php trans('trois_3_titre'); ?></h3>
+                    <p><?php trans('trois_3_texte'); ?></p>
+                    <a href="https://radio.dogmazic.net">radio.dogmazic.net &rarr;</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== DOGMAZIC EN CHIFFRES ===================== -->
+
+    <?php statsBlock(); ?>
+
+    <!-- ===================== VIE DE L'ASSOCIATION ===================== -->
+
+    <section id="vie">
+        <div class="wrap">
+            <div class="titre-rang">
+                <div>
+                    <span class="eyebrow"><?php trans('vie_surtitre'); ?></span>
+                    <h2><?php trans('vie_titre'); ?></h2>
+                </div>
+            </div>
+
+            <div class="vie">
+
+                <div class="colonne">
+                    <header>
+                        <h3><?php trans('blog_colonne'); ?></h3>
+                        <span class="source">musique-libre.org</span>
+                    </header>
+                    <?php lastBlogPosts(); ?>
+                    <div class="pied-colonne">
+                        <a href="https://www.musique-libre.org"><?php trans('tous_articles'); ?></a>
+                    </div>
+                </div>
+
+                <div class="colonne">
+                    <header>
+                        <h3><?php trans('forum_colonne'); ?></h3>
+                        <span class="source">forum.musique-libre.org</span>
+                    </header>
+                    <?php lastPost(); ?>
+                    <div class="pied-colonne">
+                        <a href="https://forum.musique-libre.org"><?php trans('ouvrir_forum'); ?></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== PUBLIER SA MUSIQUE ===================== -->
+
+    <section id="publier">
+        <div class="wrap">
+            <span class="eyebrow"><?php trans('publier_surtitre'); ?></span>
+            <h2 style="margin-bottom:22px"><?php trans('publier'); ?></h2>
+            <div class="publier">
+                <?php trans('pub_content'); ?>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== L'ASSOCIATION ===================== -->
+
+    <section id="association">
+        <div class="wrap">
+            <div class="asso">
+
+                <div>
+                    <span class="eyebrow"><?php trans('asso_surtitre'); ?></span>
+                    <h2 style="margin-bottom:14px"><?php trans('asso_titre_court'); ?></h2>
+                    <p><?php trans('asso_texte_court'); ?></p>
+                    <p style="margin-bottom:0"><?php trans('asso_ag'); ?></p>
+                </div>
+
+                <div class="soutien" id="don">
+                    <a class="btn plein" href="https://www.musique-libre.org"><?php trans('adherer_titre'); ?></a>
+                    <a class="btn" href="https://liberapay.com/Dogmazic/"><?php trans('don_liberapay'); ?></a>
+                    <a class="btn" href="https://www.paypal.com/donate?hosted_button_id=DPXFCDQGX2ZBC"><?php trans('don_paypal'); ?></a>
+                    <p class="fiscal"><?php trans('don_fiscal'); ?></p>
+
+                    <div class="social-rang">
+                        <?php foreach ($socials as $social): ?>
+                            <a href="<?= $social['url']; ?>" target="_blank"<?= isset($social['rel']) ? ' rel="' . $social['rel'] . '"' : '' ?>>
+                                <?= $social['name'][LANG]; ?>
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== PIED DE PAGE ===================== -->
 
     <footer>
-        <p><?php trans('legal');?></p>
+        <div class="wrap">
+            <div class="plan">
+
+                <div>
+                    <h4><?php trans('plan_ecouter'); ?></h4>
+                    <ul>
+                        <li><a href="//play.dogmazic.net/browse.php?action=artist" target="_blank"><?php trans('Artists'); ?></a></li>
+                        <li><a href="//play.dogmazic.net/browse.php?action=album" target="_blank"><?php trans('Albums'); ?></a></li>
+                        <li><a href="//play.dogmazic.net/browse.php?action=tag" target="_blank"><?php trans('Tags'); ?></a></li>
+                        <li><a href="//play.dogmazic.net/browse.php?action=label" target="_blank"><?php trans('Labels'); ?></a></li>
+                        <li><a href="//play.dogmazic.net/browse.php?action=playlist" target="_blank"><?php trans('Playlists'); ?></a></li>
+                        <li><a href="https://radio.dogmazic.net"><?php trans('nav_radio'); ?></a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4><?php trans('plan_publier'); ?></h4>
+                    <ul>
+                        <li><a href="//play.dogmazic.net/register.php" target="_blank"><?php trans('creer_compte'); ?></a></li>
+                        <li><a href="//play.dogmazic.net/login.php" target="_blank"><?php trans('Connexion'); ?></a></li>
+                        <li><a href="#publier"><?php trans('publier'); ?></a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4><?php trans('plan_asso'); ?></h4>
+                    <ul>
+                        <li><a href="https://www.musique-libre.org"><?php trans('site_asso'); ?></a></li>
+                        <li><a href="https://www.musique-libre.org"><?php trans('le_blog'); ?></a></li>
+                        <li><a href="#don"><?php trans('adherer_titre'); ?></a></li>
+                        <li><a href="#don"><?php trans('faire_un_don_titre'); ?></a></li>
+                        <li><a href="https://musique-libre.org/contact/"><?php trans('nous_ecrire'); ?></a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4><?php trans('plan_suivre'); ?></h4>
+                    <ul>
+                        <?php foreach ($socials as $cle => $social): ?>
+                            <li>
+                                <a href="<?= $social['url']; ?>" target="_blank"<?= isset($social['rel']) ? ' rel="' . $social['rel'] . '"' : '' ?>>
+                                    <?= $social['name'][LANG]; ?><?= !empty($social['neuf']) ? '<span class="neuf">' . trans_r('nouveau') . '</span>' : '' ?>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
+                        <li><a href="https://www.musique-libre.org/feed/"><?php trans('flux_rss'); ?></a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <p class="legal">
+                <?php trans('legal'); ?>
+                <?php trans('mention_cookie'); ?>
+            </p>
+        </div>
     </footer>
 
-    <!-- POPUP BOX -->
+    <!-- ===================== POPUP APPLIS MOBILES ===================== -->
 
     <div id="apps_mobiles_popup">
         <header>
-            <button>×</button>
-            <h4 class="modal-title"><?php echo trans('apps_mobiles');?></h4>
+            <h4 class="modal-title"><?php trans('apps_mobiles'); ?></h4>
+            <button type="button">&times;</button>
         </header>
         <article>
             <p><?php trans('apps_mobiles_texte'); ?></p>
-            <p class="text-warning"><small><?php trans('apps_mobiles_texte_avert'); ?></small></p>
+            <p><small><?php trans('apps_mobiles_texte_avert'); ?></small></p>
         </article>
         <footer>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn"><?php trans('fermer'); ?></button>
         </footer>
     </div>
 
+    <script>
+    /* ------------------------------------------------------------------
+       Radio : un seul bouton pour lancer/arreter, l'etat est porte par la
+       classe .joue sur <body> (fait tourner le disque et bouger le VU-metre).
+       ------------------------------------------------------------------ */
+    var lecteur = document.getElementById('dogplayer');
+
+    function basculeRadio()
+    {
+        if (lecteur.paused) {
+            lecteur.play();
+        } else {
+            lecteur.pause();
+        }
+    }
+
+    function etatRadio()
+    {
+        var joue = !lecteur.paused;
+        document.body.classList.toggle('joue', joue);
+        var icone = joue ? '\u275A\u275A' : '\u25B6';
+        document.getElementById('btnPlay').innerHTML   = icone;
+        document.getElementById('badgePlay').innerHTML = icone;
+        document.getElementById('metaPiste').innerHTML = joue
+            ? <?= json_encode(trans_r('radio_en_direct')) ?>
+            : <?= json_encode(trans_r('radio_invite')) ?>;
+        rafraichitInfos();
+    }
+
+    // Metadonnees du morceau en cours (endpoint de radio.dogmazic.net)
+    var current_song_id = null;
+
+    function rafraichitInfos()
+    {
+        if (document.hidden) {
+            return;
+        }
+        if (lecteur.paused) {
+            $('#metainfos').hide();
+            $('#titre_repos').show();
+            $('#albumart').attr('src', '/blank_album_art.png');
+            return;
+        }
+        $.getJSON('https://radio.dogmazic.net/metadata.php?wanted=json', function (obj) {
+            if (current_song_id == obj['title_id']) {
+                return;
+            }
+            current_song_id = obj['title_id'];
+
+            $('#link_album').attr('href', obj['album_url']);
+            $('#albumart').attr('src', obj['label_img']);
+            $('#link_artist').attr('href', obj['artist_url']).html(obj['artist']);
+            $('#link_song').attr('href', obj['song_url']).html(obj['title']);
+            $('#sep_meta').html(' &mdash; ');
+
+            $('#titre_repos').hide();
+            $('#metainfos').show();
+
+            if ('mediaSession' in navigator) {
+                navigator.mediaSession.metadata = new MediaMetadata({
+                    title: obj['title'],
+                    artist: obj['artist'],
+                    album: obj['album'],
+                    artwork: [
+                        { src: obj['label_img'], sizes: '96x96',   type: 'image/png' },
+                        { src: obj['label_img'], sizes: '256x256', type: 'image/png' }
+                    ]
+                });
+            }
+        });
+    }
+
+    etatRadio();
+    setInterval(rafraichitInfos, 5000);
+    document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState === 'visible') {
+            rafraichitInfos();
+        }
+    });
+    </script>
 
 <?php
 
@@ -404,17 +482,11 @@ function albumList()
 
             $image    = "//play.dogmazic.net/image.php?object_id=" . $album_id . "&object_type=album&size=200x200";
 
-            echo '<li class="album">';
-            echo '<a target="new" href="' . $link . '" ';
+            $titre = htmlspecialchars($description);
 
-            //if ($counter<=3){echo 'float:left;';}
-            //else {echo 'float:none:clear:both;';$counter=1;}
-
-            echo '><img class="albumimg" src="' . $image . '"/><br/><p>' . htmlspecialchars(substr($description, 0, 30));
-            if (substr($description, 0, 30) !== $description) {
-                echo '...';
-            }
-            echo '</p></a></li>';
+            echo '<li class="album"><a target="_blank" href="' . htmlspecialchars($link) . '" title="' . $titre . '">'
+               . '<span class="pochette"><img src="' . $image . '" alt="" loading="lazy"></span>'
+               . '<p>' . $titre . '</p></a></li>';
         }
     }
 }
@@ -451,24 +523,88 @@ function recentlyPlayedList()
             }
             $imagelink = 'https://radio.dogmazic.net/metadata_of_song.php?song_id=' . $target_songID . '&wanted=img_go';
 
-            echo '<li class="album">';
-            echo '<a target="new" href="' . $link . '" ';
-
-            //if ($counter<=3){echo 'float:left;';}
-            //else {echo 'float:none:clear:both;';$counter=1;}
-
-            echo '><img id="recentlyPlayedImg-' . ($i - 1) . '" class="albumimg" src="' . $imagelink . '"/><br/><p>' . htmlspecialchars(substr($description, 0, 30));
-            if (substr($description, 0, 30) !== $description) {
-                echo '...';
+            // Le flux donne « Titre - Artiste » : on coupe pour hierarchiser l'affichage.
+            $titre   = $description;
+            $artiste = '';
+            if (strpos($description, ' - ') !== false) {
+                list($titre, $artiste) = array_pad(explode(' - ', $description, 2), 2, '');
             }
-            echo '</p></a>';
-            echo '</li>';
+
+            echo '<li><a target="_blank" href="' . htmlspecialchars($link) . '">'
+               . '<span class="rang">' . ($i - 1) . '</span>'
+               . '<span class="vignette"><img id="recentlyPlayedImg-' . ($i - 1) . '" src="' . $imagelink . '" alt="" loading="lazy"></span>'
+               . '<span class="quoi"><b>' . htmlspecialchars($titre) . '</b>'
+               . '<span>' . htmlspecialchars($artiste) . '</span></span>'
+               . '<span class="chip">' . trans_r('ecouter_sur_archive') . '</span>'
+               . '<span class="ecouter">&#9654;</span>'
+               . '</a></li>';
         }
     }
 }
 
 
 
+
+/*
+ * Date courte et lisible : « 6 août », « 6 Aug ».
+ * On evite strftime (deprecie en PHP 8.1) et l'extension intl, pas garantie.
+ */
+function date_courte($date)
+{
+    $t = strtotime($date);
+    if (!$t) {
+        return '';
+    }
+    $mois = explode(',', trans_r('mois_courts'));
+    $m    = (int) date('n', $t) - 1;
+
+    return (int) date('j', $t) . ' ' . (isset($mois[$m]) ? $mois[$m] : date('M', $t));
+}
+
+/*
+ * Coupe proprement une chaine UTF-8, sans couper un caractere en deux.
+ * mbstring n'est pas garanti sur tous les hebergements : on prevoit le repli.
+ */
+function coupe($texte, $max)
+{
+    if (function_exists('mb_strlen')) {
+        return (mb_strlen($texte, 'UTF-8') > $max)
+            ? mb_substr($texte, 0, $max, 'UTF-8') . '...'
+            : $texte;
+    }
+    if (strlen($texte) <= $max) {
+        return $texte;
+    }
+    // Repli sans mbstring : on coupe sur une frontiere de caractere UTF-8.
+    $coupe = substr($texte, 0, $max);
+
+    return preg_replace('/[\x80-\xBF]*$|[\xC0-\xFF]$/', '', $coupe) . '...';
+}
+
+/*
+ * Anciennete lisible : « il y a 3 j », « il y a 2 h »...
+ * Plus parlant qu'une date brute pour du forum, ou c'est la fraicheur qui compte.
+ */
+function depuis($date_iso)
+{
+    $t = strtotime($date_iso);
+    if (!$t) {
+        return '';
+    }
+    $ecart = max(0, time() - $t);
+
+    if ($ecart < 3600) {
+        return strtr(trans_r('il_y_a_min'), ['{n}' => max(1, (int) ($ecart / 60))]);
+    }
+    if ($ecart < 86400) {
+        return strtr(trans_r('il_y_a_h'), ['{n}' => (int) ($ecart / 3600)]);
+    }
+    if ($ecart < 2592000) {
+        return strtr(trans_r('il_y_a_j'), ['{n}' => (int) ($ecart / 86400)]);
+    }
+
+    return date('d/m/Y', $t);
+}
 
 /* Affiche les 10 derniers sujets du forum */
 
@@ -491,6 +627,7 @@ function lastPost()
         // Atom : <entry><title><link href="..."/><published>
         $entries = $dom->getElementsByTagName('entry');
         $i       = 0;
+        $vus     = []; // discussions deja affichees
         while (($entry = $entries->item($i++)) && $i <= 5) {
 
             $titleNode = $entry->getElementsByTagName('title')->item(0);
@@ -514,33 +651,30 @@ function lastPost()
             if (!$dateNode) {
                 $dateNode = $entry->getElementsByTagName('updated')->item(0);
             }
-            // On garde AAAA-MM-JJ ; adaptez le format si vous voulez l'heure
-            $pubdate = $dateNode ? substr($dateNode->nodeValue, 0, 10) : '';
+            $pubdate = $dateNode ? $dateNode->nodeValue : '';
 
-            echo '<p><a target="new" href="' . htmlspecialchars($link) . '">'
-               . htmlspecialchars($title) . '</a><br/>';
-            echo '<span class="pubDate">' . htmlspecialchars($pubdate) . '</span></p>';
-        }
-    }
-}
+            // Auteur du message : <author><name>
+            $auteur     = '';
+            $authorNode = $entry->getElementsByTagName('author')->item(0);
+            if ($authorNode) {
+                $nameNode = $authorNode->getElementsByTagName('name')->item(0);
+                $auteur   = $nameNode ? $nameNode->nodeValue : '';
+            }
 
-/* Affiche les 10 derniers commentaires */
+            // phpBB publie un <entry> PAR MESSAGE : deux reponses dans la meme
+            // discussion feraient double emploi. On ne garde que la premiere.
+            $discussion = preg_replace('~#.*$~', '', $link);
+            if (isset($vus[$discussion])) {
+                $i--; // cette entree ne compte pas dans les 5 affichees
+                continue;
+            }
+            $vus[$discussion] = true;
 
-function lastComments()
-{
-    $dom = new DOMDocument();
-    if ($albums = get_rss_with_cache('play.dogmazic.net_latest_shout', 'https://play.dogmazic.net/rss.php?type=latest_shout')) {
-        $dom->loadXML($albums);
-        $dom->preserveWhiteSpace=false;
-        $items                  = $dom->getElementsByTagName('item');
-        $i                      = 0;
-        while (($item = $items->item($i++)) && $i <= 10) {
-            #$image       = $item->getElementsByTagName('image')->item(0)->nodeValue;
-            $title       = $item->getElementsByTagName('title')->item(0)->nodeValue;
-            $description = $item->getElementsByTagName('description')->item(0)->nodeValue;
-            $link        = $item->getElementsByTagName('link')->item(0)->nodeValue;
-            echo '<a target="new" href="' . $link . '"><p><span class="comment">' . htmlspecialchars(html_entity_decode($description)) . '</span>
-            <br /><span class="commentAuthor">' . str_replace('Shout by', '', htmlspecialchars($title)) . '</span></p></a>';
+            echo '<a class="sujet" target="_blank" href="' . htmlspecialchars($link) . '">'
+               . '<span class="titre">' . htmlspecialchars($title) . '</span>'
+               . '<span class="quand">' . htmlspecialchars(depuis($pubdate)) . '</span>'
+               . ($auteur ? '<span class="qui">' . htmlspecialchars(strtr(trans_r('dernier_message_de'), ['{qui}' => $auteur])) . '</span>' : '')
+               . '</a>';
         }
     }
 }
@@ -557,10 +691,35 @@ function lastBlogPosts()
         $i                      = 0;
         while (($item = $items->item($i++)) && $i <= 5) {
             $title   = $item->getElementsByTagName('title')->item(0)->nodeValue;
-            $pubDate = substr($item->getElementsByTagName('pubDate')->item(0)->nodeValue, 5, -9);
+            $pubDate = date_courte($item->getElementsByTagName('pubDate')->item(0)->nodeValue);
             $link    = $item->getElementsByTagName('link')->item(0)->nodeValue;
-            echo '<p><a target="new" href="' . $link . '">' . htmlspecialchars($title) . '</a><br/>';
-            echo '<span class="pubDate">' . htmlspecialchars($pubDate) . '</span></p>';
+
+            // Le premier article passe a la une : date, gros titre, chapeau, categories.
+            if ($i === 1) {
+                $desc = $item->getElementsByTagName('description')->item(0);
+                $desc = $desc ? trim(strip_tags($desc->nodeValue)) : '';
+                $desc = coupe($desc, 260);
+
+                $cats = '';
+                foreach ($item->getElementsByTagName('category') as $n => $cat) {
+                    if ($n >= 3) {
+                        break;
+                    }
+                    $cats .= '<span class="chip">' . htmlspecialchars($cat->nodeValue) . '</span> ';
+                }
+
+                echo '<a class="billet-une" target="_blank" href="' . htmlspecialchars($link) . '">'
+                   . '<span class="date">' . htmlspecialchars($pubDate) . '</span>'
+                   . '<h4>' . htmlspecialchars($title) . '</h4>'
+                   . ($desc ? '<p>' . htmlspecialchars($desc) . '</p>' : '')
+                   . ($cats ? '<span class="etiquettes">' . $cats . '</span>' : '')
+                   . '</a>';
+                continue;
+            }
+
+            echo '<a class="billet" target="_blank" href="' . htmlspecialchars($link) . '">'
+               . '<span class="date">' . htmlspecialchars($pubDate) . '</span>'
+               . '<span class="titre">' . htmlspecialchars($title) . '</span></a>';
         }
     }
 }

@@ -401,35 +401,43 @@ function statsBlock()
     ?>
 
     <section id="stats">
-        <h2><?php trans('stats_titre'); ?></h2>
+        <div class="wrap">
+            <div class="dedans">
 
-        <p id="stats_phrase"><?= $phrase ?></p>
+                <div>
+                    <span class="eyebrow"><?php trans('stats_titre'); ?></span>
+                    <p id="stats_phrase"><?= $phrase ?></p>
+                </div>
 
-        <?php if ($familles && $max > 0): ?>
-            <h3><?php trans('stats_licences_titre'); ?></h3>
-            <ul id="stats_licences">
-                <?php foreach ($familles as $key => $f): ?>
-                    <?php
-                    $label   = isset($labels[$key]) ? $labels[$key] : $key;
-                    $largeur = round($f['nb'] * 100 / $max, 1);
-                    $part    = $total ? round($f['nb'] * 100 / $total, 1) : 0;
-                    $titre   = implode(', ', $f['noms']);
-                    ?>
-                    <li class="stats_licence">
-                        <a href="<?= htmlspecialchars(stats_search_url($f['ids'])) ?>"
-                           target="_blank"
-                           title="<?= htmlspecialchars($titre) ?>">
-                            <span class="stats_nom"><?= htmlspecialchars($label) ?></span>
-                            <span class="stats_barre">
-                                <span class="stats_barre_pleine" style="width: <?= $largeur ?>%"></span>
-                            </span>
-                            <span class="stats_valeur"><?= stats_nombre($f['nb']) ?> (<?= $part ?>%)</span>
-                        </a>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-            <p class="stats_note"><?php trans('stats_licences_note'); ?></p>
-        <?php endif; ?>
+                <?php if ($familles && $max > 0): ?>
+                    <div>
+                        <span class="eyebrow"><?php trans('stats_licences_titre'); ?></span>
+                        <ul id="stats_licences">
+                            <?php foreach ($familles as $key => $f): ?>
+                                <?php
+                                $label   = isset($labels[$key]) ? $labels[$key] : $key;
+                                $largeur = round($f['nb'] * 100 / $max, 1);
+                                $part    = $total ? round($f['nb'] * 100 / $total, 1) : 0;
+                                $titre   = implode(', ', $f['noms']);
+                                ?>
+                                <li>
+                                    <a href="<?= htmlspecialchars(stats_search_url($f['ids'])) ?>"
+                                       target="_blank" title="<?= htmlspecialchars($titre) ?>">
+                                        <span class="stats_nom"><?= htmlspecialchars($label) ?></span>
+                                        <span class="stats_barre">
+                                            <span class="stats_barre_pleine" style="width: <?= $largeur ?>%"></span>
+                                        </span>
+                                        <span class="stats_valeur"><?= stats_nombre($f['nb']) ?> (<?= $part ?>%)</span>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                        <p class="stats_note"><?php trans('stats_licences_note'); ?></p>
+                    </div>
+                <?php endif; ?>
+
+            </div>
+        </div>
     </section>
     <?php
 }

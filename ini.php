@@ -24,10 +24,30 @@ define('JS_PATH', ASSETS_PATH . '/js');
 // Dossier des includes de la page d'accueil
 define('HOME_PATH', 'accueil');
 
-// Langue : fr par défaut, en si demandé
-$lang = isset($_GET['lang']) ? strtolower($_GET['lang']) : 'fr';
+// Langue : ?lang=xx si demande, sinon le choix precedent (cookie 1 an),
+// sinon celle du navigateur, sinon fr.
+$lang = null;
+if (isset($_GET['lang'])) {
+    $lang = strtolower($_GET['lang']);
+} elseif (isset($_COOKIE['dogmazic_lang'])) {
+    $lang = strtolower($_COOKIE['dogmazic_lang']);
+} elseif (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+    $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
+}
 if (!in_array($lang, ['fr', 'en'])) {
     $lang = 'fr';
+}
+// On memorise le choix explicite, pour que la langue survive a la navigation.
+//
+// RGPD : pas de bandeau a prevoir. La CNIL exempte de consentement les
+// traceurs de personnalisation de l'interface (choix de la langue) et
+// considere qu'un cookie stockant uniquement la langue preferee n'est pas
+// un traitement de donnees personnelles. Il ne contient que 'fr' ou 'en',
+// il n'est pose que sur clic explicite, et sa duree suit la bonne pratique
+// de 6 mois recommandee par la Commission. Une mention l'annonce dans le
+// pied de page, comme la CNIL le recommande au titre de la transparence.
+if (isset($_GET['lang']) && !headers_sent()) {
+    setcookie('dogmazic_lang', $lang, time() + 15768000, '/');
 }
 define('LANG', $lang);
 

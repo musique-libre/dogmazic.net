@@ -269,3 +269,186 @@ $trans['stats_bandeau_licence']['en']='{licence_nb} tracks under {licence_nom}<s
 
 $trans['stats_bandeau_ecoutes']['fr']='{ecoutes} écoutes et téléchargements<span class="long">, en toute légalité</span>';
 $trans['stats_bandeau_ecoutes']['en']='{ecoutes} plays and downloads<span class="long">, totally legally</span>';
+
+/** ===================================================================
+ *  REFONTE DE LA PAGE D'ACCUEIL
+ *  Toutes les chaines de la nouvelle mise en page.
+ *  =================================================================== */
+
+$trans['titre_page']['fr']='La musique libre, depuis 2004';
+$trans['titre_page']['en']='Free-licence music since 2004';
+
+$trans['meta_description']['fr']='Dogmazic : 60 000 morceaux sous licence libre, déposés par leurs auteurs. Écoutez, téléchargez, partagez en toute légalité. Une archive tenue par l\'association Musique Libre.';
+$trans['meta_description']['en']='Dogmazic: 60,000 tracks under free licences, uploaded by the artists themselves. Listen, download and share legally. An archive run by the Musique Libre nonprofit.';
+
+/* --- Navigation galaxie --- */
+$trans['nav_galaxie']['fr']='La galaxie Dogmazic';
+$trans['nav_galaxie']['en']='The Dogmazic galaxy';
+$trans['nav_accueil']['fr']='Accueil';
+$trans['nav_accueil']['en']='Home';
+$trans['nav_archive']['fr']='Archive';
+$trans['nav_archive']['en']='Archive';
+$trans['nav_radio']['fr']='Radio';
+$trans['nav_radio']['en']='Radio';
+$trans['nav_asso']['fr']='L\'asso';
+$trans['nav_asso']['en']='The nonprofit';
+
+$trans['orbite_archive_sous']['fr']='le catalogue';
+$trans['orbite_archive_sous']['en']='the catalogue';
+$trans['orbite_radio_sous']['fr']='en continu';
+$trans['orbite_radio_sous']['en']='non-stop';
+$trans['orbite_asso_sous']['fr']='depuis 2004';
+$trans['orbite_asso_sous']['en']='since 2004';
+
+/* --- Hero --- */
+$trans['hero_surtitre']['fr']='Archive de musique libre · depuis 2004';
+$trans['hero_surtitre']['en']='Free-licence music archive · since 2004';
+
+$trans['hero_titre']['fr']='La musique qu\'on a le <em>droit</em> de partager.';
+$trans['hero_titre']['en']='The music you\'re <em>allowed</em> to share.';
+
+$trans['hero_chapeau']['fr']='Des dizaines de milliers de morceaux déposés par leurs propres auteurs, sous licence libre. Écoutez, téléchargez, remixez, passez-les en soirée ou dans votre podcast. C\'est légal, c\'est gratuit, et il n\'y a pas de publicité.';
+$trans['hero_chapeau']['en']='Tens of thousands of tracks uploaded by the artists themselves, under free licences. Listen, download, remix, play them at a party or in your podcast. It\'s legal, it\'s free, and there are no ads.';
+
+$trans['lancer_radio']['fr']='Lancer la radio';
+$trans['lancer_radio']['en']='Play the radio';
+$trans['fouiller_archive']['fr']='Fouiller l\'archive';
+$trans['fouiller_archive']['en']='Dig into the archive';
+$trans['publier_ma_musique']['fr']='Publier ma musique';
+$trans['publier_ma_musique']['en']='Upload my music';
+$trans['ecouter_en_direct']['fr']='ÉCOUTER EN DIRECT';
+$trans['ecouter_en_direct']['en']='LISTEN LIVE';
+
+/* --- Lecteur radio --- */
+$trans['radio_titre_repos']['fr']='Radio Dogmazic — musique libre en continu';
+$trans['radio_titre_repos']['en']='Radio Dogmazic — free music, non-stop';
+$trans['radio_invite']['fr']='Cliquez sur lecture pour afficher le morceau en cours';
+$trans['radio_invite']['en']='Press play to see what\'s on air';
+$trans['radio_en_direct']['fr']='En direct · le flux tourne';
+$trans['radio_en_direct']['en']='On air · streaming now';
+$trans['radio_chip_licence']['fr']='Licence libre';
+$trans['radio_chip_licence']['en']='Free licence';
+$trans['radio_chip_flux']['fr']='Flux MP3';
+$trans['radio_chip_flux']['en']='MP3 stream';
+$trans['voir_album']['fr']='Voir cet album sur Dogmazic';
+$trans['voir_album']['en']='Show this album on Dogmazic';
+
+/* --- Sections musique --- */
+$trans['albums_surtitre']['fr']='Fraîchement déposé';
+$trans['albums_surtitre']['en']='Freshly uploaded';
+$trans['morceaux_surtitre']['fr']='Titre par titre';
+$trans['morceaux_surtitre']['en']='Track by track';
+$trans['tout_parcourir']['fr']='Tout parcourir →';
+$trans['tout_parcourir']['en']='Browse all →';
+$trans['ecouter_sur_archive']['fr']='Écouter';
+$trans['ecouter_sur_archive']['en']='Listen';
+
+/* --- Trois façons d'écouter --- */
+$trans['trois_surtitre']['fr']='Trois façons d\'écouter';
+$trans['trois_surtitre']['en']='Three ways to listen';
+$trans['trois_titre']['fr']='Chez vous, en mobilité, ou sans rien choisir';
+$trans['trois_titre']['en']='At home, on the move, or without choosing';
+
+$trans['trois_1_num']['fr']='Dans le navigateur';
+$trans['trois_1_num']['en']='In your browser';
+$trans['trois_1_titre']['fr']='L\'archive';
+$trans['trois_1_titre']['en']='The archive';
+$trans['trois_1_texte']['fr']='Le catalogue complet, avec recherche par artiste, label, genre ou licence. Un compte gratuit suffit pour créer des listes de lecture.';
+$trans['trois_1_texte']['en']='The full catalogue, searchable by artist, label, genre or licence. A free account is all you need to build playlists.';
+
+$trans['trois_2_num']['fr']='Sur téléphone';
+$trans['trois_2_num']['en']='On your phone';
+$trans['trois_2_titre']['fr']='Votre appli habituelle';
+$trans['trois_2_titre']['en']='Your usual app';
+$trans['trois_2_texte']['fr']='Dogmazic parle Subsonic et Ampache. Entrez <code>play.dogmazic.net</code> comme adresse de serveur dans l\'application de votre choix.';
+$trans['trois_2_texte']['en']='Dogmazic speaks Subsonic and Ampache. Just enter <code>play.dogmazic.net</code> as the server address in the app of your choice.';
+$trans['trois_2_lien']['fr']='Voir les applis compatibles';
+$trans['trois_2_lien']['en']='See compatible apps';
+
+$trans['trois_3_num']['fr']='Sans rien faire';
+$trans['trois_3_num']['en']='Without lifting a finger';
+$trans['trois_3_titre']['fr']='La radio';
+$trans['trois_3_titre']['en']='The radio';
+$trans['trois_3_texte']['fr']='Un flux continu piloté par l\'association. Vous laissez tourner, vous découvrez.';
+$trans['trois_3_texte']['en']='A continuous stream curated by the nonprofit. Let it run, discover things.';
+
+/* --- Vie de l'association --- */
+$trans['vie_surtitre']['fr']='Ce qui se passe en ce moment';
+$trans['vie_surtitre']['en']='What\'s going on right now';
+$trans['vie_titre']['fr']='La vie de l\'association';
+$trans['vie_titre']['en']='Life of the nonprofit';
+$trans['tous_articles']['fr']='Tous les articles du blog →';
+$trans['tous_articles']['en']='All blog posts →';
+$trans['ouvrir_forum']['fr']='Ouvrir le forum →';
+$trans['ouvrir_forum']['en']='Open the forum →';
+$trans['dernier_message_de']['fr']='dernier message de {qui}';
+$trans['dernier_message_de']['en']='last post by {qui}';
+$trans['il_y_a_min']['fr']='il y a {n} min';
+$trans['il_y_a_min']['en']='{n} min ago';
+$trans['il_y_a_h']['fr']='il y a {n} h';
+$trans['il_y_a_h']['en']='{n} h ago';
+$trans['il_y_a_j']['fr']='il y a {n} j';
+$trans['il_y_a_j']['en']='{n} d ago';
+
+/* --- Publier / association --- */
+$trans['publier_surtitre']['fr']='Vous faites de la musique ?';
+$trans['publier_surtitre']['en']='You make music?';
+$trans['asso_surtitre']['fr']='Qui tient la boutique';
+$trans['asso_surtitre']['en']='Who runs the place';
+$trans['don_liberapay']['fr']='Faire un don via Liberapay';
+$trans['don_liberapay']['en']='Donate via Liberapay';
+$trans['don_paypal']['fr']='Faire un don via PayPal';
+$trans['don_paypal']['en']='Donate via PayPal';
+$trans['don_fiscal']['fr']='Don déductible à 66 % de vos impôts.<br>20 € vous coûtent 6,80 €.';
+$trans['don_fiscal']['en']='Donations are 66% tax-deductible in France.<br>€20 costs you €6.80.';
+
+/* --- Pied de page --- */
+$trans['plan_ecouter']['fr']='Écouter';
+$trans['plan_ecouter']['en']='Listen';
+$trans['plan_publier']['fr']='Publier';
+$trans['plan_publier']['en']='Upload';
+$trans['plan_asso']['fr']='L\'association';
+$trans['plan_asso']['en']='The nonprofit';
+$trans['plan_suivre']['fr']='Nous suivre';
+$trans['plan_suivre']['en']='Follow us';
+$trans['creer_compte']['fr']='Créer un compte';
+$trans['creer_compte']['en']='Create an account';
+$trans['site_asso']['fr']='Le site de l\'asso';
+$trans['site_asso']['en']='The nonprofit\'s site';
+$trans['le_blog']['fr']='Le blog';
+$trans['le_blog']['en']='The blog';
+$trans['nous_ecrire']['fr']='Nous écrire';
+$trans['nous_ecrire']['en']='Contact us';
+$trans['flux_rss']['fr']='Flux RSS du blog';
+$trans['flux_rss']['en']='Blog RSS feed';
+$trans['nouveau']['fr']='nouveau';
+$trans['nouveau']['en']='new';
+$trans['fermer']['fr']='Fermer';
+$trans['fermer']['en']='Close';
+
+/* Mois abreges, pour les dates du blog (evite strftime et l'extension intl). */
+$trans['mois_courts']['fr']='janv.,févr.,mars,avr.,mai,juin,juil.,août,sept.,oct.,nov.,déc.';
+$trans['mois_courts']['en']='Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec';
+
+$trans['blog_colonne']['fr']='Sur le blog';
+$trans['blog_colonne']['en']='On the blog';
+$trans['forum_colonne']['fr']='Sur le forum';
+$trans['forum_colonne']['en']='On the forum';
+
+/* Presentation courte de l'association (mise en page refondue).
+   Les anciennes cles asso_texte / faire_un_don_texte restent definies
+   plus haut : elles ne sont plus appelees, mais rien ne casse si un
+   autre gabarit les utilise encore. */
+$trans['asso_titre_court']['fr']='Une association, pas une plateforme';
+$trans['asso_titre_court']['en']='A nonprofit, not a platform';
+
+$trans['asso_texte_court']['fr']='Dogmazic est édité par <a href="https://www.musique-libre.org"><strong>Musique Libre !</strong></a>, association loi 1901 basée à Lyon. Pas d\'actionnaire, pas de publicité, pas de revente de données : le site vit des dons, des cotisations et du temps de ses bénévoles.';
+$trans['asso_texte_court']['en']='Dogmazic is published by <a href="https://www.musique-libre.org"><strong>Musique Libre !</strong></a>, a French nonprofit based in Lyon. No shareholders, no ads, no data resale: the site runs on donations, memberships and volunteer time.';
+
+$trans['asso_ag']['fr']='Les décisions se prennent en assemblée générale, ouverte à tous les adhérents. <a href="'.URL_AG.'">Lire le dernier compte-rendu →</a>';
+$trans['asso_ag']['en']='Decisions are made at the general meeting, open to every member. <a href="'.URL_AG.'">Read the latest minutes →</a>';
+
+/* Transparence sur le seul cookie du site (choix de langue). La CNIL l'exempte
+   de consentement mais recommande d'en informer les visiteurs. */
+$trans['mention_cookie']['fr']='Ce site dépose un unique cookie, qui mémorise votre choix de langue pendant six mois. Aucun traceur publicitaire, aucune mesure d\'audience.';
+$trans['mention_cookie']['en']='This site sets a single cookie, storing your language choice for six months. No advertising trackers, no analytics.';
