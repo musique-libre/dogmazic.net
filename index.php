@@ -26,9 +26,9 @@ include('ini.php');
 
                 <nav class="galaxie-liens" aria-label="<?php trans('nav_galaxie'); ?>">
                     <a class="ici" href="./"><?php trans('nav_accueil'); ?></a>
-                    <a href="https://play.dogmazic.net"><?php trans('nav_archive'); ?></a>
-                    <a href="https://radio.dogmazic.net"><?php trans('nav_radio'); ?></a>
-                    <a href="https://www.musique-libre.org"><?php trans('nav_asso'); ?></a>
+                    <a href="https://play.dogmazic.net" target="_blank" rel="noopener"><?php trans('nav_archive'); ?></a>
+                    <a href="https://radio.dogmazic.net" target="_blank" rel="noopener"><?php trans('nav_radio'); ?></a>
+                    <a href="https://www.musique-libre.org" target="_blank" rel="noopener"><?php trans('nav_asso'); ?></a>
                 </nav>
 
                 <?php
@@ -42,11 +42,12 @@ statsBandeau();
                 </div>
 
                 <a class="recherche-mini" href="//play.dogmazic.net/search.php?type=song"
+                   target="_blank" rel="noopener"
                    title="<?php trans('Rechercher'); ?>">
                     <img src="<?= IMG_PATH . '/loupe_blanche.png' ?>" alt="<?php trans('Rechercher'); ?>">
                 </a>
 
-                <a class="connexion" href="//play.dogmazic.net/login.php"><?php trans('Connexion'); ?></a>
+                <a class="connexion" href="//play.dogmazic.net/login.php" target="_blank" rel="noopener"><?php trans('Connexion'); ?></a>
 
             </div>
         </div>

@@ -423,7 +423,7 @@ function statsBlock()
                                 ?>
                                 <li>
                                     <a href="<?= htmlspecialchars(stats_search_url($f['ids'])) ?>"
-                                       target="_blank" title="<?= htmlspecialchars($titre) ?>">
+                                       target="_blank" rel="noopener" title="<?= htmlspecialchars($titre) ?>">
                                         <span class="stats_nom"><?= htmlspecialchars($label) ?></span>
                                         <span class="stats_barre">
                                             <span class="stats_barre_pleine" style="width: <?= $largeur ?>%"></span>

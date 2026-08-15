@@ -43,15 +43,15 @@ function droit_libelle($code)
                 <a class="marque" href="./" title="Dogmazic">DOGMA<span>ZIC</span></a>
                 <nav class="galaxie-liens">
                     <a href="./"><?php trans('nav_accueil'); ?></a>
-                    <a href="https://play.dogmazic.net"><?php trans('nav_archive'); ?></a>
-                    <a href="https://radio.dogmazic.net"><?php trans('nav_radio'); ?></a>
-                    <a href="https://www.musique-libre.org"><?php trans('nav_asso'); ?></a>
+                    <a href="https://play.dogmazic.net" target="_blank" rel="noopener"><?php trans('nav_archive'); ?></a>
+                    <a href="https://radio.dogmazic.net" target="_blank" rel="noopener"><?php trans('nav_radio'); ?></a>
+                    <a href="https://www.musique-libre.org" target="_blank" rel="noopener"><?php trans('nav_asso'); ?></a>
                 </nav>
                 <div class="langues" style="margin-left:auto">
                     <a href="?lang=fr" class="<?= LANG === 'fr' ? 'ici' : '' ?>" lang="fr">FR</a>
                     <a href="?lang=en" class="<?= LANG === 'en' ? 'ici' : '' ?>" lang="en">EN</a>
                 </div>
-                <a class="connexion" href="//play.dogmazic.net/login.php"><?php trans('Connexion'); ?></a>
+                <a class="connexion" href="//play.dogmazic.net/login.php" target="_blank" rel="noopener"><?php trans('Connexion'); ?></a>
             </div>
         </div>
 
@@ -159,10 +159,13 @@ function droit_libelle($code)
 
         <footer>
             <div class="wrap">
-                <p class="legal">
-                    <?php trans('legal'); ?>
-                    <?php trans('mention_cookie'); ?>
-                </p>
+                <div class="legal">
+                    <p><?php trans('legal'); ?> <?php trans('mention_cookie'); ?></p>
+                    <p class="mentions">
+                        <?php trans('mentions_editeur'); ?><br>
+                        <?php trans('mentions_hebergeur'); ?>
+                    </p>
+                </div>
             </div>
         </footer>
 

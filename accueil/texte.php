@@ -47,8 +47,8 @@ $trans['text_header'] = [
 ];
 
 $trans['chat_soustitre']= [
-  'fr' => 'Apprenez-en plus sur la musique libre via <a href="http://musique-libre.org">notre blog</a> ou venez discuter et construire avec nous sur nos réseaux.',
-  'en' => 'Learn more about free music via <a href="http://musique-libre.org">our blog</a> or come chat and build with us on our networks.',
+  'fr' => 'Apprenez-en plus sur la musique libre via <a href="http://musique-libre.org" target="_blank" rel="noopener">notre blog</a> ou venez discuter et construire avec nous sur nos réseaux.',
+  'en' => 'Learn more about free music via <a href="http://musique-libre.org" target="_blank" rel="noopener">our blog</a> or come chat and build with us on our networks.',
   // 'fr' => 'Soyez présents sur notre <a title="Dogmazic chat" href="./irc/">chat IRC</a>, pour discuter et agir avec nous.',
   // 'en' => 'Be there on our <a title="Dogmazic chat" href="./irc/">IRC chatroom</a>, to discuss and act with us.',
 ];
@@ -72,12 +72,12 @@ $trans['apps_mobiles_texte_avert']=[
 $trans['publier']['fr']='Publier votre musique';
 $trans['publier']['en']='Upload your music';
 
-$trans['pub_content']['fr']='Pour publier votre musique sous licence libre sur Dogmazic.net, il vous suffit de <a target="new" href="http://play.dogmazic.net/register.php">vous créer un compte</a> et/ou de <a href="http://play.dogmazic.net/login.php" target="new">vous connecter</a> puis de cliquer sur l\'icone "Envoyer" dans la barre du menu. <hr>
+$trans['pub_content']['fr']='Pour publier votre musique sous licence libre sur Dogmazic.net, il vous suffit de <a target="_blank" rel="noopener" href="http://play.dogmazic.net/register.php">vous créer un compte</a> et/ou de <a href="http://play.dogmazic.net/login.php" target="_blank" rel="noopener">vous connecter</a> puis de cliquer sur l\'icone "Envoyer" dans la barre du menu. <hr>
 	<span class="note">
 	<em>Note au possesseurs d\'adresses hotmail/Microsoft</em><br/>
 	La politique d\'acceptation des mails de Microsoft fait actuellement que sur ces adresses, nos emails peuvent arriver dans votre dossier "indésirables". Merci de vérifier ce dossier si vous attendez le mail de confirmation de création, ou le mail de récupération, de compte.
 	</span>';
-$trans['pub_content']['en']='To publish your music under a free licence on Dogmazic.net, you just need to <a target="new" href="http://play.dogmazic.net/register.php">create your account</a> and/or to <a href="http://play.dogmazic.net/login.php" target="new">login</a> then to click on the "Upload" icon in the menu bar. <hr>
+$trans['pub_content']['en']='To publish your music under a free licence on Dogmazic.net, you just need to <a target="_blank" rel="noopener" href="http://play.dogmazic.net/register.php">create your account</a> and/or to <a href="http://play.dogmazic.net/login.php" target="_blank" rel="noopener">login</a> then to click on the "Upload" icon in the menu bar. <hr>
 	<span class="note">
 	<em>Note for hotmail/Microsoft address owners</em><br/>The politic for mail delivery of Microsoft causes currently our email are sometimes delivered in the SPAM folder. Please check this folder if you are waiting for the validation, or account recovery, email.
 	</span>';
@@ -132,22 +132,22 @@ $trans['musique_libre_texte']['fr'] = 'L\'archive musicale Dogmazic.net propose 
 	Selon la licence choisie, de nombreux droits peuvent être accordés d\'emblée aux auditeurs. <br/>
 	La licence la plus permissive, la CC-BY, autorise tout type d\'usage sous réserve que l\'auteur et la licence soient mentionnés, y compris les usages commerciaux sans contrepartie (ce qui peut être utile pour sonoriser une vidéo monétisée). <span id="suite" style=""><br/>
 	À l\'autre extrémité du spectre, la plus restrictive des licences dites ouvertes, la CC-BY-NC-ND, n\'autorise que la copie sans modification ou la diffusion <em>en dehors de tout cadre commercial</em>. <br/>
-	Certaines licences peuvent autoriser les remix, commercialement ou non. Certaines peuvent demander que le remix soit mis sous une licence libre également. Pour plus d\'information sur les droits octroyés au public par les différentes licences de libre diffusion, vous pouvez vous reporter au <a href="http://musique-libre.org/doc/le-tableau-des-licences-libres-et-ouvertes-de-dogmazic/" target="new">tableau des licences</a> dans <a href="http://musique-libre.org/doc" target="new">notre documentation</a>. </span>';
+	Certaines licences peuvent autoriser les remix, commercialement ou non. Certaines peuvent demander que le remix soit mis sous une licence libre également. Pour plus d\'information sur les droits octroyés au public par les différentes licences de libre diffusion, vous pouvez vous reporter au <a href="http://musique-libre.org/doc/le-tableau-des-licences-libres-et-ouvertes-de-dogmazic/" target="_blank" rel="noopener">tableau des licences</a> dans <a href="http://musique-libre.org/doc" target="_blank" rel="noopener">notre documentation</a>. </span>';
 $trans['musique_libre_texte']['en'] = 'The Dogmazic.net musical archive provides more than 60 000 music tracks, all of them downloadable freely "totally quietly and totally legally".<br/>The musicians who publish on Dogmazic.net all choosed to provide their musique under a <em>free or open license</em><br/>
 	According to the license chosen, many rights can be grandted as-is to listeners. <br/>The most permissive license, the CC-BY, allows any kind of use as long as the author and the license are indicated, including commerical uses without any counterpart (which can be useful for a monetized video soundtrack). <span id="suite" style=""><br/>At the other side of the spectrum, the most restrictive open license, the CC-BY-NC-ND, allows only unmodified copy and broadcast <em>outside any kind of commercial use</em>. <br/>
-	Some of the open and free licenses can allow remixing, commercially or not. Some of them may demand that the remix is placed under a free license as well. For more information about the rights granted to the audience by free and open licenses, you can take a look at the <a href="http://musique-libre.org/doc/le-tableau-des-licences-libres-et-ouvertes-de-dogmazic/" target="new">licences table</a> in <a href="http://musique-libre.org/doc">our documentation</a>.';
+	Some of the open and free licenses can allow remixing, commercially or not. Some of them may demand that the remix is placed under a free license as well. For more information about the rights granted to the audience by free and open licenses, you can take a look at the <a href="http://musique-libre.org/doc/le-tableau-des-licences-libres-et-ouvertes-de-dogmazic/" target="_blank" rel="noopener">licences table</a> in <a href="http://musique-libre.org/doc" target="_blank" rel="noopener">our documentation</a>.';
 
 $trans['asso_titre']['fr'] = 'L\'association';
 $trans['asso_titre']['en'] = 'The volunteer organisation';
 
-$trans['asso_texte']['fr'] = 'Dogmazic.net existe depuis 2004 grâce aux bénévoles de l\'association <strong>Musique Libre</strong> qui édite le site, sans but lucratif. Dogmazic est financé uniquement par les dons des musiciens et des auditeurs, la rétribution pour des évènements comme l\'animation de conférences ou d\'ateliers, et par les cotisations des adhérents à l\'association Musique Libre. Initialement basée à Bordeaux, Musique Libre est maintenant localisée à Lyon. Elle maintient également <a target="new" href="http://musique-libre.org">un blog</a> d\'informations et de nouvelles sur l\'actualité des cultures libres et des partages. ';
-$trans['asso_texte']['en'] = 'Dogmazic.net exists since 2004 thank to the volunteer of the non-profit <strong>Musique Libre</strong> which acts as the site editors, whithout commercial aims. Dogmazic is funded only by donations made by musicians and listeners, counterparts for events like conferences and workshops, and by membership fees of the Musique Libre\'s volunteers. Initially based in Bordeaux, Musique Libre is now located in Lyon. It also maintains <a href="http://musique-libre.org" target="new">a blog</a> providing informations and news about free cultures and commons.';
+$trans['asso_texte']['fr'] = 'Dogmazic.net existe depuis 2004 grâce aux bénévoles de l\'association <strong>Musique Libre</strong> qui édite le site, sans but lucratif. Dogmazic est financé uniquement par les dons des musiciens et des auditeurs, la rétribution pour des évènements comme l\'animation de conférences ou d\'ateliers, et par les cotisations des adhérents à l\'association Musique Libre. Initialement basée à Bordeaux, Musique Libre est maintenant localisée à Lyon. Elle maintient également <a target="_blank" rel="noopener" href="http://musique-libre.org">un blog</a> d\'informations et de nouvelles sur l\'actualité des cultures libres et des partages. ';
+$trans['asso_texte']['en'] = 'Dogmazic.net exists since 2004 thank to the volunteer of the non-profit <strong>Musique Libre</strong> which acts as the site editors, whithout commercial aims. Dogmazic is funded only by donations made by musicians and listeners, counterparts for events like conferences and workshops, and by membership fees of the Musique Libre\'s volunteers. Initially based in Bordeaux, Musique Libre is now located in Lyon. It also maintains <a href="http://musique-libre.org" target="_blank" rel="noopener">a blog</a> providing informations and news about free cultures and commons.';
 
 $trans['adherer_titre']['fr']='Adhérer à l\'asso';
 $trans['adherer_titre']['en']='Join the non-for-profit association';
 
-$trans['adherer_texte']['fr']='Plus nous serons nombreux dans l\'association, et plus notre parole aura de poids pour représenter les musiciens sous licence libre ou ouverte et leurs auditeurs auprès des acteurs de l\'industrie musicale.<br/>En rejoignant l\'association, vous serez conviés à nos assemblées générales qui ont lieu via internet, et vous pourrez voter pour les prises de décision. <br/>L\'adhésion pour les personnes physiques se monte à 10 euros par an, et pour les personnes morales (associations, entreprises) à 50 euros par an. <br/><a href="https://www.helloasso.com/associations/musique-libre-org/adhesions/formulaire-adhesion-musique-libre">Adhérer ou renouveler votre adhésion sur HelloAsso</a><br/>Aussi, pour nous rejoindre ou renouveler votre adhésion, vous ouvez utiliser les boutons de don ci-dessous en indiquant "adhésion" dans les commentaires de la transaction, où envoyez un chèque (émis par une banque française uniquement), accompagné d\'une lettre indiquant que vous voulez adhérer ou renouveler votre adhésion, à l\'adresse mentionnée ci-dessous.';
-$trans['adherer_texte']['en']='The more people there will be in the volunteer organisation, the louder we will be heard representing musicians using free or open licenses and their listeners toward corporate actors of the music industry.<br/>By joining the non-for-profit association, you will be invited to join our general meetings that take place over the internet, and you will be able to vote for decision taking. <br/>Membership for natural persons is costing 10 euros a year, and for legal persons (organisations, companies) it is 50 euros per year. <br/><a href="https://www.helloasso.com/associations/musique-libre-org/adhesions/formulaire-adhesion-musique-libre">Join or renew your membership via HelloAsso</a><br/>Also, you can join us or renew your membership, using the donation buttons below, indicating "membership" in the comment of the money transfer, or send a check (drawn on a French bank only), along with a letter indicating you want to join or renew, to the address mentioned below.';
+$trans['adherer_texte']['fr']='Plus nous serons nombreux dans l\'association, et plus notre parole aura de poids pour représenter les musiciens sous licence libre ou ouverte et leurs auditeurs auprès des acteurs de l\'industrie musicale.<br/>En rejoignant l\'association, vous serez conviés à nos assemblées générales qui ont lieu via internet, et vous pourrez voter pour les prises de décision. <br/>L\'adhésion pour les personnes physiques se monte à 10 euros par an, et pour les personnes morales (associations, entreprises) à 50 euros par an. <br/><a href="https://www.helloasso.com/associations/musique-libre-org/adhesions/formulaire-adhesion-musique-libre" target="_blank" rel="noopener">Adhérer ou renouveler votre adhésion sur HelloAsso</a><br/>Aussi, pour nous rejoindre ou renouveler votre adhésion, vous ouvez utiliser les boutons de don ci-dessous en indiquant "adhésion" dans les commentaires de la transaction, où envoyez un chèque (émis par une banque française uniquement), accompagné d\'une lettre indiquant que vous voulez adhérer ou renouveler votre adhésion, à l\'adresse mentionnée ci-dessous.';
+$trans['adherer_texte']['en']='The more people there will be in the volunteer organisation, the louder we will be heard representing musicians using free or open licenses and their listeners toward corporate actors of the music industry.<br/>By joining the non-for-profit association, you will be invited to join our general meetings that take place over the internet, and you will be able to vote for decision taking. <br/>Membership for natural persons is costing 10 euros a year, and for legal persons (organisations, companies) it is 50 euros per year. <br/><a href="https://www.helloasso.com/associations/musique-libre-org/adhesions/formulaire-adhesion-musique-libre" target="_blank" rel="noopener">Join or renew your membership via HelloAsso</a><br/>Also, you can join us or renew your membership, using the donation buttons below, indicating "membership" in the comment of the money transfer, or send a check (drawn on a French bank only), along with a letter indicating you want to join or renew, to the address mentioned below.';
 
 $trans['faire_un_don_titre']['fr']='Dogmazic a besoin de vous !';
 $trans['faire_un_don_titre']['en']='Dogmazic needs you!';
@@ -155,7 +155,7 @@ $trans['faire_un_don_titre']['en']='Dogmazic needs you!';
 $trans['faire_un_don_texte']['fr']='Au printemps 2024 l\'association <em><strong>Musique Libre</strong></em> a tenu son assemblée générale. <a href="' . URL_AG . '">Lire le compte-rendu de l\'AG</a><br/>Nous avons plus que jamais besoin de votre soutien pour assurer la pérénité du projet porté par Dogmazic / Musique Libre, notamment pour assurer les capacités du site à répondre à la demande, des mélomanes comme des musiciens.<br/>Pour les résidents fiscaux en France : Musique Libre étant reconnue association d\'intérêt général, vos dons sont déductibles de vos impôts à hauteur de 66% (donner 20 euros vous coûte 6,80 euros). Vous recevrez un reçu fiscal courant avril de l\'année suivant celle de votre don.
 	<span id="liens_dons">
     <h4>Faire un don via Liberapay</h4>
-    	<a href="https://liberapay.com/MusiqueLibre/donate?currency=EUR&amount=1&period=monthly"><img alt="Faire un don via LiberaPay" src="https://liberapay.com/assets/liberapay/icon-v2_black-on-yellow.svg" name="HTTP://LIBERAPAY.COM/" width="104" height="35" border="0"></a>
+    	<a href="https://liberapay.com/MusiqueLibre/donate?currency=EUR&amount=1&period=monthly" target="_blank" rel="noopener"><img alt="Faire un don via LiberaPay" src="https://liberapay.com/assets/liberapay/icon-v2_black-on-yellow.svg" name="HTTP://LIBERAPAY.COM/" width="104" height="35" border="0"></a>
     <h4>Faire un don via Paypal</h4><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="TGZABWN33JJ5C">
@@ -188,8 +188,8 @@ $trans['faire_un_don_texte']['en']='During Spring 2024 the <em><strong>Musique L
 ';
 
 /** FOOTER */
-$trans['legal']['fr']='Copyright 2004-2023 Association Musique Libre. Sauf autre mention (par exemple pour les morceaux de l\'archive musicale), ce site et son contenu sont disponibles sous licence <a target="new" href="https://creativecommons.org/licenses/by-sa/2.0/">Creative Commons BY-SA</a>. Numéro CNIL : 1208661';
-$trans['legal']['en']='Copyright 2004-2023 Musique Libre volunteer organisation. Unless otherwise mentioned (as an example, the tracks in the music archive), this site and its content are published under the terms of the <a target="new" href="https://creativecommons.org/licenses/by-sa/2.0/">Creative Commons BY-SA</a> license. CNIL number : 1208661';
+$trans['legal']['fr']='Copyright 2004-'.date('Y').' Association Musique Libre. Sauf autre mention (par exemple pour les morceaux de l\'archive musicale), ce site et son contenu sont disponibles sous licence <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/2.0/">Creative Commons BY-SA</a>. Numéro CNIL : 1208661';
+$trans['legal']['en']='Copyright 2004-'.date('Y').' Musique Libre volunteer organisation. Unless otherwise mentioned (as an example, the tracks in the music archive), this site and its content are published under the terms of the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/2.0/">Creative Commons BY-SA</a> license. CNIL number : 1208661';
 
 /** UNUSED */
 
@@ -442,11 +442,11 @@ $trans['forum_colonne']['en']='On the forum';
 $trans['asso_titre_court']['fr']='Une association, pas une plateforme';
 $trans['asso_titre_court']['en']='A nonprofit, not a platform';
 
-$trans['asso_texte_court']['fr']='Dogmazic est édité par <a href="https://www.musique-libre.org"><strong>Musique Libre !</strong></a>, association loi 1901 basée à Lyon. Pas d\'actionnaire, pas de publicité, pas de revente de données : le site vit des dons, des cotisations et du temps de ses bénévoles.';
-$trans['asso_texte_court']['en']='Dogmazic is published by <a href="https://www.musique-libre.org"><strong>Musique Libre !</strong></a>, a French nonprofit based in Lyon. No shareholders, no ads, no data resale: the site runs on donations, memberships and volunteer time.';
+$trans['asso_texte_court']['fr']='Dogmazic est édité par <a href="https://www.musique-libre.org" target="_blank" rel="noopener"><strong>Musique Libre !</strong></a>, association loi 1901 basée à Lyon. Pas d\'actionnaire, pas de publicité, pas de revente de données : le site vit des dons, des cotisations et du temps de ses bénévoles.';
+$trans['asso_texte_court']['en']='Dogmazic is published by <a href="https://www.musique-libre.org" target="_blank" rel="noopener"><strong>Musique Libre !</strong></a>, a French nonprofit based in Lyon. No shareholders, no ads, no data resale: the site runs on donations, memberships and volunteer time.';
 
-$trans['asso_ag']['fr']='Les décisions se prennent en assemblée générale, ouverte à tous les adhérents. <a href="'.URL_AG.'">Lire le dernier compte-rendu →</a>';
-$trans['asso_ag']['en']='Decisions are made at the general meeting, open to every member. <a href="'.URL_AG.'">Read the latest minutes →</a>';
+$trans['asso_ag']['fr']='Les décisions se prennent en assemblée générale, ouverte à tous les adhérents. <a href="'.URL_AG.'" target="_blank" rel="noopener">Lire le dernier compte-rendu →</a>';
+$trans['asso_ag']['en']='Decisions are made at the general meeting, open to every member. <a href="'.URL_AG.'" target="_blank" rel="noopener">Read the latest minutes →</a>';
 
 /* Transparence sur le seul cookie du site (choix de langue). La CNIL l'exempte
    de consentement mais recommande d'en informer les visiteurs. */
@@ -459,11 +459,11 @@ $trans['mention_cookie']['en']='This site sets a single cookie, storing your lan
    et debarrassee d'une balise </eme> mal fermee. */
 $trans['licences_spectre']['fr'] = '<p>Tous les morceaux sont sous licence <em>libre</em> ou <em>ouverte</em>, choisie par l\'artiste. Selon laquelle, de nombreux droits vous sont accordés d\'emblée.</p>
 <p>La plus permissive, la <strong>CC BY</strong>, autorise tout usage à condition de citer l\'auteur et la licence — y compris commercial et sans contrepartie, ce qui est bien pratique pour sonoriser une vidéo monétisée. À l\'autre bout du spectre, la <strong>CC BY-NC-ND</strong> n\'autorise que la copie à l\'identique, en dehors de tout cadre commercial.</p>
-<p>Entre les deux, certaines licences autorisent le remix, commercialement ou non, parfois à condition que le remix soit lui-même placé sous licence libre. Le détail est dans le <a href="licences.php">tableau des licences</a> de <a href="https://musique-libre.org/doc" target="_blank">notre documentation</a>.</p>';
+<p>Entre les deux, certaines licences autorisent le remix, commercialement ou non, parfois à condition que le remix soit lui-même placé sous licence libre. Le détail est dans le <a href="licences.php">tableau des licences</a> de <a href="https://musique-libre.org/doc" target="_blank" rel="noopener">notre documentation</a>.</p>';
 
 $trans['licences_spectre']['en'] = '<p>Every track is under a <em>free</em> or <em>open</em> licence, chosen by the artist. Depending on which one, a lot of rights are granted to you upfront.</p>
 <p>The most permissive, <strong>CC BY</strong>, allows any use as long as you credit the author and the licence — including commercial use, with nothing owed in return, which comes in handy for the soundtrack of a monetised video. At the other end of the spectrum, <strong>CC BY-NC-ND</strong> only allows unmodified copies, outside any commercial context.</p>
-<p>In between, some licences allow remixing, commercially or not, sometimes on condition that the remix is itself released under a free licence. The details are in the <a href="licences.php">licence table</a> in <a href="https://musique-libre.org/doc" target="_blank">our documentation</a>.</p>';
+<p>In between, some licences allow remixing, commercially or not, sometimes on condition that the remix is itself released under a free licence. The details are in the <a href="licences.php">licence table</a> in <a href="https://musique-libre.org/doc" target="_blank" rel="noopener">our documentation</a>.</p>';
 
 /** ===================================================================
  *  PAGE « TABLEAU DES LICENCES » (licences.php)
@@ -548,10 +548,29 @@ $trans['licences_note_versions']['en']='Licences are listed in their original ve
 $trans['licences_note_obsoletes']['fr']='Les licences marquées « obsolète » ont été mises à jour par leur créateur, remplacées par un équivalent, ou leur texte n\'est plus disponible en ligne. Elles restent listées car des morceaux de l\'archive les utilisent encore.';
 $trans['licences_note_obsoletes']['en']='Licences marked “obsolete” were updated by their creator, replaced by an equivalent, or their text is no longer available online. They stay listed because tracks in the archive still use them.';
 
-$trans['licences_note_source']['fr']='Ce tableau reprend celui publié par l\'association. Une erreur, une licence manquante ? <a href="https://forum.musique-libre.org">Signalez-la sur le forum</a>, il sera corrigé.';
-$trans['licences_note_source']['en']='This table is based on the one published by the nonprofit. Spotted a mistake or a missing licence? <a href="https://forum.musique-libre.org">Tell us on the forum</a> and it will be fixed.';
+$trans['licences_note_source']['fr']='Ce tableau reprend celui publié par l\'association. Une erreur, une licence manquante ? <a href="https://forum.musique-libre.org" target="_blank" rel="noopener">Signalez-la sur le forum</a>, il sera corrigé.';
+$trans['licences_note_source']['en']='This table is based on the one published by the nonprofit. Spotted a mistake or a missing licence? <a href="https://forum.musique-libre.org" target="_blank" rel="noopener">Tell us on the forum</a> and it will be fixed.';
 
 /* Puce de licence du lecteur radio : au repos elle renvoie au tableau des
    licences, en lecture l'infobulle donne la licence exacte du morceau. */
 $trans['radio_licence_repos']['fr']='Chaque morceau a sa propre licence — voir le tableau des licences';
 $trans['radio_licence_repos']['en']='Every track has its own licence — see the licence table';
+
+/* Infobulle de la puce de licence, en lecture. Le prefixe est indispensable :
+   la licence change a chaque morceau, sans phrase on croit lire celle de la
+   radio entiere. {licence} est remplace par le nom exact. */
+$trans['radio_licence_morceau']['fr']='Ce morceau est sous licence {licence} — cliquez pour lire la licence';
+$trans['radio_licence_morceau']['en']='This track is under the {licence} licence — click to read it';
+
+/** ===================================================================
+ *  MENTIONS LEGALES (LCEN art. 6 III)
+ *  Deux informations sont obligatoires : qui edite le site, qui l'heberge.
+ *  Editeur   : donnees publiques de l'association (musique-libre.org/a-propos).
+ *  Hebergeur : tetaneutral.net, coordonnees de son siege declare.
+ *  =================================================================== */
+
+$trans['mentions_editeur']['fr'] = 'Dogmazic.net est édité par l\'<a href="https://www.musique-libre.org" target="_blank" rel="noopener">association Musique Libre !</a>, association loi 1901 déclarée le 20 décembre 2004, SIRET 481 151 900 00026, dont le siège est au 26 rue du Bon Pasteur, 69001 Lyon. Directeur de la publication : ' . DIRECTEUR_PUBLICATION . '. Nous écrire : <a href="https://musique-libre.org/contact/" target="_blank" rel="noopener">musique-libre.org/contact</a>.';
+$trans['mentions_editeur']['en'] = 'Dogmazic.net is published by the <a href="https://www.musique-libre.org" target="_blank" rel="noopener">Musique Libre ! association</a>, a French nonprofit registered on 20 December 2004, SIRET 481 151 900 00026, with its registered office at 26 rue du Bon Pasteur, 69001 Lyon, France. Publication director: ' . DIRECTEUR_PUBLICATION . '. Contact: <a href="https://musique-libre.org/contact/" target="_blank" rel="noopener">musique-libre.org/contact</a>.';
+
+$trans['mentions_hebergeur']['fr'] = 'Le site est hébergé par l\'association <a href="https://tetaneutral.net" target="_blank" rel="noopener">tetaneutral.net</a>, fournisseur d\'accès à Internet et hébergeur associatif membre de la <a href="https://www.ffdn.org/" target="_blank" rel="noopener">fédération FFDN</a>, c/o Sylvain Revault, 7 impasse René Char, logement 39, 31600 Lherm.';
+$trans['mentions_hebergeur']['en'] = 'The site is hosted by <a href="https://tetaneutral.net" target="_blank" rel="noopener">tetaneutral.net</a>, a nonprofit Internet service provider and host, member of the <a href="https://www.ffdn.org/" target="_blank" rel="noopener">FFDN federation</a>, c/o Sylvain Revault, 7 impasse René Char, logement 39, 31600 Lherm, France.';

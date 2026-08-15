@@ -13,13 +13,13 @@ include_once 'socials.php';
                 <div class="anneau a1"></div>
                 <div class="anneau a2"></div>
 
-                <a class="astre orb-archive" href="https://play.dogmazic.net">
+                <a class="astre orb-archive" href="https://play.dogmazic.net" target="_blank" rel="noopener">
                     <span><b><?php trans('nav_archive'); ?></b><span class="sous"><?php trans('orbite_archive_sous'); ?></span></span>
                 </a>
-                <a class="astre orb-radio" href="https://radio.dogmazic.net">
+                <a class="astre orb-radio" href="https://radio.dogmazic.net" target="_blank" rel="noopener">
                     <span><b><?php trans('nav_radio'); ?></b><span class="sous"><?php trans('orbite_radio_sous'); ?></span></span>
                 </a>
-                <a class="astre orb-asso" href="https://www.musique-libre.org">
+                <a class="astre orb-asso" href="https://www.musique-libre.org" target="_blank" rel="noopener">
                     <span><b><?php trans('nav_asso'); ?></b><span class="sous"><?php trans('orbite_asso_sous'); ?></span></span>
                 </a>
 
@@ -40,8 +40,8 @@ include_once 'socials.php';
                     <button type="button" class="btn plein" onclick="basculeRadio()">
                         &#9654; <?php trans('lancer_radio'); ?>
                     </button>
-                    <a class="btn" href="https://play.dogmazic.net"><?php trans('fouiller_archive'); ?></a>
-                    <a class="btn" href="//play.dogmazic.net/register.php"><?php trans('publier_ma_musique'); ?></a>
+                    <a class="btn" href="https://play.dogmazic.net" target="_blank" rel="noopener"><?php trans('fouiller_archive'); ?></a>
+                    <a class="btn" href="//play.dogmazic.net/register.php" target="_blank" rel="noopener"><?php trans('publier_ma_musique'); ?></a>
                 </div>
             </div>
 
@@ -62,16 +62,16 @@ include_once 'socials.php';
 
             <span class="onde" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
 
-            <a href="#" target="_blank" id="link_album" title="<?php trans('voir_album'); ?>">
+            <a href="#" target="_blank" rel="noopener" id="link_album" title="<?php trans('voir_album'); ?>">
                 <img src="/blank_album_art.png" alt="" id="albumart" class="pochette-radio">
             </a>
 
             <div class="piste">
                 <div class="titre" id="titrePiste">
                     <span id="metainfos">
-                        <a href="#" id="link_artist" target="_blank"></a>
+                        <a href="#" id="link_artist" target="_blank" rel="noopener"></a>
                         <span id="sep_meta"></span>
-                        <a href="#" id="link_song" target="_blank"></a>
+                        <a href="#" id="link_song" target="_blank" rel="noopener"></a>
                     </span>
                     <span id="titre_repos"><?php trans('radio_titre_repos'); ?></span>
                 </div>
@@ -82,7 +82,7 @@ include_once 'socials.php';
                href="licences.php" title="<?php trans('radio_licence_repos'); ?>">
                 <span id="chipLicenceTexte"><?php trans('radio_chip_licence'); ?></span>
             </a>
-            <a class="chip" href="<?php echo $flux; ?>"><?php trans('radio_chip_flux'); ?></a>
+            <a class="chip" href="<?php echo $flux; ?>" target="_blank" rel="noopener"><?php trans('radio_chip_flux'); ?></a>
 
         </div>
     </div>
@@ -96,7 +96,7 @@ include_once 'socials.php';
                     <span class="eyebrow"><?php trans('albums_surtitre'); ?></span>
                     <h2><?php trans('nouveaux_albums'); ?></h2>
                 </div>
-                <a href="//play.dogmazic.net/browse.php?action=album" target="_blank"><?php trans('tout_parcourir'); ?></a>
+                <a href="//play.dogmazic.net/browse.php?action=album" target="_blank" rel="noopener"><?php trans('tout_parcourir'); ?></a>
             </div>
             <ul class="grille-albums">
                 <?php albumList(); ?>
@@ -113,7 +113,7 @@ include_once 'socials.php';
                     <span class="eyebrow"><?php trans('morceaux_surtitre'); ?></span>
                     <h2><?php trans('récemment_joué'); ?></h2>
                 </div>
-                <a href="//play.dogmazic.net/browse.php?action=song" target="_blank"><?php trans('tout_parcourir'); ?></a>
+                <a href="//play.dogmazic.net/browse.php?action=song" target="_blank" rel="noopener"><?php trans('tout_parcourir'); ?></a>
             </div>
             <ul class="pistes">
                 <?php recentlyPlayedList(); ?>
@@ -133,7 +133,7 @@ include_once 'socials.php';
                     <span class="num"><?php trans('trois_1_num'); ?></span>
                     <h3><?php trans('trois_1_titre'); ?></h3>
                     <p><?php trans('trois_1_texte'); ?></p>
-                    <a href="https://play.dogmazic.net">play.dogmazic.net &rarr;</a>
+                    <a href="https://play.dogmazic.net" target="_blank" rel="noopener">play.dogmazic.net &rarr;</a>
                 </div>
 
                 <div class="carte">
@@ -147,7 +147,7 @@ include_once 'socials.php';
                     <span class="num"><?php trans('trois_3_num'); ?></span>
                     <h3><?php trans('trois_3_titre'); ?></h3>
                     <p><?php trans('trois_3_texte'); ?></p>
-                    <a href="https://radio.dogmazic.net">radio.dogmazic.net &rarr;</a>
+                    <a href="https://radio.dogmazic.net" target="_blank" rel="noopener">radio.dogmazic.net &rarr;</a>
                 </div>
 
             </div>
@@ -178,7 +178,7 @@ include_once 'socials.php';
                     </header>
                     <?php lastBlogPosts(); ?>
                     <div class="pied-colonne">
-                        <a href="https://www.musique-libre.org"><?php trans('tous_articles'); ?></a>
+                        <a href="https://www.musique-libre.org" target="_blank" rel="noopener"><?php trans('tous_articles'); ?></a>
                     </div>
                 </div>
 
@@ -189,7 +189,7 @@ include_once 'socials.php';
                     </header>
                     <?php lastPost(); ?>
                     <div class="pied-colonne">
-                        <a href="https://forum.musique-libre.org"><?php trans('ouvrir_forum'); ?></a>
+                        <a href="https://forum.musique-libre.org" target="_blank" rel="noopener"><?php trans('ouvrir_forum'); ?></a>
                     </div>
                 </div>
 
@@ -223,14 +223,14 @@ include_once 'socials.php';
                 </div>
 
                 <div class="soutien" id="don">
-                    <a class="btn plein" href="https://www.musique-libre.org"><?php trans('adherer_titre'); ?></a>
-                    <a class="btn" href="https://liberapay.com/Dogmazic/"><?php trans('don_liberapay'); ?></a>
-                    <a class="btn" href="https://www.paypal.com/donate?hosted_button_id=DPXFCDQGX2ZBC"><?php trans('don_paypal'); ?></a>
+                    <a class="btn plein" href="https://www.musique-libre.org" target="_blank" rel="noopener"><?php trans('adherer_titre'); ?></a>
+                    <a class="btn" href="https://liberapay.com/Dogmazic/" target="_blank" rel="noopener"><?php trans('don_liberapay'); ?></a>
+                    <a class="btn" href="https://www.paypal.com/donate?hosted_button_id=DPXFCDQGX2ZBC" target="_blank" rel="noopener"><?php trans('don_paypal'); ?></a>
                     <p class="fiscal"><?php trans('don_fiscal'); ?></p>
 
                     <div class="social-rang">
                         <?php foreach ($socials as $social): ?>
-                            <a href="<?= $social['url']; ?>" target="_blank"<?= isset($social['rel']) ? ' rel="' . $social['rel'] . '"' : '' ?>>
+                            <a href="<?= $social['url']; ?>" target="_blank" rel="noopener<?= isset($social['rel']) ? ' ' . $social['rel'] : '' ?>">
                                 <?= $social['name'][LANG]; ?>
                             </a>
                         <?php endforeach; ?>
@@ -250,20 +250,20 @@ include_once 'socials.php';
                 <div>
                     <h4><?php trans('plan_ecouter'); ?></h4>
                     <ul>
-                        <li><a href="//play.dogmazic.net/browse.php?action=artist" target="_blank"><?php trans('Artists'); ?></a></li>
-                        <li><a href="//play.dogmazic.net/browse.php?action=album" target="_blank"><?php trans('Albums'); ?></a></li>
-                        <li><a href="//play.dogmazic.net/browse.php?action=tag" target="_blank"><?php trans('Tags'); ?></a></li>
-                        <li><a href="//play.dogmazic.net/browse.php?action=label" target="_blank"><?php trans('Labels'); ?></a></li>
-                        <li><a href="//play.dogmazic.net/browse.php?action=playlist" target="_blank"><?php trans('Playlists'); ?></a></li>
-                        <li><a href="https://radio.dogmazic.net"><?php trans('nav_radio'); ?></a></li>
+                        <li><a href="//play.dogmazic.net/browse.php?action=artist" target="_blank" rel="noopener"><?php trans('Artists'); ?></a></li>
+                        <li><a href="//play.dogmazic.net/browse.php?action=album" target="_blank" rel="noopener"><?php trans('Albums'); ?></a></li>
+                        <li><a href="//play.dogmazic.net/browse.php?action=tag" target="_blank" rel="noopener"><?php trans('Tags'); ?></a></li>
+                        <li><a href="//play.dogmazic.net/browse.php?action=label" target="_blank" rel="noopener"><?php trans('Labels'); ?></a></li>
+                        <li><a href="//play.dogmazic.net/browse.php?action=playlist" target="_blank" rel="noopener"><?php trans('Playlists'); ?></a></li>
+                        <li><a href="https://radio.dogmazic.net" target="_blank" rel="noopener"><?php trans('nav_radio'); ?></a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h4><?php trans('plan_publier'); ?></h4>
                     <ul>
-                        <li><a href="//play.dogmazic.net/register.php" target="_blank"><?php trans('creer_compte'); ?></a></li>
-                        <li><a href="//play.dogmazic.net/login.php" target="_blank"><?php trans('Connexion'); ?></a></li>
+                        <li><a href="//play.dogmazic.net/register.php" target="_blank" rel="noopener"><?php trans('creer_compte'); ?></a></li>
+                        <li><a href="//play.dogmazic.net/login.php" target="_blank" rel="noopener"><?php trans('Connexion'); ?></a></li>
                         <li><a href="#publier"><?php trans('publier'); ?></a></li>
                         <li><a href="licences.php"><?php trans('licences_page_titre'); ?></a></li>
                     </ul>
@@ -272,11 +272,11 @@ include_once 'socials.php';
                 <div>
                     <h4><?php trans('plan_asso'); ?></h4>
                     <ul>
-                        <li><a href="https://www.musique-libre.org"><?php trans('site_asso'); ?></a></li>
-                        <li><a href="https://www.musique-libre.org"><?php trans('le_blog'); ?></a></li>
+                        <li><a href="https://www.musique-libre.org" target="_blank" rel="noopener"><?php trans('site_asso'); ?></a></li>
+                        <li><a href="https://www.musique-libre.org" target="_blank" rel="noopener"><?php trans('le_blog'); ?></a></li>
                         <li><a href="#don"><?php trans('adherer_titre'); ?></a></li>
                         <li><a href="#don"><?php trans('faire_un_don_titre'); ?></a></li>
-                        <li><a href="https://musique-libre.org/contact/"><?php trans('nous_ecrire'); ?></a></li>
+                        <li><a href="https://musique-libre.org/contact/" target="_blank" rel="noopener"><?php trans('nous_ecrire'); ?></a></li>
                     </ul>
                 </div>
 
@@ -285,21 +285,25 @@ include_once 'socials.php';
                     <ul>
                         <?php foreach ($socials as $cle => $social): ?>
                             <li>
-                                <a href="<?= $social['url']; ?>" target="_blank"<?= isset($social['rel']) ? ' rel="' . $social['rel'] . '"' : '' ?>>
+                                <a href="<?= $social['url']; ?>" target="_blank" rel="noopener<?= isset($social['rel']) ? ' ' . $social['rel'] : '' ?>">
                                     <?= $social['name'][LANG]; ?><?= !empty($social['neuf']) ? '<span class="neuf">' . trans_r('nouveau') . '</span>' : '' ?>
                                 </a>
                             </li>
                         <?php endforeach; ?>
-                        <li><a href="https://www.musique-libre.org/feed/"><?php trans('flux_rss'); ?></a></li>
+                        <li><a href="https://www.musique-libre.org/feed/" target="_blank" rel="noopener"><?php trans('flux_rss'); ?></a></li>
                     </ul>
                 </div>
 
             </div>
 
-            <p class="legal">
-                <?php trans('legal'); ?>
-                <?php trans('mention_cookie'); ?>
-            </p>
+            <div class="legal">
+                <p><?php trans('legal'); ?> <?php trans('mention_cookie'); ?></p>
+                <!-- Mentions legales obligatoires : editeur et hebergeur (LCEN art. 6 III) -->
+                <p class="mentions">
+                    <?php trans('mentions_editeur'); ?><br>
+                    <?php trans('mentions_hebergeur'); ?>
+                </p>
+            </div>
         </div>
     </footer>
 
@@ -348,15 +352,18 @@ include_once 'socials.php';
         rafraichitInfos();
     }
 
-    var LICENCE_REPOS = <?= json_encode(trans_r('radio_licence_repos')) ?>;
+    var LICENCE_REPOS   = <?= json_encode(trans_r('radio_licence_repos')) ?>;
+    var LICENCE_PREFIXE = <?= json_encode(trans_r('radio_licence_morceau')) ?>;
 
-    /* Renseigne la puce de licence. Sans licence connue, on revient au
-       libelle generique qui pointe vers le tableau des licences. */
+    /* Renseigne la puce de licence. Le nom est prefixe par « Ce morceau est
+       sous licence… » : sans cette phrase, on croit lire la licence de la
+       radio entiere alors qu'elle change a chaque morceau. */
     function majLicence(nom, url)
     {
         var puce = $('#chipLicence');
         if (nom) {
-            puce.attr('title', nom).attr('href', url || 'licences.php');
+            puce.attr('title', LICENCE_PREFIXE.replace('{licence}', nom))
+                .attr('href', url || 'licences.php');
         } else {
             puce.attr('title', LICENCE_REPOS).attr('href', 'licences.php');
         }
@@ -521,7 +528,7 @@ function albumList()
                 $artiste = ''; // suffixe absent : on n'invente rien
             }
 
-            echo '<li class="album"><a target="_blank" href="' . htmlspecialchars($link) . '"'
+            echo '<li class="album"><a target="_blank" rel="noopener" href="' . htmlspecialchars($link) . '"'
                . ' title="' . htmlspecialchars($description) . '">'
                . '<span class="pochette"><img src="' . $image . '" alt="" loading="lazy"></span>'
                . '<p>' . htmlspecialchars($album) . '</p>'
@@ -577,7 +584,7 @@ function recentlyPlayedList()
                 $artiste  = isset($morceaux[1]) ? $morceaux[1] : '';
             }
 
-            echo '<li><a target="_blank" href="' . htmlspecialchars($link) . '">'
+            echo '<li><a target="_blank" rel="noopener" href="' . htmlspecialchars($link) . '">'
                . '<span class="rang">' . $i . '</span>'
                . '<span class="vignette"><img id="recentlyPlayedImg-' . ($i - 1) . '" src="' . $imagelink . '" alt="" loading="lazy"></span>'
                . '<span class="quoi"><b>' . htmlspecialchars($titre) . '</b>'
@@ -763,7 +770,7 @@ function lastPost()
                 $contexte[] = strtr(trans_r('dernier_message_de'), ['{qui}' => $auteur]);
             }
 
-            echo '<a class="sujet" target="_blank" href="' . htmlspecialchars($link) . '">'
+            echo '<a class="sujet" target="_blank" rel="noopener" href="' . htmlspecialchars($link) . '">'
                . '<span class="titre">' . htmlspecialchars($sujet) . '</span>'
                . '<span class="quand">' . htmlspecialchars(depuis($pubdate)) . '</span>'
                . ($contexte ? '<span class="qui">' . htmlspecialchars(implode(' · ', $contexte)) . '</span>' : '')
@@ -801,7 +808,7 @@ function lastBlogPosts()
                     $cats .= '<span class="chip">' . htmlspecialchars($cat->nodeValue) . '</span> ';
                 }
 
-                echo '<a class="billet-une" target="_blank" href="' . htmlspecialchars($link) . '">'
+                echo '<a class="billet-une" target="_blank" rel="noopener" href="' . htmlspecialchars($link) . '">'
                    . '<span class="date">' . htmlspecialchars($pubDate) . '</span>'
                    . '<h4>' . htmlspecialchars($title) . '</h4>'
                    . ($desc ? '<p>' . htmlspecialchars($desc) . '</p>' : '')
@@ -810,7 +817,7 @@ function lastBlogPosts()
                 continue;
             }
 
-            echo '<a class="billet" target="_blank" href="' . htmlspecialchars($link) . '">'
+            echo '<a class="billet" target="_blank" rel="noopener" href="' . htmlspecialchars($link) . '">'
                . '<span class="date">' . htmlspecialchars($pubDate) . '</span>'
                . '<span class="titre">' . htmlspecialchars($title) . '</span></a>';
         }

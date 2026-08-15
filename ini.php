@@ -56,6 +56,13 @@ define('LANG', $lang);
 // le lien est utilise dans les textes FR et EN (voir accueil/texte.php).
 define('URL_AG', 'https://musique-libre.org/blog/2026/07/29/compte-rendu-de-lassemblee-generale-de-musique-libre-2026/');
 
+// Directeur ou directrice de la publication : la loi (LCEN, art. 6 III)
+// impose de le nommer. Pour une association, c'est le representant legal,
+// donc le president ou la presidente en exercice.
+// >>> A COMPLETER par le nom reel, et a mettre a jour a chaque changement
+// >>> de bureau : la formulation actuelle reste vague juridiquement.
+define('DIRECTEUR_PUBLICATION', 'le président ou la présidente en exercice');
+
 // Configuration locale (identifiants MySQL pour les stats).
 // Fichier hors depot, voir config.php.dist. Absent = pas de stats affichees.
 if (file_exists(__DIR__ . DS . 'config.php')) {
