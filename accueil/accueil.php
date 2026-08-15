@@ -78,11 +78,12 @@ include_once 'socials.php';
                 <div class="meta" id="metaPiste"><?php trans('radio_invite'); ?></div>
             </div>
 
-            <a class="chip libre" id="chipLicence" style="margin-left:auto"
+            <!-- Puce de licence : masquee tant que rien ne joue (voir dogmazic.css),
+                 puisqu'elle decrit le morceau en cours et rien d'autre. -->
+            <a class="chip libre" id="chipLicence"
                href="licences.php" title="<?php trans('radio_licence_repos'); ?>">
                 <span id="chipLicenceTexte"><?php trans('radio_chip_licence'); ?></span>
             </a>
-            <a class="chip" href="<?php echo $flux; ?>" target="_blank" rel="noopener"><?php trans('radio_chip_flux'); ?></a>
 
         </div>
     </div>
@@ -307,6 +308,20 @@ include_once 'socials.php';
         </div>
     </footer>
 
+    <!-- ===================== SCENE POST-GENERIQUE =====================
+         Pour ceux qui lisent les mentions legales jusqu'au bout. Le disque
+         traverse l'ecran en roulant, puis une phrase apparait. Purement
+         decoratif : aria-hidden, et rien ne bouge si l'utilisateur a demande
+         a reduire les animations. -->
+
+    <div id="bonus" aria-hidden="true" title="<?php trans('bonus_invite'); ?>">
+        <img id="bonus_disque" src="<?= IMG_PATH . '/disque-vinyle.svg' ?>" alt="">
+        <span class="note n1">&#9834;</span>
+        <span class="note n2">&#9835;</span>
+        <span class="note n3">&#9834;</span>
+        <p id="bonus_phrase"></p>
+    </div>
+
     <!-- ===================== POPUP APPLIS MOBILES ===================== -->
 
     <div id="apps_mobiles_popup">
@@ -417,6 +432,42 @@ include_once 'socials.php';
             }
         });
     }
+
+    /* ---------------- Scene post-generique ----------------
+       Se declenche quand le bas de page entre dans le champ, une seule fois
+       par visite. Un clic la rejoue, pour ceux qui veulent la revoir. */
+    (function () {
+        var bloc   = document.getElementById('bonus');
+        var phrase = document.getElementById('bonus_phrase');
+        if (!bloc) {
+            return;
+        }
+
+        var PHRASES = <?= json_encode(array_map('trim', explode('|', trans_r('bonus_phrases')))) ?>;
+
+        function joue() {
+            bloc.classList.remove('actif');
+            void bloc.offsetWidth;                  // force le rejeu de l'animation
+            phrase.textContent = PHRASES[Math.floor(Math.random() * PHRASES.length)];
+            bloc.classList.add('actif');
+        }
+
+        if ('IntersectionObserver' in window) {
+            var vu = new IntersectionObserver(function (entrees) {
+                entrees.forEach(function (e) {
+                    if (e.isIntersecting) {
+                        joue();
+                        vu.disconnect();
+                    }
+                });
+            }, { threshold: 0.6 });
+            vu.observe(bloc);
+        } else {
+            joue();
+        }
+
+        bloc.addEventListener('click', joue);
+    })();
 
     etatRadio();
     setInterval(rafraichitInfos, 5000);

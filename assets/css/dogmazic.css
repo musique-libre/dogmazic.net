@@ -177,7 +177,7 @@ h2{font-size:clamp(28px,4vw,44px)}
 
 /* =============================== LECTEUR RADIO =============================== */
 .radio-bar{border-top:1px solid var(--sillon);border-bottom:1px solid var(--sillon);background:var(--panneau)}
-.radio-bar .wrap{display:flex;align-items:center;gap:18px;padding:14px 24px}
+.radio-bar .wrap{display:flex;align-items:center;gap:18px;padding:14px 24px;flex-wrap:wrap}
 .radio-bar audio{display:none}
 .play{
   width:46px;height:46px;flex:none;border-radius:50%;border:none;cursor:pointer;
@@ -207,7 +207,14 @@ h2{font-size:clamp(28px,4vw,44px)}
 .chip.libre{border-color:rgba(255,157,0,.4);color:var(--orange)}
 /* La puce porte une infobulle (la licence exacte du morceau en cours) :
    le pointeur « help » et le souligne pointille le signalent. */
-a.chip.libre{cursor:help;text-decoration:underline dotted rgba(255,157,0,.5);text-underline-offset:3px}
+a.chip.libre{
+  cursor:help;text-decoration:underline dotted rgba(255,157,0,.5);text-underline-offset:3px;
+  margin-left:auto;
+  /* Rien ne joue : la licence n'a aucun sens, on la cache plutot que
+     d'afficher un libelle generique qu'on prendrait pour celle de la radio. */
+  display:none;
+}
+body.joue a.chip.libre{display:inline-block}
 a.chip.libre:hover{background:rgba(255,157,0,.12);color:var(--orange)}
 
 /* =============================== SECTIONS =============================== */
@@ -416,8 +423,78 @@ footer{border-top:1px solid var(--sillon);padding:46px 0 60px}
 }
 @media (max-width:760px){
   #stats_bandeau{display:none}
+
+  /* Barre radio : en une seule rangee, le titre du morceau se retrouvait
+     comprime a quelques caracteres et se cassait mot par mot. On passe donc
+     le titre sur toute la largeur disponible et la licence au rang suivant. */
+  .radio-bar .wrap{gap:12px 14px;padding:14px 16px}
+  .radio-bar .onde{display:none}
+  .radio-bar .piste{flex:1 1 0;min-width:0}
+  .radio-bar .piste .titre{white-space:normal;overflow:visible;line-height:1.3}
+  .radio-bar .piste .meta{white-space:normal;line-height:1.4}
+  .radio-bar a.chip.libre{
+    flex:1 1 100%;margin-left:0;text-align:center;order:5;
+  }
+  body.joue .radio-bar a.chip.libre{display:block}
   .plan{grid-template-columns:1fr 1fr}
   .hero{padding-top:36px}
   .pistes a{grid-template-columns:26px 40px 1fr 36px;gap:10px}
   .pistes .chip{display:none}
+}
+
+/* =========================================================================
+   SCENE POST-GENERIQUE
+   Tout en bas, apres les mentions legales. Le disque de l'archive traverse
+   l'ecran en roulant comme une roue (la rotation est calee sur la largeur
+   pour que ca ne patine pas), en semant quelques notes, puis une phrase
+   apparait. Cliquer rejoue la scene.
+   ========================================================================= */
+#bonus{
+  position:relative;height:104px;overflow:hidden;cursor:pointer;
+  border-top:1px solid var(--sillon);
+}
+#bonus_disque{
+  position:absolute;bottom:14px;left:0;width:52px;height:52px;
+  opacity:0;pointer-events:none;
+}
+#bonus .note{
+  position:absolute;bottom:52px;font-size:15px;color:var(--orange);opacity:0;pointer-events:none;
+}
+#bonus .n1{left:26%}
+#bonus .n2{left:48%;bottom:64px}
+#bonus .n3{left:70%}
+#bonus_phrase{
+  position:absolute;left:0;right:0;bottom:20px;margin:0;text-align:center;
+  font-family:var(--data);font-size:12px;letter-spacing:.06em;color:var(--craie-basse);
+  opacity:0;
+}
+
+@media (prefers-reduced-motion:no-preference){
+  #bonus.actif #bonus_disque{animation:roule 3.4s cubic-bezier(.3,0,.35,1) forwards}
+  #bonus.actif .note{animation:note 1.1s ease-out forwards}
+  #bonus.actif .n1{animation-delay:.95s}
+  #bonus.actif .n2{animation-delay:1.5s}
+  #bonus.actif .n3{animation-delay:2.1s}
+  #bonus.actif #bonus_phrase{animation:phrase .9s ease-out 2.9s forwards}
+
+  /* 52px de diametre => une revolution tous les ~163px : 6 tours pour la
+     traversee donnent un roulement credible sans effet de patinage. */
+  @keyframes roule{
+    0%  {transform:translateX(-70px) rotate(0deg);opacity:0}
+    6%  {opacity:1}
+    94% {opacity:1}
+    100%{transform:translateX(calc(100vw + 70px)) rotate(2160deg);opacity:0}
+  }
+  @keyframes note{
+    0%  {opacity:0;transform:translateY(0) rotate(-8deg)}
+    30% {opacity:.9}
+    100%{opacity:0;transform:translateY(-26px) rotate(10deg)}
+  }
+  @keyframes phrase{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+}
+/* Animations coupees : on garde la phrase, qui est le vrai contenu. */
+@media (prefers-reduced-motion:reduce){
+  #bonus{height:64px}
+  #bonus_disque,#bonus .note{display:none}
+  #bonus_phrase{opacity:1}
 }

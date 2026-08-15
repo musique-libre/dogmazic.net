@@ -328,8 +328,6 @@ $trans['radio_en_direct']['fr']='En direct · le flux tourne';
 $trans['radio_en_direct']['en']='On air · streaming now';
 $trans['radio_chip_licence']['fr']='Licence libre';
 $trans['radio_chip_licence']['en']='Free licence';
-$trans['radio_chip_flux']['fr']='Flux MP3';
-$trans['radio_chip_flux']['en']='MP3 stream';
 $trans['voir_album']['fr']='Voir cet album sur Dogmazic';
 $trans['voir_album']['en']='Show this album on Dogmazic';
 
@@ -574,3 +572,21 @@ $trans['mentions_editeur']['en'] = 'Dogmazic.net is published by the <a href="ht
 
 $trans['mentions_hebergeur']['fr'] = 'Le site est hébergé par l\'association <a href="https://tetaneutral.net" target="_blank" rel="noopener">tetaneutral.net</a>, fournisseur d\'accès à Internet et hébergeur associatif membre de la <a href="https://www.ffdn.org/" target="_blank" rel="noopener">fédération FFDN</a>, c/o Sylvain Revault, 7 impasse René Char, logement 39, 31600 Lherm.';
 $trans['mentions_hebergeur']['en'] = 'The site is hosted by <a href="https://tetaneutral.net" target="_blank" rel="noopener">tetaneutral.net</a>, a nonprofit Internet service provider and host, member of the <a href="https://www.ffdn.org/" target="_blank" rel="noopener">FFDN federation</a>, c/o Sylvain Revault, 7 impasse René Char, logement 39, 31600 Lherm, France.';
+
+/* Scene post-generique du bas de page. Les phrases sont separees par des
+   barres verticales ; en ajouter une suffit, le tirage est aleatoire. */
+$trans['bonus_invite']['fr']='Cliquez pour revoir la scène';
+$trans['bonus_invite']['en']='Click to watch it again';
+
+$trans['bonus_phrases']['fr']='Dogmazic reviendra.
+    | Merci d\'être resté jusqu\'à la fin du générique.
+    | Aucun major n\'a été blessé pendant la fabrication de ce site.
+    | Ce disque tourne encore.
+    | 100 % libre, 0 % publicité, 0 % actionnaire.
+    | Vous pouvez partager cette page. Vraiment. C\'est écrit dans la licence.';
+$trans['bonus_phrases']['en']='Dogmazic will return.
+    | Thanks for staying through the credits.
+    | No major label was harmed in the making of this website.
+    | This record is still spinning.
+    | 100% free, 0% ads, 0% shareholders.
+    | You may share this page. Really. It says so in the licence.';
