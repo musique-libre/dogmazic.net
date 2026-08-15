@@ -407,6 +407,7 @@ function statsBlock()
                 <div>
                     <span class="eyebrow"><?php trans('stats_titre'); ?></span>
                     <p id="stats_phrase"><?= $phrase ?></p>
+                    <div class="spectre"><?php trans('licences_spectre'); ?></div>
                 </div>
 
                 <?php if ($familles && $max > 0): ?>

@@ -13,7 +13,7 @@ include('ini.php');
         <link rel="alternate" hreflang="fr" href="?lang=fr">
         <link rel="alternate" hreflang="en" href="?lang=en">
         <script src="<?= JS_PATH . '/jquery.min.js' ?>"></script>
-        <script src="<?= JS_PATH . '/apps_mobiles_popup.js' ?>"></script>
+        <script src="<?= JS_PATH . '/apps_mobiles_popup.js' ?>" defer></script>
     </head>
 
     <body>

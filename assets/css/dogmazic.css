@@ -277,15 +277,23 @@ main > section:first-of-type{border-top:none}
   -webkit-background-clip:text;background-clip:text;color:transparent;font-weight:900}
 #stats_licences{list-style:none;padding:0;margin:0}
 #stats_licences a{
-  display:grid;grid-template-columns:9.5em 1fr 5.5em;align-items:center;gap:12px;
+  display:grid;grid-template-columns:10.5em 1fr 6.5em;align-items:center;gap:12px;
   padding:4px 0;color:var(--craie);
 }
+#stats_licences .stats_valeur{white-space:nowrap}
 #stats_licences a:hover .stats_barre_pleine{background:linear-gradient(90deg,var(--orange),var(--braise))}
 #stats_licences .stats_nom{font-family:var(--data);font-size:12px}
 #stats_licences .stats_barre{height:9px;background:var(--sillon);border-radius:99px;overflow:hidden}
 #stats_licences .stats_barre_pleine{display:block;height:100%;background:var(--orange);border-radius:99px}
 #stats_licences .stats_valeur{font-family:var(--data);font-size:12px;color:var(--craie-basse);text-align:right}
 .stats_note{font-size:80%;color:var(--craie-basse);margin-top:14px}
+/* Le spectre des licences : le texte explique ce que le graphe d'a cote
+   montre, il doit donc rester lisible sans voler la vedette a la phrase. */
+.spectre{margin-top:22px;font-size:15px;color:var(--craie-basse);max-width:52ch}
+.spectre p{margin:0 0 12px}
+.spectre p:last-child{margin-bottom:0}
+.spectre strong{color:var(--craie);font-family:var(--data);font-size:14px;font-weight:700}
+.spectre em{color:var(--craie);font-style:normal}
 
 /* --- vie de l'asso : blog + forum --- */
 .vie{display:grid;grid-template-columns:1.25fr 1fr;gap:26px;align-items:start}
@@ -359,10 +367,18 @@ footer{border-top:1px solid var(--sillon);padding:46px 0 60px}
 
 /* =============================== POPUP APPLIS =============================== */
 #apps_mobiles_popup{
-  display:none;position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:100;
+  position:fixed;left:50%;top:50%;z-index:100;
   width:min(560px,92vw);background:var(--panneau);border:1px solid var(--sillon);
   border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.6);
+  /* fermee par defaut : invisible, hors du flux des clics et du clavier */
+  opacity:0;visibility:hidden;transform:translate(-50%,-46%);
+  transition:opacity .18s,transform .18s,visibility .18s;
 }
+#apps_mobiles_popup.ouvert{opacity:1;visibility:visible;transform:translate(-50%,-50%)}
+/* Le 2e box-shadow fait office de voile plein ecran : evite d'ajouter
+   un <div> d'arriere-plan juste pour assombrir la page. */
+#apps_mobiles_popup.ouvert{box-shadow:0 24px 60px rgba(0,0,0,.6),0 0 0 100vmax rgba(0,0,0,.6)}
+@media (prefers-reduced-motion:reduce){#apps_mobiles_popup{transition:none}}
 #apps_mobiles_popup header{
   display:flex;align-items:center;justify-content:space-between;gap:16px;
   padding:18px 22px;border-bottom:1px solid var(--sillon);

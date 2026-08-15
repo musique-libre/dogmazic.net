@@ -452,3 +452,15 @@ $trans['asso_ag']['en']='Decisions are made at the general meeting, open to ever
    de consentement mais recommande d'en informer les visiteurs. */
 $trans['mention_cookie']['fr']='Ce site dépose un unique cookie, qui mémorise votre choix de langue pendant six mois. Aucun traceur publicitaire, aucune mesure d\'audience.';
 $trans['mention_cookie']['en']='This site sets a single cookie, storing your language choice for six months. No advertising trackers, no analytics.';
+
+/* Explication du spectre des licences, affichee a cote du graphe de
+   repartition (section « Dogmazic en chiffres »). Reprise du paragraphe
+   de l'ancien article « Musique Libre, pourquoi, comment ? », resserree
+   et debarrassee d'une balise </eme> mal fermee. */
+$trans['licences_spectre']['fr'] = '<p>Tous les morceaux sont sous licence <em>libre</em> ou <em>ouverte</em>, choisie par l\'artiste. Selon laquelle, de nombreux droits vous sont accordés d\'emblée.</p>
+<p>La plus permissive, la <strong>CC BY</strong>, autorise tout usage à condition de citer l\'auteur et la licence — y compris commercial et sans contrepartie, ce qui est bien pratique pour sonoriser une vidéo monétisée. À l\'autre bout du spectre, la <strong>CC BY-NC-ND</strong> n\'autorise que la copie à l\'identique, en dehors de tout cadre commercial.</p>
+<p>Entre les deux, certaines licences autorisent le remix, commercialement ou non, parfois à condition que le remix soit lui-même placé sous licence libre. Le détail est dans le <a href="https://musique-libre.org/doc/le-tableau-des-licences-libres-et-ouvertes-de-dogmazic/" target="_blank">tableau des licences</a> de <a href="https://musique-libre.org/doc" target="_blank">notre documentation</a>.</p>';
+
+$trans['licences_spectre']['en'] = '<p>Every track is under a <em>free</em> or <em>open</em> licence, chosen by the artist. Depending on which one, a lot of rights are granted to you upfront.</p>
+<p>The most permissive, <strong>CC BY</strong>, allows any use as long as you credit the author and the licence — including commercial use, with nothing owed in return, which comes in handy for the soundtrack of a monetised video. At the other end of the spectrum, <strong>CC BY-NC-ND</strong> only allows unmodified copies, outside any commercial context.</p>
+<p>In between, some licences allow remixing, commercially or not, sometimes on condition that the remix is itself released under a free licence. The details are in the <a href="https://musique-libre.org/doc/le-tableau-des-licences-libres-et-ouvertes-de-dogmazic/" target="_blank">licence table</a> in <a href="https://musique-libre.org/doc" target="_blank">our documentation</a>.</p>';
