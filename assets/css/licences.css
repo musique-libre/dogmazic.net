@@ -70,7 +70,8 @@
    depend jamais de la seule couleur (daltonisme, impression noir et blanc). */
 .d-oui{background:rgba(255,157,0,.10);color:var(--craie)}
 .d-oui span{color:var(--orange);font-weight:600}
-.d-accord{background:rgba(255,255,255,.03)}
+/* Sur le panneau eclairci, un voile a 3 % ne se voyait plus : monte a 6 %. */
+.d-accord{background:rgba(255,255,255,.06)}
 .d-non{background:rgba(0,0,0,.28)}
 .d-non span{opacity:.55}
 .d-inconnu span{opacity:.35}

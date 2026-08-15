@@ -28,10 +28,14 @@
 }
 
 :root{
-  --encre:#0F0F11;
-  --panneau:#17171A;
-  --panneau-clair:#1F1F24;
-  --sillon:#2A2A31;
+  --encre:#0F0F11;        /* le fond de page, inchange */
+  /* Les cartes se detachaient a peine du fond (rapport de contraste 1,07).
+     Elles sont remontees de deux crans : 1,17, ce qui suffit a lire un bord
+     de cadre sans eclaircir l'ensemble ni toucher au fond de page.
+     Les bordures suivent, sinon elles disparaitraient dans le nouveau gris. */
+  --panneau:#1F1F26;
+  --panneau-clair:#292930;
+  --sillon:#3A3A44;
   --orange:#FF9D00;      /* la couleur historique du site */
   --braise:#FF5E3A;      /* le rouge de la mascotte */
   --craie:#EDE7DE;
