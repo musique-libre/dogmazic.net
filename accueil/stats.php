@@ -432,9 +432,6 @@ function statsBlock()
                 <div>
                     <span class="eyebrow"><?php trans('stats_titre'); ?></span>
                     <p id="stats_phrase"><?= $phrase ?></p>
-                    <?php if (STATS_ECOUTES_AVANT_CRASH > 0): ?>
-                        <p class="stats_note"><?php trans('stats_note_historique'); ?></p>
-                    <?php endif; ?>
                     <div class="spectre"><?php trans('licences_spectre'); ?></div>
                 </div>
 
