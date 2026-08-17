@@ -37,7 +37,7 @@ $socials = [
       'fr' => 'Chat IRC',
       'en' => 'IRC chatroom',
     ],
-    'url' => './irc/',
+    'url' => '/irc/',
   ],
   'contact' => [
     'name' => [

@@ -1,94 +1,139 @@
 <?php
-$lang = isset($_GET['lang']) ? strtolower($_GET['lang']) : 'fr';
-if (!in_array($lang, ['fr', 'en'])) {
-    $lang='fr';
-}
+include(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'ini.php');
 
-$url_embed="";
-if (isset($_GET['embed'])) {
-    $url_embed='embed=true';
-}
-
-$trans['chat_titre']['fr']='Discuter avec notre équipe';
-$trans['chat_titre']['en']='Chat with our team';
-
-$trans['chat_texte']['fr']='Vos retours, vos questions nous aident à construire le projet et sont précieux ! Soyez présents sur IRC qui est notre principal outil pour prendre nos décisions et coordonner nos actions. <br> Vous avez une idée, une question, ou bien juste du temps pour être présent, discuter de l\'asso et faire circuler les infos ? Rejoignez nous sur le chat IRC (<em>#dogmazic</em> sur <em>irc.libera.chat</em>). Si vous n\'obtenez pas de réponse tout de suite, c\'est juste que personne n\'est devant son écran, gardez le chat ouvert et montrez-vous patient.<br> Pour chatter avec nous<ul><li>Connectez-vous au "Webchat" sur <a href="https://web.libera.chat/?#dogmazic" target=_blank>Libera.chat</a>, choisissez un pseudo et vous êtes à bord.</li></ul><br>';
-$trans['chat_texte']['en']='Your feeback, your question are helping us building the project and are precious! Be there on IRC which is our main tool for action and decision taking. <br> Do you have an idea, a question, or just time to be around, discuss about the non-for-profit association and flow the information around? Join us on the chatroom (<em>#dogmazic</em> on <em>irc.libera.chat</em>). If you do not get a reply immediately, this just means that nobody is in front of the computer, keep the chatroom open and please, be patient.<br> To chat with us<ul><li>Connect to Webchat on <a href="https://web.libera.chat/?#dogmazic" target=_blank>Libera.chat</a>, choose a nickname and you are onboard.</li></ul>: <br> ';
-
-$trans['legal']['fr']='Copyright 2004-2023 Association Musique Libre. Sauf autre mention (par exemple pour les morceaux de l\'archive musicale), ce site et son contenu sont disponibles sous licence <a target="new" href="https://creativecommons.org/licenses/by-sa/2.0/">Creative Commons BY-SA</a>. Numéro CNIL : 1208661';
-$trans['legal']['en']='Copyright 2004-2023 Musique Libre volunteer organisation. Unless otherwise mentioned (as an example, the tracks in the music archive), this site and its content are published under the terms of the <a target="new" href="https://creativecommons.org/licenses/by-sa/2.0/">Creative Commons BY-SA</a> license. CNIL number : 1208661';
-
+$page_url        = '/irc/';
+$canonique       = LANG === 'en' ? '/irc/?lang=en' : '/irc/';
+$titre_page      = 'Dogmazic — ' . strip_tags(trans_r('irc_titre'));
 ?>
 <!DOCTYPE html>
-<html lang="<?php echo $lang; ?>">
-<head>
-<link rel='shortcut icon' href='//play.dogmazic.net/favicon_dogmazic.ico' >
-<link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+<html lang="<?= LANG ?>">
+    <head>
+        <title><?= htmlspecialchars($titre_page) ?></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="<?php trans('irc_description'); ?>">
+        <link rel="shortcut icon" href="//play.dogmazic.net/favicon_dogmazic.ico">
+        <link rel="stylesheet" href="<?= CSS_PATH . '/dogmazic.css' ?>" type="text/css">
+        <link rel="canonical" href="<?= SITE_URL . $canonique ?>">
+        <link rel="alternate" hreflang="fr" href="<?= SITE_URL . $page_url ?>">
+        <link rel="alternate" hreflang="en" href="<?= SITE_URL . $page_url ?>?lang=en">
+        <link rel="alternate" hreflang="x-default" href="<?= SITE_URL . $page_url ?>">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dogmazic.net - Chat</title>
-	
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-<!--
-<link rel="stylesheet" href="../assets/css/style.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="../assets/css/style_irc.css" type="text/css" media="screen" />
-<script src="../assets/js/jquery.min.js"></script>
-<script src="../assets/js/bootstrap.min.js"></script>
--->
-</head>
-<body>
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Dogmazic">
+        <meta property="og:locale" content="<?= LANG === 'fr' ? 'fr_FR' : 'en_GB' ?>">
+        <meta property="og:url" content="<?= SITE_URL . $canonique ?>">
+        <meta property="og:title" content="<?= htmlspecialchars($titre_page) ?>">
+        <meta property="og:description" content="<?php trans('irc_description'); ?>">
+        <meta property="og:image" content="<?= SITE_URL . IMG_PATH ?>/og-dogmazic.png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="<?php trans('og_image_alt'); ?>">
+        <meta name="twitter:card" content="summary_large_image">
+    </head>
 
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="?lang=fr" class="icon-fr">Français</a></li>
-            <li><a href="?lang=en" class="icon-en">English</a></li>
-          </ul>
-        </div>
-	<div class="container container-full">
-        <div class="col-xs-12 col-sm-3 sidebar-offcanvas"></div>
-        <div class="row row-offcanvas row-offcanvas-right">
-            <div class="col-xs-12 col-sm-12 jumbotron">
-                <div>
-                    <h1>
-                        <a href="../?<?php echo $url_embed;?>" >
-                            <img src="../assets/img/dogmaziclogo.png" class="img1" alt="Logo"><img src="../assets/img/logotitre.png" alt="Dogmazic.net">
-                        </a>
-                    </h1>
-                    <div class="col-xs-12 col-sm-12">
-                        <h2><?php echo $trans['chat_titre'][$lang];?></h2>
-                        <div>
-                            <?php echo $trans['chat_texte'][$lang];?>
+    <body>
+
+        <?php
+        $topbar_ici   = 'irc';
+$topbar_stats = false;
+include(HOME_PATH . DS . 'topbar.php');
+?>
+
+        <main>
+
+            <section id="irc-tete">
+                <div class="wrap">
+                    <span class="eyebrow"><?php trans('irc_surtitre'); ?></span>
+                    <h1><?php trans('irc_titre'); ?></h1>
+                    <p class="chapeau"><?php trans('irc_chapeau'); ?></p>
+                </div>
+            </section>
+
+            <section id="irc-acces">
+                <div class="wrap">
+                    <div class="trois irc-deux">
+
+                        <div class="carte">
+                            <span class="num"><?php trans('irc_1_num'); ?></span>
+                            <h3><?php trans('irc_1_titre'); ?></h3>
+                            <p><?php trans('irc_1_texte'); ?></p>
+                            <button type="button" class="btn plein" id="ouvrir_chat">
+                                <?php trans('irc_ouvrir'); ?>
+                            </button>
                         </div>
+
+                        <div class="carte">
+                            <span class="num"><?php trans('irc_2_num'); ?></span>
+                            <h3><?php trans('irc_2_titre'); ?></h3>
+                            <p><?php trans('irc_2_texte'); ?></p>
+                            <dl class="coordonnees">
+                                <dt><?php trans('irc_serveur'); ?></dt><dd><code>irc.libera.chat</code></dd>
+                                <dt><?php trans('irc_port'); ?></dt><dd><code>6697</code> (TLS)</dd>
+                                <dt><?php trans('irc_salon'); ?></dt><dd><code>#dogmazic</code></dd>
+                            </dl>
+                        </div>
+
                     </div>
 
-                    <hr>
-					<!--<iframe src="https://kiwiirc.com/client/irc.libera.chat:+6697/?nick=dogmazien|?&theme=cli#dogmazic" style="border:0; width:100%; height:540px;"></iframe> -->      
+                    <!-- Le chat n'est charge qu'au clic : aucune connexion vers un
+                         service tiers tant que le visiteur ne l'a pas demande. -->
+                    <div id="chat_zone" hidden>
+                        <div class="chat-cadre">
+                            <p class="chat-attente"><?php trans('irc_chargement'); ?></p>
+                        </div>
+                        <p class="chat-note"><?php trans('irc_tiers'); ?></p>
+                    </div>
+
+                    <p class="irc-patience"><?php trans('irc_patience'); ?></p>
                 </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <div class="wrap">
+                <?php include(HOME_PATH . DS . 'mentions.php'); ?>
             </div>
-            
-            <hr>
-            <footer>
-                <p><?php echo $trans['legal'][$lang];?></p>
-            </footer>
-        </div>
-    
-    </div>
+        </footer>
 
-    <!-- Piwik -->
-    <script type="text/javascript">
-      var _paq = _paq || [];
-      _paq.push(['trackPageView']);
-      _paq.push(['enableLinkTracking']);
-      (function() {
-        var u="//piwik.dogmazic.net/";
-        _paq.push(['setTrackerUrl', u+'piwik.php']);
-        _paq.push(['setSiteId', 1]);
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-      })();
-    </script>
-    <noscript><p><img src="//piwik.dogmazic.net/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
-    <!-- End Piwik Code -->
+        <script>
+        /* Chargement du webchat a la demande : tant que le bouton n'est pas
+           clique, kiwiirc.com ne recoit aucune requete du visiteur. */
+        (function () {
+            var bouton = document.getElementById('ouvrir_chat');
+            var zone   = document.getElementById('chat_zone');
+            if (!bouton || !zone) {
+                return;
+            }
 
-</body>
+            bouton.addEventListener('click', function () {
+                if (zone.dataset.charge) {
+                    zone.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                    return;
+                }
+                zone.dataset.charge = '1';
+                zone.hidden = false;
+
+                var conteneur = zone.querySelector('.chat-cadre');
+                var cadre     = document.createElement('iframe');
+                cadre.src   = 'https://kiwiirc.com/client/irc.libera.chat:+6697/#dogmazic';
+                cadre.title = <?= json_encode(trans_r('irc_cadre_titre')) ?>;
+
+                cadre.addEventListener('load', function () {
+                    var attente = conteneur.querySelector('.chat-attente');
+                    if (attente) {
+                        attente.remove();
+                    }
+                });
+                conteneur.appendChild(cadre);
+
+                bouton.textContent = <?= json_encode(trans_r('irc_ouvert')) ?>;
+                zone.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        })();
+        </script>
+
+    </body>
 </html>

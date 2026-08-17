@@ -28,7 +28,7 @@ $cle_description = 'meta_description';
         <meta property="og:url" content="<?= SITE_URL . $canonique ?>">
         <meta property="og:title" content="<?= htmlspecialchars($titre_page) ?>">
         <meta property="og:description" content="<?php trans($cle_description); ?>">
-        <meta property="og:image" content="<?= SITE_URL ?>/<?= IMG_PATH ?>/og-dogmazic.png">
+        <meta property="og:image" content="<?= SITE_URL . IMG_PATH ?>/og-dogmazic.png">
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="630">
         <meta property="og:image:alt" content="<?php trans('og_image_alt'); ?>">
@@ -39,39 +39,10 @@ $cle_description = 'meta_description';
 
     <body>
 
-        <!-- ===================== BARRE HAUTE : LA GALAXIE ===================== -->
-        <div class="topbar">
-            <div class="wrap">
-
-                <a class="marque" href="./" title="Dogmazic">DOGMA<span>ZIC</span></a>
-
-                <nav class="galaxie-liens" aria-label="<?php trans('nav_galaxie'); ?>">
-                    <a class="ici" href="./"><?php trans('nav_accueil'); ?></a>
-                    <a href="https://play.dogmazic.net" target="_blank" rel="noopener"><?php trans('nav_archive'); ?></a>
-                    <a href="https://radio.dogmazic.net" target="_blank" rel="noopener"><?php trans('nav_radio'); ?></a>
-                    <a href="https://www.musique-libre.org" target="_blank" rel="noopener"><?php trans('nav_asso'); ?></a>
-                </nav>
-
-                <?php
-                include_once(HOME_PATH . DS . 'stats.php');
-statsBandeau();
+        <?php
+        $topbar_ici = 'accueil';
+include(HOME_PATH . DS . 'topbar.php');
 ?>
-
-                <div class="langues">
-                    <a href="?lang=fr" class="<?= LANG === 'fr' ? 'ici' : '' ?>" lang="fr" hreflang="fr">FR</a>
-                    <a href="?lang=en" class="<?= LANG === 'en' ? 'ici' : '' ?>" lang="en" hreflang="en">EN</a>
-                </div>
-
-                <a class="recherche-mini" href="//play.dogmazic.net/search.php?type=song"
-                   target="_blank" rel="noopener"
-                   title="<?php trans('Rechercher'); ?>">
-                    <img src="<?= IMG_PATH . '/loupe_blanche.png' ?>" alt="<?php trans('Rechercher'); ?>">
-                </a>
-
-                <a class="connexion" href="//play.dogmazic.net/login.php" target="_blank" rel="noopener"><?php trans('Connexion'); ?></a>
-
-            </div>
-        </div>
 
         <main>
             <?php include(HOME_PATH . DS . 'accueil.php'); ?>

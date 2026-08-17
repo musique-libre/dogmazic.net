@@ -297,14 +297,7 @@ include_once 'socials.php';
 
             </div>
 
-            <div class="legal">
-                <p><?php trans('legal'); ?> <?php trans('mention_cookie'); ?></p>
-                <!-- Mentions legales obligatoires : editeur et hebergeur (LCEN art. 6 III) -->
-                <p class="mentions">
-                    <?php trans('mentions_editeur'); ?><br>
-                    <?php trans('mentions_hebergeur'); ?>
-                </p>
-            </div>
+            <?php include(HOME_PATH . DS . 'mentions.php'); ?>
         </div>
     </footer>
 

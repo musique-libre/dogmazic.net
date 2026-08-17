@@ -15,14 +15,16 @@ $flux = 'https://radio.dogmazic.net:8001/stream.mp3';
 // Les URL, elles, utilisent toujours '/' (voir plus bas).
 define('DS', DIRECTORY_SEPARATOR);
 
-// Chemins web des assets (URL : toujours '/')
-define('ASSETS_PATH', 'assets');
+// Chemins web des assets. Absolus depuis la racine du site : une page rangee
+// dans un sous-dossier (irc/) charge ainsi les memes fichiers sans prefixe.
+define('ASSETS_PATH', '/assets');
 define('IMG_PATH', ASSETS_PATH . '/img');
 define('CSS_PATH', ASSETS_PATH . '/css');
 define('JS_PATH', ASSETS_PATH . '/js');
 
-// Dossier des includes de la page d'accueil
-define('HOME_PATH', 'accueil');
+// Dossier des includes, en chemin FICHIER absolu : les include() fonctionnent
+// alors depuis n'importe quel sous-dossier, ce que ne permettait pas 'accueil'.
+define('HOME_PATH', __DIR__ . DS . 'accueil');
 
 // Langue : ?lang=xx si demande, sinon le choix precedent (cookie 1 an),
 // sinon celle du navigateur, sinon fr.

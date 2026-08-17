@@ -51,7 +51,7 @@ function droit_libelle($code)
         <meta property="og:url" content="<?= SITE_URL . $canonique ?>">
         <meta property="og:title" content="<?= htmlspecialchars($titre_page) ?>">
         <meta property="og:description" content="<?php trans($cle_description); ?>">
-        <meta property="og:image" content="<?= SITE_URL ?>/<?= IMG_PATH ?>/og-dogmazic.png">
+        <meta property="og:image" content="<?= SITE_URL . IMG_PATH ?>/og-dogmazic.png">
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="630">
         <meta property="og:image:alt" content="<?php trans('og_image_alt'); ?>">
@@ -60,22 +60,11 @@ function droit_libelle($code)
 
     <body>
 
-        <div class="topbar">
-            <div class="wrap">
-                <a class="marque" href="./" title="Dogmazic">DOGMA<span>ZIC</span></a>
-                <nav class="galaxie-liens">
-                    <a href="./"><?php trans('nav_accueil'); ?></a>
-                    <a href="https://play.dogmazic.net" target="_blank" rel="noopener"><?php trans('nav_archive'); ?></a>
-                    <a href="https://radio.dogmazic.net" target="_blank" rel="noopener"><?php trans('nav_radio'); ?></a>
-                    <a href="https://www.musique-libre.org" target="_blank" rel="noopener"><?php trans('nav_asso'); ?></a>
-                </nav>
-                <div class="langues" style="margin-left:auto">
-                    <a href="?lang=fr" class="<?= LANG === 'fr' ? 'ici' : '' ?>" lang="fr">FR</a>
-                    <a href="?lang=en" class="<?= LANG === 'en' ? 'ici' : '' ?>" lang="en">EN</a>
-                </div>
-                <a class="connexion" href="//play.dogmazic.net/login.php" target="_blank" rel="noopener"><?php trans('Connexion'); ?></a>
-            </div>
-        </div>
+        <?php
+        $topbar_ici   = 'licences';
+$topbar_stats = false;
+include(HOME_PATH . DS . 'topbar.php');
+?>
 
         <main>
             <section id="lic-tete">
@@ -181,13 +170,7 @@ function droit_libelle($code)
 
         <footer>
             <div class="wrap">
-                <div class="legal">
-                    <p><?php trans('legal'); ?> <?php trans('mention_cookie'); ?></p>
-                    <p class="mentions">
-                        <?php trans('mentions_editeur'); ?><br>
-                        <?php trans('mentions_hebergeur'); ?>
-                    </p>
-                </div>
+                <?php include(HOME_PATH . DS . 'mentions.php'); ?>
             </div>
         </footer>
 

@@ -599,3 +599,53 @@ $trans['og_image_alt']['en']='A vinyl record stamped with the Dogmazic mascot, n
    remise a zero de la base (voir STATS_ECOUTES_AVANT_CRASH dans stats.php). */
 $trans['stats_note_historique']['fr']='Le compteur d\'écoutes inclut l\'historique du site : les compteurs de la base ont été remis à zéro lors d\'un incident, le total antérieur est repris tel qu\'il était relevé à l\'époque.';
 $trans['stats_note_historique']['en']='The play counter includes the site\'s history: the database counters were reset during an incident, so the earlier total is carried over as it was recorded back then.';
+
+/** ===================================================================
+ *  PAGE IRC (irc/index.php)
+ *  L'ancienne page portait ses propres traductions, en double de celles-ci.
+ *  =================================================================== */
+
+$trans['irc_surtitre']['fr']='Parler avec nous';
+$trans['irc_surtitre']['en']='Talk to us';
+
+$trans['irc_titre']['fr']='Le salon de discussion de Dogmazic';
+$trans['irc_titre']['en']='The Dogmazic chatroom';
+
+$trans['irc_description']['fr']='Rejoignez l\'équipe de Dogmazic sur IRC : #dogmazic sur irc.libera.chat. C\'est là que se prennent les décisions et que se coordonne le travail de l\'association.';
+$trans['irc_description']['en']='Join the Dogmazic team on IRC: #dogmazic on irc.libera.chat. This is where decisions are made and the nonprofit\'s work is coordinated.';
+
+$trans['irc_chapeau']['fr']='IRC est notre principal outil de travail : c\'est là que nous prenons nos décisions et coordonnons nos actions. Vos retours et vos questions nous aident à construire le projet. Une idée, une question, ou simplement l\'envie de discuter de l\'association et de faire circuler les infos ? Venez.';
+$trans['irc_chapeau']['en']='IRC is our main working tool: it is where we make decisions and coordinate our work. Your feedback and questions help us build the project. Got an idea, a question, or simply want to chat about the nonprofit and pass the word around? Come in.';
+
+$trans['irc_1_num']['fr']='Sans rien installer';
+$trans['irc_1_num']['en']='Nothing to install';
+$trans['irc_1_titre']['fr']='Depuis cette page';
+$trans['irc_1_titre']['en']='Right from this page';
+$trans['irc_1_texte']['fr']='Le salon s\'ouvre directement ici. Choisissez un pseudo et vous êtes à bord — aucun compte n\'est nécessaire.';
+$trans['irc_1_texte']['en']='The chatroom opens right here. Pick a nickname and you\'re in — no account needed.';
+$trans['irc_ouvrir']['fr']='Ouvrir le salon';
+$trans['irc_ouvrir']['en']='Open the chatroom';
+$trans['irc_ouvert']['fr']='Salon ouvert ci-dessous';
+$trans['irc_ouvert']['en']='Chatroom opened below';
+$trans['irc_chargement']['fr']='Connexion au salon…';
+$trans['irc_chargement']['en']='Connecting to the chatroom…';
+$trans['irc_cadre_titre']['fr']='Salon de discussion #dogmazic';
+$trans['irc_cadre_titre']['en']='#dogmazic chatroom';
+$trans['irc_tiers']['fr']='Le salon est affiché par KiwiIRC, un service tiers. Il n\'est contacté qu\'à partir du moment où vous cliquez sur le bouton.';
+$trans['irc_tiers']['en']='The chatroom is displayed by KiwiIRC, a third-party service. It is only contacted once you click the button.';
+
+$trans['irc_2_num']['fr']='Avec votre client habituel';
+$trans['irc_2_num']['en']='With your usual client';
+$trans['irc_2_titre']['fr']='En direct sur Libera.Chat';
+$trans['irc_2_titre']['en']='Straight on Libera.Chat';
+$trans['irc_2_texte']['fr']='Si vous avez déjà un client IRC — HexChat, WeeChat, Textual, Revolution IRC… — connectez-vous avec ces réglages.';
+$trans['irc_2_texte']['en']='If you already have an IRC client — HexChat, WeeChat, Textual, Revolution IRC… — connect using these settings.';
+$trans['irc_serveur']['fr']='Serveur';
+$trans['irc_serveur']['en']='Server';
+$trans['irc_port']['fr']='Port';
+$trans['irc_port']['en']='Port';
+$trans['irc_salon']['fr']='Salon';
+$trans['irc_salon']['en']='Channel';
+
+$trans['irc_patience']['fr']='Si personne ne répond tout de suite, c\'est simplement que personne n\'est devant son écran. Laissez la fenêtre ouverte : quelqu\'un finira par passer.';
+$trans['irc_patience']['en']='If nobody answers straight away, it just means nobody is at their screen. Leave the window open: someone will drop by.';
