@@ -135,5 +135,7 @@ include(HOME_PATH . DS . 'topbar.php');
         })();
         </script>
 
+        <?php include(HOME_PATH . DS . 'matomo.php'); ?>
+
     </body>
 </html>

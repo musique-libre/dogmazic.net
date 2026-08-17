@@ -448,8 +448,8 @@ $trans['asso_ag']['en']='Decisions are made at the general meeting, open to ever
 
 /* Transparence sur le seul cookie du site (choix de langue). La CNIL l'exempte
    de consentement mais recommande d'en informer les visiteurs. */
-$trans['mention_cookie']['fr']='Ce site dépose un unique cookie, qui mémorise votre choix de langue pendant six mois. Aucun traceur publicitaire, aucune mesure d\'audience.';
-$trans['mention_cookie']['en']='This site sets a single cookie, storing your language choice for six months. No advertising trackers, no analytics.';
+$trans['mention_cookie']['fr']='Ce site dépose un unique cookie, qui mémorise votre choix de langue pendant six mois. La fréquentation est mesurée avec Matomo, installé sur les serveurs de l\'association, sans cookie ni traceur publicitaire : les statistiques sont anonymes, restent chez nous et ne sont transmises à personne.';
+$trans['mention_cookie']['en']='This site sets a single cookie, storing your language choice for six months. Traffic is measured with Matomo, running on the nonprofit\'s own servers, with no cookies and no advertising trackers: the statistics are anonymous, stay with us and are shared with nobody.';
 
 /* Explication du spectre des licences, affichee a cote du graphe de
    repartition (section « Dogmazic en chiffres »). Reprise du paragraphe

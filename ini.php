@@ -58,6 +58,11 @@ define('LANG', $lang);
 // le lien est utilise dans les textes FR et EN (voir accueil/texte.php).
 define('URL_AG', 'https://musique-libre.org/blog/2026/07/29/compte-rendu-de-lassemblee-generale-de-musique-libre-2026/');
 
+// Mesure d'audience Matomo, auto-hebergee par l'association.
+// Vider MATOMO_URL desactive completement le suivi (voir accueil/matomo.php).
+define('MATOMO_URL', 'https://stats.musique-libre.org/');
+define('MATOMO_SITE_ID', '4');
+
 // URL publique du site, sans barre finale. Sert aux liens canoniques et aux
 // balises de partage : ils doivent etre absolus.
 define('SITE_URL', 'https://dogmazic.net');

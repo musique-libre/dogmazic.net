@@ -240,5 +240,7 @@ include(HOME_PATH . DS . 'topbar.php');
             filtre();
         })();
         </script>
+        <?php include(HOME_PATH . DS . 'matomo.php'); ?>
+
     </body>
 </html>

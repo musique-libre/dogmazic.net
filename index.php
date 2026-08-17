@@ -48,5 +48,7 @@ include(HOME_PATH . DS . 'topbar.php');
             <?php include(HOME_PATH . DS . 'accueil.php'); ?>
         </main>
 
+        <?php include(HOME_PATH . DS . 'matomo.php'); ?>
+
     </body>
 </html>
